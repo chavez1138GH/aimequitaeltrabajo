@@ -1,77 +1,28 @@
 /* =========================================================
-   aimequitaeltrabajo.com — App principal
-   Sin dependencias. Sitio estático para GitHub Pages.
+   aimequitaeltrabajo.com — Carga multi-fuente + fusión
+   100% estático: /data/*.json
    ========================================================= */
 
 /** CONFIG ADSENSE (rellena cuando tengas AdSense) **/
 const ADSENSE = {
-  CLIENT: "ca-pub-XXXXXXXXXXXXXXXX",   // <-- tu ID
+  CLIENT: "ca-pub-XXXXXXXXXXXXXXXX",
   SLOT_TOP: "1111111111",
   SLOT_INCONTENT: "2222222222",
   SLOT_SIDEBAR: "3333333333",
   SLOT_FOOTER: "4444444444"
 };
 
-/** Datos de ejemplo (traducciones y aproximaciones educativas).
- *  Estructura: titulo (es), riesgo 0-100, explicacion breve, fuente textual
- *  Añade/edita libremente o migra a un archivo JSON externo. */
-const JOBS = [
-  { titulo: "Cajero/a", riesgo: 96, explicacion: "Gran parte de tareas repetitivas (cobro, registro, cambio) ya se realizan con terminales y autoservicio.", fuente: "Estimación basada en estudios de automatización y observación del mercado retail." },
-  { titulo: "Teleoperador/a", riesgo: 94, explicacion: "Centros de contacto migran a bots de voz y chat con IA que resuelven consultas frecuentes.", fuente: "Tendencias de adopción de asistentes virtuales en atención al cliente." },
-  { titulo: "Digitador/a de datos", riesgo: 97, explicacion: "La captura y validación de datos se automatiza con OCR, RPA y modelos de lenguaje.", fuente: "Casos de uso RPA/OCR generalizados." },
-  { titulo: "Recepcionista", riesgo: 91, explicacion: "Check-in digital, kioscos y asistentes de IA reducen tareas de agenda y recepción.", fuente: "Automatización en hotelería y oficinas." },
-  { titulo: "Vendedor/a minorista", riesgo: 85, explicacion: "E-commerce, self-checkout y recomendaciones automáticas desplazan funciones tradicionales.", fuente: "Transformación digital del retail." },
-  { titulo: "Auxiliar administrativo", riesgo: 88, explicacion: "Trámites, reportes y documentos estándar se automatizan con IA y flujos RPA.", fuente: "Automatización administrativa." },
-  { titulo: "Operario/a de fábrica", riesgo: 92, explicacion: "Robótica industrial y visión computarizada asumen tareas repetitivas y peligrosas.", fuente: "Industria 4.0." },
-  { titulo: "Taquillero/a", riesgo: 95, explicacion: "Venta online y máquinas expendedoras sustituyen taquillas físicas.", fuente: "Digitalización de boletería." },
-  { titulo: "Repartidor/a", riesgo: 90, explicacion: "Rutas optimizadas y vehículos autónomos/semiautónomos reducen demanda humana.", fuente: "Logística y conducción asistida." },
-
-  { titulo: "Contador/a", riesgo: 81, explicacion: "Software contable e IA automatizan conciliaciones, registros y reportes estándar.", fuente: "SaaS contable e IA generativa." },
-  { titulo: "Auditor/a", riesgo: 77, explicacion: "Análisis automatizado detecta anomalías; el criterio humano sigue siendo clave en riesgos complejos.", fuente: "Analítica avanzada en auditoría." },
-  { titulo: "Bibliotecario/a", riesgo: 58, explicacion: "Gestión documental y búsquedas automatizadas; curaduría humana mantiene relevancia.", fuente: "Sistemas de información." },
-  { titulo: "Dependiente de supermercado", riesgo: 84, explicacion: "Cajas automáticas, inventario inteligente y pedidos online reducen funciones.", fuente: "Retail automatizado." },
-  { titulo: "Community manager", riesgo: 55, explicacion: "Herramientas de IA generan copys/banners; estrategia y tono siguen requiriendo juicio humano.", fuente: "Marketing digital asistido por IA." },
-  { titulo: "Diseñador/a gráfico", riesgo: 52, explicacion: "IA acelera bocetos y variantes; dirección creativa humana agrega valor.", fuente: "Modelos generativos en diseño." },
-  { titulo: "Fotógrafo/a", riesgo: 57, explicacion: "Edición/postproducción automatizada; capturas estándar compiten con bancos e IA.", fuente: "Edición con IA." },
-  { titulo: "Periodista", riesgo: 49, explicacion: "Automatización de notas rutinarias; reportería, investigación y verificación siguen humanas.", fuente: "Redacciones con IA." },
-  { titulo: "Farmacéutico/a", riesgo: 47, explicacion: "Sistemas de dispensación y verificación; atención clínica y consejo siguen necesarios.", fuente: "Automatización de farmacia." },
-  { titulo: "Técnico/a de laboratorio", riesgo: 65, explicacion: "Robots de pipeteo y análisis automático; interpretación clínica requiere supervisión.", fuente: "Laboratorios automatizados." },
-  { titulo: "Auxiliar de enfermería", riesgo: 40, explicacion: "Tareas físicas pueden asistirse, pero el cuidado humano sigue central.", fuente: "Cuidados asistidos." },
-  { titulo: "Analista de datos", riesgo: 61, explicacion: "ETL, dashboards y análisis descriptivo se automatizan; análisis causal y comunicación, humanos.", fuente: "BI/AutoML." },
-  { titulo: "Científico/a de datos", riesgo: 38, explicacion: "Modelado y evaluación siguen requiriendo criterio; herramientas automatizan partes del flujo.", fuente: "ML asistido." },
-
-  { titulo: "Conductor/a de camión", riesgo: 64, explicacion: "Asistencia avanzada y piloto autónomo en pruebas; adopción depende de regulación/infra.", fuente: "AD/ADAS en logística." },
-  { titulo: "Conductor/a de taxi", riesgo: 66, explicacion: "Plataformas + autonomización gradual; interacción local aún importante.", fuente: "Movilidad urbana." },
-  { titulo: "Piloto/a comercial", riesgo: 35, explicacion: "Cabinas más automatizadas; supervisión y toma de decisiones críticas humanas.", fuente: "Aviación." },
-  { titulo: "Piloto/a de dron", riesgo: 68, explicacion: "Vuelos programados y enjambres; supervisión humana en misiones especiales.", fuente: "Operaciones con UAS." },
-
-  { titulo: "Desarrollador/a web", riesgo: 23, explicacion: "Asistentes de código aceleran tareas, pero diseño, arquitectura y debugging requieren humanos.", fuente: "Software asistido por IA." },
-  { titulo: "Desarrollador/a de software", riesgo: 21, explicacion: "Automatización parcial del código; resolución de problemas y producto siguen humanos.", fuente: "Herramientas de IA para programación." },
-  { titulo: "Arquitecto/a", riesgo: 33, explicacion: "Generación de planos/variantes se acelera; coordinación normativa y diseño requieren humanos.", fuente: "CAD/BIM inteligente." },
-  { titulo: "Ingeniero/a civil", riesgo: 29, explicacion: "Cálculos y simulaciones asistidos; dirección de obra y seguridad siguen humanas.", fuente: "Ingeniería asistida." },
-  { titulo: "Electricista", riesgo: 33, explicacion: "Diagnóstico asistido; intervención física, compleja y variable.", fuente: "Oficios técnicos." },
-  { titulo: "Plomero/a", riesgo: 30, explicacion: "Automatización limitada en campo; trabajo manual y diagnóstico situacional.", fuente: "Oficios técnicos." },
-  { titulo: "Carpintero/a", riesgo: 35, explicacion: "Corte/producción automatizable; trabajo a medida y montaje manual.", fuente: "Manufactura y oficio." },
-  { titulo: "Chef", riesgo: 29, explicacion: "Robots de cocina emergen, pero creatividad y servicio siguen humanas.", fuente: "Restauración." },
-
-  { titulo: "Maestro/a de primaria", riesgo: 27, explicacion: "IA apoya personalización; guía pedagógica y vínculo humano son centrales.", fuente: "Educación." },
-  { titulo: "Profesor/a universitario/a", riesgo: 23, explicacion: "Generación de materiales y evaluación asistidas; investigación y tutoría humanas.", fuente: "Educación superior." },
-  { titulo: "Psicólogo/a", riesgo: 20, explicacion: "Herramientas de apoyo, pero la intervención terapéutica es humana.", fuente: "Salud mental." },
-  { titulo: "Trabajador/a social", riesgo: 24, explicacion: "Gestión de casos asistida; trabajo comunitario y empatía humanas.", fuente: "Intervención social." },
-  { titulo: "Fisioterapeuta", riesgo: 21, explicacion: "Aparatología y rutinas guiadas; evaluación y manipulación terapéutica humanas.", fuente: "Rehabilitación." },
-  { titulo: "Terapeuta ocupacional", riesgo: 17, explicacion: "Diseño de planes personalizados con apoyo de IA; ejecución humana.", fuente: "Salud." },
-  { titulo: "Bombero/a", riesgo: 15, explicacion: "Robots en entornos peligrosos, pero coordinación/decisión humana.", fuente: "Emergencias." },
-  { titulo: "Policía", riesgo: 26, explicacion: "Analítica predictiva; interacción situacional humana.", fuente: "Seguridad pública." },
-
-  { titulo: "Médico/a general", riesgo: 22, explicacion: "Apoyo diagnóstico por IA; juicio clínico y trato humano indispensables.", fuente: "Salud." },
-  { titulo: "Cirujano/a", riesgo: 8, explicacion: "Robótica asistida, pero la responsabilidad y decisión quirúrgica siguen humanas.", fuente: "Cirugía asistida." },
-  { titulo: "Abogado/a", riesgo: 34, explicacion: "Revisión documental automatizada; estrategia legal y litigio requieren humanos.", fuente: "Legal tech." },
-  { titulo: "Juez/a", riesgo: 22, explicacion: "Análisis por IA de expedientes; decisión judicial humana.", fuente: "Sistema judicial." },
-  { titulo: "Gerente de marketing", riesgo: 31, explicacion: "Automatización de campañas; visión de marca y estrategia humanas.", fuente: "MarTech." },
-  { titulo: "Gerente de producto", riesgo: 28, explicacion: "Análisis y roadmap asistidos; priorización y liderazgo humanos.", fuente: "Producto." },
-  { titulo: "Agricultor/a", riesgo: 72, explicacion: "Maquinaria autónoma y sensores; labores especializadas aún humanas.", fuente: "AgTech." },
-  { titulo: "Guardia de seguridad", riesgo: 62, explicacion: "Monitoreo por visión/IA; intervención física humana.", fuente: "Seguridad privada." }
+/* ---- Fuentes y pesos (ajusta como prefieras) ----
+   Cada fuente aporta un "riesgo" 0-100 (o null si no tiene).
+   El riesgo final = promedio ponderado de las fuentes disponibles.
+*/
+const SOURCES = [
+  { id: "oxford",  name: "Oxford/Frey-Osborne (adaptado)", weight: 0.45, file: "data/oxford.json" },
+  { id: "bls_onet",name: "BLS/O*NET (adaptado)",           weight: 0.35, file: "data/bls_onet.json" },
+  { id: "custom",  name: "Curación LATAM",                 weight: 0.20, file: "data/custom_latam.json" }
 ];
+
+const SYNONYMS_FILE = "data/synonyms.json";
 
 /* ---------- Utilidades ---------- */
 const $ = sel => document.querySelector(sel);
@@ -80,13 +31,13 @@ function normalize(str){
   return (str || "")
     .toString()
     .toLowerCase()
-    .normalize("NFD").replace(/[\u0300-\u036f]/g, "") // quita tildes
-    .replace(/[^a-z0-9\s\/\-\.\,]/g, " ") // limpia
+    .normalize("NFD").replace(/[\u0300-\u036f]/g, "")
+    .replace(/[^a-z0-9\s\/\-\.\,]/g, " ")
     .replace(/\s+/g, " ")
     .trim();
 }
 
-// Distancia de Levenshtein simple para sugerencias
+// Distancia Levenshtein
 function lev(a, b){
   a = normalize(a); b = normalize(b);
   const m = Array.from({length: a.length+1}, (_,i)=>[i]);
@@ -111,47 +62,263 @@ function riskLevel(pct){
   return {label:"Bajo", cls:"ok"};
 }
 
-function fillDatalist(){
-  const dl = $("#sugerencias");
-  dl.innerHTML = JOBS
-    .map(j => `<option value="${j.titulo}"></option>`)
-    .join("");
+/* ---------- Carga de datos ---------- */
+let DATA = [];        // arreglo de ocupaciones fusionadas
+let RAW_BY_SOURCE = {}; // {sourceId: [items]}
+let SYNONYMS = {};    // { normalizedTitle: [alias1, alias2, ...] }
+
+async function loadJSON(url){
+  const res = await fetch(url, {cache: "no-store"});
+  if (!res.ok) throw new Error("No se pudo cargar: " + url);
+  return res.json();
 }
 
-function showResult(job){
-  $("#resultado").classList.remove("hidden");
-  $("#res-titulo").textContent = job.titulo;
-  $("#res-porcentaje").textContent = `${job.riesgo}%`;
-  $("#bar").style.width = `${job.riesgo}%`;
+async function loadAll(){
+  $("#loader").classList.remove("hidden");
+  // cargar sinónimos
+  try {
+    SYNONYMS = await loadJSON(SYNONYMS_FILE);
+  } catch(e){
+    SYNONYMS = {};
+  }
 
-  const lvl = riskLevel(job.riesgo);
+  // cargar fuentes
+  for (const src of SOURCES){
+    try {
+      const arr = await loadJSON(src.file);
+      RAW_BY_SOURCE[src.id] = arr;
+    } catch(e){
+      RAW_BY_SOURCE[src.id] = [];
+    }
+  }
+
+  // fusionar
+  DATA = mergeSources(RAW_BY_SOURCE);
+  fillDatalist(DATA);
+  $("#loader").classList.add("hidden");
+}
+
+/* ---------- Fusión de fuentes ----------
+   Esquema esperado por item (flexible):
+   {
+     titulo: "Desarrollador/a frontend",
+     isco: "2512",                // opcional
+     onet: "15-1254.00",          // opcional
+     aliases: ["Frontend dev", ...],
+     categoria: "Tecnología",     // opcional
+     pais: "EC/CO/MX/ES",         // opcional
+     fuentes: {
+       oxford:  { riesgo: 23, explicacion: "...", ref: "..." },
+       bls_onet:{ riesgo: 28, explicacion: "...", ref: "..." },
+       custom:  { riesgo: 18, explicacion: "...", ref: "..." }
+     }
+   }
+*/
+function mergeSources(rawBySource){
+  // Paso 1: volcar todos en una lista con su sourceId
+  const all = [];
+  for (const src of SOURCES){
+    const list = rawBySource[src.id] || [];
+    for (const item of list){
+      all.push({ ...item, _src: src.id });
+    }
+  }
+
+  // Paso 2: agrupar por clave canónica (preferir isco/onet; si no, por título+sinónimos)
+  const groups = new Map();
+  function keyFor(item){
+    if (item.onet) return "onet:" + item.onet;
+    if (item.isco) return "isco:" + item.isco;
+    return "t:" + normalize(item.titulo || "");
+  }
+
+  for (const it of all){
+    let k = keyFor(it);
+    if (!k.startsWith("t:")){
+      if (!groups.has(k)) groups.set(k, []);
+      groups.get(k).push(it);
+      continue;
+    }
+    // sin códigos: intentar agrupar por sinónimos aproximados
+    const base = normalize(it.titulo);
+    let foundKey = null;
+    for (const [gk, arr] of groups.entries()){
+      const first = arr[0];
+      const firstTitle = normalize(first.titulo || "");
+      const same = (first.onet && it.onet && first.onet === it.onet)
+                || (first.isco && it.isco && first.isco === it.isco)
+                || (firstTitle === base)
+                || areSynonyms(firstTitle, base)
+                || lev(firstTitle, base) <= 3;
+      if (same){ foundKey = gk; break; }
+    }
+    if (!foundKey) foundKey = k;
+    if (!groups.has(foundKey)) groups.set(foundKey, []);
+    groups.get(foundKey).push(it);
+  }
+
+  // Paso 3: por grupo, construir un item fusionado
+  const merged = [];
+  for (const arr of groups.values()){
+    // título representativo: el más largo/específico
+    const title = arr.map(x=>x.titulo).sort((a,b)=> (b?.length||0)-(a?.length||0))[0] || "Ocupación";
+    const isco = arr.map(x=>x.isco).find(Boolean) || null;
+    const onet = arr.map(x=>x.onet).find(Boolean) || null;
+    const categoria = arr.map(x=>x.categoria).find(Boolean) || null;
+    const pais = arr.map(x=>x.pais).find(Boolean) || null;
+
+    // mapear fuentes → riesgo/explicación/ref
+    const fuentes = {};
+    for (const src of SOURCES){
+      const hit = arr.find(x => x._src === src.id);
+      if (hit){
+        const riesgo = getNested(hit, ["fuentes", src.id, "riesgo"]) ?? hit.riesgo ?? null;
+        const explicacion = getNested(hit, ["fuentes", src.id, "explicacion"]) ?? hit.explicacion ?? "";
+        const ref = getNested(hit, ["fuentes", src.id, "ref"]) ?? hit.ref ?? "";
+        if (riesgo !== null){
+          fuentes[src.id] = { riesgo, explicacion, ref };
+        }
+      }
+    }
+
+    // calcular riesgo final ponderado
+    const final = weightedRisk(fuentes);
+
+    // explicación combinada (breve): elige la más específica o compón
+    const expl = bestExplanation(fuentes) || "Estimación combinada a partir de varias fuentes y descripciones ocupacionales.";
+
+    // aliases
+    const aliases = collectAliases(arr);
+
+    merged.push({
+      titulo: title,
+      isco, onet, categoria, pais,
+      aliases,
+      riesgo: final,
+      explicacion: expl,
+      fuentes
+    });
+  }
+
+  // orden alfabético
+  merged.sort((a,b)=> a.titulo.localeCompare(b.titulo, "es"));
+  return merged;
+}
+
+function areSynonyms(a, b){
+  // consulta en SYNONYMS (normalizados)
+  const la = SYNONYMS[a] || [];
+  const lb = SYNONYMS[b] || [];
+  return la.includes(b) || lb.includes(a);
+}
+
+function collectAliases(arr){
+  const set = new Set();
+  for (const it of arr){
+    (it.aliases || []).forEach(x=> set.add(x));
+    const base = normalize(it.titulo || "");
+    // agrega también variantes de género y país si vinieran en fuentes
+  }
+  return Array.from(set).slice(0, 12);
+}
+
+function getNested(obj, pathArr){
+  return pathArr.reduce((o,k)=> (o && k in o ? o[k] : undefined), obj);
+}
+
+function weightedRisk(fuentes){
+  let sum = 0, w = 0;
+  for (const src of SOURCES){
+    const entry = fuentes[src.id];
+    if (entry && typeof entry.riesgo === "number"){
+      sum += entry.riesgo * src.weight;
+      w += src.weight;
+    }
+  }
+  if (w === 0) return null;
+  return Math.round(sum / w);
+}
+
+function bestExplanation(fuentes){
+  // prioriza custom, luego bls_onet, luego oxford
+  const order = ["custom","bls_onet","oxford"];
+  for (const id of order){
+    if (fuentes[id]?.explicacion) return fuentes[id].explicacion;
+  }
+  // si no, concatena la primera disponible
+  const any = Object.values(fuentes)[0];
+  return any?.explicacion || "";
+}
+
+/* ---------- UI ---------- */
+function fillDatalist(db){
+  const dl = $("#sugerencias");
+  dl.innerHTML = db.map(j => `<option value="${j.titulo}"></option>`).join("");
+}
+
+function riskPill(pct){
+  const lvl = riskLevel(pct ?? 0);
   const pill = $("#res-nivel");
-  pill.textContent = lvl.label;
+  pill.textContent = pct == null ? "Sin dato" : `${lvl.label}`;
   pill.className = "pill";
   if (lvl.cls === "danger") pill.style.background = "#3b0d0d";
   else if (lvl.cls === "warn") pill.style.background = "#3b2a0d";
   else if (lvl.cls === "mid") pill.style.background = "#1f2a3b";
   else pill.style.background = "#13301c";
+}
 
-  $("#res-explicacion").textContent = job.explicacion;
-  $("#res-fuente").textContent = `Fuente: ${job.fuente}`;
+function renderSourcesTable(fuentes){
+  const rows = SOURCES.map(src=>{
+    const f = fuentes[src.id];
+    if (!f) return `<tr><td><span class="source-pill">${src.name}</span></td><td>—</td><td>—</td><td>—</td></tr>`;
+    return `<tr>
+      <td><span class="source-pill">${src.name}</span></td>
+      <td>${f.riesgo}%</td>
+      <td>${escapeHtml(f.explicacion || "—")}</td>
+      <td>${f.ref ? `<a href="${f.ref}" target="_blank" rel="noopener">Referencia</a>` : "—"}</td>
+    </tr>`;
+  }).join("");
+  return `<table class="tabla-fuentes">
+    <thead><tr><th>Fuente</th><th>Riesgo</th><th>Explicación (breve)</th><th>Ref</th></tr></thead>
+    <tbody>${rows}</tbody>
+  </table>`;
+}
+
+function escapeHtml(s){
+  return (s||"").replace(/[&<>"']/g, m=>({ '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;' }[m]));
+}
+
+function showResult(job){
+  $("#resultado").classList.remove("hidden");
+  $("#res-titulo").textContent = job.titulo;
+
+  const pct = job.riesgo;
+  $("#res-porcentaje").textContent = pct == null ? "— %" : `${pct}%`;
+  $("#bar").style.width = pct == null ? "0%" : `${pct}%`;
+  riskPill(pct);
+
+  $("#res-explicacion").textContent = job.explicacion || "—";
+  $("#res-fuentes").innerHTML = renderSourcesTable(job.fuentes);
+  const ids = [];
+  if (job.isco) ids.push(`ISCO: ${job.isco}`);
+  if (job.onet) ids.push(`O*NET: ${job.onet}`);
+  $("#res-fuente").textContent = ids.join(" · ");
 }
 
 function showSuggestions(q){
   const cont = $("#sugerencias");
   const ul = $("#lista-sugerencias");
   const nq = normalize(q);
-  // ranking por: coincidencia incluye + distancia Levenshtein
-  const ranked = JOBS.map(j => {
-    const title = j.titulo;
-    const ntitle = normalize(title);
-    let score = 0;
-    if (ntitle.includes(nq)) score += 50;
-    const d = lev(ntitle, nq);
-    score += Math.max(0, 40 - d); // menor distancia, más score
-    return { title, score };
-  }).sort((a,b)=>b.score - a.score)
-    .slice(0, 7)
+  const ranked = DATA.map(j => {
+      const ntitle = normalize(j.titulo);
+      let score = 0;
+      if (ntitle.includes(nq)) score += 60;
+      const d = lev(ntitle, nq);
+      score += Math.max(0, 40 - d);
+      return { title: j.titulo, score };
+    })
+    .sort((a,b)=>b.score - a.score)
+    .slice(0, 8)
     .map(x=>x.title);
 
   ul.innerHTML = ranked.map(t => `<li><button class="linklike" data-job="${t}">${t}</button></li>`).join("");
@@ -159,14 +326,12 @@ function showSuggestions(q){
 }
 
 function searchJob(q){
-  if (!q) return;
+  if (!q || !DATA.length) return;
   const nq = normalize(q);
 
-  // Exacta
-  let found = JOBS.find(j => normalize(j.titulo) === nq);
+  let found = DATA.find(j => normalize(j.titulo) === nq);
   if (!found){
-    // Inclusión
-    const list = JOBS.filter(j => normalize(j.titulo).includes(nq));
+    const list = DATA.filter(j => normalize(j.titulo).includes(nq));
     if (list.length === 1) found = list[0];
   }
 
@@ -174,8 +339,7 @@ function searchJob(q){
     showResult(found);
     $("#sugerencias").classList.add("hidden");
   } else {
-    // Elegimos la mejor por distancia como fallback para mostrar primero
-    const best = JOBS.map(j => ({ j, d: lev(j.titulo, q) }))
+    const best = DATA.map(j => ({ j, d: lev(j.titulo, q) }))
                      .sort((a,b) => a.d - b.d)[0]?.j;
     if (best) showResult(best);
     showSuggestions(q);
@@ -183,10 +347,8 @@ function searchJob(q){
 }
 
 function bindUI(){
-  // año footer
   $("#year").textContent = new Date().getFullYear();
 
-  // chips rápidos
   $("#chips").addEventListener("click", (e)=>{
     const el = e.target.closest("[data-job]");
     if (!el) return;
@@ -196,7 +358,6 @@ function bindUI(){
     searchJob(v);
   });
 
-  // sugerencias click
   $("#lista-sugerencias").addEventListener("click", (e)=>{
     const btn = e.target.closest("button[data-job]");
     if (!btn) return;
@@ -206,7 +367,6 @@ function bindUI(){
     searchJob(v);
   });
 
-  // formulario
   $("#search-form").addEventListener("submit", (e)=>{
     e.preventDefault();
     const q = $("#q").value.trim();
@@ -231,8 +391,8 @@ function handleUrlOnLoad(){
 }
 
 /* ---------- Init ---------- */
-document.addEventListener("DOMContentLoaded", ()=>{
-  fillDatalist();
+document.addEventListener("DOMContentLoaded", async ()=>{
   bindUI();
+  await loadAll();   // carga data/*.json y fusiona
   handleUrlOnLoad();
 });
