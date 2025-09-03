@@ -128,3 +128,9 @@ a:hover{text-decoration: underline}
 }
 
 .hidden{display:none}
+.detalle summary{cursor:pointer; color:#cbd5e1}
+.detalle div{margin-top:.5rem; color:#cbd5e1}
+.tabla-fuentes{width:100%; border-collapse:collapse; font-size:.95rem}
+.tabla-fuentes th,.tabla-fuentes td{border:1px solid var(--border); padding:.4rem .6rem}
+.tabla-fuentes th{background:#151723; text-align:left}
+.source-pill{display:inline-block; padding:.1rem .5rem; border-radius:999px; border:1px solid var(--border); background:#0f1116}
