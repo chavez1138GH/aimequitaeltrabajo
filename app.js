@@ -1,10 +1,10 @@
 /* =========================================================
    aimequitaeltrabajo.com — Multi-fuente + sugerencias en vivo
-   Gauge (velocímetro) + compartir + sin enlaces en sidebar
+   Gauge (velocímetro) + compartir + fallback de datos
    100% estático — /data/*.json
    ========================================================= */
 
-/** CONFIG ADSENSE **/
+/** CONFIG ADSENSE (rellena cuando tengas AdSense) **/
 const ADSENSE = {
   CLIENT: "ca-pub-XXXXXXXXXXXXXXXX",
   SLOT_TOP: "1111111111",
@@ -19,22 +19,38 @@ const SOURCES = [
   { id: "bls_onet",name: "BLS/O*NET (adaptado)",           weight: 0.35, file: "data/bls_onet.json" },
   { id: "custom",  name: "Curación LATAM",                 weight: 0.20, file: "data/custom_latam.json" }
 ];
-
 const SYNONYMS_FILE = "data/synonyms.json";
+
+/* ---- Fallback mínimo si no hay /data/ ---- */
+const FALLBACK = {
+  oxford: [
+    { "titulo": "Cajero/a", "isco": "4211", "fuentes": { "oxford": { "riesgo": 96, "explicacion": "Cobro y registro repetitivo altamente automatizable." } } },
+    { "titulo": "Recepcionista", "isco": "4226", "fuentes": { "oxford": { "riesgo": 91, "explicacion": "Check-in digital y asistentes automáticos." } } },
+    { "titulo": "Conductor/a de camión de larga distancia", "isco": "8332", "fuentes": { "oxford": { "riesgo": 64, "explicacion": "Asistencia avanzada y pruebas de conducción autónoma." } } },
+    { "titulo": "Desarrollador/a frontend", "isco": "2512", "fuentes": { "oxford": { "riesgo": 24, "explicacion": "Automatización parcial; diseño/arquitectura siguen humanas." } } }
+  ],
+  bls_onet: [
+    { "titulo": "Cashier", "onet": "41-2011.00", "aliases": ["Cajero", "Cajera", "Cajero/a"], "fuentes": { "bls_onet": { "riesgo": 94, "explicacion": "Self-checkout y pagos sin fricción.", "ref": "https://www.onetonline.org/" } } },
+    { "titulo": "Receptionists and Information Clerks", "onet": "43-4171.00", "aliases": ["Recepcionista"], "fuentes": { "bls_onet": { "riesgo": 88, "explicacion": "Agenda y atención básica automatizadas.", "ref": "https://www.onetonline.org/" } } },
+    { "titulo": "Heavy and Tractor-Trailer Truck Drivers", "onet": "53-3032.00", "aliases": ["Conductor de camión", "Conductor/a de camión de larga distancia"], "fuentes": { "bls_onet": { "riesgo": 62, "explicacion": "ADAS y rutas optimizadas.", "ref": "https://www.onetonline.org/" } } },
+    { "titulo": "Web Developers", "onet": "15-1254.00", "aliases": ["Desarrollador/a web", "Desarrollador/a frontend"], "fuentes": { "bls_onet": { "riesgo": 28, "explicacion": "Automatización parcial; trabajo creativo permanece.", "ref": "https://www.onetonline.org/" } } }
+  ],
+  custom: [
+    { "titulo": "Barista", "categoria": "Servicios", "aliases": ["Barista de cafetería"], "fuentes": { "custom": { "riesgo": 41, "explicacion": "Automatización de extracción y cobro; experiencia sigue humana." } } },
+    { "titulo": "Técnico/a de laboratorio clínico", "categoria": "Salud", "aliases": ["Técnico de laboratorio"], "fuentes": { "custom": { "riesgo": 67, "explicacion": "Robots de pipeteo/análisis; interpretación con supervisión." } } },
+    { "titulo": "Ingeniero/a de datos", "categoria": "Tecnología", "aliases": ["Data Engineer"], "fuentes": { "custom": { "riesgo": 34, "explicacion": "ETL/orquestación se automatizan parcialmente; diseño/fiabilidad importan." } } }
+  ]
+};
 
 /* ---------- Utilidades ---------- */
 const $ = sel => document.querySelector(sel);
-
+function showNotice(msg){ const n=$("#notice"); if(!n) return; if(!msg){ n.classList.add("hidden"); n.textContent=""; return;} n.textContent=msg; n.classList.remove("hidden"); }
 function normalize(str){
-  return (str || "")
-    .toString()
-    .toLowerCase()
+  return (str || "").toString().toLowerCase()
     .normalize("NFD").replace(/[\u0300-\u036f]/g, "")
     .replace(/[^a-z0-9\s\/\-\.\,]/g, " ")
-    .replace(/\s+/g, " ")
-    .trim();
+    .replace(/\s+/g, " ").trim();
 }
-
 // Levenshtein
 function lev(a, b){
   a = normalize(a); b = normalize(b);
@@ -43,16 +59,11 @@ function lev(a, b){
   for(let i=1;i<=a.length;i++){
     for(let j=1;j<=b.length;j++){
       const cost = a[i-1] === b[j-1] ? 0 : 1;
-      m[i][j] = Math.min(
-        m[i-1][j] + 1,
-        m[i][j-1] + 1,
-        m[i-1][j-1] + cost
-      );
+      m[i][j] = Math.min(m[i-1][j] + 1, m[i][j-1] + 1, m[i-1][j-1] + cost);
     }
   }
   return m[a.length][b.length];
 }
-
 function riskLevel(pct){
   if (pct >= 80) return {label:"Muy alto", cls:"danger"};
   if (pct >= 60) return {label:"Alto", cls:"warn"};
@@ -71,18 +82,36 @@ async function loadJSON(url){
   return res.json();
 }
 
+function totalItems(raw){
+  return Object.values(raw).reduce((acc, arr)=> acc + (arr?.length || 0), 0);
+}
+
 async function loadAll(){
   $("#loader").classList.remove("hidden");
-  try {
-    SYNONYMS = await loadJSON(SYNONYMS_FILE);
-  } catch { SYNONYMS = {}; }
+  // cargar sinónimos (opcional)
+  try { SYNONYMS = await loadJSON(SYNONYMS_FILE); } catch(e){ SYNONYMS = {}; console.warn("Sinónimos no cargados:", e); }
 
+  // cargar fuentes
   for (const src of SOURCES){
     try {
       RAW_BY_SOURCE[src.id] = await loadJSON(src.file);
-    } catch {
+    } catch(e){
+      console.warn("No se cargó", src.file, e);
       RAW_BY_SOURCE[src.id] = [];
     }
+  }
+
+  // Si no hay nada cargado, usar fallback embebido
+  if (totalItems(RAW_BY_SOURCE) === 0){
+    console.warn("Usando FALLBACK embebido: no se encontraron datasets en /data/");
+    RAW_BY_SOURCE = {
+      oxford: FALLBACK.oxford,
+      bls_onet: FALLBACK.bls_onet,
+      custom: FALLBACK.custom
+    };
+    showNotice("No se encontraron datasets en /data/. Usamos una base mínima de ejemplo para que puedas probar el sitio.");
+  } else {
+    showNotice(""); // ocultar aviso si todo bien
   }
 
   DATA = mergeSources(RAW_BY_SOURCE);
@@ -308,7 +337,10 @@ function hideSuggestions(){
 }
 
 function searchJob(q, {explicitSubmit=false}={}){
-  if (!q || !DATA.length) return;
+  if (!q || !DATA.length){
+    if (!DATA.length) showNotice("La base de datos está vacía. Revisa que la carpeta /data/ y los archivos JSON existan con los nombres correctos.");
+    return;
+  }
   const nq = normalize(q);
 
   // Coincidencia exacta
@@ -330,6 +362,9 @@ function searchJob(q, {explicitSubmit=false}={}){
     if (best){
       showResult(best);
       setNote(`No encontramos “${q}”. Te mostramos la opción más cercana: “${best.titulo}”. Puedes elegir otra profesión similar de la lista.`);
+      showSuggestions(q);
+    } else {
+      setNote(`No encontramos “${q}”. Prueba con otra palabra clave o elige una sugerencia.`);
       showSuggestions(q);
     }
   }
@@ -436,11 +471,7 @@ function bindUI(){
   $("#q").addEventListener("input", (e)=>{
     const q = e.target.value.trim();
     setNote(""); // limpiamos nota al escribir
-    if (q.length >= 2){
-      showSuggestions(q);
-    } else {
-      hideSuggestions();
-    }
+    if (q.length >= 2){ showSuggestions(q); } else { hideSuggestions(); }
   });
 }
 
@@ -461,7 +492,13 @@ function handleUrlOnLoad(){
 
 /* ---------- Init ---------- */
 document.addEventListener("DOMContentLoaded", async ()=>{
-  bindUI();
-  await loadAll();
-  handleUrlOnLoad();
+  try {
+    bindUI();
+    await loadAll();
+    handleUrlOnLoad();
+  } catch (e){
+    console.error(e);
+    showNotice("Ocurrió un error inicializando la app. Revisa la consola del navegador.");
+    $("#loader")?.classList.add("hidden");
+  }
 });
