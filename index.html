@@ -97,36 +97,60 @@
 
         <!-- VELOCÍMETRO -->
         <section class="gauge-wrap">
-          <div class="gauge">
-            <svg viewBox="0 0 320 200" width="100%" height="auto" aria-hidden="true">
-              <!-- Base semicircular -->
-              <path d="M 40 160 A 120 120 0 0 0 280 160"
-                    fill="none" stroke="#0f1116" stroke-width="20" pathLength="100"/>
-              <!-- Segmentos semáforo -->
-              <path d="M 40 160 A 120 120 0 0 0 280 160"
-                    class="gauge-arc arc-green" fill="none" stroke-width="20" pathLength="100"
-                    stroke-dasharray="33 67" stroke-dashoffset="0"/>
-              <path d="M 40 160 A 120 120 0 0 0 280 160"
-                    class="gauge-arc arc-yellow" fill="none" stroke-width="20" pathLength="100"
-                    stroke-dasharray="33 67" stroke-dashoffset="-33"/>
-              <path d="M 40 160 A 120 120 0 0 0 280 160"
-                    class="gauge-arc arc-red" fill="none" stroke-width="20" pathLength="100"
-                    stroke-dasharray="34 66" stroke-dashoffset="-66"/>
-              <!-- Aguja -->
-              <line id="needle" x1="160" y1="160" x2="160" y2="50" stroke="#e6e7ea" stroke-width="4" stroke-linecap="round" />
-              <circle cx="160" cy="160" r="7" fill="#e6e7ea"/>
-            </svg>
-            <div class="gauge-readout">
-              <strong id="res-porcentaje">— %</strong>
-              <span id="res-nivel" class="pill">—</span>
-            </div>
-            <div class="lights">
-              <span class="light light-green" title="Bajo"></span>
-              <span class="light light-yellow" title="Medio"></span>
-              <span class="light light-red" title="Alto"></span>
-            </div>
-          </div>
-        </section>
+  <div class="gauge">
+    <svg viewBox="0 0 320 200" width="100%" height="auto" aria-hidden="true">
+      <!-- Base semicircular -->
+      <path d="M 40 160 A 120 120 0 0 0 280 160"
+            fill="none" stroke="#0f1116" stroke-width="26" pathLength="100"/>
+
+      <!-- 6 segmentos tipo semáforo (oscuro→claro→amarillo→naranja→rojo) -->
+      <path d="M 40 160 A 120 120 0 0 0 280 160"
+            class="gauge-arc arc-1" fill="none" stroke-width="26" pathLength="100"
+            stroke-dasharray="16.666 83.334" stroke-dashoffset="0" />
+      <path d="M 40 160 A 120 120 0 0 0 280 160"
+            class="gauge-arc arc-2" fill="none" stroke-width="26" pathLength="100"
+            stroke-dasharray="16.666 83.334" stroke-dashoffset="-16.666" />
+      <path d="M 40 160 A 120 120 0 0 0 280 160"
+            class="gauge-arc arc-3" fill="none" stroke-width="26" pathLength="100"
+            stroke-dasharray="16.666 83.334" stroke-dashoffset="-33.332" />
+      <path d="M 40 160 A 120 120 0 0 0 280 160"
+            class="gauge-arc arc-4" fill="none" stroke-width="26" pathLength="100"
+            stroke-dasharray="16.666 83.334" stroke-dashoffset="-49.998" />
+      <path d="M 40 160 A 120 120 0 0 0 280 160"
+            class="gauge-arc arc-5" fill="none" stroke-width="26" pathLength="100"
+            stroke-dasharray="16.666 83.334" stroke-dashoffset="-66.664" />
+      <path d="M 40 160 A 120 120 0 0 0 280 160"
+            class="gauge-arc arc-6" fill="none" stroke-width="26" pathLength="100"
+            stroke-dasharray="16.666 83.334" stroke-dashoffset="-83.330" />
+
+      <!-- Grupo de aguja (se rota en CSS/JS alrededor del centro 160,160) -->
+      <g id="needle-group">
+        <!-- Aguja -->
+        <line x1="160" y1="160" x2="160" y2="44"
+              stroke="#e6e7ea" stroke-width="4" stroke-linecap="round" />
+        <!-- Centro -->
+        <circle cx="160" cy="160" r="8" fill="#e6e7ea"/>
+      </g>
+    </svg>
+
+    <div class="gauge-readout">
+      <strong id="res-porcentaje">— %</strong>
+      <span id="res-nivel" class="pill">—</span>
+    </div>
+
+    <div class="lights">
+      <span class="light light-green" title="Bajo"></span>
+      <span class="light light-yellow" title="Medio"></span>
+      <span class="light light-red" title="Alto"></span>
+    </div>
+
+    <!-- Etiquetas como el ejemplo -->
+    <div class="gauge-labels">
+      <span>Riesgo mínimo</span>
+      <span>Riesgo inminente</span>
+    </div>
+  </div>
+</section>
 
         <div class="score-explain">
           <p id="res-explicacion" class="explicacion">Introduce un empleo para ver la explicación.</p>
