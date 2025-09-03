@@ -3,7 +3,7 @@
   --card:#111217;
   --text:#e6e7ea;
   --muted:#9aa0a6;
-  --brand:#4ade80; /* verde pastel */
+  --brand:#4ade80;
   --danger:#ef4444;
   --warn:#f59e0b;
   --ok:#22c55e;
@@ -32,6 +32,16 @@ a:hover{text-decoration: underline}
 }
 .site-header h1{margin:.2rem 0 0}
 .lead{color:var(--muted); margin-top:.25rem}
+
+/* Avisos */
+.notice{
+  margin:.8rem 0 0;
+  padding:.7rem .9rem;
+  border:1px solid var(--border);
+  border-radius:12px;
+  background:#102235;
+  color:#cbd5e1;
+}
 
 .layout{
   display:grid;
@@ -152,7 +162,7 @@ a:hover{text-decoration: underline}
   display:flex; align-items:center; gap:.4rem;
 }
 .share-btn:hover{border-color:#2a2f3a}
-.share-status{color:var(--muted); font-size:.9rem; margin-top:.4rem}
+.share-status{color:#9aa0a6; font-size:.9rem; margin-top:.4rem}
 
 .linklike{
   background:none; border:none; padding:0; margin:0;
