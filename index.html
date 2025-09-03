@@ -1,8 +1,194 @@
-<!-- Reemplaza TU-DOMINIO.com -->
-<link rel="canonical" href="https://www.TU-DOMINIO.com/" />
-<meta property="og:url" content="https://www.TU-DOMINIO.com/" />
-<meta property="og:image" content="https://www.TU-DOMINIO.com/og-image.jpg" />
-<meta name="twitter:image" content="https://www.TU-DOMINIO.com/og-image.jpg" />
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-<!-- Reemplaza ca-pub-XXXXXXXXXXXXXXXX -->
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script>
+  <title>¿La IA me quita el trabajo? | Riesgo de automatización por empleo</title>
+  <meta name="description" content="Busca tu profesión en español y conoce el porcentaje de riesgo de automatización por IA, con una explicación breve y clara. Sitio gratuito y ligero." />
+  <meta name="keywords" content="automatización, IA, empleo, probabilidad, riesgo, trabajo, robots, inteligencia artificial, futuro del trabajo" />
+  <meta name="robots" content="index, follow" />
+  <meta name="author" content="aimequitaeltrabajo.com" />
+
+  <!-- Canonical (rellena tu dominio final) -->
+  <link rel="canonical" href="https://www.aimequitaeltrabajo.com/" />
+
+  <!-- Open Graph / Twitter -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="¿La IA me quita el trabajo?" />
+  <meta property="og:description" content="Escribe tu profesión y descubre el riesgo de automatización por IA." />
+  <meta property="og:url" content="https://www.aimequitaeltrabajo.com/" />
+  <meta property="og:image" content="https://www.aimequitaeltrabajo.com/og-image.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="¿La IA me quita el trabajo?" />
+  <meta name="twitter:description" content="Calcula el riesgo de automatización de tu empleo." />
+  <meta name="twitter:image" content="https://www.aimequitaeltrabajo.com/og-image.jpg" />
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "aimequitaeltrabajo.com",
+    "url": "https://www.aimequitaeltrabajo.com/",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://www.aimequitaeltrabajo.com/?q={search_term_string}",
+      "query-input": "required name=search_term_string"
+    }
+  }
+  </script>
+
+  <!-- AdSense (Auto Ads) — RELLENA TU CLIENT ID -->
+  <!-- Sustituye ca-pub-XXXXXXXXXXXXXXXX por tu ID real -->
+  <script async
+    src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX"
+    crossorigin="anonymous"></script>
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <h1>¿La IA me quita el trabajo?</h1>
+      <p class="lead">Escribe tu profesión en español y obtén una <strong>estimación del riesgo de automatización</strong> + una explicación breve.</p>
+
+      <!-- Banner superior (responsive) -->
+      <div class="ad ad--top">
+        <!-- Bloque de anuncio superior -->
+        <ins class="adsbygoogle"
+             style="display:block"
+             data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+             data-ad-slot="1111111111"
+             data-ad-format="auto"
+             data-full-width-responsive="true"></ins>
+      </div>
+    </div>
+  </header>
+
+  <main class="container layout">
+    <section class="content">
+      <form id="search-form" class="search" role="search" aria-label="Buscar profesión">
+        <label for="q" class="sr-only">Profesión</label>
+        <input id="q" name="q" type="search" placeholder="Ej. Cajero, Abogado, Desarrollador web…" list="sugerencias"
+               autocomplete="on" spellcheck="false" aria-describedby="ayuda-busqueda" />
+        <datalist id="sugerencias"></datalist>
+        <button type="submit" aria-label="Buscar">Buscar</button>
+        <div id="ayuda-busqueda" class="hint">Consejo: usa el nombre común en tu país. Si no hay coincidencia exacta, te sugeriremos similares.</div>
+      </form>
+
+      <div class="chips" id="chips">
+        <span data-job="Cajero/a">Cajero/a</span>
+        <span data-job="Médico/a general">Médico/a general</span>
+        <span data-job="Desarrollador/a web">Desarrollador/a web</span>
+        <span data-job="Conductor/a de camión">Conductor/a de camión</span>
+        <span data-job="Teleoperador/a">Teleoperador/a</span>
+      </div>
+
+      <!-- Resultado -->
+      <article id="resultado" class="card hidden" aria-live="polite">
+        <header>
+          <h2 id="res-titulo">Resultado</h2>
+        </header>
+        <div class="score-wrap">
+          <div class="score">
+            <div class="bar"><span id="bar" style="width:0%"></span></div>
+            <div class="score-row">
+              <strong id="res-porcentaje">— %</strong>
+              <span id="res-nivel" class="pill">—</span>
+            </div>
+          </div>
+          <p id="res-explicacion" class="explicacion">Introduce un empleo para ver la explicación.</p>
+          <p id="res-fuente" class="fuente"></p>
+        </div>
+
+        <!-- In-article ad -->
+        <div class="ad ad--incontent">
+          <ins class="adsbygoogle"
+               style="display:block; text-align:center;"
+               data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+               data-ad-slot="2222222222"
+               data-ad-format="fluid"
+               data-ad-layout="in-article"></ins>
+        </div>
+      </article>
+
+      <section id="sugerencias" class="card hidden">
+        <h3>¿No era exactamente ese empleo?</h3>
+        <ul id="lista-sugerencias" class="list"></ul>
+      </section>
+
+      <section class="card">
+        <h3>Metodología y aviso</h3>
+        <p>
+          Estas cifras son una <strong>estimación educativa</strong> basada en referencias públicas (como estudios académicos tipo
+          Frey &amp; Osborne y descripciones ocupacionales estilo O*NET/BLS), <em>traducidas y adaptadas al español</em>.
+          No son consejo laboral. Cada país, sector y empresa puede variar ampliamente en su adopción de automatización.
+        </p>
+        <p>
+          Puedes <a href="https://github.com/chavez1138GH/aimequitaeltrabajo" target="_blank" rel="noopener">contribuir en GitHub</a>
+          para añadir más profesiones o mejorar explicaciones.
+        </p>
+      </section>
+    </section>
+
+    <aside class="sidebar">
+      <div class="sticky">
+        <div class="card">
+          <h3>Publicidad</h3>
+          <div class="ad ad--sidebar">
+            <!-- Bloque de anuncio lateral -->
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+                 data-ad-slot="3333333333"
+                 data-ad-format="auto"
+                 data-full-width-responsive="true"></ins>
+          </div>
+        </div>
+
+        <nav class="card">
+          <h3>Enlaces útiles</h3>
+          <ul class="links">
+            <li><a href="#" aria-disabled="true">Política de privacidad (pronto)</a></li>
+            <li><a href="#" aria-disabled="true">Aviso legal (pronto)</a></li>
+            <li><a href="https://www.google.com/webmasters/tools/home" target="_blank" rel="noopener">Search Console</a></li>
+          </ul>
+        </nav>
+      </div>
+    </aside>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="ad ad--footer">
+        <!-- Bloque de anuncio footer -->
+        <ins class="adsbygoogle"
+             style="display:block"
+             data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+             data-ad-slot="4444444444"
+             data-ad-format="auto"
+             data-full-width-responsive="true"></ins>
+      </div>
+
+      <p>&copy; <span id="year"></span> aimequitaeltrabajo.com — Hecho con HTML, CSS y JavaScript. Hospedado gratis en GitHub Pages.</p>
+    </div>
+  </footer>
+
+  <script src="app.js" defer></script>
+
+  <script>
+    // Inicializa anuncios después de que el script de AdSense esté disponible
+    window.addEventListener('load', function () {
+      try {
+        (adsbygoogle = window.adsbygoogle || []).push({});
+        (adsbygoogle = window.adsbygoogle || []).push({});
+        (adsbygoogle = window.adsbygoogle || []).push({});
+        (adsbygoogle = window.adsbygoogle || []).push({});
+      } catch (e) {
+        // Silencio si AdSense aún no aprobó el sitio o bloqueador de anuncios activo
+      }
+    });
+  </script>
+</body>
+</html>
