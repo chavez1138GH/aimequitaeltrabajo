@@ -101,21 +101,14 @@ a:hover{text-decoration: underline}
   margin:.3rem 0 .8rem;
 }
 
-.gauge-wrap{
-  display:flex; align-items:center; justify-content:center;
-}
-.gauge{
-  width:100%;
-  max-width:520px;
-  margin:auto;
-  text-align:center;
-}
+/* Gauge */
+.gauge-wrap{ display:flex; align-items:center; justify-content:center; }
+.gauge{ width:100%; max-width:520px; margin:auto; text-align:center; }
 .gauge-arc{ stroke-linecap:round; }
 .arc-green{ stroke:#22c55e; }
 .arc-yellow{ stroke:#f59e0b; }
 .arc-red{ stroke:#ef4444; }
 
-#gauge-title{margin-top:.25rem}
 .gauge-readout{
   margin-top:-6px;
   display:flex; align-items:center; gap:.6rem; justify-content:center;
@@ -146,6 +139,7 @@ a:hover{text-decoration: underline}
 .tabla-fuentes th{background:#151723; text-align:left}
 .source-pill{display:inline-block; padding:.1rem .5rem; border-radius:999px; border:1px solid var(--border); background:#0f1116}
 
+/* Compartir */
 .share h3{margin:.2rem 0 .6rem}
 .share-row{display:flex; flex-wrap:wrap; gap:.5rem}
 .share-btn{
@@ -177,8 +171,9 @@ a:hover{text-decoration: underline}
 .site-footer{
   border-top:1px solid var(--border);
   margin-top:2rem; padding:1rem 0; background:#0f1116;
-  color:var(--muted); text-align:center;
+  color:#cbd5e1; text-align:center;
 }
+.site-footer a{ color:#93c5fd; }
 
 .sr-only{
   position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0;
