@@ -236,11 +236,10 @@ function escapeHtml(s){ return (s||"").replace(/[&<>"']/g, m=>({ '&':'&amp;','<'
 
 /* ---------- Gauge ---------- */
 function setGauge(pct){
-  // Aguja: -90° (0%) a +90° (100%)
+  // Aguja: -90° (0%) → +90° (100%)
   const clamped = Math.max(0, Math.min(100, pct ?? 0));
-  const angle = -90 + (clamped * 1.8); // grados
+  const angle = -90 + (clamped * 1.8);
   const needle = $("#needle");
-  // centro (160,160), longitud ~110
   const cx = 160, cy = 160, r = 110;
   const rad = angle * Math.PI / 180;
   const x2 = cx + r * Math.cos(rad);
@@ -377,7 +376,6 @@ function updateShare(job){
           setShareStatus("Enlace copiado al portapapeles.");
           return;
         }
-        // Fallback: abrir url si existe, si no intentar share nativo
         if (navigator.share){
           await navigator.share({ title, text, url });
           setShareStatus("Compartido.");
