@@ -265,17 +265,16 @@ function escapeHtml(s){ return (s||"").replace(/[&<>"']/g, m=>({ '&':'&amp;','<'
 
 /* ---------- Gauge ---------- */
 function setGauge(pct){
-  // Aguja: -90° (0%) → +90° (100%)
-  const clamped = Math.max(0, Math.min(100, pct ?? 0));
+  // Clampea 0–100 y convierte linealmente a -90° (0%) → +90° (100%)
+  const clamped = Math.max(0, Math.min(100, Number(pct) || 0));
   const angle = -90 + (clamped * 1.8);
-  const needle = $("#needle");
-  const cx = 160, cy = 160, r = 110;
-  const rad = angle * Math.PI / 180;
-  const x2 = cx + r * Math.cos(rad);
-  const y2 = cy + r * Math.sin(rad);
-  needle.setAttribute("x2", x2.toFixed(1));
-  needle.setAttribute("y2", y2.toFixed(1));
+  const g = document.getElementById("needle-group");
+  if (g){
+    // Usamos CSS transform para una rotación precisa y animada
+    g.style.transform = `rotate(${angle}deg)`;
+  }
 }
+
 
 /* ---------- Resultado ---------- */
 function setNote(text){
