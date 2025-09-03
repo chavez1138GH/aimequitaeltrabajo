@@ -190,3 +190,24 @@ a:hover{text-decoration: underline}
 }
 
 .hidden{display:none}
+/* Colores por segmento (inspirado en la imagen) */
+.arc-1{ stroke:#087f23; }   /* verde muy oscuro */
+.arc-2{ stroke:#2e7d32; }   /* verde oscuro */
+.arc-3{ stroke:#76d275; }   /* verde claro */
+.arc-4{ stroke:#ffd54f; }   /* amarillo */
+.arc-5{ stroke:#fb8c00; }   /* naranja */
+.arc-6{ stroke:#e53935; }   /* rojo */
+
+/* Aguja con animación suave y pivote correcto */
+#needle-group{
+  transform-box: fill-box;                 /* usa el box del SVG */
+  transform-origin: 160px 160px;           /* centro del gauge */
+  transition: transform .6s ease-out;      /* animación girando */
+}
+
+/* Mantener layout del gauge */
+.gauge { position: relative; }
+.gauge-labels{
+  display:flex; justify-content:space-between; font-size:.9rem;
+  color:#cbd5e1; margin-top:.4rem;
+}
