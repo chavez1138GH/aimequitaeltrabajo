@@ -53,6 +53,11 @@ input[type="search"]{flex:1;padding:12px 14px;border-radius:10px;border:1px soli
 .percent #porcentaje{font-size:2rem;font-weight:800}
 .explicacion{margin-top:8px}
 
+/* Audio */
+.audio-card{margin-top:10px;background:#0f172a;border:1px solid #2a3347;border-radius:12px;padding:12px}
+.audio-card h4{margin:0 0 8px 0;font-size:1rem}
+.audio-card audio{width:100%}
+
 /* Info */
 .info{display:grid;grid-template-columns:1fr 1.1fr;gap:18px;align-items:start}
 @media (max-width:900px){.info{grid-template-columns:1fr}}
