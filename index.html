@@ -14,7 +14,7 @@
   <meta property="og:type" content="website">
   <meta property="og:title" content="¿La IA me quita el trabajo?">
   <meta property="og:description" content="Busca tu ocupación y mira el riesgo de automatización con un velocímetro claro.">
-  <meta property="og:image" content="https://aimequitaeltrabajo.com/images/i1.png">
+  <meta property="og:image" content="./images/i1.png">
   <meta property="og:url" content="https://aimequitaeltrabajo.com/">
   <meta name="twitter:card" content="summary_large_image">
 
@@ -25,16 +25,11 @@
     "@type": "WebSite",
     "name": "aimequitaeltrabajo.com",
     "url": "https://aimequitaeltrabajo.com/",
-    "potentialAction": {
-      "@type": "SearchAction",
-      "target": "https://aimequitaeltrabajo.com/?q={busqueda}",
-      "query-input": "required name=busqueda"
-    }
+    "potentialAction": {"@type":"SearchAction","target":"https://aimequitaeltrabajo.com/?q={busqueda}","query-input":"required name=busqueda"}
   }
   </script>
 
   <link rel="stylesheet" href="style.css" />
-
   <!-- AdSense (rellena tu ID y descomenta)
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script>
   -->
@@ -56,13 +51,14 @@
         <label for="search" class="label">Busca tu ocupación (usa sinónimos):</label>
         <div class="search-row">
           <input id="search" type="search" list="opts"
-                 placeholder="Ej.: Auxiliar contable, Albañil, Programador, Recepcionista…"
+                 placeholder="Ej.: Conductor, Albañil, Programador, Recepcionista…"
                  autocomplete="off">
           <datalist id="opts"></datalist>
           <button id="btnBuscar" class="btn">Calcular</button>
         </div>
         <div id="sugerencias" class="suggestions"></div>
         <p class="help">Tip: escribe como hablas en tu país; el motor reconoce <em>sinónimos</em> frecuentes en español.</p>
+        <p id="dbStatus" class="help"></p>
       </div>
 
       <!-- RESULTADO (velocímetro) -->
@@ -107,13 +103,16 @@
       <!-- INFO BAJO LA BÚSQUEDA (gráfico + audio debajo de la imagen) -->
       <section class="info">
         <figure class="chart">
-          <img src="images/i1.png" alt="Nivel de exposición a la automatización por IA generativa (ejemplo)">
+          <!-- OJO: ruta relativa explícita con ./ -->
+          <img src="./images/i1.png" alt="Nivel de exposición a la automatización por IA generativa (ejemplo)">
           <figcaption>Ejemplo ilustrativo de ocupaciones con alta y baja exposición.</figcaption>
 
-          <!-- 🔊 AUDIO: dentro del área del gráfico inferior, justo debajo de la imagen -->
+          <!-- AUDIO debajo de la imagen -->
           <div class="audio-card">
             <h4>Empleo y el Impacto de la IA</h4>
-            <audio id="player" controls preload="none" src="media/audio.mp3" aria-label="Reproducir audio: Empleo y el Impacto de la IA"></audio>
+            <!-- OJO: ruta ./media/audio.mp3 -->
+            <audio id="player" controls preload="none" src="./media/audio.mp3"
+                   aria-label="Reproducir audio: Empleo y el Impacto de la IA"></audio>
           </div>
         </figure>
 
@@ -126,9 +125,9 @@
       </section>
     </section>
 
-    <!-- SIDEBAR para anuncios -->
+    <!-- SIDEBAR -->
     <aside class="sidebar">
-      <!-- BLOQUE ADSENSE LATERAL (rellena tus IDs y descomenta)
+      <!--
       <ins class="adsbygoogle"
            style="display:block"
            data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
@@ -144,7 +143,7 @@
   <footer class="container footer">
     <small>© <span id="year"></span> aimequitaeltrabajo.com · <a href="faq.html">FAQ</a> · <a href="privacidad.html">Privacidad</a></small>
 
-    <!-- BLOQUE ADSENSE FOOTER
+    <!--
     <ins class="adsbygoogle"
          style="display:block"
          data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
