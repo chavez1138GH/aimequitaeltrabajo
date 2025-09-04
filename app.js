@@ -1,7 +1,6 @@
 /* ===== Helpers ===== */
 const $ = (s, d=document) => d.querySelector(s);
 const stripDiacritics = (txt) => {
-  // compatible con navegadores sin soporte \p{Diacritic}
   try { return txt.normalize('NFD').replace(/[\u0300-\u036f]/g,''); }
   catch { return txt; }
 };
@@ -12,8 +11,8 @@ const getFirst = (o,k,f=null)=>{for(const x of k) if(o&&o[x]!=null) return o[x];
 const asNumber = (v,d=0)=>{const n=Number(String(v).replace('%','').trim()); return Number.isFinite(n)?n:d;};
 
 /* ===== Config ===== */
-const DB_URL = 'data/base_de_datos.json';
-const AUDIO_URL = 'media/audio.mp3';
+const DB_URL   = 'data/base_de_datos.json';
+const AUDIO_URL= 'media/podcast.mp3';   // ⬅️ actualizado
 
 /* ===== Estado ===== */
 let DATA=[], INDEX=[], NAMES=[];
@@ -148,7 +147,7 @@ async function accionBuscar(){
   else { $('#resultado').classList.remove('hidden'); $('#ocupacionTitulo').textContent='No encontramos esa ocupación'; $('#explicacion').textContent='Prueba otros sinónimos o un nombre más corto.'; setGauge(0); buildShareButtons({ocupacion_es:'(desconocida)',riesgo_automatizacion_porcentaje:0}); }
 }
 
-/* ===== Audio: BlobURL (fiable) ===== */
+/* ===== Audio: carga fiable por BlobURL ===== */
 async function initAudio(){
   const el=$('#player'); if(!el) return;
   try{
@@ -164,21 +163,17 @@ document.addEventListener('DOMContentLoaded', async ()=>{
   await cargarDatos();
 
   const input=$('#search');
-
-  // pintar primeras sugerencias
   function pintar(){ pintarSugerencias(sugerencias(input.value,10)); }
   pintar();
 
   input.addEventListener('input', pintar);
   $('#btnBuscar').addEventListener('click', accionBuscar);
-  input.addEventListener('change', accionBuscar);     // al seleccionar del datalist
+  input.addEventListener('change', accionBuscar);
   input.addEventListener('keydown', e=>{ if(e.key==='Enter') accionBuscar(); });
 
-  // ?q=
   const params=new URLSearchParams(location.search);
   const q=params.get('q')||params.get('busqueda');
   if(q){ input.value=q; accionBuscar(); }
 
-  // Audio
   initAudio();
 });
