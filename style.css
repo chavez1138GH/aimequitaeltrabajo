@@ -57,3 +57,24 @@ input[type="search"]{flex:1;padding:12px 14px;border-radius:10px;border:1px soli
 .sidebar .ad-placeholder,.footer .ad-placeholder{background:#0f172a;border:1px dashed #2a3347;border-radius:12px;color:#9aa7b8;padding:18px;text-align:center;margin-top:6px}
 
 .footer{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-top:12px;border-top:1px solid #1f2937;padding-top:16px}
+/* contenedor más ancho para darle aire a la imagen */
+.container{max-width:1400px}
+
+/* columna principal más grande que la sidebar */
+.grid{grid-template-columns:2fr 1fr}
+
+/* sección informativa: favorece la columna del gráfico */
+.info{grid-template-columns:1.3fr 1fr}
+
+/* imagen: ocupa todo el ancho y con buen contraste/borde */
+.chart.big .chart-img{
+  width:100%;
+  height:auto;
+  display:block;
+  border-radius:12px;
+  border:1px solid #2a3347;
+  box-shadow:0 0 0 1px #2a3347, 0 6px 28px rgba(0,0,0,.35);
+}
+
+/* enlace para abrir en tamaño completo (ya está en el HTML) */
+.zoom-link{display:inline-block;margin-left:.5rem}
