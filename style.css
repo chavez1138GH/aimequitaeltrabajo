@@ -1,13 +1,22 @@
-/* --- buscador / base --- */
-:root{--bg:#0d1117;--card:#111827;--muted:#8b949e;--text:#e6edf3;--accent:#58a6ff;--btn:#222b3a;--btn-text:#d1e9ff}
-*{box-sizing:border-box} html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,"Noto Sans","Helvetica Neue",Arial}
+:root{
+  --bg:#0d1117; --card:#111827; --muted:#8b949e; --text:#e6edf3;
+  --accent:#58a6ff; --btn:#222b3a; --btn-text:#d1e9ff;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,"Noto Sans","Helvetica Neue",Arial}
 a{color:var(--accent);text-decoration:none}
 .container{max-width:1400px;margin:auto;padding:16px}
+
 .site-header{display:flex;justify-content:space-between;align-items:center;gap:16px}
+.site-header h1{margin:0;font-size:clamp(1.4rem,2.5vw,2rem)}
 .site-header nav a{margin-right:12px}
-.grid{display:grid;grid-template-columns:2fr 1fr;gap:24px}
-@media (max-width:1100px){.grid{grid-template-columns:1fr}}
+.brand{opacity:.7}
+
+/* SIN SIDEBAR */
+.grid{display:block}
 .main{display:flex;flex-direction:column;gap:24px}
+
+/* Buscador */
 .search-card{background:var(--card);padding:16px;border-radius:14px;box-shadow:0 0 0 1px #1f2937}
 .label{display:block;margin-bottom:8px;color:#c9d1d9}
 .search-row{display:flex;gap:8px}
@@ -18,11 +27,13 @@ input[type="search"]{flex:1;padding:12px 14px;border-radius:10px;border:1px soli
 .suggestions{margin-top:8px;display:flex;flex-wrap:wrap}
 .suggestions button{margin:4px 6px 0 0;border:1px solid #2a3347;background:#0f172a;color:#c9d1d9;border-radius:999px;padding:6px 10px;cursor:pointer}
 
-/* --- resultado / gauge --- */
+/* Resultado / gauge */
 .result{background:var(--card);padding:16px;border-radius:14px}
 .hidden{display:none}
 .result-top{display:flex;align-items:center;gap:12px;margin-bottom:6px}
+.result-top h2{margin:0;font-size:1.15rem}
 .badge{background:#233046;border:1px solid #2a3347;color:#dbeafe;border-radius:999px;padding:2px 10px;font-size:.85rem}
+
 .gauge-wrap{margin:8px 0 6px}
 .gauge-label{display:inline-block;margin:0 0 8px 0;padding:6px 12px;border-radius:999px;border:1px solid #2a3347;background:#233046;color:#e6edf3;font-weight:600}
 .needle{transform-origin:160px 160px;transition:transform .85s cubic-bezier(.2,.8,.2,1)}
@@ -30,22 +41,29 @@ input[type="search"]{flex:1;padding:12px 14px;border-radius:10px;border:1px soli
 .percent #porcentaje{font-size:2rem;font-weight:800}
 .explicacion{margin-top:8px}
 
-/* --- audio y gráfico full-width --- */
+/* Audio arriba del gráfico */
 .info.onecol{display:block}
 .hero-audio{margin-bottom:14px}
 .audio-card{background:#0f172a;border:1px solid #2a3347;border-radius:12px;padding:12px}
 .audio-card h4{margin:0 0 8px 0;font-size:1rem}
 .audio-card audio{width:100%}
-.chart.hero{margin:0}
-.chart.hero .chart-img{width:100%;height:auto;display:block;border-radius:12px;border:1px solid #2a3347;box-shadow:0 0 0 1px #2a3347,0 6px 28px rgba(0,0,0,.35)}
 
-/* --- compartir: iconos blancos tamaño normal --- */
+/* Imagen a todo el ancho */
+.chart.hero{margin:0}
+.chart.hero .chart-img{
+  width:100%;height:auto;display:block;border-radius:12px;border:1px solid #2a3347;
+  box-shadow:0 0 0 1px #2a3347, 0 6px 28px rgba(0,0,0,.35)
+}
+
+/* Compartir: iconos blancos, tamaño normal, sin fondo */
 .share{margin-top:12px}
 .share-buttons{display:flex;flex-wrap:wrap;gap:10px}
-.share-btn{display:inline-flex;align-items:center;gap:8px;padding:6px 10px;border-radius:8px;background:transparent;border:1px solid #2a3347;color:#fff;text-decoration:none;cursor:pointer}
+.share-btn{
+  display:inline-flex;align-items:center;gap:8px;padding:6px 10px;border-radius:8px;
+  background:transparent;border:1px solid #2a3347;color:#fff;text-decoration:none;cursor:pointer
+}
 .share-btn:hover{background:#141a29}
 .share-btn svg{width:18px;height:18px;display:block;color:#fff}
 
-/* --- ads & footer --- */
-.sidebar .ad-placeholder,.footer .ad-placeholder{background:#0f172a;border:1px dashed #2a3347;border-radius:12px;color:#9aa7b8;padding:18px;text-align:center;margin-top:6px}
+/* Footer */
 .footer{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-top:12px;border-top:1px solid #1f2937;padding-top:16px}
