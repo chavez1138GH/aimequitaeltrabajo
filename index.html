@@ -95,13 +95,16 @@
         </div>
       </section>
 
-      <!-- INFO BAJO LA BÚSQUEDA (gráfico grande + audio) -->
-      <section class="info">
-        <figure class="chart big">
+      <!-- INFO: IMAGEN + AUDIO A TODO EL ANCHO DEL BLOQUE -->
+      <section class="info onecol">
+        <figure class="chart hero">
           <img class="chart-img" src="./images/i1.png" alt="Nivel de exposición a la automatización por IA generativa (ejemplo)">
-          <figcaption>Ejemplo ilustrativo de ocupaciones con alta y baja exposición. <a class="zoom-link" href="./images/i1.png" target="_blank" rel="noopener">Abrir imagen en tamaño completo</a></figcaption>
+          <figcaption>
+            Ejemplo ilustrativo de ocupaciones con alta y baja exposición.
+            <a class="zoom-link" href="./images/i1.png" target="_blank" rel="noopener">Abrir tamaño completo</a>
+          </figcaption>
 
-          <!-- AUDIO debajo de la imagen -->
+          <!-- AUDIO justo debajo de la imagen -->
           <div class="audio-card">
             <h4>Empleo y el Impacto de la IA</h4>
             <audio id="player" controls preload="metadata" crossorigin="anonymous">
@@ -109,10 +112,10 @@
               Tu navegador no puede reproducir MP3. <a href="./media/audio.mp3" download>Descargar audio</a>.
             </audio>
             <p id="audioStatus" class="help" aria-live="polite"></p>
-            <p class="help"><a href="./media/audio.mp3" download>Descargar audio</a> · Si no se reproduce, ábrelo directamente.</p>
           </div>
         </figure>
 
+        <!-- Texto explicativo (debajo, ancho completo también) -->
         <div class="info-text">
           <h3>¿La inteligencia artificial viene por tu trabajo?</h3>
           <p>La respuesta no es un simple sí o no. Como muestra este gráfico, el futuro de la automatización es muy diferente según la profesión. Por un lado, los empleos que consisten en organizar información y realizar tareas predecibles, como los Empleados de Entrada de Datos y los Tenedores de Libros, se encuentran en la zona de mayor exposición. La IA generativa es una experta en este tipo de labores, lo que pone a las profesiones de oficina en el epicentro del cambio.</p>
@@ -124,15 +127,6 @@
 
     <!-- SIDEBAR -->
     <aside class="sidebar">
-      <!--
-      <ins class="adsbygoogle"
-           style="display:block"
-           data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
-           data-ad-slot="1111111111"
-           data-ad-format="rectangle"
-           data-full-width-responsive="true"></ins>
-      <script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
-      -->
       <div class="ad-placeholder">Espacio para anuncio 300×250</div>
     </aside>
   </main>
@@ -142,10 +136,10 @@
     <div class="ad-placeholder">Espacio para anuncio responsive</div>
   </footer>
 
-  <!-- cache-busting en el script -->
-  <script src="app.js?v=4"></script>
+  <!-- cache-busting -->
+  <script src="app.js?v=5"></script>
 
-  <!-- Listener ligero para estatus del audio -->
+  <!-- Estatus del audio -->
   <script>
   (function(){
     const p = document.getElementById('player');
@@ -153,7 +147,7 @@
     if(!p || !s) return;
     p.addEventListener('loadedmetadata', ()=>{ s.textContent = 'Audio listo (' + Math.round(p.duration) + ' s).'; });
     p.addEventListener('canplay', ()=>{ if(!s.textContent) s.textContent = 'Listo para reproducir.'; });
-    p.addEventListener('error', ()=>{ s.textContent = '⚠️ No se pudo cargar el audio. Abre el enlace de descarga o revisa la ruta ./media/audio.mp3.'; });
+    p.addEventListener('error', ()=>{ s.textContent = '⚠️ No se pudo cargar el audio. Revisa ./media/audio.mp3 o vuelve a subirlo (no debe estar vacío).'; });
   })();
   </script>
 </body>
