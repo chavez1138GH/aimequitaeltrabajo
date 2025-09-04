@@ -1,503 +1,144 @@
-/* =========================================================
-   aimequitaeltrabajo.com — Multi-fuente + sugerencias en vivo
-   Gauge (velocímetro) + compartir + fallback de datos
-   100% estático — /data/*.json
-   ========================================================= */
+/* ====== Utilidades ====== */
+const $ = (s, d=document) => d.querySelector(s);
+const $$ = (s, d=document) => Array.from(d.querySelectorAll(s));
+const norm = (str="") =>
+  str.toString().toLowerCase()
+    .normalize('NFD').replace(/\p{Diacritic}/gu,'')  // quita acentos
+    .replace(/[^a-z0-9\s]/g,' ')
+    .replace(/\s+/g,' ').trim();
 
-/** CONFIG ADSENSE (rellena cuando tengas AdSense) **/
-const ADSENSE = {
-  CLIENT: "ca-pub-XXXXXXXXXXXXXXXX",
-  SLOT_TOP: "1111111111",
-  SLOT_INCONTENT: "2222222222",
-  SLOT_SIDEBAR: "3333333333",
-  SLOT_FOOTER: "4444444444"
-};
+const yearEl = $('#year'); if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-/* ---- Fuentes y pesos ---- */
-const SOURCES = [
-  { id: "oxford",  name: "Oxford/Frey-Osborne (adaptado)", weight: 0.45, file: "data/oxford.json" },
-  { id: "bls_onet",name: "BLS/O*NET (adaptado)",           weight: 0.35, file: "data/bls_onet.json" },
-  { id: "custom",  name: "Curación LATAM",                 weight: 0.20, file: "data/custom_latam.json" }
-];
-const SYNONYMS_FILE = "data/synonyms.json";
+/* ====== Carga de datos ====== */
+let DATA = [];
+let INDEX = []; // {i, tokens[]}
 
-/* ---- Fallback mínimo si no hay /data/ ---- */
-const FALLBACK = {
-  oxford: [
-    { "titulo": "Cajero/a", "isco": "4211", "fuentes": { "oxford": { "riesgo": 96, "explicacion": "Cobro y registro repetitivo altamente automatizable." } } },
-    { "titulo": "Recepcionista", "isco": "4226", "fuentes": { "oxford": { "riesgo": 91, "explicacion": "Check-in digital y asistentes automáticos." } } },
-    { "titulo": "Conductor/a de camión de larga distancia", "isco": "8332", "fuentes": { "oxford": { "riesgo": 64, "explicacion": "Asistencia avanzada y pruebas de conducción autónoma." } } },
-    { "titulo": "Desarrollador/a frontend", "isco": "2512", "fuentes": { "oxford": { "riesgo": 24, "explicacion": "Automatización parcial; diseño/arquitectura siguen humanas." } } }
-  ],
-  bls_onet: [
-    { "titulo": "Cashier", "onet": "41-2011.00", "aliases": ["Cajero", "Cajera", "Cajero/a"], "fuentes": { "bls_onet": { "riesgo": 94, "explicacion": "Self-checkout y pagos sin fricción.", "ref": "https://www.onetonline.org/" } } },
-    { "titulo": "Receptionists and Information Clerks", "onet": "43-4171.00", "aliases": ["Recepcionista"], "fuentes": { "bls_onet": { "riesgo": 88, "explicacion": "Agenda y atención básica automatizadas.", "ref": "https://www.onetonline.org/" } } },
-    { "titulo": "Heavy and Tractor-Trailer Truck Drivers", "onet": "53-3032.00", "aliases": ["Conductor de camión", "Conductor/a de camión de larga distancia"], "fuentes": { "bls_onet": { "riesgo": 62, "explicacion": "ADAS y rutas optimizadas.", "ref": "https://www.onetonline.org/" } } },
-    { "titulo": "Web Developers", "onet": "15-1254.00", "aliases": ["Desarrollador/a web", "Desarrollador/a frontend"], "fuentes": { "bls_onet": { "riesgo": 28, "explicacion": "Automatización parcial; trabajo creativo permanece.", "ref": "https://www.onetonline.org/" } } }
-  ],
-  custom: [
-    { "titulo": "Barista", "categoria": "Servicios", "aliases": ["Barista de cafetería"], "fuentes": { "custom": { "riesgo": 41, "explicacion": "Automatización de extracción y cobro; experiencia sigue humana." } } },
-    { "titulo": "Técnico/a de laboratorio clínico", "categoria": "Salud", "aliases": ["Técnico de laboratorio"], "fuentes": { "custom": { "riesgo": 67, "explicacion": "Robots de pipeteo/análisis; interpretación con supervisión." } } },
-    { "titulo": "Ingeniero/a de datos", "categoria": "Tecnología", "aliases": ["Data Engineer"], "fuentes": { "custom": { "riesgo": 34, "explicacion": "ETL/orquestación se automatizan parcialmente; diseño/fiabilidad importan." } } }
-  ]
-};
-
-/* ---------- Utilidades ---------- */
-const $ = sel => document.querySelector(sel);
-function showNotice(msg){ const n=$("#notice"); if(!n) return; if(!msg){ n.classList.add("hidden"); n.textContent=""; return;} n.textContent=msg; n.classList.remove("hidden"); }
-function normalize(str){
-  return (str || "").toString().toLowerCase()
-    .normalize("NFD").replace(/[\u0300-\u036f]/g, "")
-    .replace(/[^a-z0-9\s\/\-\.\,]/g, " ")
-    .replace(/\s+/g, " ").trim();
-}
-// Levenshtein
-function lev(a, b){
-  a = normalize(a); b = normalize(b);
-  const m = Array.from({length: a.length+1}, (_,i)=>[i]);
-  for(let j=1;j<=b.length;j++){ m[0][j]=j; }
-  for(let i=1;i<=a.length;i++){
-    for(let j=1;j<=b.length;j++){
-      const cost = a[i-1] === b[j-1] ? 0 : 1;
-      m[i][j] = Math.min(m[i-1][j] + 1, m[i][j-1] + 1, m[i-1][j-1] + cost);
-    }
-  }
-  return m[a.length][b.length];
-}
-function riskLevel(pct){
-  if (pct >= 80) return {label:"Muy alto", cls:"danger"};
-  if (pct >= 60) return {label:"Alto", cls:"warn"};
-  if (pct >= 30) return {label:"Medio", cls:"mid"};
-  return {label:"Bajo", cls:"ok"};
-}
-
-/* ---------- Carga de datos ---------- */
-let DATA = [];           // ocupaciones fusionadas
-let RAW_BY_SOURCE = {};  // {sourceId: []}
-let SYNONYMS = {};       // { normalizedTitle: [alias...] }
-
-async function loadJSON(url){
-  const res = await fetch(url, {cache: "no-store"});
-  if (!res.ok) throw new Error("No se pudo cargar: " + url);
-  return res.json();
-}
-
-function totalItems(raw){
-  return Object.values(raw).reduce((acc, arr)=> acc + (arr?.length || 0), 0);
-}
-
-async function loadAll(){
-  $("#loader").classList.remove("hidden");
-  // cargar sinónimos (opcional)
-  try { SYNONYMS = await loadJSON(SYNONYMS_FILE); } catch(e){ SYNONYMS = {}; console.warn("Sinónimos no cargados:", e); }
-
-  // cargar fuentes
-  for (const src of SOURCES){
-    try {
-      RAW_BY_SOURCE[src.id] = await loadJSON(src.file);
-    } catch(e){
-      console.warn("No se cargó", src.file, e);
-      RAW_BY_SOURCE[src.id] = [];
-    }
-  }
-
-  // Si no hay nada cargado, usar fallback embebido
-  if (totalItems(RAW_BY_SOURCE) === 0){
-    console.warn("Usando FALLBACK embebido: no se encontraron datasets en /data/");
-    RAW_BY_SOURCE = {
-      oxford: FALLBACK.oxford,
-      bls_onet: FALLBACK.bls_onet,
-      custom: FALLBACK.custom
-    };
-    showNotice("No se encontraron datasets en /data/. Usamos una base mínima de ejemplo para que puedas probar el sitio.");
-  } else {
-    showNotice(""); // ocultar aviso si todo bien
-  }
-
-  DATA = mergeSources(RAW_BY_SOURCE);
-  fillDatalist(DATA);
-  $("#loader").classList.add("hidden");
-}
-
-/* ---------- Fusión ---------- */
-function mergeSources(rawBySource){
-  const all = [];
-  for (const src of SOURCES){
-    for (const item of (rawBySource[src.id] || [])){
-      all.push({ ...item, _src: src.id });
-    }
-  }
-
-  const groups = new Map();
-  function keyFor(item){
-    if (item.onet) return "onet:" + item.onet;
-    if (item.isco) return "isco:" + item.isco;
-    return "t:" + normalize(item.titulo || "");
-  }
-
-  for (const it of all){
-    let k = keyFor(it);
-    if (!k.startsWith("t:")){
-      if (!groups.has(k)) groups.set(k, []);
-      groups.get(k).push(it);
-      continue;
-    }
-    const base = normalize(it.titulo);
-    let foundKey = null;
-    for (const [gk, arr] of groups.entries()){
-      const first = arr[0];
-      const firstTitle = normalize(first.titulo || "");
-      const same = (first.onet && it.onet && first.onet === it.onet)
-                || (first.isco && it.isco && first.isco === it.isco)
-                || (firstTitle === base)
-                || areSynonyms(firstTitle, base)
-                || lev(firstTitle, base) <= 3;
-      if (same){ foundKey = gk; break; }
-    }
-    if (!foundKey) foundKey = k;
-    if (!groups.has(foundKey)) groups.set(foundKey, []);
-    groups.get(foundKey).push(it);
-  }
-
-  const merged = [];
-  for (const arr of groups.values()){
-    const title = arr.map(x=>x.titulo).sort((a,b)=> (b?.length||0)-(a?.length||0))[0] || "Ocupación";
-    const isco = arr.map(x=>x.isco).find(Boolean) || null;
-    const onet = arr.map(x=>x.onet).find(Boolean) || null;
-    const categoria = arr.map(x=>x.categoria).find(Boolean) || null;
-    const pais = arr.map(x=>x.pais).find(Boolean) || null;
-
-    const fuentes = {};
-    for (const src of SOURCES){
-      const hit = arr.find(x => x._src === src.id);
-      if (hit){
-        const riesgo = getNested(hit, ["fuentes", src.id, "riesgo"]) ?? hit.riesgo ?? null;
-        const explicacion = getNested(hit, ["fuentes", src.id, "explicacion"]) ?? hit.explicacion ?? "";
-        const ref = getNested(hit, ["fuentes", src.id, "ref"]) ?? hit.ref ?? "";
-        if (riesgo !== null){
-          fuentes[src.id] = { riesgo, explicacion, ref };
-        }
-      }
-    }
-
-    const final = weightedRisk(fuentes);
-    const expl = bestExplanation(fuentes) || "Estimación combinada a partir de varias fuentes y descripciones ocupacionales.";
-    const aliases = collectAliases(arr);
-
-    merged.push({ titulo: title, isco, onet, categoria, pais, aliases, riesgo: final, explicacion: expl, fuentes });
-  }
-
-  return merged.sort((a,b)=> a.titulo.localeCompare(b.titulo, "es"));
-}
-
-function areSynonyms(a, b){
-  const la = SYNONYMS[a] || [];
-  const lb = SYNONYMS[b] || [];
-  return la.includes(b) || lb.includes(a);
-}
-function collectAliases(arr){
-  const set = new Set();
-  for (const it of arr){ (it.aliases || []).forEach(x=> set.add(x)); }
-  return Array.from(set).slice(0, 12);
-}
-function getNested(obj, pathArr){
-  return pathArr.reduce((o,k)=> (o && k in o ? o[k] : undefined), obj);
-}
-function weightedRisk(fuentes){
-  let sum = 0, w = 0;
-  for (const src of SOURCES){
-    const f = fuentes[src.id];
-    if (f && typeof f.riesgo === "number"){
-      sum += f.riesgo * src.weight;
-      w += src.weight;
-    }
-  }
-  return w === 0 ? null : Math.round(sum / w);
-}
-function bestExplanation(fuentes){
-  const order = ["custom","bls_onet","oxford"];
-  for (const id of order){ if (fuentes[id]?.explicacion) return fuentes[id].explicacion; }
-  const any = Object.values(fuentes)[0];
-  return any?.explicacion || "";
-}
-
-/* ---------- UI ---------- */
-function fillDatalist(db){
-  const dl = $("#sugerencias-datalist");
-  dl.innerHTML = db.map(j => `<option value="${j.titulo}"></option>`).join("");
-}
-
-function riskPill(pct){
-  const lvl = riskLevel(pct ?? 0);
-  const pill = $("#res-nivel");
-  pill.textContent = pct == null ? "Sin dato" : `${lvl.label}`;
-  pill.className = "pill";
-  if (lvl.cls === "danger") pill.style.background = "#3b0d0d";
-  else if (lvl.cls === "warn") pill.style.background = "#3b2a0d";
-  else if (lvl.cls === "mid") pill.style.background = "#1f2a3b";
-  else pill.style.background = "#13301c";
-
-  // Semáforo activo
-  document.querySelectorAll(".light").forEach(l => l.classList.remove("active"));
-  if (pct == null){ /* nada */ }
-  else if (pct >= 80) $(".light-red").classList.add("active");
-  else if (pct >= 60) $(".light-yellow").classList.add("active");
-  else $(".light-green").classList.add("active");
-}
-
-function renderSourcesTable(fuentes){
-  const rows = SOURCES.map(src=>{
-    const f = fuentes[src.id];
-    if (!f) return `<tr><td><span class="source-pill">${src.name}</span></td><td>—</td><td>—</td><td>—</td></tr>`;
-    return `<tr>
-      <td><span class="source-pill">${src.name}</span></td>
-      <td>${f.riesgo}%</td>
-      <td>${escapeHtml(f.explicacion || "—")}</td>
-      <td>${f.ref ? `<a href="${f.ref}" target="_blank" rel="noopener">Referencia</a>` : "—"}</td>
-    </tr>`;
-  }).join("");
-  return `<table class="tabla-fuentes">
-    <thead><tr><th>Fuente</th><th>Riesgo</th><th>Explicación (breve)</th><th>Ref</th></tr></thead>
-    <tbody>${rows}</tbody>
-  </table>`;
-}
-function escapeHtml(s){ return (s||"").replace(/[&<>"']/g, m=>({ '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;' }[m])); }
-
-/* ---------- Gauge ---------- */
-function setGauge(pct){
-  // Clampea 0–100 y convierte linealmente a -90° (0%) → +90° (100%)
-  const clamped = Math.max(0, Math.min(100, Number(pct) || 0));
-  const angle = -90 + (clamped * 1.8);
-  const g = document.getElementById("needle-group");
-  if (g){
-    // Usamos CSS transform para una rotación precisa y animada
-    g.style.transform = `rotate(${angle}deg)`;
-  }
-}
-
-
-/* ---------- Resultado ---------- */
-function setNote(text){
-  const el = $("#res-nota");
-  if (!text){ el.classList.add("hidden"); el.textContent = ""; return; }
-  el.textContent = text;
-  el.classList.remove("hidden");
-}
-
-function showResult(job){
-  $("#resultado").classList.remove("hidden");
-  $("#res-titulo").textContent = job.titulo;
-
-  const pct = job.riesgo;
-  $("#res-porcentaje").textContent = pct == null ? "— %" : `${pct}%`;
-  setGauge(pct ?? 0);
-  riskPill(pct);
-
-  $("#res-explicacion").textContent = job.explicacion || "—";
-  $("#res-fuentes").innerHTML = renderSourcesTable(job.fuentes);
-  const ids = [];
-  if (job.isco) ids.push(`ISCO: ${job.isco}`);
-  if (job.onet) ids.push(`O*NET: ${job.onet}`);
-  $("#res-fuente").textContent = ids.join(" · ");
-
-  // Actualiza enlaces de compartir
-  updateShare(job);
-}
-
-/* ---------- Sugerencias ---------- */
-function computeSuggestions(q, limit=8){
-  const nq = normalize(q);
-  if (!nq) return [];
-  return DATA.map(j => {
-      const ntitle = normalize(j.titulo);
-      let score = 0;
-      if (ntitle.startsWith(nq)) score += 70;
-      else if (ntitle.includes(nq)) score += 50;
-      const d = lev(ntitle, nq);
-      score += Math.max(0, 40 - d);
-      return { title: j.titulo, score };
-    })
-    .sort((a,b)=>b.score - a.score)
-    .slice(0, limit)
-    .map(x=>x.title);
-}
-
-function showSuggestions(q){
-  const cont = $("#sugerencias-panel");
-  const ul = $("#lista-sugerencias");
-  const items = computeSuggestions(q, 8);
-  if (!items.length){ cont.classList.add("hidden"); ul.innerHTML = ""; return; }
-  ul.innerHTML = items.map(t => `<li><button class="linklike" data-job="${t}">${t}</button></li>`).join("");
-  cont.classList.remove("hidden");
-}
-function hideSuggestions(){
-  $("#sugerencias-panel").classList.add("hidden");
-  $("#lista-sugerencias").innerHTML = "";
-}
-
-function searchJob(q, {explicitSubmit=false}={}){
-  if (!q || !DATA.length){
-    if (!DATA.length) showNotice("La base de datos está vacía. Revisa que la carpeta /data/ y los archivos JSON existan con los nombres correctos.");
-    return;
-  }
-  const nq = normalize(q);
-
-  // Coincidencia exacta
-  let found = DATA.find(j => normalize(j.titulo) === nq);
-
-  // Si no exacta, coincidencia por inclusión única
-  if (!found){
-    const list = DATA.filter(j => normalize(j.titulo).includes(nq));
-    if (list.length === 1) found = list[0];
-  }
-
-  if (found){
-    setNote("");
-    showResult(found);
-    hideSuggestions();
-  } else {
-    const best = DATA.map(j => ({ j, d: lev(j.titulo, q) }))
-                     .sort((a,b) => a.d - b.d)[0]?.j;
-    if (best){
-      showResult(best);
-      setNote(`No encontramos “${q}”. Te mostramos la opción más cercana: “${best.titulo}”. Puedes elegir otra profesión similar de la lista.`);
-      showSuggestions(q);
-    } else {
-      setNote(`No encontramos “${q}”. Prueba con otra palabra clave o elige una sugerencia.`);
-      showSuggestions(q);
-    }
-  }
-}
-
-/* ---------- Compartir ---------- */
-function updateShare(job){
-  const title = `Riesgo de automatización: ${job.titulo}`;
-  const text = `${job.titulo}: ${job.riesgo ?? "—"}% • ${job.explicacion}`;
-  const url = withQuery(window.location.href, "q", job.titulo);
-
-  const buttons = document.querySelectorAll(".share-btn");
-  buttons.forEach(btn=>{
-    btn.onclick = async () => {
-      const type = btn.getAttribute("data-share");
-      try {
-        if (type === "native" && navigator.share){
-          await navigator.share({ title, text, url });
-          setShareStatus("Compartido.");
-          return;
-        }
-        if (type === "whatsapp"){
-          const u = `https://wa.me/?text=${encodeURIComponent(`${title}\n${url}`)}`;
-          openShare(u); return;
-        }
-        if (type === "twitter"){
-          const u = `https://twitter.com/intent/tweet?text=${encodeURIComponent(title)}&url=${encodeURIComponent(url)}`;
-          openShare(u); return;
-        }
-        if (type === "facebook"){
-          const u = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`;
-          openShare(u); return;
-        }
-        if (type === "linkedin"){
-          const u = `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}`;
-          openShare(u); return;
-        }
-        if (type === "telegram"){
-          const u = `https://t.me/share/url?url=${encodeURIComponent(url)}&text=${encodeURIComponent(title)}`;
-          openShare(u); return;
-        }
-        if (type === "copy"){
-          await navigator.clipboard.writeText(url);
-          setShareStatus("Enlace copiado al portapapeles.");
-          return;
-        }
-        if (navigator.share){
-          await navigator.share({ title, text, url });
-          setShareStatus("Compartido.");
-        }
-      } catch(e){
-        setShareStatus("No se pudo compartir. Intenta de nuevo.");
-      }
-    };
-  });
-}
-function setShareStatus(msg){
-  const el = $("#share-status");
-  el.textContent = msg || "";
-  if (msg) setTimeout(()=> el.textContent="", 3000);
-}
-function openShare(u){
-  window.open(u, "_blank", "noopener,noreferrer,width=560,height=640");
-}
-function withQuery(href, key, val){
-  const url = new URL(href);
-  url.searchParams.set(key, val);
-  return url.toString();
-}
-
-/* ---------- Eventos ---------- */
-function bindUI(){
-  $("#year").textContent = new Date().getFullYear();
-
-  // Chips
-  $("#chips").addEventListener("click", (e)=>{
-    const el = e.target.closest("[data-job]");
-    if (!el) return;
-    const v = el.getAttribute("data-job");
-    $("#q").value = v;
-    updateUrlQuery(v);
-    searchJob(v, {explicitSubmit:true});
-  });
-
-  // Click en sugerencias (panel)
-  $("#lista-sugerencias").addEventListener("click", (e)=>{
-    const btn = e.target.closest("button[data-job]");
-    if (!btn) return;
-    const v = btn.getAttribute("data-job");
-    $("#q").value = v;
-    updateUrlQuery(v);
-    searchJob(v, {explicitSubmit:true});
-  });
-
-  // Búsqueda con submit
-  $("#search-form").addEventListener("submit", (e)=>{
-    e.preventDefault();
-    const q = $("#q").value.trim();
-    updateUrlQuery(q);
-    searchJob(q, {explicitSubmit:true});
-  });
-
-  // Sugerencias en vivo al escribir
-  $("#q").addEventListener("input", (e)=>{
-    const q = e.target.value.trim();
-    setNote(""); // limpiamos nota al escribir
-    if (q.length >= 2){ showSuggestions(q); } else { hideSuggestions(); }
-  });
-}
-
-function updateUrlQuery(q){
-  const url = new URL(location.href);
-  if (q) url.searchParams.set("q", q); else url.searchParams.delete("q");
-  history.replaceState(null, "", url.toString());
-}
-
-function handleUrlOnLoad(){
-  const url = new URL(location.href);
-  const q = url.searchParams.get("q");
-  if (q){
-    $("#q").value = q;
-    searchJob(q, {explicitSubmit:true});
-  }
-}
-
-/* ---------- Init ---------- */
-document.addEventListener("DOMContentLoaded", async ()=>{
+async function cargarDatos() {
   try {
-    bindUI();
-    await loadAll();
-    handleUrlOnLoad();
-  } catch (e){
-    console.error(e);
-    showNotice("Ocurrió un error inicializando la app. Revisa la consola del navegador.");
-    $("#loader")?.classList.add("hidden");
+    const res = await fetch('base_de_datos.json', {cache:'no-store'});
+    DATA = await res.json();
+    // Construye índice (ocupación + sinónimos)
+    INDEX = DATA.map((it, i) => {
+      const base = [it.ocupacion_es, ...(it.sinonimos||[])].join(' ');
+      return { i, tokens: norm(base) };
+    });
+  } catch (e) {
+    console.error('Error cargando base_de_datos.json', e);
   }
-});
+}
+
+/* ====== Búsqueda ====== */
+function sugerir(term) {
+  if (!term) return [];
+  const q = norm(term);
+  const hits = INDEX
+    .map(obj => ({ i: obj.i, score: scoreMatch(obj.tokens, q) }))
+    .filter(x => x.score > 0)
+    .sort((a,b)=>b.score-a.score)
+    .slice(0, 8)
+    .map(x => DATA[x.i].ocupacion_es);
+  return [...new Set(hits)];
+}
+
+function scoreMatch(haystack, needle) {
+  // Puntúa: coincidencia completa > incluye palabra > substring
+  if (haystack === needle) return 100;
+  if (haystack.includes(` ${needle} `)) return 80;
+  if (haystack.startsWith(needle+' ') || haystack.endsWith(' '+needle)) return 70;
+  if (haystack.includes(needle)) return Math.min(60, Math.floor(needle.length*2));
+  // Divide y suma
+  const parts = needle.split(' ');
+  let s = 0; parts.forEach(p => { if (haystack.includes(p)) s += 10; });
+  return s;
+}
+
+function buscar(term) {
+  const q = norm(term);
+  let best = null;
+  let bestScore = 0;
+  INDEX.forEach(obj => {
+    const s = scoreMatch(obj.tokens, q);
+    if (s > bestScore) { bestScore = s; best = DATA[obj.i]; }
+  });
+  return best;
+}
+
+/* ====== Velocímetro ====== */
+function etiquetaRiesgo(pct){
+  const p = Math.max(0, Math.min(100, pct));
+  if (p <= 16.6) return 'Muy bajo';
+  if (p <= 33.3) return 'Bajo';
+  if (p <= 50.0) return 'Moderado';
+  if (p <= 66.6) return 'Moderado-alto';
+  if (p <= 83.3) return 'Alto';
+  return 'Inminente';
+}
+
+function setGauge(pct){
+  const clamp = Math.max(0, Math.min(100, pct));
+  const angle = -90 + (clamp/100)*180; // 0%=-90°, 50%=0°, 100%=+90°
+  const needle = document.getElementById('needle');
+  needle.style.transform = `rotate(${angle}deg)`;
+  document.getElementById('porcentaje').textContent = `${Math.round(clamp)}%`;
+  document.getElementById('riesgoEtiqueta').textContent = etiquetaRiesgo(clamp);
+}
+
+/* ====== UI ====== */
+function pintarResultado(item){
+  $('#resultado').classList.remove('hidden');
+  $('#ocupacionTitulo').textContent = item.ocupacion_es;
+  $('#explicacion').textContent = item.explicacion || '—';
+  setGauge(Number(item.riesgo_automatizacion_porcentaje || 0));
+  // Share
+  const texto = encodeURIComponent(`Riesgo de automatización para “${item.ocupacion_es}”: ${item.riesgo_automatizacion_porcentaje}% — aimequitaeltrabajo.com`);
+  $('#shareWhats').href = `https://api.whatsapp.com/send?text=${texto}`;
+  $('#btnShare').onclick = async () => {
+    if (navigator.share){
+      try { await navigator.share({title:'Riesgo de automatización', text:`${decodeURIComponent(texto)}`, url: location.href}); } catch {}
+    } else {
+      alert('Comparte copiando este link:\n' + location.href);
+    }
+  };
+}
+
+function pintarSugerencias(list){
+  const cont = $('#sugerencias');
+  cont.innerHTML = '';
+  list.forEach(txt => {
+    const b = document.createElement('button');
+    b.textContent = txt;
+    b.onclick = () => { $('#search').value = txt; cont.innerHTML=''; accionBuscar(); };
+    cont.appendChild(b);
+  });
+}
+
+/* ====== Eventos ====== */
+async function accionBuscar(){
+  const term = $('#search').value.trim();
+  if (!term) return;
+  const found = buscar(term);
+  if (found) pintarResultado(found);
+  else {
+    $('#resultado').classList.remove('hidden');
+    $('#ocupacionTitulo').textContent = 'No encontramos esa ocupación';
+    $('#explicacion').textContent = 'Prueba otro sinónimo o escribe el nombre más corto de tu ocupación.';
+    setGauge(0);
+  }
+}
+
+document.addEventListener('DOMContentLoaded', async () => {
+  await cargarDatos();
+
+  // Autocompletar simple
+  $('#search').addEventListener('input', e => {
+    const s = sugerir(e.target.value);
+    pintarSugerencias(s);
+  });
+
+  $('#btnBuscar').addEventListener('click', accionBuscar);
+  $('#search').addEventListener('keydown', (e)=>{ if(e.key==='Enter') accionBuscar(); });
+
+  // Si viene ?q= en la URL, búscalo
+  const params = new URLSearchParams(location.search);
+  const q = params.get('q') || params.get('busqueda');
+  if (q){ $('#sear
