@@ -34,9 +34,20 @@ input[type="search"]{flex:1;padding:12px 14px;border-radius:10px;border:1px soli
 .result-top h2{margin:0;font-size:1.15rem}
 .badge{background:#233046;border:1px solid #2a3347;color:#dbeafe;border-radius:999px;padding:2px 10px;font-size:.85rem}
 
+/* === Etiqueta de riesgo (no superpuesta) === */
+.risk-label{
+  display:inline-block;
+  margin:4px 0 8px;
+  padding:6px 12px;
+  border-radius:999px;
+  border:1px solid #2a3347;
+  background:#233046;
+  color:#e6edf3;
+  font-weight:600;
+}
+
 /* Velocímetro */
 .gauge-wrap{position:relative;margin:8px 0 6px}
-.gauge-banner{position:absolute;left:50%;top:-8px;transform:translate(-50%,-50%);padding:6px 12px;border-radius:999px;border:1px solid #2a3347;background:#233046;color:#e6edf3;font-weight:600;box-shadow:0 2px 8px rgba(0,0,0,.25)}
 .needle{transform-origin:160px 160px;transition:transform .85s cubic-bezier(.2,.8,.2,1)}
 .percent{display:flex;justify-content:center;margin-top:-2px}
 .percent #porcentaje{font-size:2rem;font-weight:800}
@@ -55,9 +66,19 @@ input[type="search"]{flex:1;padding:12px 14px;border-radius:10px;border:1px soli
 }
 .zoom-link{display:inline-block;margin-left:.5rem}
 
-.audio-card{margin-top:14px;background:#0f172a;border:1px solid #2a3347;border-radius:12px;padding:12px}
+.audio-card{background:#0f172a;border:1px solid #2a3347;border-radius:12px;padding:12px;margin-bottom:14px}
 .audio-card h4{margin:0 0 8px 0;font-size:1rem}
 .audio-card audio{width:100%}
+.audio-actions{display:flex;gap:8px;align-items:center;margin-top:6px;flex-wrap:wrap}
+
+/* Share buttons con iconos */
+.share-grid{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+.share-btn{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:10px 12px;border-radius:10px;border:1px solid #2a3347;
+  background:#0f172a;color:#e6edf3;text-decoration:none;cursor:pointer
+}
+.share-btn svg{width:18px;height:18px;fill:#e6edf3}
 
 /* Ads placeholders */
 .sidebar .ad-placeholder,.footer .ad-placeholder{
