@@ -5,18 +5,24 @@
 *{box-sizing:border-box}
 html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,"Noto Sans","Helvetica Neue",Arial}
 a{color:var(--accent);text-decoration:none}
-.container{max-width:1400px;margin:auto;padding:16px}
 
-.site-header{display:flex;justify-content:space-between;align-items:center;gap:16px}
+/* === Contenedor global centrado === */
+.container{max-width:960px;margin:0 auto;padding:16px}
+
+/* === Header centrado === */
+.site-header{
+  display:flex; flex-direction:column; align-items:center; text-align:center; gap:8px
+}
 .site-header h1{margin:0;font-size:clamp(1.4rem,2.5vw,2rem)}
-.site-header nav a{margin-right:12px}
+.site-header nav{display:flex;gap:14px;flex-wrap:wrap;justify-content:center}
+.site-header nav a{margin:0}
 .brand{opacity:.7}
 
-/* SIN SIDEBAR */
+/* === Una sola columna centrada === */
 .grid{display:block}
-.main{display:flex;flex-direction:column;gap:24px}
+.main{display:flex;flex-direction:column;gap:24px; align-items:stretch}
 
-/* Buscador */
+/* === Buscador === */
 .search-card{background:var(--card);padding:16px;border-radius:14px;box-shadow:0 0 0 1px #1f2937}
 .label{display:block;margin-bottom:8px;color:#c9d1d9}
 .search-row{display:flex;gap:8px}
@@ -24,40 +30,43 @@ input[type="search"]{flex:1;padding:12px 14px;border-radius:10px;border:1px soli
 .btn{background:var(--btn);color:var(--btn-text);border:1px solid #2a3347;border-radius:10px;padding:10px 14px;cursor:pointer}
 .btn:hover{filter:brightness(1.05)}
 .help{color:var(--muted);margin:.5rem 0 0}
-.suggestions{margin-top:8px;display:flex;flex-wrap:wrap}
+.suggestions{margin-top:8px;display:flex;flex-wrap:wrap;justify-content:center}
 .suggestions button{margin:4px 6px 0 0;border:1px solid #2a3347;background:#0f172a;color:#c9d1d9;border-radius:999px;padding:6px 10px;cursor:pointer}
 
-/* Resultado / gauge */
+/* === Resultado / gauge === */
 .result{background:var(--card);padding:16px;border-radius:14px}
 .hidden{display:none}
-.result-top{display:flex;align-items:center;gap:12px;margin-bottom:6px}
+.result-top{display:flex;justify-content:center;align-items:center;gap:12px;margin-bottom:6px;text-align:center}
 .result-top h2{margin:0;font-size:1.15rem}
 .badge{background:#233046;border:1px solid #2a3347;color:#dbeafe;border-radius:999px;padding:2px 10px;font-size:.85rem}
 
 .gauge-wrap{margin:8px 0 6px}
-.gauge-label{display:inline-block;margin:0 0 8px 0;padding:6px 12px;border-radius:999px;border:1px solid #2a3347;background:#233046;color:#e6edf3;font-weight:600}
+.gauge-label{
+  display:inline-block;margin:0 0 8px 0;padding:6px 12px;border-radius:999px;
+  border:1px solid #2a3347;background:#233046;color:#e6edf3;font-weight:600
+}
 .needle{transform-origin:160px 160px;transition:transform .85s cubic-bezier(.2,.8,.2,1)}
 .percent{display:flex;justify-content:center;margin-top:-2px}
 .percent #porcentaje{font-size:2rem;font-weight:800}
-.explicacion{margin-top:8px}
+.explicacion{margin-top:8px;text-align:center}
 
-/* Audio arriba del gráfico */
+/* === Audio arriba del gráfico === */
 .info.onecol{display:block}
 .hero-audio{margin-bottom:14px}
 .audio-card{background:#0f172a;border:1px solid #2a3347;border-radius:12px;padding:12px}
-.audio-card h4{margin:0 0 8px 0;font-size:1rem}
+.audio-card h4{margin:0 0 8px 0;font-size:1rem;text-align:center}
 .audio-card audio{width:100%}
 
-/* Imagen a todo el ancho */
+/* === Imagen a todo el ancho === */
 .chart.hero{margin:0}
 .chart.hero .chart-img{
   width:100%;height:auto;display:block;border-radius:12px;border:1px solid #2a3347;
   box-shadow:0 0 0 1px #2a3347, 0 6px 28px rgba(0,0,0,.35)
 }
 
-/* Compartir: iconos blancos, tamaño normal, sin fondo */
+/* === Compartir (centrado, iconos blancos) === */
 .share{margin-top:12px}
-.share-buttons{display:flex;flex-wrap:wrap;gap:10px}
+.share-buttons{display:flex;flex-wrap:wrap;gap:10px;justify-content:center}
 .share-btn{
   display:inline-flex;align-items:center;gap:8px;padding:6px 10px;border-radius:8px;
   background:transparent;border:1px solid #2a3347;color:#fff;text-decoration:none;cursor:pointer
@@ -65,5 +74,8 @@ input[type="search"]{flex:1;padding:12px 14px;border-radius:10px;border:1px soli
 .share-btn:hover{background:#141a29}
 .share-btn svg{width:18px;height:18px;display:block;color:#fff}
 
-/* Footer */
-.footer{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-top:12px;border-top:1px solid #1f2937;padding-top:16px}
+/* === Footer centrado === */
+.footer{
+  display:flex;flex-direction:column;align-items:center;gap:8px;
+  margin-top:12px;border-top:1px solid #1f2937;padding-top:16px;text-align:center
+}
