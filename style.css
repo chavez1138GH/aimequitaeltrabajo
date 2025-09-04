@@ -5,13 +5,13 @@
 *{box-sizing:border-box}
 html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,"Noto Sans","Helvetica Neue",Arial}
 a{color:var(--accent);text-decoration:none}
-.container{max-width:1280px; /* ⬅️ más ancho para que la imagen crezca */ margin:auto;padding:16px}
+.container{max-width:1400px;margin:auto;padding:16px}
 .site-header{display:flex;justify-content:space-between;align-items:center;gap:16px}
 .site-header h1{margin:0;font-size:clamp(1.4rem,2.5vw,2rem)}
 .site-header nav a{margin-right:12px}
 .brand{opacity:.7}
 
-.grid{display:grid;grid-template-columns:1.6fr 1fr; /* ⬅️ más espacio a la columna del gráfico */ gap:24px}
+.grid{display:grid;grid-template-columns:2fr 1fr;gap:24px}
 @media (max-width:1100px){.grid{grid-template-columns:1fr}}
 
 .main{display:flex;flex-direction:column;gap:24px}
@@ -25,7 +25,6 @@ input[type="search"]{flex:1;padding:12px 14px;border-radius:10px;border:1px soli
 
 .help{color:var(--muted);margin:.5rem 0 0}
 
-/* Sugerencias */
 .suggestions{margin-top:8px;display:flex;flex-wrap:wrap}
 .suggestions button{margin:4px 6px 0 0;border:1px solid #2a3347;background:#0f172a;color:#c9d1d9;border-radius:999px;padding:6px 10px;cursor:pointer}
 
@@ -43,31 +42,10 @@ input[type="search"]{flex:1;padding:12px 14px;border-radius:10px;border:1px soli
 .percent #porcentaje{font-size:2rem;font-weight:800}
 .explicacion{margin-top:8px}
 
-/* Info (gráfico grande) */
-.info{display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:start}
-@media (max-width:1000px){.info{grid-template-columns:1fr}}
-.chart{margin:0}
-.chart.big .chart-img{width:100%;height:auto;display:block;border-radius:12px;border:1px solid #2a3347;/* aumentar legibilidad */ box-shadow:0 0 0 1px #2a3347, 0 4px 24px rgba(0,0,0,.35)}
-.zoom-link{display:inline-block;margin-left:.5rem}
-.audio-card{margin-top:14px;background:#0f172a;border:1px solid #2a3347;border-radius:12px;padding:12px}
-.audio-card h4{margin:0 0 8px 0;font-size:1rem}
-.audio-card audio{width:100%}
-
-/* Ads placeholders */
-.sidebar .ad-placeholder,.footer .ad-placeholder{background:#0f172a;border:1px dashed #2a3347;border-radius:12px;color:#9aa7b8;padding:18px;text-align:center;margin-top:6px}
-
-.footer{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-top:12px;border-top:1px solid #1f2937;padding-top:16px}
-/* contenedor más ancho para darle aire a la imagen */
-.container{max-width:1400px}
-
-/* columna principal más grande que la sidebar */
-.grid{grid-template-columns:2fr 1fr}
-
-/* sección informativa: favorece la columna del gráfico */
-.info{grid-template-columns:1.3fr 1fr}
-
-/* imagen: ocupa todo el ancho y con buen contraste/borde */
-.chart.big .chart-img{
+/* ===== IMAGEN + AUDIO A TODO EL ANCHO ===== */
+.info.onecol{display:block}
+.chart.hero{margin:0}
+.chart.hero .chart-img{
   width:100%;
   height:auto;
   display:block;
@@ -75,6 +53,14 @@ input[type="search"]{flex:1;padding:12px 14px;border-radius:10px;border:1px soli
   border:1px solid #2a3347;
   box-shadow:0 0 0 1px #2a3347, 0 6px 28px rgba(0,0,0,.35);
 }
-
-/* enlace para abrir en tamaño completo (ya está en el HTML) */
 .zoom-link{display:inline-block;margin-left:.5rem}
+
+.audio-card{margin-top:14px;background:#0f172a;border:1px solid #2a3347;border-radius:12px;padding:12px}
+.audio-card h4{margin:0 0 8px 0;font-size:1rem}
+.audio-card audio{width:100%}
+
+/* Ads placeholders */
+.sidebar .ad-placeholder,.footer .ad-placeholder{
+  background:#0f172a;border:1px dashed #2a3347;border-radius:12px;color:#9aa7b8;padding:18px;text-align:center;margin-top:6px
+}
+.footer{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-top:12px;border-top:1px solid #1f2937;padding-top:16px}
