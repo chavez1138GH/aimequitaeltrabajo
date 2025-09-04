@@ -35,7 +35,7 @@
 
   <link rel="stylesheet" href="style.css" />
 
-  <!-- AdSense (rellena tu ID antes de publicar)
+  <!-- AdSense (rellena tu ID y descomenta)
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script>
   -->
 </head>
@@ -110,12 +110,6 @@
           </div>
         </div>
 
-        <!-- AUDIO debajo del gráfico -->
-        <figure class="audio-card">
-          <h4>Empleo y el Impacto de la IA</h4>
-          <audio id="player" controls preload="none" src="audio.mp3" aria-label="Reproducir audio: Empleo y el Impacto de la IA"></audio>
-        </figure>
-
         <p id="explicacion" class="explicacion"></p>
 
         <!-- Compartir -->
@@ -125,12 +119,22 @@
         </div>
       </section>
 
-      <!-- INFO BAJO LA BÚSQUEDA -->
+      <!-- INFO BAJO LA BÚSQUEDA (imagen + audio) -->
       <section class="info">
-        <figure class="chart">
-          <img src="images/i1.png" alt="Nivel de exposición a la automatización por IA generativa (ejemplo)">
-          <figcaption>Ejemplo ilustrativo de ocupaciones con alta y baja exposición.</figcaption>
-        </figure>
+        <div>
+          <figure class="chart">
+            <img src="images/i1.png" alt="Nivel de exposición a la automatización por IA generativa (ejemplo)">
+            <figcaption>Ejemplo ilustrativo de ocupaciones con alta y baja exposición.</figcaption>
+          </figure>
+
+          <!-- AUDIO: debajo de la imagen -->
+          <figure class="audio-card">
+            <h4>Empleo y el Impacto de la IA</h4>
+            <audio id="player" controls preload="none" src="media/audio.mp3"
+                   aria-label="Reproducir audio: Empleo y el Impacto de la IA"></audio>
+          </figure>
+        </div>
+
         <div class="info-text">
           <h3>¿La inteligencia artificial viene por tu trabajo?</h3>
           <p>La respuesta no es un simple sí o no. Como muestra este gráfico, el futuro de la automatización es muy diferente según la profesión. Por un lado, los empleos que consisten en organizar información y realizar tareas predecibles, como los Empleados de Entrada de Datos y los Tenedores de Libros, se encuentran en la zona de mayor exposición. La IA generativa es una experta en este tipo de labores, lo que pone a las profesiones de oficina en el epicentro del cambio.</p>
