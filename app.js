@@ -1,9 +1,10 @@
 /* =========================================================
-   aimequitaeltrabajo.com — dataset único + canvas gauge
-   Fix: cache-buster + parser flexible de campos + contador
+   aimequitaeltrabajo.com
+   Versión: dataset único en /data/base_de_datos.json + gráfico canvas
    ========================================================= */
 
-const DATA_FILE = "data/base_de_datos.json"; // TU JSON
+// ==== Config ====
+const DATA_FILE = "data/base_de_datos.json"; // TU archivo
 const ADSENSE = {
   CLIENT: "ca-pub-XXXXXXXXXXXXXXXX",
   SLOT_TOP: "1111111111",
@@ -12,56 +13,44 @@ const ADSENSE = {
   SLOT_FOOTER: "4444444444"
 };
 
-// ---------- Utils ----------
+// ==== Utils ====
 const $ = s => document.querySelector(s);
 function showNotice(msg){ const n=$("#notice"); if(!n) return; if(!msg){ n.classList.add("hidden"); n.textContent=""; return;} n.textContent=msg; n.classList.remove("hidden"); }
 function normalize(str){ return (str || "").toString().toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"").replace(/[^a-z0-9\s\/\-\.\,]/g," ").replace(/\s+/g," ").trim(); }
 function lev(a,b){ a=normalize(a); b=normalize(b); const m=Array.from({length:a.length+1},(_,i)=>[i]); for(let j=1;j<=b.length;j++)m[0][j]=j; for(let i=1;i<=a.length;i++){ for(let j=1;j<=b.length;j++){ const c=a[i-1]===b[j-1]?0:1; m[i][j]=Math.min(m[i-1][j]+1,m[i][j-1]+1,m[i-1][j-1]+c);} } return m[a.length][b.length]; }
 function band(p){ if(p>=80) return {name:"Muy alto", color:"#e53935"}; if(p>=60) return {name:"Alto", color:"#fb8c00"}; if(p>=40) return {name:"Medio", color:"#ffd54f"}; if(p>=20) return {name:"Bajo", color:"#76d275"}; return {name:"Mínimo", color:"#2e7d32"}; }
 function escapeHtml(s){ return (s||"").replace(/[&<>"']/g, m=>({ '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;' }[m])); }
-function pick(obj, keys, def=null){ for(const k of keys){ if (Object.prototype.hasOwnProperty.call(obj,k) && obj[k]!==undefined && obj[k]!==null) return obj[k]; } return def; }
 
-// ---------- Estado ----------
-let DB = [];
-let TITLES = [];
-let BY_TITLE = new Map();
+// ==== Estado ====
+let DB = [];             // registros normalizados
+let TITLES = [];         // lista de strings (títulos + sinónimos) para datalist
+let BY_TITLE = new Map(); // mapa de title->registro (para sinónimos también)
 
-// ---------- Carga ----------
+// ==== Carga ====
 async function loadJSON(url){
-  // Cache-buster: fuerza al navegador/CDN a traerse la versión nueva siempre
-  const bust = (url.includes("?") ? "&" : "?") + "v=" + Date.now();
-  const res = await fetch(url + bust, { cache: "no-store" });
-  if(!res.ok) throw new Error("No se pudo cargar " + url + " (" + res.status + ")");
+  const res = await fetch(url, {cache:"no-store"});
+  if(!res.ok) throw new Error("No se pudo cargar " + url);
   return res.json();
 }
 
 function buildDB(raw){
-  // Acepta múltiples nombres de campos; convierte a un shape unificado
-  DB = (raw || []).map((r) => {
-    const titulo = pick(r, ["ocupacion_es","titulo","ocupacion","title_es","nombre","profesion"], "");
-    const isco   = pick(r, ["codigo_isco","isco","isco_code"], null);
-    const riesgo = Number(pick(r, ["riesgo_automatizacion_porcentaje","riesgo","porcentaje","probabilidad","score"], null));
-    const explicacion = pick(r, ["explicacion","descripcion","nota"], "");
-    const f_raw  = pick(r, ["fuentes","sources","source","fuente"], []);
-    const fuentes = Array.isArray(f_raw) ? f_raw.map(x=>String(x)) : (f_raw ? [String(f_raw)] : []);
-    const sin_raw = pick(r, ["sinonimos","sinónimos","aliases","alias"], []);
-    const sinonimos = Array.isArray(sin_raw) ? sin_raw : (sin_raw ? [String(sin_raw)] : []);
-
-    return { titulo: String(titulo).trim(), isco, riesgo: isFinite(riesgo) ? riesgo : null, explicacion, fuentes, sinonimos };
-  })
-  // filtra entradas sin título válido
-  .filter(r => r.titulo && r.titulo.length > 0);
+  DB = (raw||[]).map(r => ({
+    titulo: r.ocupacion_es,
+    isco: r.codigo_isco || null,
+    riesgo: Number(r.riesgo_automatizacion_porcentaje ?? null),
+    explicacion: r.explicacion || "",
+    fuentes: (r.fuentes||[]).map(f => String(f)),
+    sinonimos: Array.isArray(r.sinonimos) ? r.sinonimos : []
+  }));
 
   // Índices: título + sinónimos apuntan al mismo registro
   BY_TITLE.clear();
   TITLES = [];
   for(const reg of DB){
-    const set = new Set([reg.titulo, ...reg.sinonimos]);
-    for(const t of set){
-      const key = normalize(String(t));
-      if(!key) continue;
-      BY_TITLE.set(key, reg);
-      TITLES.push(String(t));
+    const all = new Set([reg.titulo, ...reg.sinonimos]);
+    for(const t of all){
+      BY_TITLE.set(normalize(t), reg);
+      TITLES.push(t);
     }
   }
   TITLES.sort((a,b)=> a.localeCompare(b,"es"));
@@ -69,7 +58,7 @@ function buildDB(raw){
 
 function fillDatalist(){
   const dl = $("#sugerencias-datalist");
-  dl.innerHTML = TITLES.slice(0, 2000).map(t => `<option value="${escapeHtml(t)}"></option>`).join("");
+  dl.innerHTML = TITLES.slice(0, 1500).map(t => `<option value="${escapeHtml(t)}"></option>`).join("");
 }
 
 async function initData(){
@@ -78,21 +67,21 @@ async function initData(){
     const raw = await loadJSON(DATA_FILE);
     buildDB(raw);
     fillDatalist();
-    showNotice(`Base cargada: ${DB.length} ocupaciones (${TITLES.length} términos con sinónimos).`);
+    showNotice(""); // ok
   }catch(e){
     console.error(e);
-    showNotice("No se pudo cargar /data/base_de_datos.json. Verifica nombre, ruta y formato JSON.");
+    showNotice("No se pudo cargar /data/base_de_datos.json. Verifica el nombre y la ruta.");
   }finally{
     $("#loader").classList.add("hidden");
   }
 }
 
-// ---------- Búsqueda ----------
+// ==== Búsqueda ====
 function bestMatch(q){
   if(!q) return null;
   const nq = normalize(q);
 
-  // 1) exacto por título/sinónimo
+  // 1) exacto por título o sinónimo
   const ex = BY_TITLE.get(nq);
   if (ex) return { reg: ex, exact: true };
 
@@ -100,7 +89,7 @@ function bestMatch(q){
   const incl = TITLES.filter(t => normalize(t).includes(nq));
   if(incl.length === 1) return { reg: BY_TITLE.get(normalize(incl[0])), exact: false };
 
-  // 3) por distancia (Levenshtein)
+  // 3) por distancia
   let best = null, bestD = Infinity, bestTitle=null;
   for(const t of TITLES){
     const d = lev(t, q);
@@ -116,13 +105,12 @@ function computeSuggestions(q, limit=8){
     .map(t => {
       const nt = normalize(t);
       let score = 0;
-      if (nt.startsWith(nq)) score += 70; else if (nt.includes(nq)) score += 50;
+      if (nt.startsWith(nq)) score += 70;
+      else if (nt.includes(nq)) score += 50;
       score += Math.max(0, 40 - lev(nt, nq));
       return {t, score};
     })
-    .sort((a,b)=>b.score-a.score)
-    .slice(0, limit)
-    .map(x=>x.t);
+    .sort((a,b)=>b.score-a.score).slice(0, limit).map(x=>x.t);
 }
 
 function showSuggestions(q){
@@ -134,11 +122,12 @@ function showSuggestions(q){
 }
 function hideSuggestions(){ $("#sugerencias-panel").classList.add("hidden"); $("#lista-sugerencias").innerHTML=""; }
 
-// ---------- Render ----------
+// ==== Render resultado ====
 function showResult(reg, {query, exact}){
   $("#resultado").classList.remove("hidden");
   $("#res-titulo").textContent = reg.titulo;
 
+  // Nota si fue aproximación
   if(!exact && query){
     $("#res-nota").textContent = `No encontramos “${query}”. Mostramos la opción más cercana: “${reg.titulo}”. Puedes elegir otra profesión similar.`;
     $("#res-nota").classList.remove("hidden");
@@ -147,6 +136,7 @@ function showResult(reg, {query, exact}){
     $("#res-nota").textContent = "";
   }
 
+  // Número + nivel
   const pct = Number(reg.riesgo ?? 0);
   const b = band(pct);
   $("#res-porcentaje").textContent = `${isFinite(pct)? pct : "—"}%`;
@@ -155,8 +145,9 @@ function showResult(reg, {query, exact}){
   pill.style.background = "#1f2937";
   pill.style.borderColor = "rgba(255,255,255,.08)";
 
-  drawGaugeCanvas(pct); // gráfico canvas
+  drawGaugeCanvas(pct); // 🎯 gráfico nuevo
 
+  // Explicación y fuentes
   $("#res-explicacion").textContent = reg.explicacion || "—";
   $("#res-fuentes").innerHTML = renderSources(reg.fuentes);
   $("#res-codigos").textContent = reg.isco ? `ISCO: ${reg.isco}` : "";
@@ -169,21 +160,24 @@ function renderSources(arr){
   return `<ul>${rows}</ul>`;
 }
 
-// ---------- Canvas gauge ----------
+// ==== NUEVO GRÁFICO: Canvas semicircular con bandas + aguja corta ====
 function drawGaugeCanvas(pct){
   const canvas = document.getElementById("gaugeCanvas");
   const ctx = canvas.getContext("2d");
   const W = canvas.width, H = canvas.height;
 
+  // Clear
   ctx.clearRect(0,0,W,H);
 
+  // Geometría
   const cx = W/2;
-  const cy = H - 24;
-  const R  = Math.min(W/2 - 30, H - 40);
-  const thick = 24;
-  const start = Math.PI; // 0%  -> 180°
-  const end   = 0;       // 100% -> 0°
+  const cy = H - 24;           // centro cerca del borde inferior
+  const R  = Math.min(W/2 - 30, H - 40); // radio
+  const thick = 24;             // grosor de banda
+  const start = Math.PI;        // 0%  -> 180°
+  const end   = 0;              // 100% ->   0°
 
+  // Bandas (5 tramos iguales de 0-100)
   const segments = [
     {to: 20, color:"#2e7d32"},
     {to: 40, color:"#76d275"},
@@ -204,7 +198,7 @@ function drawGaugeCanvas(pct){
     prev = s.to;
   }
 
-  // ticks 10%
+  // Ticks cada 10%
   ctx.lineWidth = 2; ctx.strokeStyle = "rgba(230,231,234,.6)";
   for(let i=0;i<=10;i++){
     const a = start - (i/10)*Math.PI;
@@ -214,25 +208,37 @@ function drawGaugeCanvas(pct){
     ctx.beginPath(); ctx.moveTo(x1,y1); ctx.lineTo(x2,y2); ctx.stroke();
   }
 
-  // aguja corta
+  // Aguja corta (marca)
   const value = Math.max(0, Math.min(100, Number(pct)||0));
-  const ang = start - (value/100)*Math.PI;
+  const ang = start - (value/100)*Math.PI; // map 0..100 -> π..0
+  const rNeed = R - thick/2;
   ctx.save();
   ctx.translate(cx,cy);
+  // sombra suave
   ctx.shadowColor = "rgba(0,0,0,.5)"; ctx.shadowBlur = 6;
+  // círculo en el extremo
+  ctx.beginPath();
+  ctx.arc(rNeed*Math.cos(ang - Math.PI), rNeed*Math.sin(ang - Math.PI), 8, 0, Math.PI*2);
+  ctx.fillStyle = "#e6e7ea"; ctx.fill();
+  // centro
   ctx.beginPath(); ctx.arc(0,0,6,0,Math.PI*2); ctx.fillStyle="#e6e7ea"; ctx.fill();
-  ctx.beginPath(); ctx.lineCap="round"; ctx.lineWidth=4; ctx.strokeStyle="#e6e7ea";
-  ctx.moveTo(0,0); ctx.lineTo(R - thick - 4, 0); ctx.rotate(-ang); ctx.stroke();
+  // línea de aguja
+  ctx.beginPath();
+  ctx.lineCap="round"; ctx.lineWidth=4; ctx.strokeStyle="#e6e7ea";
+  ctx.moveTo(0,0);
+  ctx.lineTo(R - thick - 4, 0); // dibujamos a 0 y luego rotamos
+  ctx.rotate(-ang); // giramos al ángulo correcto
+  ctx.stroke();
   ctx.restore();
 
-  // 0% / 100%
+  // Texto min/max
   ctx.fillStyle = "rgba(230,231,234,.75)";
   ctx.font = "12px system-ui, -apple-system, Segoe UI, Roboto, Arial";
   ctx.textAlign = "left";  ctx.fillText("0%", 20, cy-4);
   ctx.textAlign = "right"; ctx.fillText("100%", W-20, cy-4);
 }
 
-// ---------- Compartir ----------
+// ==== Compartir ====
 function updateShare(job){
   const title = `Riesgo de automatización: ${job.titulo}`;
   const text  = `${job.titulo}: ${job.riesgo ?? "—"}% • ${job.explicacion || ""}`;
@@ -257,7 +263,7 @@ function setShareStatus(msg){ const el=$("#share-status"); el.textContent=msg||"
 function openShare(u){ window.open(u,"_blank","noopener,noreferrer,width=560,height=640"); }
 function withQuery(href,key,val){ const u=new URL(href); u.searchParams.set(key,val); return u.toString(); }
 
-// ---------- Eventos ----------
+// ==== Eventos ====
 function bindUI(){
   $("#year").textContent = new Date().getFullYear();
 
@@ -294,7 +300,7 @@ function handleUrlOnLoad(){
   if(q){ $("#q").value = q; const m = bestMatch(q); if(m){ showResult(m.reg, {query:q, exact:m.exact}); } }
 }
 
-// ---------- Init ----------
+// ==== Init ====
 document.addEventListener("DOMContentLoaded", async ()=>{
   bindUI();
   await initData();
