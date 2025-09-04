@@ -8,23 +8,20 @@ a{color:var(--accent);text-decoration:none}
 .container{max-width:1400px;margin:auto;padding:16px}
 .site-header{display:flex;justify-content:space-between;align-items:center;gap:16px}
 .site-header h1{margin:0;font-size:clamp(1.4rem,2.5vw,2rem)}
-.site-header nav a{margin-right:12px}
-.brand{opacity:.7}
+.site-header nav a{margin-right:12px}.brand{opacity:.7}
 
 .grid{display:grid;grid-template-columns:2fr 1fr;gap:24px}
 @media (max-width:1100px){.grid{grid-template-columns:1fr}}
-
 .main{display:flex;flex-direction:column;gap:24px}
+
 .search-card{background:var(--card);padding:16px;border-radius:14px;box-shadow:0 0 0 1px #1f2937}
 .label{display:block;margin-bottom:8px;color:#c9d1d9}
 .search-row{display:flex;gap:8px}
 input[type="search"]{flex:1;padding:12px 14px;border-radius:10px;border:1px solid #30363d;background:#0b1220;color:var(--text)}
 .btn{background:var(--btn);color:var(--btn-text);border:1px solid #2a3347;border-radius:10px;padding:10px 14px;cursor:pointer}
-.btn:hover{filter:brightness(1.05)}
-.btn.ghost{background:#141a29;color:#c9d1d9}
+.btn:hover{filter:brightness(1.05)} .btn.ghost{background:#141a29;color:#c9d1d9}
 
 .help{color:var(--muted);margin:.5rem 0 0}
-
 .suggestions{margin-top:8px;display:flex;flex-wrap:wrap}
 .suggestions button{margin:4px 6px 0 0;border:1px solid #2a3347;background:#0f172a;color:#c9d1d9;border-radius:999px;padding:6px 10px;cursor:pointer}
 
@@ -34,51 +31,37 @@ input[type="search"]{flex:1;padding:12px 14px;border-radius:10px;border:1px soli
 .result-top h2{margin:0;font-size:1.15rem}
 .badge{background:#233046;border:1px solid #2a3347;color:#dbeafe;border-radius:999px;padding:2px 10px;font-size:.85rem}
 
-/* === Etiqueta de riesgo (no superpuesta) === */
-.risk-label{
-  display:inline-block;
-  margin:4px 0 8px;
-  padding:6px 12px;
-  border-radius:999px;
-  border:1px solid #2a3347;
-  background:#233046;
-  color:#e6edf3;
-  font-weight:600;
-}
-
-/* Velocímetro */
-.gauge-wrap{position:relative;margin:8px 0 6px}
+/* Gauge */
+.gauge-wrap{margin:8px 0 6px}
+.gauge-label{display:inline-block;margin:0 0 8px 0;padding:6px 12px;border-radius:999px;border:1px solid #2a3347;background:#233046;color:#e6edf3;font-weight:600}
 .needle{transform-origin:160px 160px;transition:transform .85s cubic-bezier(.2,.8,.2,1)}
 .percent{display:flex;justify-content:center;margin-top:-2px}
 .percent #porcentaje{font-size:2rem;font-weight:800}
 .explicacion{margin-top:8px}
 
-/* ===== IMAGEN + AUDIO A TODO EL ANCHO ===== */
+/* Audio (arriba del gráfico) */
 .info.onecol{display:block}
-.chart.hero{margin:0}
-.chart.hero .chart-img{
-  width:100%;
-  height:auto;
-  display:block;
-  border-radius:12px;
-  border:1px solid #2a3347;
-  box-shadow:0 0 0 1px #2a3347, 0 6px 28px rgba(0,0,0,.35);
-}
-.zoom-link{display:inline-block;margin-left:.5rem}
-
-.audio-card{background:#0f172a;border:1px solid #2a3347;border-radius:12px;padding:12px;margin-bottom:14px}
+.hero-audio{margin-bottom:14px}
+.audio-card{background:#0f172a;border:1px solid #2a3347;border-radius:12px;padding:12px}
 .audio-card h4{margin:0 0 8px 0;font-size:1rem}
 .audio-card audio{width:100%}
-.audio-actions{display:flex;gap:8px;align-items:center;margin-top:6px;flex-wrap:wrap}
 
-/* Share buttons con iconos */
-.share-grid{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
-.share-btn{
-  display:inline-flex;align-items:center;gap:8px;
-  padding:10px 12px;border-radius:10px;border:1px solid #2a3347;
-  background:#0f172a;color:#e6edf3;text-decoration:none;cursor:pointer
+/* Imagen a todo el ancho, sin figcaption */
+.chart.hero{margin:0}
+.chart.hero .chart-img{
+  width:100%;height:auto;display:block;border-radius:12px;border:1px solid #2a3347;
+  box-shadow:0 0 0 1px #2a3347, 0 6px 28px rgba(0,0,0,.35)
 }
-.share-btn svg{width:18px;height:18px;fill:#e6edf3}
+
+/* Compartir: iconos blancos, tamaño normal, sin fondo */
+.share{margin-top:12px}
+.share-buttons{display:flex;flex-wrap:wrap;gap:10px}
+.share-btn{
+  display:inline-flex;align-items:center;gap:8px;padding:6px 10px;border-radius:8px;
+  background:transparent;border:1px solid #2a3347;color:#fff;text-decoration:none;cursor:pointer
+}
+.share-btn:hover{background:#141a29}
+.share-btn svg{width:18px;height:18px;display:block;color:#fff}
 
 /* Ads placeholders */
 .sidebar .ad-placeholder,.footer .ad-placeholder{
