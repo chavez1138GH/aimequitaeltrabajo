@@ -20,16 +20,11 @@
 
   <!-- JSON-LD Website + SearchAction -->
   <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "WebSite",
-    "name": "aimequitaeltrabajo.com",
-    "url": "https://aimequitaeltrabajo.com/",
-    "potentialAction": {"@type":"SearchAction","target":"https://aimequitaeltrabajo.com/?q={busqueda}","query-input":"required name=busqueda"}
-  }
+  {"@context":"https://schema.org","@type":"WebSite","name":"aimequitaeltrabajo.com","url":"https://aimequitaeltrabajo.com/","potentialAction":{"@type":"SearchAction","target":"https://aimequitaeltrabajo.com/?q={busqueda}","query-input":"required name=busqueda"}}
   </script>
 
   <link rel="stylesheet" href="style.css" />
+
   <!-- AdSense (rellena tu ID y descomenta)
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script>
   -->
@@ -100,19 +95,21 @@
         </div>
       </section>
 
-      <!-- INFO BAJO LA BÚSQUEDA (gráfico + audio debajo de la imagen) -->
+      <!-- INFO BAJO LA BÚSQUEDA (gráfico grande + audio) -->
       <section class="info">
-        <figure class="chart">
-          <!-- OJO: ruta relativa explícita con ./ -->
-          <img src="./images/i1.png" alt="Nivel de exposición a la automatización por IA generativa (ejemplo)">
-          <figcaption>Ejemplo ilustrativo de ocupaciones con alta y baja exposición.</figcaption>
+        <figure class="chart big">
+          <img class="chart-img" src="./images/i1.png" alt="Nivel de exposición a la automatización por IA generativa (ejemplo)">
+          <figcaption>Ejemplo ilustrativo de ocupaciones con alta y baja exposición. <a class="zoom-link" href="./images/i1.png" target="_blank" rel="noopener">Abrir imagen en tamaño completo</a></figcaption>
 
           <!-- AUDIO debajo de la imagen -->
           <div class="audio-card">
             <h4>Empleo y el Impacto de la IA</h4>
-            <!-- OJO: ruta ./media/audio.mp3 -->
-            <audio id="player" controls preload="none" src="./media/audio.mp3"
-                   aria-label="Reproducir audio: Empleo y el Impacto de la IA"></audio>
+            <audio id="player" controls preload="metadata" crossorigin="anonymous">
+              <source src="./media/audio.mp3" type="audio/mpeg">
+              Tu navegador no puede reproducir MP3. <a href="./media/audio.mp3" download>Descargar audio</a>.
+            </audio>
+            <p id="audioStatus" class="help" aria-live="polite"></p>
+            <p class="help"><a href="./media/audio.mp3" download>Descargar audio</a> · Si no se reproduce, ábrelo directamente.</p>
           </div>
         </figure>
 
@@ -142,19 +139,22 @@
 
   <footer class="container footer">
     <small>© <span id="year"></span> aimequitaeltrabajo.com · <a href="faq.html">FAQ</a> · <a href="privacidad.html">Privacidad</a></small>
-
-    <!--
-    <ins class="adsbygoogle"
-         style="display:block"
-         data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
-         data-ad-slot="2222222222"
-         data-ad-format="auto"
-         data-full-width-responsive="true"></ins>
-    <script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
-    -->
     <div class="ad-placeholder">Espacio para anuncio responsive</div>
   </footer>
 
-  <script src="app.js"></script>
+  <!-- cache-busting en el script -->
+  <script src="app.js?v=4"></script>
+
+  <!-- Listener ligero para estatus del audio -->
+  <script>
+  (function(){
+    const p = document.getElementById('player');
+    const s = document.getElementById('audioStatus');
+    if(!p || !s) return;
+    p.addEventListener('loadedmetadata', ()=>{ s.textContent = 'Audio listo (' + Math.round(p.duration) + ' s).'; });
+    p.addEventListener('canplay', ()=>{ if(!s.textContent) s.textContent = 'Listo para reproducir.'; });
+    p.addEventListener('error', ()=>{ s.textContent = '⚠️ No se pudo cargar el audio. Abre el enlace de descarga o revisa la ruta ./media/audio.mp3.'; });
+  })();
+  </script>
 </body>
 </html>
