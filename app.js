@@ -1,18 +1,15 @@
 /* ===== Helpers ===== */
 const $ = (s, d=document) => d.querySelector(s);
-const stripDiacritics = (txt) => {
-  try { return txt.normalize('NFD').replace(/[\u0300-\u036f]/g,''); }
-  catch { return txt; }
-};
-const norm = (str="") => stripDiacritics(
-  String(str).toLowerCase()
-).replace(/[^a-z0-9\s]/g,' ').replace(/\s+/g,' ').trim();
+const stripDiacritics = (txt) => { try { return txt.normalize('NFD').replace(/[\u0300-\u036f]/g,''); } catch { return txt; } };
+const norm = (str="") => stripDiacritics(String(str).toLowerCase()).replace(/[^a-z0-9\s]/g,' ').replace(/\s+/g,' ').trim();
 const getFirst = (o,k,f=null)=>{for(const x of k) if(o&&o[x]!=null) return o[x]; return f;};
 const asNumber = (v,d=0)=>{const n=Number(String(v).replace('%','').trim()); return Number.isFinite(n)?n:d;};
 
 /* ===== Config ===== */
-const DB_URL   = 'data/base_de_datos.json';
-const AUDIO_URL= 'media/podcast.mp3';   // ⬅️ actualizado
+const DB_URL = 'data/base_de_datos.json';
+
+// Por si quieres dejarlo en JS en vez de HTML (se ignora si pones data-src en el <audio>)
+const AUDIO_URL_DEFAULT = 'https://www.dropbox.com/scl/fi/ofb5daga51dtfyhhjbd44/podcast.mp3?rlkey=9thclsq12ub02gpwwd9kh85ww&st=yyvc8xey&raw=1';
 
 /* ===== Estado ===== */
 let DATA=[], INDEX=[], NAMES=[];
@@ -147,28 +144,58 @@ async function accionBuscar(){
   else { $('#resultado').classList.remove('hidden'); $('#ocupacionTitulo').textContent='No encontramos esa ocupación'; $('#explicacion').textContent='Prueba otros sinónimos o un nombre más corto.'; setGauge(0); buildShareButtons({ocupacion_es:'(desconocida)',riesgo_automatizacion_porcentaje:0}); }
 }
 
-/* ===== Audio: carga fiable por BlobURL ===== */
+/* ===== Audio: usa data-src o DEFAULT; directo + fallback Blob ===== */
+function toRawDropbox(url){
+  if(!url) return url;
+  try{
+    const u=new URL(url);
+    if(u.hostname.includes('dropbox.com')){
+      u.searchParams.delete('dl');  // quitar dl=0 si existe
+      if(!u.searchParams.has('raw')) u.searchParams.set('raw','1');
+      return u.toString();
+    }
+    return url;
+  }catch{return url;}
+}
 async function initAudio(){
   const el=$('#player'); if(!el) return;
-  try{
-    const r=await fetch(`${AUDIO_URL}?v=${Date.now()}`,{cache:'no-store'}); if(!r.ok) throw new Error(`HTTP ${r.status}`);
-    const b=await r.blob(); if(!b||!b.size) throw new Error('archivo vacío');
-    el.src=URL.createObjectURL(b);
-  }catch{ el.src=AUDIO_URL; }
+  const htmlOverride = el.dataset && el.dataset.src ? el.dataset.src.trim() : '';
+  const audioURL = toRawDropbox(htmlOverride || AUDIO_URL_DEFAULT);
+
+  // 1) URL directa
+  el.src = audioURL;
+
+  // 2) si no puede reproducir rápido, intentar Blob
+  let playable = false;
+  const onCanPlay = ()=>{ playable = true; };
+  el.addEventListener('canplay', onCanPlay, { once:true });
+
+  setTimeout(async ()=>{
+    if (playable) return;
+    try{
+      const r=await fetch(`${audioURL}${audioURL.includes('?')?'&':'?'}v=${Date.now()}`,{cache:'no-store'});
+      if(!r.ok) throw new Error(`HTTP ${r.status}`);
+      const b=await r.blob(); if(!b||!b.size) throw new Error('archivo vacío');
+      el.src = URL.createObjectURL(b);
+    }catch(e){
+      console.warn('No se pudo usar Blob para el audio. Se mantiene la URL directa.', e);
+      el.src = audioURL;
+    }
+  }, 1800);
 }
 
 /* ===== Eventos ===== */
 document.addEventListener('DOMContentLoaded', async ()=>{
-  $('#year').textContent=new Date().getFullYear();
+  const y = $('#year'); if (y) y.textContent = new Date().getFullYear();
   await cargarDatos();
 
   const input=$('#search');
-  function pintar(){ pintarSugerencias(sugerencias(input.value,10)); }
+  function pintar(){ const list=sugerencias(input.value,10); pintarSugerencias(list); }
   pintar();
 
   input.addEventListener('input', pintar);
   $('#btnBuscar').addEventListener('click', accionBuscar);
-  input.addEventListener('change', accionBuscar);
+  input.addEventListener('change', accionBuscar); // seleccionar sugerencia dispara resultado
   input.addEventListener('keydown', e=>{ if(e.key==='Enter') accionBuscar(); });
 
   const params=new URLSearchParams(location.search);
