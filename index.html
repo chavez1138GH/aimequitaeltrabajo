@@ -1,8 +1,6 @@
 <!doctype html>
 <html lang="es">
 <head>
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8293112625494327"
-     crossorigin="anonymous"></script>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>¿La IA me quita el trabajo? | aimequitaeltrabajo.com</title>
@@ -12,7 +10,7 @@
   <meta name="keywords" content="automatización, IA, empleos, trabajos, riesgo, Latinoamérica" />
   <link rel="canonical" href="https://aimequitaeltrabajo.com/" />
 
-  <!-- Open Graph -->
+  <!-- Open Graph / Twitter -->
   <meta property="og:type" content="website">
   <meta property="og:title" content="¿La IA me quita el trabajo?">
   <meta property="og:description" content="Busca tu ocupación y mira el riesgo de automatización con un velocímetro claro.">
@@ -50,6 +48,7 @@
         <div id="sugerencias" class="suggestions"></div>
         <p class="help">Tip: escribe como hablas en tu país; el motor reconoce <em>sinónimos</em> frecuentes en español.</p>
         <p id="dbStatus" class="help"></p>
+        <p id="jsStatus" class="help" style="color:#fca5a5"></p>
       </div>
 
       <!-- RESULTADO -->
@@ -60,7 +59,7 @@
         </div>
 
         <div class="gauge-wrap">
-          <!-- Etiqueta fija: no superpone -->
+          <!-- Etiqueta fija (no superpone) -->
           <div id="gaugeLabel" class="gauge-label">Riesgo —</div>
 
           <!-- Gauge -->
@@ -91,14 +90,14 @@
         </div>
       </section>
 
-      <!-- ===== AUDIO ARRIBA DEL GRÁFICO ===== -->
+      <!-- AUDIO (arriba del gráfico) -->
       <section class="info onecol">
         <div class="audio-card hero-audio">
           <h4>Empleo y el Impacto de la IA</h4>
           <audio id="player" controls preload="metadata"></audio>
         </div>
 
-        <!-- Gráfico (imagen) a todo el ancho, sin figcaption -->
+        <!-- Gráfico ancho completo (sin figcaption) -->
         <figure class="chart hero">
           <img class="chart-img" src="./images/i1.png" alt="Gráfico: exposición a automatización por IA generativa">
         </figure>
@@ -113,11 +112,24 @@
       </section>
     </section>
 
-    <!-- SIDEBAR -->
     <aside class="sidebar">
       <div class="ad-placeholder">Espacio para anuncio 300×250</div>
     </aside>
   </main>
 
   <footer class="container footer">
-    <small>© <span id="year"></span> aimequitaeltrabajo.com · <a href="faq.html">FAQ</a> · <a href="pri
+    <small>© <span id="year"></span> aimequitaeltrabajo.com · <a href="faq.html">FAQ</a> · <a href="privacidad.html">Privacidad</a></small>
+    <div class="ad-placeholder">Espacio para anuncio responsive</div>
+  </footer>
+
+  <script src="app.js?v=8"></script>
+
+  <!-- Captura errores JS para mostrar aviso visible -->
+  <script>
+    window.addEventListener('error', function(ev){
+      var t=document.getElementById('jsStatus');
+      if(t) t.textContent='⚠️ Error de JavaScript: '+ (ev.error && ev.error.message ? ev.error.message : ev.message);
+    });
+  </script>
+</body>
+</html>
