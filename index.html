@@ -25,7 +25,7 @@
   {"@context":"https://schema.org","@type":"WebSite","name":"aimequitaeltrabajo.com","url":"https://aimequitaeltrabajo.com/","potentialAction":{"@type":"SearchAction","target":"https://aimequitaeltrabajo.com/?q={busqueda}","query-input":"required name=busqueda"}}
   </script>
 
-  <!-- Si vas a usar Auto ads de AdSense, pega tu client aquí (rellena tu ID y descomenta) -->
+  <!-- AdSense Auto Ads (pega tu client y descomenta si lo usarás) -->
   <!--
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX"
           crossorigin="anonymous"></script>
@@ -70,7 +70,7 @@
           <!-- Etiqueta fija (no superpone) -->
           <div id="gaugeLabel" class="gauge-label">Riesgo —</div>
 
-          <!-- Gauge -->
+          <!-- Gauge con 6 segmentos -->
           <svg id="gaugeSvg" viewBox="0 0 320 200" width="100%" height="200" aria-label="Velocímetro de riesgo">
             <path d="M 40 160 A 120 120 0 0 1 280 160" fill="none" stroke="#1b1f2e" stroke-width="26" pathLength="100" />
             <path d="M 40 160 A 120 120 0 0 1 280 160" fill="none" stroke-width="22" pathLength="100" stroke-linecap="round" stroke="#0fa15d" stroke-dasharray="15.6 84.4" stroke-dashoffset="0" />
@@ -102,7 +102,9 @@
       <section class="info onecol">
         <div class="audio-card hero-audio">
           <h4>Empleo y el Impacto de la IA</h4>
-          <audio id="player" controls preload="metadata"></audio>
+          <!-- URL de Dropbox con raw=1 -->
+          <audio id="player" controls preload="metadata"
+                 data-src="https://www.dropbox.com/scl/fi/ofb5daga51dtfyhhjbd44/podcast.mp3?rlkey=9thclsq12ub02gpwwd9kh85ww&st=yyvc8xey&raw=1"></audio>
         </div>
 
         <!-- Gráfico ancho completo (sin figcaption) -->
@@ -125,7 +127,7 @@
     <small>© <span id="year"></span> aimequitaeltrabajo.com · <a href="faq.html">FAQ</a> · <a href="privacidad.html">Privacidad</a></small>
   </footer>
 
-  <script src="app.js?v=9"></script>
+  <script src="app.js?v=10"></script>
 
   <!-- Captura errores JS para mostrar aviso visible -->
   <script>
