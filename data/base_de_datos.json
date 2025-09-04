@@ -1,0 +1,4814 @@
+[
+  {
+    "codigo_isco": "4131",
+    "ocupacion_es": "Mecanógrafos y operadores de procesamiento de textos",
+    "riesgo_automatizacion_porcentaje": 65,
+    "explicacion": "Gran parte de las tareas son repetitivas o basadas en reglas fijas; la IA puede automatizarlas con alta precisión, por eso el riesgo es elevado.",
+    "sinonimos": [
+      "Mecanógrafos y operadores de procesamiento de textos",
+      "Digitadores de documentos",
+      "Mecanógrafos",
+      "Dactilógrafos",
+      "Secretarias de redacción",
+      "Operadores de textos"
+    ],
+    "gradiente": "Gradient 4",
+    "fuentes": [
+      "OIT - Working Paper 140 (2025), Anexo A1, código ISCO 4131",
+      "Frey & Osborne (2013) - The Future of Employment"
+    ]
+  },
+  {
+    "codigo_isco": "4311",
+    "ocupacion_es": "Empleados de contabilidad y teneduría de libros",
+    "riesgo_automatizacion_porcentaje": 64,
+    "explicacion": "Son tareas de oficina con pasos repetitivos o reglas claras. La IA puede automatizar gran parte del trabajo, aunque la supervisión humana y los casos especiales siguen siendo necesarios.",
+    "sinonimos": [
+      "Auxiliar contable",
+      "Administrativo contable",
+      "Tenedor de libros",
+      "Asistente contable",
+      "Contador junior",
+      "Empleados de contabilidad y teneduría de libros"
+    ],
+    "gradiente": "Gradient 4",
+    "fuentes": [
+      "OIT - Working Paper 140 (2025), Anexo A1, código ISCO 4311",
+      "Frey & Osborne (2013) - The Future of Employment"
+    ]
+  },
+  {
+    "codigo_isco": "4312",
+    "ocupacion_es": "Empleados de estadística, finanzas y seguros",
+    "riesgo_automatizacion_porcentaje": 64,
+    "explicacion": "Son tareas de oficina con pasos repetitivos o reglas claras. La IA puede automatizar gran parte del trabajo, aunque la supervisión humana y los casos especiales siguen siendo necesarios.",
+    "sinonimos": [
+      "Empleados de estadística, finanzas y seguros",
+      "Empleado de seguros",
+      "Empleado de análisis estadístico",
+      "Auxiliar financiero",
+      "Auxiliar bancario",
+      "Asistente de finanzas"
+    ],
+    "gradiente": "Gradient 4",
+    "fuentes": [
+      "OIT - Working Paper 140 (2025), Anexo A1, código ISCO 4312",
+      "Frey & Osborne (2013) - The Future of Employment"
+    ]
+  },
+  {
+    "codigo_isco": "3311",
+    "ocupacion_es": "Agentes y corredores de valores y finanzas",
+    "riesgo_automatizacion_porcentaje": 63,
+    "explicacion": "Gran parte de las tareas son repetitivas o basadas en reglas fijas; la IA puede automatizarlas con alta precisión, por eso el riesgo es elevado.",
+    "sinonimos": [
+      "Agentes y corredores de valores y finanzas",
+      "Empleado de seguros",
+      "Empleado de análisis estadístico",
+      "Auxiliar financiero",
+      "Auxiliar bancario",
+      "Asistente de finanzas"
+    ],
+    "gradiente": "Gradient 4",
+    "fuentes": [
+      "OIT - Working Paper 140 (2025), Anexo A1, código ISCO 3311",
+      "Frey & Osborne (2013) - The Future of Employment"
+    ]
+  },
+  {
+    "codigo_isco": "4419",
+    "ocupacion_es": "Trabajadores de apoyo administrativo no clasificados en otra parte",
+    "riesgo_automatizacion_porcentaje": 63,
+    "explicacion": "Gran parte de las tareas son repetitivas o basadas en reglas fijas; la IA puede automatizarlas con alta precisión, por eso el riesgo es elevado.",
+    "sinonimos": [
+      "Oficinista",
+      "Gestor documental",
+      "Recepcionista",
+      "Trabajadores de apoyo administrativo no clasificados en otra parte",
+      "Auxiliar de oficina",
+      "Asistente administrativo"
+    ],
+    "gradiente": "Gradient 4",
+    "fuentes": [
+      "OIT - Working Paper 140 (2025), Anexo A1, código ISCO 4419",
+      "Frey & Osborne (2013) - The Future of Employment"
+    ]
+  },
+  {
+    "codigo_isco": "2413",
+    "ocupacion_es": "Analistas financieros",
+    "riesgo_automatizacion_porcentaje": 62,
+    "explicacion": "Gran parte de las tareas son repetitivas o basadas en reglas fijas; la IA puede automatizarlas con alta precisión, por eso el riesgo es elevado.",
+    "sinonimos": [
+      "Analista de riesgos",
+      "Analistas financieros",
+      "Gestor de portafolio",
+      "Asesor financiero",
+      "Analista de inversiones",
+      "Analista bursátil"
+    ],
+    "gradiente": "Gradient 4",
+    "fuentes": [
+      "OIT - Working Paper 140 (2025), Anexo A1, código ISCO 2413",
+      "Frey & Osborne (2013) - The Future of Employment"
+    ]
+  },
+  {
+    "codigo_isco": "4313",
+    "ocupacion_es": "Empleados de nómina",
+    "riesgo_automatizacion_porcentaje": 61,
+    "explicacion": "Son tareas de oficina con pasos repetitivos o reglas claras. La IA puede automatizar gran parte del trabajo, aunque la supervisión humana y los casos especiales siguen siendo necesarios.",
+    "sinonimos": [
+      "Empleados de nómina senior",
+      "Empleados de nómina",
+      "Empleados de nómina auxiliar",
+      "Empleados de nómina técnico",
+      "Empleados de nómina junior",
+      "Empleados de nómina especializado"
+    ],
+    "gradiente": "Gradient 4",
+    "fuentes": [
+      "OIT - Working Paper 140 (2025), Anexo A1, código ISCO 4313",
+      "Frey & Osborne (2013) - The Future of Employment"
+    ]
+  },
+  {
+    "codigo_isco": "5244",
+    "ocupacion_es": "Vendedores de centros de contacto (call center)",
+    "riesgo_automatizacion_porcentaje": 61,
+    "explicacion": "Muchas interacciones siguen guiones repetidos que los asistentes virtuales pueden manejar. Los casos complejos aún requieren empatía humana.",
+    "sinonimos": [
+      "Teleoperador",
+      "Agente de call center",
+      "Vendedores de centros de contacto (call center)",
+      "Atención al cliente",
+      "Asesor de servicio",
+      "Operador telefónico"
+    ],
+    "gradiente": "Gradient 4",
+    "fuentes": [
+      "OIT - Working Paper 140 (2025), Anexo A1, código ISCO 5244",
+      "Frey & Osborne (2013) - The Future of Employment"
+    ]
+  },
+  {
+    "codigo_isco": "2643",
+    "ocupacion_es": "Traductores, intérpretes y otros lingüistas",
+    "riesgo_automatizacion_porcentaje": 59,
+    "explicacion": "Varias tareas se pueden asistir con IA (cálculos, borradores, análisis), pero se requiere supervisión y decisiones humanas.",
+    "sinonimos": [
+      "Traductores, intérpretes y otros lingüistas técnico",
+      "Traductores, intérpretes y otros lingüistas auxiliar",
+      "Traductores, intérpretes y otros lingüistas especializado",
+      "Traductores, intérpretes y otros lingüistas",
+      "Traductores, intérpretes y otros lingüistas junior",
+      "Traductores, intérpretes y otros lingüistas senior"
+    ],
+    "gradiente": "Gradient 3",
+    "fuentes": [
+      "OIT - Working Paper 140 (2025), Anexo A1, código ISCO 2643",
+      "Frey & Osborne (2013) - The Future of Employment"
+    ]
+  },
+  {
+    "codigo_isco": "4120",
+    "ocupacion_es": "Secretarios (generales)",
+    "riesgo_automatizacion_porcentaje": 58,
+    "explicacion": "Son tareas de oficina con pasos repetitivos o reglas claras. La IA puede automatizar gran parte del trabajo, aunque la supervisión humana y los casos especiales siguen siendo necesarios.",
+    "sinonimos": [
+      "Oficinista",
+      "Asistente ejecutivo",
+      "Auxiliar administrativo",
+      "Secretario administrativo",
+      "Asistente de dirección",
+      "Secretarios (generales)"
+    ],
+    "gradiente": "Gradient 3",
+    "fuentes": [
+      "OIT - Working Paper 140 (2025), Anexo A1, código ISCO 4120",
+      "Frey & Osborne (2013) - The Future of Employment"
+    ]
+  },
+  {
+    "codigo_isco": "4211",
+    "ocupacion_es": "Cajeros de banco y empleados afines",
+    "riesgo_automatizacion_porcentaje": 58,
+    "explicacion": "Son tareas de oficina con pasos repetitivos o reglas claras. La IA puede automatizar gran parte del trabajo, aunque la supervisión humana y los casos especiales siguen siendo necesarios.",
+    "sinonimos": [
+      "Cajeros de banco y empleados afines técnico",
+      "Cajeros de banco y empleados afines especializado",
+      "Cajeros de banco y empleados afines",
+      "Cajeros de banco y empleados afines auxiliar",
+      "Cajeros de banco y empleados afines junior",
+      "Cajeros de banco y empleados afines senior"
+    ],
+    "gradiente": "Gradient 3",
+    "fuentes": [
+      "OIT - Working Paper 140 (2025), Anexo A1, código ISCO 4211",
+      "Frey & Osborne (2013) - The Future of Employment"
+    ]
+  },
+  {
+    "codigo_isco": "4222",
+    "ocupacion_es": "Empleados de información en centros de contacto",
+    "riesgo_automatizacion_porcentaje": 58,
+    "explicacion": "Son tareas de oficina con pasos repetitivos o reglas claras. La IA puede automatizar gran parte del trabajo, aunque la supervisión humana y los casos especiales siguen siendo necesarios.",
+    "sinonimos": [
+      "Teleoperador",
+      "Agente de call center",
+      "Empleados de información en centros de contacto",
+      "Atención al cliente",
+      "Asesor de servicio",
+      "Operador telefónico"
+    ],
+    "gradiente": "Gradient 3",
+    "fuentes": [
+      "OIT - Working Paper 140 (2025), Anexo A1, código ISCO 4222",
+      "Frey & Osborne (2013) - The Future of Employment"
+    ]
+  },
+  {
+    "codigo_isco": "4414",
+    "ocupacion_es": "Escribientes y trabajadores afines",
+    "riesgo_automatizacion_porcentaje": 58,
+    "explicacion": "Varias tareas se pueden asistir con IA (cálculos, borradores, análisis), pero se requiere supervisión y decisiones humanas.",
+    "sinonimos": [
+      "Escribientes y trabajadores afines junior",
+      "Escribientes y trabajadores afines especializado",
+      "Escribientes y trabajadores afines",
+      "Escribientes y trabajadores afines técnico",
+      "Escribientes y trabajadores afines auxiliar",
+      "Escribientes y trabajadores afines senior"
+    ],
+    "gradiente": "Gradient 3",
+    "fuentes": [
+      "OIT - Working Paper 140 (2025), Anexo A1, código ISCO 4414",
+      "Frey & Osborne (2013) - The Future of Employment"
+    ]
+  },
+  {
+    "codigo_isco": "2412",
+    "ocupacion_es": "Asesores financieros y de inversiones",
+    "riesgo_automatizacion_porcentaje": 57,
+    "explicacion": "Varias tareas se pueden asistir con IA (cálculos, borradores, análisis), pero se requiere supervisión y decisiones humanas.",
+    "sinonimos": [
+      "Asesores financieros y de inversiones",
+      "Analista de riesgos",
+      "Gestor de portafolio",
+      "Asesor financiero",
+      "Analista de inversiones",
+      "Analista bursátil"
+    ],
+    "gradiente": "Gradient 3",
+    "fuentes": [
+      "OIT - Working Paper 140 (2025), Anexo A1, código ISCO 2412",
+      "Frey & Osborne (2013) - The Future of Employment"
+    ]
+  },
+  {
+    "codigo_isco": "2514",
+    "ocupacion_es": "Programadores de aplicaciones",
+    "riesgo_automatizacion_porcentaje": 57,
+    "explicacion": "La IA acelera la generación de código, el soporte y el análisis, pero diseñar soluciones a medida y asegurar calidad requiere criterio humano.",
+    "sinonimos": [
+      "Programadores de aplicaciones",
+      "Desarrollador backend",
+      "Programador",
+      "Ingeniero de software",
+      "Desarrollador de software",
+      "Desarrollador frontend"
+    ],
+    "gradiente": "Gradient 3",
+    "fuentes": [
+      "OIT - Working Paper 140 (2025), Anexo A1, código ISCO 2514",
+      "Frey & Osborne (2013) - The Future of Employment"
+    ]
+  },
+  {
+    "codigo_isco": "2521",
+    "ocupacion_es": "Diseñadores y administradores de bases de datos",
+    "riesgo_automatizacion_porcentaje": 57,
+    "explicacion": "La IA acelera la generación de código, el soporte y el análisis, pero diseñar soluciones a medida y asegurar calidad requiere criterio humano.",
+    "sinonimos": [
+      "Diseñador de bases de datos",
+      "Diseñadores y administradores de bases de datos",
+      "Arquitecto de datos",
+      "Ingeniero de datos",
+      "DBA",
+      "Administrador de bases de datos"
+    ],
+    "gradiente": "Gradient 3",
+    "fuentes": [
+      "OIT - Working Paper 140 (2025), Anexo A1, código ISCO 2521",
+      "Frey & Osborne (2013) - The Future of Employment"
+    ]
+  },
+  {
+    "codigo_isco": "2522",
+    "ocupacion_es": "Administradores de sistemas",
+    "riesgo_automatizacion_porcentaje": 57,
+    "explicacion": "La IA acelera la generación de código, el soporte y el análisis, pero diseñar soluciones a medida y asegurar calidad requiere criterio humano.",
+    "sinonimos": [
+      "Administrador TI",
+      "Administrador de infraestructura",
+      "Consultor de sistemas",
+      "Administrador Linux/Windows",
+      "Analista TI",
+      "Analista de negocio TI",
+      "Analista técnico"
+    ],
+    "gradiente": "Gradient 3",
+    "fuentes": [
+      "OIT - Working Paper 140 (2025), Anexo A1, código ISCO 2522",
+      "Frey & Osborne (2013) - The Future of Employment"
+    ]
+  },
+  {
+    "codigo_isco": "3314",
+    "ocupacion_es": "Profesionales asociados en estadística, matemáticas y afines",
+    "riesgo_automatizacion_porcentaje": 57,
+    "explicacion": "Varias tareas se pueden asistir con IA (cálculos, borradores, análisis), pero se requiere supervisión y decisiones humanas.",
+    "sinonimos": [
+      "Profesionales asociados en estadística, matemáticas y afines senior",
+      "Profesionales asociados en estadística, matemáticas y afines especializado",
+      "Profesionales asociados en estadística, matemáticas y afines auxiliar",
+      "Profesionales asociados en estadística, matemáticas y afines junior",
+      "Profesionales asociados en estadística, matemáticas y afines",
+      "Profesionales asociados en estadística, matemáticas y afines técnico"
+    ],
+    "gradiente": "Gradient 3",
+    "fuentes": [
+      "OIT - Working Paper 140 (2025), Anexo A1, código ISCO 3314",
+      "Frey & Osborne (2013) - The Future of Employment"
+    ]
+  },
+  {
+    "codigo_isco": "3331",
+    "ocupacion_es": "Agentes de despacho y tránsito",
+    "riesgo_automatizacion_porcentaje": 57,
+    "explicacion": "Varias tareas se pueden asistir con IA (cálculos, borradores, análisis), pero se requiere supervisión y decisiones humanas.",
+    "sinonimos": [
+      "Agentes de despacho y tránsito",
+      "Agentes de despacho y tránsito técnico",
+      "Agentes de despacho y tránsito senior",
+      "Agentes de despacho y tránsito especializado",
+      "Agentes de despacho y tránsito auxiliar",
+      "Agentes de despacho y tránsito junior"
+    ],
+    "gradiente": "Gradient 3",
+    "fuentes": [
+      "OIT - Working Paper 140 (2025), Anexo A1, código ISCO 3331",
+      "Frey & Osborne (2013) - The Future of Employment"
+    ]
+  },
+  {
+    "codigo_isco": "4225",
+    "ocupacion_es": "Empleados de información",
+    "riesgo_automatizacion_porcentaje": 57,
+    "explicacion": "Son tareas de oficina con pasos repetitivos o reglas claras. La IA puede automatizar gran parte del trabajo, aunque la supervisión humana y los casos especiales siguen siendo necesarios.",
+    "sinonimos": [
+      "Teleoperador",
+      "Agente de call center",
+      "Empleados de información",
+      "Atención al cliente",
+      "Asesor de servicio",
+      "Operador telefónico"
+    ],
+    "gradiente": "Gradient 3",
+    "fuentes": [
+      "OIT - Working Paper 140 (2025), Anexo A1, código ISCO 4225",
+      "Frey & Osborne (2013) - The Future of Employment"
+    ]
+  },
+  {
+    "codigo_isco": "4226",
+    "ocupacion_es": "Recepcionistas (generales)",
+    "riesgo_automatizacion_porcentaje": 57,
+    "explicacion": "Son tareas de oficina con pasos repetitivos o reglas claras. La IA puede automatizar gran parte del trabajo, aunque la supervisión humana y los casos especiales siguen siendo necesarios.",
+    "sinonimos": [
+      "Recepcionistas (generales)",
+      "Recepción",
+      "Agente de recepción",
+      "Atención al cliente",
+      "Auxiliar de recepción",
+      "Recepcionista de oficina"
+    ],
+    "gradiente": "Gradient 3",
+    "fuentes": [
+      "OIT - Working Paper 140 (2025), Anexo A1, código ISCO 4226",
+      "Frey & Osborne (2013) - The Future of Employment"
+    ]
+  },
+  {
+    "codigo_isco": "2120",
+    "ocupacion_es": "Matemáticos, actuarios y estadísticos",
+    "riesgo_automatizacion_porcentaje": 56,
+    "explicacion": "Varias tareas se pueden asistir con IA (cálculos, borradores, análisis), pero se requiere supervisión y decisiones humanas.",
+    "sinonimos": [
+      "Matemáticos, actuarios y estadísticos técnico",
+      "Matemáticos, actuarios y estadísticos junior",
+      "Matemáticos, actuarios y estadísticos",
+      "Matemáticos, actuarios y estadísticos especializado",
+      "Matemáticos, actuarios y estadísticos auxiliar",
+      "Matemáticos, actuarios y estadísticos senior"
+    ],
+    "gradiente": "Gradient 3",
+    "fuentes": [
+      "OIT - Working Paper 140 (2025), Anexo A1, código ISCO 2120",
+      "Frey & Osborne (2013) - The Future of Employment"
+    ]
+  },
+  {
+    "codigo_isco": "4221",
+    "ocupacion_es": "Asesores y empleados de viajes",
+    "riesgo_automatizacion_porcentaje": 56,
+    "explicacion": "Son tareas de oficina con pasos repetitivos o reglas claras. La IA puede automatizar gran parte del trabajo, aunque la supervisión humana y los casos especiales siguen siendo necesarios.",
+    "sinonimos": [
+      "Asesor turístico",
+      "Asesores y empleados de viajes",
+      "Operador turístico",
+      "Vendedor de paquetes turísticos",
+      "Consultor de viajes",
+      "Agente de viajes"
+    ],
+    "gradiente": "Gradient 3",
+    "fuentes": [
+      "OIT - Working Paper 140 (2025), Anexo A1, código ISCO 4221",
+      "Frey & Osborne (2013) - The Future of Employment"
+    ]
+  },
+  {
+    "codigo_isco": "2431",
+    "ocupacion_es": "Profesionales de publicidad y marketing",
+    "riesgo_automatizacion_porcentaje": 55,
+    "explicacion": "Varias tareas se pueden asistir con IA (cálculos, borradores, análisis), pero se requiere supervisión y decisiones humanas.",
+    "sinonimos": [
+      "Profesionales de publicidad y marketing senior",
+      "Profesionales de publicidad y marketing",
+      "Profesionales de publicidad y marketing técnico",
+      "Profesionales de publicidad y marketing especializado",
+      "Profesionales de publicidad y marketing junior",
+      "Profesionales de publicidad y marketing auxiliar"
+    ],
+    "gradiente": "Gradient 3",
+    "fuentes": [
+      "OIT - Working Paper 140 (2025), Anexo A1, código ISCO 2431",
+      "Frey & Osborne (2013) - The Future of Employment"
+    ]
+  },
+  {
+    "codigo_isco": "2519",
+    "ocupacion_es": "Desarrolladores y analistas de software y aplicaciones no clasificados en otra parte",
+    "riesgo_automatizacion_porcentaje": 55,
+    "explicacion": "La IA acelera la generación de código, el soporte y el análisis, pero diseñar soluciones a medida y asegurar calidad requiere criterio humano.",
+    "sinonimos": [
+      "Desarrollador backend",
+      "Desarrolladores y analistas de software y aplicaciones no clasificados en otra parte",
+      "Programador",
+      "Ingeniero de software",
+      "Desarrollador de software",
+      "Desarrollador frontend"
+    ],
+    "gradiente": "Gradient 3",
+    "fuentes": [
+      "OIT - Working Paper 140 (2025), Anexo A1, código ISCO 2519",
+      "Frey & Osborne (2013) - The Future of Employment"
+    ]
+  },
+  {
+    "codigo_isco": "2622",
+    "ocupacion_es": "Bibliotecarios y profesionales de la información afines",
+    "riesgo_automatizacion_porcentaje": 55,
+    "explicacion": "Muchas interacciones siguen guiones repetidos que los asistentes virtuales pueden manejar. Los casos complejos aún requieren empatía humana.",
+    "sinonimos": [
+      "Teleoperador",
+      "Bibliotecarios y profesionales de la información afines",
+      "Agente de call center",
+      "Atención al cliente",
+      "Asesor de servicio",
+      "Operador telefónico"
+    ],
+    "gradiente": "Gradient 3",
+    "fuentes": [
+      "OIT - Working Paper 140 (2025), Anexo A1, código ISCO 2622",
+      "Frey & Osborne (2013) - The Future of Employment"
+    ]
+  },
+  {
+    "codigo_isco": "2631",
+    "ocupacion_es": "Economistas",
+    "riesgo_automatizacion_porcentaje": 55,
+    "explicacion": "Varias tareas se pueden asistir con IA (cálculos, borradores, análisis), pero se requiere supervisión y decisiones humanas.",
+    "sinonimos": [
+      "Economistas especializado",
+      "Economistas junior",
+      "Economistas",
+      "Economistas senior",
+      "Economistas técnico",
+      "Economistas auxiliar"
+    ],
+    "gradiente": "Gradient 3",
+    "fuentes": [
+      "OIT - Working Paper 140 (2025), Anexo A1, código ISCO 2631",
+      "Frey & Osborne (2013) - The Future of Employment"
+    ]
+  },
+  {
+    "codigo_isco": "2641",
+    "ocupacion_es": "Autores y escritores afines",
+    "riesgo_automatizacion_porcentaje": 55,
+    "explicacion": "Varias tareas se pueden asistir con IA (cálculos, borradores, análisis), pero se requiere supervisión y decisiones humanas.",
+    "sinonimos": [
+      "Autores y escritores afines auxiliar",
+      "Autores y escritores afines",
+      "Autores y escritores afines senior",
+      "Autores y escritores afines especializado",
+      "Autores y escritores afines junior",
+      "Autores y escritores afines técnico"
+    ],
+    "gradiente": "Gradient 3",
+    "fuentes": [
+      "OIT - Working Paper 140 (2025), Anexo A1, código ISCO 2641",
+      "Frey & Osborne (2013) - The Future of Employment"
+    ]
+  },
+  {
+    "codigo_isco": "3342",
+    "ocupacion_es": "Secretarios jurídicos",
+    "riesgo_automatizacion_porcentaje": 55,
+    "explicacion": "Son tareas de oficina con pasos repetitivos o reglas claras. La IA puede automatizar gran parte del trabajo, aunque la supervisión humana y los casos especiales siguen siendo necesarios.",
+    "sinonimos": [
+      "Oficinista",
+      "Secretarios jurídicos",
+      "Asistente legal",
+      "Paralegal",
+      "Asistente ejecutivo",
+      "Auxiliar administrativo",
+      "Auxiliar jurídico"
+    ],
+    "gradiente": "Gradient 3",
+    "fuentes": [
+      "OIT - Working Paper 140 (2025), Anexo A1, código ISCO 3342",
+      "Frey & Osborne (2013) - The Future of Employment"
+    ]
+  },
+  {
+    "codigo_isco": "4227",
+    "ocupacion_es": "Encuestadores y entrevistadores de investigación de mercados",
+    "riesgo_automatizacion_porcentaje": 55,
+    "explicacion": "Varias tareas se pueden asistir con IA (cálculos, borradores, análisis), pero se requiere supervisión y decisiones humanas.",
+    "sinonimos": [
+      "Encuestadores y entrevistadores de investigación de mercados senior",
+      "Encuestadores y entrevistadores de investigación de mercados junior",
+      "Encuestadores y entrevistadores de investigación de mercados técnico",
+      "Encuestadores y entrevistadores de investigación de mercados auxiliar",
+      "Encuestadores y entrevistadores de investigación de mercados especializado",
+      "Encuestadores y entrevistadores de investigación de mercados"
+    ],
+    "gradiente": "Gradient 3",
+    "fuentes": [
+      "OIT - Working Paper 140 (2025), Anexo A1, código ISCO 4227",
+      "Frey & Osborne (2013) - The Future of Employment"
+    ]
+  },
+  {
+    "codigo_isco": "2112",
+    "ocupacion_es": "Meteorólogos",
+    "riesgo_automatizacion_porcentaje": 54,
+    "explicacion": "Varias tareas se pueden asistir con IA (cálculos, borradores, análisis), pero se requiere supervisión y decisiones humanas.",
+    "sinonimos": [
+      "Especialista climático",
+      "Técnico meteorológico",
+      "Analista meteorológico",
+      "Pronosticador del tiempo",
+      "Climatólogo",
+      "Meteorólogos"
+    ],
+    "gradiente": "Gradient 3",
+    "fuentes": [
+      "OIT - Working Paper 140 (2025), Anexo A1, código ISCO 2112",
+      "Frey & Osborne (2013) - The Future of Employment"
+    ]
+  },
+  {
+    "codigo_isco": "2642",
+    "ocupacion_es": "Periodistas",
+    "riesgo_automatizacion_porcentaje": 54,
+    "explicacion": "Varias tareas se pueden asistir con IA (cálculos, borradores, análisis), pero se requiere supervisión y decisiones humanas.",
+    "sinonimos": [
+      "Reportero",
+      "Editor de noticias",
+      "Cronista",
+      "Periodistas",
+      "Redactor",
+      "Comunicador social"
+    ],
+    "gradiente": "Gradient 3",
+    "fuentes": [
+      "OIT - Working Paper 140 (2025), Anexo A1, código ISCO 2642",
+      "Frey & Osborne (2013) - The Future of Employment"
+    ]
+  },
+  {
+    "codigo_isco": "3343",
+    "ocupacion_es": "Secretarios administrativos y ejecutivos",
+    "riesgo_automatizacion_porcentaje": 54,
+    "explicacion": "Son tareas de oficina con pasos repetitivos o reglas claras. La IA puede automatizar gran parte del trabajo, aunque la supervisión humana y los casos especiales siguen siendo necesarios.",
+    "sinonimos": [
+      "Oficinista",
+      "Asistente ejecutivo",
+      "Secretario administrativo",
+      "Auxiliar administrativo",
+      "Secretarios administrativos y ejecutivos",
+      "Asistente de dirección"
+    ],
+    "gradiente": "Gradient 3",
+    "fuentes": [
+      "OIT - Working Paper 140 (2025), Anexo A1, código ISCO 3343",
+      "Frey & Osborne (2013) - The Future of Employment"
+    ]
+  },
+  {
+    "codigo_isco": "4223",
+    "ocupacion_es": "Operadores de central telefónica",
+    "riesgo_automatizacion_porcentaje": 54,
+    "explicacion": "Varias tareas se pueden asistir con IA (cálculos, borradores, análisis), pero se requiere supervisión y decisiones humanas.",
+    "sinonimos": [
+      "Operadores de central telefónica senior",
+      "Operadores de central telefónica",
+      "Operadores de central telefónica técnico",
+      "Operadores de central telefónica especializado",
+      "Operadores de central telefónica auxiliar",
+      "Operadores de central telefónica junior"
+    ],
+    "gradiente": "Gradient 3",
+    "fuentes": [
+      "OIT - Working Paper 140 (2025), Anexo A1, código ISCO 4223",
+      "Frey & Osborne (2013) - The Future of Employment"
+    ]
+  },
+  {
+    "codigo_isco": "2512",
+    "ocupacion_es": "Desarrolladores de software",
+    "riesgo_automatizacion_porcentaje": 53,
+    "explicacion": "La IA acelera la generación de código, el soporte y el análisis, pero diseñar soluciones a medida y asegurar calidad requiere criterio humano.",
+    "sinonimos": [
+      "Desarrollador backend",
+      "Desarrolladores de software",
+      "Programador",
+      "Ingeniero de software",
+      "Desarrollador de software",
+      "Desarrollador frontend"
+    ],
+    "gradiente": "Gradient 3",
+    "fuentes": [
+      "OIT - Working Paper 140 (2025), Anexo A1, código ISCO 2512",
+      "Frey & Osborne (2013) - The Future of Employment"
+    ]
+  },
+  {
+    "codigo_isco": "3321",
+    "ocupacion_es": "Representantes de seguros",
+    "riesgo_automatizacion_porcentaje": 53,
+    "explicacion": "Varias tareas se pueden asistir con IA (cálculos, borradores, análisis), pero se requiere supervisión y decisiones humanas.",
+    "sinonimos": [
+      "Empleado de seguros",
+      "Empleado de análisis estadístico",
+      "Auxiliar financiero",
+      "Auxiliar bancario",
+      "Representantes de seguros",
+      "Asistente de finanzas"
+    ],
+    "gradiente": "Gradient 3",
+    "fuentes": [
+      "OIT - Working Paper 140 (2025), Anexo A1, código ISCO 3321",
+      "Frey & Osborne (2013) - The Future of Employment"
+    ]
+  },
+  {
+    "codigo_isco": "3344",
+    "ocupacion_es": "Secretarios médicos",
+    "riesgo_automatizacion_porcentaje": 53,
+    "explicacion": "Son tareas de oficina con pasos repetitivos o reglas claras. La IA puede automatizar gran parte del trabajo, aunque la supervisión humana y los casos especiales siguen siendo necesarios.",
+    "sinonimos": [
+      "Oficinista",
+      "Facultativo",
+      "Doctor",
+      "Galeno",
+      "Asistente ejecutivo",
+      "Médico hospitalario",
+      "Auxiliar administrativo"
+    ],
+    "gradiente": "Gradient 3",
+    "fuentes": [
+      "OIT - Working Paper 140 (2025), Anexo A1, código ISCO 3344",
+      "Frey & Osborne (2013) - The Future of Employment"
+    ]
+  },
+  {
+    "codigo_isco": "3514",
+    "ocupacion_es": "Técnicos web",
+    "riesgo_automatizacion_porcentaje": 53,
+    "explicacion": "Varias tareas se pueden asistir con IA (cálculos, borradores, análisis), pero se requiere supervisión y decisiones humanas.",
+    "sinonimos": [
+      "Desarrollador backend",
+      "Técnicos web",
+      "Programador",
+      "Ingeniero de software",
+      "Desarrollador de software",
+      "Desarrollador frontend"
+    ],
+    "gradiente": "Gradient 3",
+    "fuentes": [
+      "OIT - Working Paper 140 (2025), Anexo A1, código ISCO 3514",
+      "Frey & Osborne (2013) - The Future of Employment"
+    ]
+  },
+  {
+    "codigo_isco": "2523",
+    "ocupacion_es": "Profesionales de redes informáticas",
+    "riesgo_automatizacion_porcentaje": 52,
+    "explicacion": "La IA acelera la generación de código, el soporte y el análisis, pero diseñar soluciones a medida y asegurar calidad requiere criterio humano.",
+    "sinonimos": [
+      "Arquitecto de redes",
+      "Administrador de redes",
+      "Profesionales de redes informáticas",
+      "Especialista en redes",
+      "Ingeniero de redes",
+      "Soporte de redes"
+    ],
+    "gradiente": "Gradient 3",
+    "fuentes": [
+      "OIT - Working Paper 140 (2025), Anexo A1, código ISCO 2523",
+      "Frey & Osborne (2013) - The Future of Employment"
+    ]
+  },
+  {
+    "codigo_isco": "3252",
+    "ocupacion_es": "Técnicos de historia clínica e información de salud",
+    "riesgo_automatizacion_porcentaje": 52,
+    "explicacion": "Muchas interacciones siguen guiones repetidos que los asistentes virtuales pueden manejar. Los casos complejos aún requieren empatía humana.",
+    "sinonimos": [
+      "Teleoperador",
+      "Técnicos de historia clínica e información de salud",
+      "Agente de call center",
+      "Atención al cliente",
+      "Asesor de servicio",
+      "Operador telefónico"
+    ],
+    "gradiente": "Gradient 3",
+    "fuentes": [
+      "OIT - Working Paper 140 (2025), Anexo A1, código ISCO 3252",
+      "Frey & Osborne (2013) - The Future of Employment"
+    ]
+  },
+  {
+    "codigo_isco": "2411",
+    "ocupacion_es": "Contadores",
+    "riesgo_automatizacion_porcentaje": 51,
+    "explicacion": "Varias tareas se pueden asistir con IA (cálculos, borradores, análisis), pero se requiere supervisión y decisiones humanas.",
+    "sinonimos": [
+      "Contadores técnico",
+      "Contadores senior",
+      "Contadores especializado",
+      "Contadores junior",
+      "Contadores",
+      "Contadores auxiliar"
+    ],
+    "gradiente": "Gradient 3",
+    "fuentes": [
+      "OIT - Working Paper 140 (2025), Anexo A1, código ISCO 2411",
+      "Frey & Osborne (2013) - The Future of Employment"
+    ]
+  },
+  {
+    "codigo_isco": "2434",
+    "ocupacion_es": "Profesionales de ventas en tecnologías de la información y las comunicaciones",
+    "riesgo_automatizacion_porcentaje": 51,
+    "explicacion": "Muchas interacciones siguen guiones repetidos que los asistentes virtuales pueden manejar. Los casos complejos aún requieren empatía humana.",
+    "sinonimos": [
+      "Teleoperador",
+      "Ejecutivo comercial TI",
+      "Representante de ventas TI",
+      "Atención al cliente",
+      "Gerente de TI",
+      "Gerente de servicio TI",
+      "Agente de call center"
+    ],
+    "gradiente": "Gradient 3",
+    "fuentes": [
+      "OIT - Working Paper 140 (2025), Anexo A1, código ISCO 2434",
+      "Frey & Osborne (2013) - The Future of Employment"
+    ]
+  },
+  {
+    "codigo_isco": "4224",
+    "ocupacion_es": "Recepcionistas de hotel",
+    "riesgo_automatizacion_porcentaje": 51,
+    "explicacion": "Son tareas de oficina con pasos repetitivos o reglas claras. La IA puede automatizar gran parte del trabajo, aunque la supervisión humana y los casos especiales siguen siendo necesarios.",
+    "sinonimos": [
+      "Recepción",
+      "Agente de recepción",
+      "Atención al cliente",
+      "Recepcionistas de hotel",
+      "Auxiliar de recepción",
+      "Recepcionista de oficina"
+    ],
+    "gradiente": "Gradient 3",
+    "fuentes": [
+      "OIT - Working Paper 140 (2025), Anexo A1, código ISCO 4224",
+      "Frey & Osborne (2013) - The Future of Employment"
+    ]
+  },
+  {
+    "codigo_isco": "4413",
+    "ocupacion_es": "Empleados de codificación, corrección y afines",
+    "riesgo_automatizacion_porcentaje": 51,
+    "explicacion": "Son tareas de oficina con pasos repetitivos o reglas claras. La IA puede automatizar gran parte del trabajo, aunque la supervisión humana y los casos especiales siguen siendo necesarios.",
+    "sinonimos": [
+      "Empleados de codificación, corrección y afines especializado",
+      "Empleados de codificación, corrección y afines junior",
+      "Empleados de codificación, corrección y afines senior",
+      "Empleados de codificación, corrección y afines",
+      "Empleados de codificación, corrección y afines técnico",
+      "Empleados de codificación, corrección y afines auxiliar"
+    ],
+    "gradiente": "Gradient 3",
+    "fuentes": [
+      "OIT - Working Paper 140 (2025), Anexo A1, código ISCO 4413",
+      "Frey & Osborne (2013) - The Future of Employment"
+    ]
+  },
+  {
+    "codigo_isco": "2166",
+    "ocupacion_es": "Diseñadores gráficos y multimedia",
+    "riesgo_automatizacion_porcentaje": 49,
+    "explicacion": "Varias tareas se pueden asistir con IA (cálculos, borradores, análisis), pero se requiere supervisión y decisiones humanas.",
+    "sinonimos": [
+      "Diseñadores gráficos y multimedia",
+      "Diseñador visual",
+      "Diseñador gráfico",
+      "Diseñador multimedia",
+      "Motion graphics",
+      "Diseñador digital"
+    ],
+    "gradiente": "Gradient 2",
+    "fuentes": [
+      "OIT - Working Paper 140 (2025), Anexo A1, código ISCO 2166",
+      "Frey & Osborne (2013) - The Future of Employment"
+    ]
+  },
+  {
+    "codigo_isco": "2511",
+    "ocupacion_es": "Analistas de sistemas",
+    "riesgo_automatizacion_porcentaje": 49,
+    "explicacion": "La IA acelera la generación de código, el soporte y el análisis, pero diseñar soluciones a medida y asegurar calidad requiere criterio humano.",
+    "sinonimos": [
+      "Consultor de sistemas",
+      "Analista TI",
+      "Analista de negocio TI",
+      "Analista técnico",
+      "Analista funcional",
+      "Analistas de sistemas"
+    ],
+    "gradiente": "Gradient 2",
+    "fuentes": [
+      "OIT - Working Paper 140 (2025), Anexo A1, código ISCO 2511",
+      "Frey & Osborne (2013) - The Future of Employment"
+    ]
+  },
+  {
+    "codigo_isco": "2529",
+    "ocupacion_es": "Profesionales de bases de datos y redes no clasificados en otra parte",
+    "riesgo_automatizacion_porcentaje": 49,
+    "explicacion": "La IA acelera la generación de código, el soporte y el análisis, pero diseñar soluciones a medida y asegurar calidad requiere criterio humano.",
+    "sinonimos": [
+      "Diseñador de bases de datos",
+      "Arquitecto de datos",
+      "DBA",
+      "Ingeniero de datos",
+      "Profesionales de bases de datos y redes no clasificados en otra parte",
+      "Administrador de bases de datos"
+    ],
+    "gradiente": "Gradient 2",
+    "fuentes": [
+      "OIT - Working Paper 140 (2025), Anexo A1, código ISCO 2529",
+      "Frey & Osborne (2013) - The Future of Employment"
+    ]
+  },
+  {
+    "codigo_isco": "3313",
+    "ocupacion_es": "Profesionales asociados de contabilidad",
+    "riesgo_automatizacion_porcentaje": 49,
+    "explicacion": "Varias tareas se pueden asistir con IA (cálculos, borradores, análisis), pero se requiere supervisión y decisiones humanas.",
+    "sinonimos": [
+      "Auxiliar contable",
+      "Administrativo contable",
+      "Profesionales asociados de contabilidad",
+      "Tenedor de libros",
+      "Asistente contable",
+      "Contador junior"
+    ],
+    "gradiente": "Gradient 2",
+    "fuentes": [
+      "OIT - Working Paper 140 (2025), Anexo A1, código ISCO 3313",
+      "Frey & Osborne (2013) - The Future of Employment"
+    ]
+  },
+  {
+    "codigo_isco": "3322",
+    "ocupacion_es": "Representantes comerciales de ventas",
+    "riesgo_automatizacion_porcentaje": 49,
+    "explicacion": "Varias tareas se pueden asistir con IA (cálculos, borradores, análisis), pero se requiere supervisión y decisiones humanas.",
+    "sinonimos": [
+      "Representante de ventas",
+      "Representantes comerciales de ventas",
+      "Asesor comercial",
+      "Representante B2B",
+      "Ejecutivo comercial",
+      "Key account"
+    ],
+    "gradiente": "Gradient 2",
+    "fuentes": [
+      "OIT - Working Paper 140 (2025), Anexo A1, código ISCO 3322",
+      "Frey & Osborne (2013) - The Future of Employment"
+    ]
+  },
+  {
+    "codigo_isco": "3352",
+    "ocupacion_es": "Funcionarios de impuestos y aduanas",
+    "riesgo_automatizacion_porcentaje": 49,
+    "explicacion": "Varias tareas se pueden asistir con IA (cálculos, borradores, análisis), pero se requiere supervisión y decisiones humanas.",
+    "sinonimos": [
+      "Gestor público",
+      "Analista de políticas",
+      "Administrador público",
+      "Inspector gubernamental",
+      "Funcionario público",
+      "Funcionarios de impuestos y aduanas"
+    ],
+    "gradiente": "Gradient 2",
+    "fuentes": [
+      "OIT - Working Paper 140 (2025), Anexo A1, código ISCO 3352",
+      "Frey & Osborne (2013) - The Future of Employment"
+    ]
+  },
+  {
+    "codigo_isco": "2153",
+    "ocupacion_es": "Ingenieros de telecomunicaciones",
+    "riesgo_automatizacion_porcentaje": 48,
+    "explicacion": "Varias tareas se pueden asistir con IA (cálculos, borradores, análisis), pero se requiere supervisión y decisiones humanas.",
+    "sinonimos": [
+      "Ingenieros de telecomunicaciones especializado",
+      "Ingenieros de telecomunicaciones técnico",
+      "Ingenieros de telecomunicaciones junior",
+      "Ingenieros de telecomunicaciones senior",
+      "Ingenieros de telecomunicaciones auxiliar",
+      "Ingenieros de telecomunicaciones"
+    ],
+    "gradiente": "Gradient 2",
+    "fuentes": [
+      "OIT - Working Paper 140 (2025), Anexo A1, código ISCO 2153",
+      "Frey & Osborne (2013) - The Future of Employment"
+    ]
+  },
+  {
+    "codigo_isco": "2632",
+    "ocupacion_es": "Sociólogos, antropólogos y profesionales afines",
+    "riesgo_automatizacion_porcentaje": 48,
+    "explicacion": "Varias tareas se pueden asistir con IA (cálculos, borradores, análisis), pero se requiere supervisión y decisiones humanas.",
+    "sinonimos": [
+      "Académico en ciencias sociales",
+      "Historiador/Politólogo/Sociólogo",
+      "Sociólogos, antropólogos y profesionales afines",
+      "Docente universitario",
+      "Analista social",
+      "Investigador social"
+    ],
+    "gradiente": "Gradient 2",
+    "fuentes": [
+      "OIT - Working Paper 140 (2025), Anexo A1, código ISCO 2632",
+      "Frey & Osborne (2013) - The Future of Employment"
+    ]
+  },
+  {
+    "codigo_isco": "3332",
+    "ocupacion_es": "Planificadores de conferencias y eventos",
+    "riesgo_automatizacion_porcentaje": 48,
+    "explicacion": "Varias tareas se pueden asistir con IA (cálculos, borradores, análisis), pero se requiere supervisión y decisiones humanas.",
+    "sinonimos": [
+      "Organizador de eventos",
+      "Planner de eventos",
+      "Productor de eventos",
+      "Coordinador de eventos",
+      "Gestor de eventos",
+      "Planificadores de conferencias y eventos"
+    ],
+    "gradiente": "Gradient 2",
+    "fuentes": [
+      "OIT - Working Paper 140 (2025), Anexo A1, código ISCO 3332",
+      "Frey & Osborne (2013) - The Future of Employment"
+    ]
+  },
+  {
+    "codigo_isco": "4213",
+    "ocupacion_es": "Casa de empeño y prestamistas",
+    "riesgo_automatizacion_porcentaje": 48,
+    "explicacion": "Varias tareas se pueden asistir con IA (cálculos, borradores, análisis), pero se requiere supervisión y decisiones humanas.",
+    "sinonimos": [
+      "Casa de empeño y prestamistas especializado",
+      "Casa de empeño y prestamistas junior",
+      "Casa de empeño y prestamistas técnico",
+      "Casa de empeño y prestamistas senior",
+      "Casa de empeño y prestamistas auxiliar",
+      "Casa de empeño y prestamistas"
+    ],
+    "gradiente": "Gradient 2",
+    "fuentes": [
+      "OIT - Working Paper 140 (2025), Anexo A1, código ISCO 4213",
+      "Frey & Osborne (2013) - The Future of Employment"
+    ]
+  },
+  {
+    "codigo_isco": "1346",
+    "ocupacion_es": "Gerentes de sucursales de servicios financieros y de seguros",
+    "riesgo_automatizacion_porcentaje": 47,
+    "explicacion": "La IA apoya con reportes y análisis, pero la dirección, negociación y toma de decisiones estratégicas siguen siendo humanas.",
+    "sinonimos": [
+      "Gerentes de sucursales de servicios financieros y de seguros",
+      "Empleado de seguros",
+      "Empleado de análisis estadístico",
+      "Auxiliar financiero",
+      "Auxiliar bancario",
+      "Asistente de finanzas"
+    ],
+    "gradiente": "Gradient 2",
+    "fuentes": [
+      "OIT - Working Paper 140 (2025), Anexo A1, código ISCO 1346",
+      "Frey & Osborne (2013) - The Future of Employment"
+    ]
+  },
+  {
+    "codigo_isco": "2356",
+    "ocupacion_es": "Formadores en tecnología de la información",
+    "riesgo_automatizacion_porcentaje": 47,
+    "explicacion": "Muchas interacciones siguen guiones repetidos que los asistentes virtuales pueden manejar. Los casos complejos aún requieren empatía humana.",
+    "sinonimos": [
+      "Teleoperador",
+      "Atención al cliente",
+      "Coach organizacional",
+      "Agente de call center",
+      "Formador TIC",
+      "Capacitador",
+      "Formadores en tecnología de la información"
+    ],
+    "gradiente": "Gradient 2",
+    "fuentes": [
+      "OIT - Working Paper 140 (2025), Anexo A1, código ISCO 2356",
+      "Frey & Osborne (2013) - The Future of Employment"
+    ]
+  },
+  {
+    "codigo_isco": "2621",
+    "ocupacion_es": "Archivistas y curadores",
+    "riesgo_automatizacion_porcentaje": 47,
+    "explicacion": "Varias tareas se pueden asistir con IA (cálculos, borradores, análisis), pero se requiere supervisión y decisiones humanas.",
+    "sinonimos": [
+      "Archivistas y curadores senior",
+      "Archivistas y curadores",
+      "Archivistas y curadores técnico",
+      "Archivistas y curadores junior",
+      "Archivistas y curadores especializado",
+      "Archivistas y curadores auxiliar"
+    ],
+    "gradiente": "Gradient 2",
+    "fuentes": [
+      "OIT - Working Paper 140 (2025), Anexo A1, código ISCO 2621",
+      "Frey & Osborne (2013) - The Future of Employment"
+    ]
+  },
+  {
+    "codigo_isco": "2633",
+    "ocupacion_es": "Filósofos, historiadores y politólogos",
+    "riesgo_automatizacion_porcentaje": 47,
+    "explicacion": "Varias tareas se pueden asistir con IA (cálculos, borradores, análisis), pero se requiere supervisión y decisiones humanas.",
+    "sinonimos": [
+      "Filósofos, historiadores y politólogos",
+      "Académico en ciencias sociales",
+      "Historiador/Politólogo/Sociólogo",
+      "Docente universitario",
+      "Analista social",
+      "Investigador social"
+    ],
+    "gradiente": "Gradient 2",
+    "fuentes": [
+      "OIT - Working Paper 140 (2025), Anexo A1, código ISCO 2633",
+      "Frey & Osborne (2013) - The Future of Employment"
+    ]
+  },
+  {
+    "codigo_isco": "2656",
+    "ocupacion_es": "Locutores de radio, televisión y otros medios",
+    "riesgo_automatizacion_porcentaje": 47,
+    "explicacion": "Varias tareas se pueden asistir con IA (cálculos, borradores, análisis), pero se requiere supervisión y decisiones humanas.",
+    "sinonimos": [
+      "Locutores de radio, televisión y otros medios",
+      "Conductor de medios",
+      "Animador radial",
+      "Presentador de TV",
+      "Presentador de radio",
+      "Maestro de ceremonias"
+    ],
+    "gradiente": "Gradient 2",
+    "fuentes": [
+      "OIT - Working Paper 140 (2025), Anexo A1, código ISCO 2656",
+      "Frey & Osborne (2013) - The Future of Employment"
+    ]
+  },
+  {
+    "codigo_isco": "3512",
+    "ocupacion_es": "Técnicos de soporte a usuarios de tecnologías de la información y las comunicaciones",
+    "riesgo_automatizacion_porcentaje": 47,
+    "explicacion": "Muchas interacciones siguen guiones repetidos que los asistentes virtuales pueden manejar. Los casos complejos aún requieren empatía humana.",
+    "sinonimos": [
+      "Teleoperador",
+      "Mesa de ayuda",
+      "Agente de call center",
+      "Soporte de sistemas",
+      "Técnico de soporte",
+      "Técnico informático",
+      "Técnicos de soporte a usuarios de tecnologías de la información y las comunicaciones"
+    ],
+    "gradiente": "Gradient 2",
+    "fuentes": [
+      "OIT - Working Paper 140 (2025), Anexo A1, código ISCO 3512",
+      "Frey & Osborne (2013) - The Future of Employment"
+    ]
+  },
+  {
+    "codigo_isco": "2421",
+    "ocupacion_es": "Analistas de gestión y organización",
+    "riesgo_automatizacion_porcentaje": 46,
+    "explicacion": "Varias tareas se pueden asistir con IA (cálculos, borradores, análisis), pero se requiere supervisión y decisiones humanas.",
+    "sinonimos": [
+      "Analistas de gestión y organización junior",
+      "Analistas de gestión y organización senior",
+      "Analistas de gestión y organización técnico",
+      "Analistas de gestión y organización especializado",
+      "Analistas de gestión y organización",
+      "Analistas de gestión y organización auxiliar"
+    ],
+    "gradiente": "Gradient 2",
+    "fuentes": [
+      "OIT - Working Paper 140 (2025), Anexo A1, código ISCO 2421",
+      "Frey & Osborne (2013) - The Future of Employment"
+    ]
+  },
+  {
+    "codigo_isco": "4411",
+    "ocupacion_es": "Empleados de biblioteca",
+    "riesgo_automatizacion_porcentaje": 46,
+    "explicacion": "Son tareas de oficina con pasos repetitivos o reglas claras. La IA puede automatizar gran parte del trabajo, aunque la supervisión humana y los casos especiales siguen siendo necesarios.",
+    "sinonimos": [
+      "Bibliotecario asistente",
+      "Auxiliar de biblioteca",
+      "Empleados de biblioteca",
+      "Documentalista",
+      "Asistente de biblioteca",
+      "Técnico de biblioteca"
+    ],
+    "gradiente": "Gradient 2",
+    "fuentes": [
+      "OIT - Working Paper 140 (2025), Anexo A1, código ISCO 4411",
+      "Frey & Osborne (2013) - The Future of Employment"
+    ]
+  },
+  {
+    "codigo_isco": "5243",
+    "ocupacion_es": "Vendedores puerta a puerta",
+    "riesgo_automatizacion_porcentaje": 46,
+    "explicacion": "Varias tareas se pueden asistir con IA (cálculos, borradores, análisis), pero se requiere supervisión y decisiones humanas.",
+    "sinonimos": [
+      "Venta directa",
+      "Agente comercial puerta a puerta",
+      "Televentas de campo",
+      "Promotor puerta a puerta",
+      "Vendedores puerta a puerta",
+      "Representante de ventas directo"
+    ],
+    "gradiente": "Gradient 2",
+    "fuentes": [
+      "OIT - Working Paper 140 (2025), Anexo A1, código ISCO 5243",
+      "Frey & Osborne (2013) - The Future of Employment"
+    ]
+  },
+  {
+    "codigo_isco": "2423",
+    "ocupacion_es": "Profesionales de personal y orientación profesional",
+    "riesgo_automatizacion_porcentaje": 45,
+    "explicacion": "Varias tareas se pueden asistir con IA (cálculos, borradores, análisis), pero se requiere supervisión y decisiones humanas.",
+    "sinonimos": [
+      "Profesionales de personal y orientación profesional auxiliar",
+      "Profesionales de personal y orientación profesional especializado",
+      "Profesionales de personal y orientación profesional junior",
+      "Profesionales de personal y orientación profesional",
+      "Profesionales de personal y orientación profesional técnico",
+      "Profesionales de personal y orientación profesional senior"
+    ],
+    "gradiente": "Gradient 2",
+    "fuentes": [
+      "OIT - Working Paper 140 (2025), Anexo A1, código ISCO 2423",
+      "Frey & Osborne (2013) - The Future of Employment"
+    ]
+  },
+  {
+    "codigo_isco": "3315",
+    "ocupacion_es": "Tasadores y peritos de siniestros",
+    "riesgo_automatizacion_porcentaje": 45,
+    "explicacion": "Varias tareas se pueden asistir con IA (cálculos, borradores, análisis), pero se requiere supervisión y decisiones humanas.",
+    "sinonimos": [
+      "Tasadores y peritos de siniestros senior",
+      "Tasadores y peritos de siniestros auxiliar",
+      "Tasadores y peritos de siniestros técnico",
+      "Tasadores y peritos de siniestros",
+      "Tasadores y peritos de siniestros especializado",
+      "Tasadores y peritos de siniestros junior"
+    ],
+    "gradiente": "Gradient 2",
+    "fuentes": [
+      "OIT - Working Paper 140 (2025), Anexo A1, código ISCO 3315",
+      "Frey & Osborne (2013) - The Future of Employment"
+    ]
+  },
+  {
+    "codigo_isco": "3353",
+    "ocupacion_es": "Funcionarios de prestaciones sociales gubernamentales",
+    "riesgo_automatizacion_porcentaje": 45,
+    "explicacion": "Varias tareas se pueden asistir con IA (cálculos, borradores, análisis), pero se requiere supervisión y decisiones humanas.",
+    "sinonimos": [
+      "Funcionarios de prestaciones sociales gubernamentales",
+      "Gestor público",
+      "Analista de políticas",
+      "Administrador público",
+      "Inspector gubernamental",
+      "Funcionario público"
+    ],
+    "gradiente": "Gradient 2",
+    "fuentes": [
+      "OIT - Working Paper 140 (2025), Anexo A1, código ISCO 3353",
+      "Frey & Osborne (2013) - The Future of Employment"
+    ]
+  },
+  {
+    "codigo_isco": "4212",
+    "ocupacion_es": "Apostadores, crupieres y trabajadores de juegos de azar",
+    "riesgo_automatizacion_porcentaje": 45,
+    "explicacion": "Varias tareas se pueden asistir con IA (cálculos, borradores, análisis), pero se requiere supervisión y decisiones humanas.",
+    "sinonimos": [
+      "Apostadores, crupieres y trabajadores de juegos de azar senior",
+      "Apostadores, crupieres y trabajadores de juegos de azar técnico",
+      "Apostadores, crupieres y trabajadores de juegos de azar auxiliar",
+      "Apostadores, crupieres y trabajadores de juegos de azar",
+      "Apostadores, crupieres y trabajadores de juegos de azar junior",
+      "Apostadores, crupieres y trabajadores de juegos de azar especializado"
+    ],
+    "gradiente": "Gradient 2",
+    "fuentes": [
+      "OIT - Working Paper 140 (2025), Anexo A1, código ISCO 4212",
+      "Frey & Osborne (2013) - The Future of Employment"
+    ]
+  },
+  {
+    "codigo_isco": "1330",
+    "ocupacion_es": "Gerentes de servicios de tecnologías de la información y las comunicaciones",
+    "riesgo_automatizacion_porcentaje": 44,
+    "explicacion": "Muchas interacciones siguen guiones repetidos que los asistentes virtuales pueden manejar. Los casos complejos aún requieren empatía humana.",
+    "sinonimos": [
+      "Teleoperador",
+      "Gerente de cuentas TI",
+      "Gerente de TI",
+      "Gerente de servicio TI",
+      "Agente de call center",
+      "Jefe de soporte TI",
+      "Asesor de servicio"
+    ],
+    "gradiente": "Gradient 2",
+    "fuentes": [
+      "OIT - Working Paper 140 (2025), Anexo A1, código ISCO 1330",
+      "Frey & Osborne (2013) - The Future of Employment"
+    ]
+  },
+  {
+    "codigo_isco": "1420",
+    "ocupacion_es": "Gerentes de comercio minorista y mayorista",
+    "riesgo_automatizacion_porcentaje": 44,
+    "explicacion": "La IA apoya con reportes y análisis, pero la dirección, negociación y toma de decisiones estratégicas siguen siendo humanas.",
+    "sinonimos": [
+      "Administrador comercial",
+      "Jefe de ventas",
+      "Gerentes de comercio minorista y mayorista",
+      "Gerente de tienda",
+      "Gerente retail",
+      "Gerente mayorista"
+    ],
+    "gradiente": "Gradient 2",
+    "fuentes": [
+      "OIT - Working Paper 140 (2025), Anexo A1, código ISCO 1420",
+      "Frey & Osborne (2013) - The Future of Employment"
+    ]
+  },
+  {
+    "codigo_isco": "2165",
+    "ocupacion_es": "Cartógrafos y topógrafos",
+    "riesgo_automatizacion_porcentaje": 44,
+    "explicacion": "Varias tareas se pueden asistir con IA (cálculos, borradores, análisis), pero se requiere supervisión y decisiones humanas.",
+    "sinonimos": [
+      "Cartógrafos y topógrafos especializado",
+      "Cartógrafos y topógrafos auxiliar",
+      "Cartógrafos y topógrafos senior",
+      "Cartógrafos y topógrafos junior",
+      "Cartógrafos y topógrafos",
+      "Cartógrafos y topógrafos técnico"
+    ],
+    "gradiente": "Gradient 2",
+    "fuentes": [
+      "OIT - Working Paper 140 (2025), Anexo A1, código ISCO 2165",
+      "Frey & Osborne (2013) - The Future of Employment"
+    ]
+  },
+  {
+    "codigo_isco": "3324",
+    "ocupacion_es": "Corredores comerciales",
+    "riesgo_automatizacion_porcentaje": 44,
+    "explicacion": "Varias tareas se pueden asistir con IA (cálculos, borradores, análisis), pero se requiere supervisión y decisiones humanas.",
+    "sinonimos": [
+      "Corredores comerciales auxiliar",
+      "Corredores comerciales junior",
+      "Corredores comerciales",
+      "Corredores comerciales senior",
+      "Corredores comerciales técnico",
+      "Corredores comerciales especializado"
+    ],
+    "gradiente": "Gradient 2",
+    "fuentes": [
+      "OIT - Working Paper 140 (2025), Anexo A1, código ISCO 3324",
+      "Frey & Osborne (2013) - The Future of Employment"
+    ]
+  },
+  {
+    "codigo_isco": "3339",
+    "ocupacion_es": "Agentes de servicios empresariales no clasificados en otra parte",
+    "riesgo_automatizacion_porcentaje": 44,
+    "explicacion": "Varias tareas se pueden asistir con IA (cálculos, borradores, análisis), pero se requiere supervisión y decisiones humanas.",
+    "sinonimos": [
+      "Agentes de servicios empresariales no clasificados en otra parte especializado",
+      "Agentes de servicios empresariales no clasificados en otra parte junior",
+      "Agentes de servicios empresariales no clasificados en otra parte",
+      "Agentes de servicios empresariales no clasificados en otra parte técnico",
+      "Agentes de servicios empresariales no clasificados en otra parte auxiliar",
+      "Agentes de servicios empresariales no clasificados en otra parte senior"
+    ],
+    "gradiente": "Gradient 2",
+    "fuentes": [
+      "OIT - Working Paper 140 (2025), Anexo A1, código ISCO 3339",
+      "Frey & Osborne (2013) - The Future of Employment"
+    ]
+  },
+  {
+    "codigo_isco": "4322",
+    "ocupacion_es": "Personal de servicios de apoyo a la producción",
+    "riesgo_automatizacion_porcentaje": 44,
+    "explicacion": "Varias tareas se pueden asistir con IA (cálculos, borradores, análisis), pero se requiere supervisión y decisiones humanas.",
+    "sinonimos": [
+      "Auxiliar de producción",
+      "Asistente de producción",
+      "Personal de servicios de apoyo a la producción",
+      "Planificador de producción",
+      "Coordinador de producción",
+      "Oficinista de producción"
+    ],
+    "gradiente": "Gradient 2",
+    "fuentes": [
+      "OIT - Working Paper 140 (2025), Anexo A1, código ISCO 4322",
+      "Frey & Osborne (2013) - The Future of Employment"
+    ]
+  },
+  {
+    "codigo_isco": "2432",
+    "ocupacion_es": "Profesionales de relaciones públicas",
+    "riesgo_automatizacion_porcentaje": 43,
+    "explicacion": "Varias tareas se pueden asistir con IA (cálculos, borradores, análisis), pero se requiere supervisión y decisiones humanas.",
+    "sinonimos": [
+      "Profesionales de relaciones públicas",
+      "PR",
+      "Relaciones institucionales",
+      "Gestor de prensa",
+      "Comunicador corporativo",
+      "Vocero"
+    ],
+    "gradiente": "Gradient 2",
+    "fuentes": [
+      "OIT - Working Paper 140 (2025), Anexo A1, código ISCO 2432",
+      "Frey & Osborne (2013) - The Future of Employment"
+    ]
+  },
+  {
+    "codigo_isco": "3341",
+    "ocupacion_es": "Supervisores de oficina",
+    "riesgo_automatizacion_porcentaje": 43,
+    "explicacion": "Son tareas de oficina con pasos repetitivos o reglas claras. La IA puede automatizar gran parte del trabajo, aunque la supervisión humana y los casos especiales siguen siendo necesarios.",
+    "sinonimos": [
+      "Oficinista",
+      "Coordinador administrativo",
+      "Encargado de oficina",
+      "Jefe de oficina",
+      "Supervisores de oficina",
+      "Gestor documental",
+      "Recepcionista"
+    ],
+    "gradiente": "Gradient 2",
+    "fuentes": [
+      "OIT - Working Paper 140 (2025), Anexo A1, código ISCO 3341",
+      "Frey & Osborne (2013) - The Future of Employment"
+    ]
+  },
+  {
+    "codigo_isco": "3354",
+    "ocupacion_es": "Funcionarios de licencias gubernamentales",
+    "riesgo_automatizacion_porcentaje": 43,
+    "explicacion": "Varias tareas se pueden asistir con IA (cálculos, borradores, análisis), pero se requiere supervisión y decisiones humanas.",
+    "sinonimos": [
+      "Funcionarios de licencias gubernamentales",
+      "Gestor público",
+      "Analista de políticas",
+      "Administrador público",
+      "Inspector gubernamental",
+      "Funcionario público"
+    ],
+    "gradiente": "Gradient 2",
+    "fuentes": [
+      "OIT - Working Paper 140 (2025), Anexo A1, código ISCO 3354",
+      "Frey & Osborne (2013) - The Future of Employment"
+    ]
+  },
+  {
+    "codigo_isco": "3511",
+    "ocupacion_es": "Técnicos de operaciones de tecnologías de la información y las comunicaciones",
+    "riesgo_automatizacion_porcentaje": 43,
+    "explicacion": "Muchas interacciones siguen guiones repetidos que los asistentes virtuales pueden manejar. Los casos complejos aún requieren empatía humana.",
+    "sinonimos": [
+      "Teleoperador",
+      "Técnicos de operaciones de tecnologías de la información y las comunicaciones",
+      "Agente de call center",
+      "Atención al cliente",
+      "Asesor de servicio",
+      "Operador telefónico"
+    ],
+    "gradiente": "Gradient 2",
+    "fuentes": [
+      "OIT - Working Paper 140 (2025), Anexo A1, código ISCO 3511",
+      "Frey & Osborne (2013) - The Future of Employment"
+    ]
+  },
+  {
+    "codigo_isco": "3513",
+    "ocupacion_es": "Técnicos de redes y sistemas informáticos",
+    "riesgo_automatizacion_porcentaje": 43,
+    "explicacion": "La IA acelera la generación de código, el soporte y el análisis, pero diseñar soluciones a medida y asegurar calidad requiere criterio humano.",
+    "sinonimos": [
+      "Arquitecto de redes",
+      "Técnicos de redes y sistemas informáticos",
+      "Consultor de sistemas",
+      "Administrador de redes",
+      "Analista TI",
+      "Analista de negocio TI",
+      "Analista técnico"
+    ],
+    "gradiente": "Gradient 2",
+    "fuentes": [
+      "OIT - Working Paper 140 (2025), Anexo A1, código ISCO 3513",
+      "Frey & Osborne (2013) - The Future of Employment"
+    ]
+  },
+  {
+    "codigo_isco": "4214",
+    "ocupacion_es": "Cobradores de deudas y trabajadores afines",
+    "riesgo_automatizacion_porcentaje": 43,
+    "explicacion": "Varias tareas se pueden asistir con IA (cálculos, borradores, análisis), pero se requiere supervisión y decisiones humanas.",
+    "sinonimos": [
+      "Cobradores de deudas y trabajadores afines senior",
+      "Cobradores de deudas y trabajadores afines técnico",
+      "Cobradores de deudas y trabajadores afines junior",
+      "Cobradores de deudas y trabajadores afines auxiliar",
+      "Cobradores de deudas y trabajadores afines",
+      "Cobradores de deudas y trabajadores afines especializado"
+    ],
+    "gradiente": "Gradient 2",
+    "fuentes": [
+      "OIT - Working Paper 140 (2025), Anexo A1, código ISCO 4214",
+      "Frey & Osborne (2013) - The Future of Employment"
+    ]
+  },
+  {
+    "codigo_isco": "5221",
+    "ocupacion_es": "Comerciantes y dueños de tienda",
+    "riesgo_automatizacion_porcentaje": 43,
+    "explicacion": "Varias tareas se pueden asistir con IA (cálculos, borradores, análisis), pero se requiere supervisión y decisiones humanas.",
+    "sinonimos": [
+      "Retailer",
+      "Encargado de local",
+      "Microempresario",
+      "Administrador de tienda",
+      "Comerciantes y dueños de tienda",
+      "Dueño de tienda"
+    ],
+    "gradiente": "Gradient 2",
+    "fuentes": [
+      "OIT - Working Paper 140 (2025), Anexo A1, código ISCO 5221",
+      "Frey & Osborne (2013) - The Future of Employment"
+    ]
+  },
+  {
+    "codigo_isco": "1219",
+    "ocupacion_es": "Gerentes de servicios empresariales y administración no clasificados en otra parte",
+    "riesgo_automatizacion_porcentaje": 42,
+    "explicacion": "La IA apoya con reportes y análisis, pero la dirección, negociación y toma de decisiones estratégicas siguen siendo humanas.",
+    "sinonimos": [
+      "Gerentes de servicios empresariales y administración no clasificados en otra parte especializado",
+      "Gerentes de servicios empresariales y administración no clasificados en otra parte senior",
+      "Gerentes de servicios empresariales y administración no clasificados en otra parte junior",
+      "Gerentes de servicios empresariales y administración no clasificados en otra parte auxiliar",
+      "Gerentes de servicios empresariales y administración no clasificados en otra parte técnico",
+      "Gerentes de servicios empresariales y administración no clasificados en otra parte"
+    ],
+    "gradiente": "Gradient 2",
+    "fuentes": [
+      "OIT - Working Paper 140 (2025), Anexo A1, código ISCO 1219",
+      "Frey & Osborne (2013) - The Future of Employment"
+    ]
+  },
+  {
+    "codigo_isco": "2152",
+    "ocupacion_es": "Ingenieros electrónicos",
+    "riesgo_automatizacion_porcentaje": 42,
+    "explicacion": "Varias tareas se pueden asistir con IA (cálculos, borradores, análisis), pero se requiere supervisión y decisiones humanas.",
+    "sinonimos": [
+      "Ingenieros electrónicos junior",
+      "Ingenieros electrónicos",
+      "Ingenieros electrónicos técnico",
+      "Ingenieros electrónicos auxiliar",
+      "Ingenieros electrónicos especializado",
+      "Ingenieros electrónicos senior"
+    ],
+    "gradiente": "Gradient 2",
+    "fuentes": [
+      "OIT - Working Paper 140 (2025), Anexo A1, código ISCO 2152",
+      "Frey & Osborne (2013) - The Future of Employment"
+    ]
+  },
+  {
+    "codigo_isco": "4229",
+    "ocupacion_es": "Trabajadores de información al cliente no clasificados en otra parte",
+    "riesgo_automatizacion_porcentaje": 42,
+    "explicacion": "Muchas interacciones siguen guiones repetidos que los asistentes virtuales pueden manejar. Los casos complejos aún requieren empatía humana.",
+    "sinonimos": [
+      "Teleoperador",
+      "Agente de call center",
+      "Trabajadores de información al cliente no clasificados en otra parte",
+      "Atención al cliente",
+      "Asesor de servicio",
+      "Operador telefónico"
+    ],
+    "gradiente": "Gradient 2",
+    "fuentes": [
+      "OIT - Working Paper 140 (2025), Anexo A1, código ISCO 4229",
+      "Frey & Osborne (2013) - The Future of Employment"
+    ]
+  },
+  {
+    "codigo_isco": "5242",
+    "ocupacion_es": "Demostradores de ventas",
+    "riesgo_automatizacion_porcentaje": 42,
+    "explicacion": "Varias tareas se pueden asistir con IA (cálculos, borradores, análisis), pero se requiere supervisión y decisiones humanas.",
+    "sinonimos": [
+      "Demostradores de ventas auxiliar",
+      "Demostradores de ventas senior",
+      "Demostradores de ventas junior",
+      "Demostradores de ventas",
+      "Demostradores de ventas técnico",
+      "Demostradores de ventas especializado"
+    ],
+    "gradiente": "Gradient 2",
+    "fuentes": [
+      "OIT - Working Paper 140 (2025), Anexo A1, código ISCO 5242",
+      "Frey & Osborne (2013) - The Future of Employment"
+    ]
+  },
+  {
+    "codigo_isco": "1221",
+    "ocupacion_es": "Gerentes de ventas y marketing",
+    "riesgo_automatizacion_porcentaje": 41,
+    "explicacion": "La IA apoya con reportes y análisis, pero la dirección, negociación y toma de decisiones estratégicas siguen siendo humanas.",
+    "sinonimos": [
+      "Gerentes de ventas y marketing",
+      "Jefe de ventas",
+      "CMO",
+      "Gerente comercial",
+      "Gerente de desarrollo de negocio",
+      "Director de marketing"
+    ],
+    "gradiente": "Gradient 2",
+    "fuentes": [
+      "OIT - Working Paper 140 (2025), Anexo A1, código ISCO 1221",
+      "Frey & Osborne (2013) - The Future of Employment"
+    ]
+  },
+  {
+    "codigo_isco": "2424",
+    "ocupacion_es": "Profesionales de capacitación y desarrollo de personal",
+    "riesgo_automatizacion_porcentaje": 41,
+    "explicacion": "Varias tareas se pueden asistir con IA (cálculos, borradores, análisis), pero se requiere supervisión y decisiones humanas.",
+    "sinonimos": [
+      "Coach organizacional",
+      "Formador TIC",
+      "Capacitador",
+      "Profesionales de capacitación y desarrollo de personal",
+      "Instructor corporativo",
+      "Facilitador de aprendizaje"
+    ],
+    "gradiente": "Gradient 2",
+    "fuentes": [
+      "OIT - Working Paper 140 (2025), Anexo A1, código ISCO 2424",
+      "Frey & Osborne (2013) - The Future of Employment"
+    ]
+  },
+  {
+    "codigo_isco": "4412",
+    "ocupacion_es": "Carteros y empleados de clasificación postal",
+    "riesgo_automatizacion_porcentaje": 41,
+    "explicacion": "Son tareas de oficina con pasos repetitivos o reglas claras. La IA puede automatizar gran parte del trabajo, aunque la supervisión humana y los casos especiales siguen siendo necesarios.",
+    "sinonimos": [
+      "Carteros y empleados de clasificación postal",
+      "Mensajero postal",
+      "Repartidor de correos",
+      "Clasificador de correo",
+      "Auxiliar postal",
+      "Operario postal"
+    ],
+    "gradiente": "Gradient 2",
+    "fuentes": [
+      "OIT - Working Paper 140 (2025), Anexo A1, código ISCO 4412",
+      "Frey & Osborne (2013) - The Future of Employment"
+    ]
+  },
+  {
+    "codigo_isco": "8322",
+    "ocupacion_es": "Conductores de automóviles, taxis y furgonetas",
+    "riesgo_automatizacion_porcentaje": 28,
+    "explicacion": "La mayor parte del trabajo depende de habilidades humanas (trato, creatividad, coordinación); la IA ayuda, pero no reemplaza por completo.",
+    "sinonimos": [
+      "Taxista",
+      "Mensajero motorizado",
+      "Chofer profesional",
+      "Repartidor",
+      "Conductores de automóviles, taxis y furgonetas",
+      "Conductor particular"
+    ],
+    "gradiente": "Gradient 1",
+    "fuentes": [
+      "OIT - Working Paper 140 (2025), Anexo A1, código ISCO 8322",
+      "Frey & Osborne (2013) - The Future of Employment"
+    ]
+  },
+  {
+    "codigo_isco": "2310",
+    "ocupacion_es": "Profesores universitarios y de educación superior",
+    "riesgo_automatizacion_porcentaje": 25,
+    "explicacion": "Enseñar, investigar y orientar estudiantes requiere interacción humana, juicio pedagógico y trabajo creativo. La IA apoya con materiales y evaluación, pero no reemplaza la docencia presencial ni la investigación original.",
+    "sinonimos": [
+      "Profesor universitario",
+      "Docente universitario",
+      "Catedrático",
+      "Académico",
+      "Profesor de educación superior",
+      "Investigador docente"
+    ],
+    "gradiente": "Estimado (Gradient 1)",
+    "fuentes": [
+      "ISCO-08 2310 (University and higher education teachers)",
+      "OECD Employment Outlook 2019 – Bajo riesgo relativo en educación",
+      "Eloundou et al. 2023 – Exposición de tareas a LLMs con alta complementariedad"
+    ]
+  },
+  {
+    "codigo_isco": "2330",
+    "ocupacion_es": "Profesores de educación secundaria",
+    "riesgo_automatizacion_porcentaje": 30,
+    "explicacion": "La planificación de clases, manejo del aula y apoyo socioemocional son difíciles de automatizar. La IA ayuda con contenidos y correcciones, pero el rol docente sigue siendo humano.",
+    "sinonimos": [
+      "Profesor de secundaria",
+      "Docente de secundaria",
+      "Profesor de bachillerato",
+      "Profesor de educación media",
+      "Maestro de secundaria",
+      "Docente de media"
+    ],
+    "gradiente": "Estimado (Gradient 1)",
+    "fuentes": [
+      "ISCO-08 2330 (Secondary education teachers)",
+      "OECD Employment Outlook 2019 – Riesgo promedio-bajo en educación",
+      "Eloundou et al. 2023 – Exposición con complementariedad"
+    ]
+  },
+  {
+    "codigo_isco": "2341",
+    "ocupacion_es": "Maestros de educación primaria",
+    "riesgo_automatizacion_porcentaje": 28,
+    "explicacion": "Trabajan con niños pequeños en aprendizaje básico y convivencia; requiere paciencia, comunicación y adaptación continua. La IA apoya, pero no sustituye la presencia y guía humana.",
+    "sinonimos": [
+      "Profesor de primaria",
+      "Docente de primaria",
+      "Maestro escolar",
+      "Profesor básico",
+      "Tutor de aula",
+      "Profesor de educación básica"
+    ],
+    "gradiente": "Estimado (Gradient 1)",
+    "fuentes": [
+      "ISCO-08 2341 (Primary school teachers)",
+      "OECD Skills/Employment Outlook 2019 – Bajo riesgo relativo en educación",
+      "Eloundou et al. 2023 – Exposición con complementariedad"
+    ]
+  },
+  {
+    "codigo_isco": "2342",
+    "ocupacion_es": "Educadores de primera infancia",
+    "riesgo_automatizacion_porcentaje": 25,
+    "explicacion": "La educación inicial requiere juego guiado, cuidado y desarrollo socioemocional en tiempo real. Son habilidades humanas difíciles de automatizar.",
+    "sinonimos": [
+      "Educador infantil",
+      "Docente preescolar",
+      "Maestra de preescolar",
+      "Educadora inicial",
+      "Parvularia",
+      "Profesor de educación inicial"
+    ],
+    "gradiente": "Estimado (Gradient 1)",
+    "fuentes": [
+      "ISCO-08 2342 (Early childhood educators)",
+      "OECD – Early Childhood Education (2019)",
+      "Eloundou et al. 2023 – Exposición con complementariedad"
+    ]
+  },
+  {
+    "codigo_isco": "2320",
+    "ocupacion_es": "Docentes de formación profesional",
+    "riesgo_automatizacion_porcentaje": 35,
+    "explicacion": "Parte del contenido es demostrable y repetible, lo que la IA puede apoyar, pero la práctica en taller y la evaluación práctica siguen requiriendo supervisión humana.",
+    "sinonimos": [
+      "Instructor técnico",
+      "Profesor de FP",
+      "Formador ocupacional",
+      "Docente técnico",
+      "Maestro de taller",
+      "Instructor vocacional"
+    ],
+    "gradiente": "Estimado (Gradient 2)",
+    "fuentes": [
+      "ISCO-08 2320 (Vocational education teachers)",
+      "OECD Employment Outlook 2019 – Automatización parcial de tareas",
+      "Eloundou et al. 2023 – Exposición con complementariedad"
+    ]
+  },
+  {
+    "codigo_isco": "7126",
+    "ocupacion_es": "Plomeros y montadores de tuberías",
+    "riesgo_automatizacion_porcentaje": 20,
+    "explicacion": "Trabajo manual en entornos cambiantes (hogares/obras), con diagnóstico in situ y maniobras en espacios estrechos; los robots tienen dificultades para esto. La IA ayuda con planificación y detección, no reemplazo total.",
+    "sinonimos": [
+      "Plomero",
+      "Fontanero",
+      "Instalador de tuberías",
+      "Gasfitero",
+      "Técnico de plomería",
+      "Montador de tuberías"
+    ],
+    "gradiente": "Estimado (Gradient 1)",
+    "fuentes": [
+      "ISCO-08 7126 (Plumbers and pipe fitters)",
+      "Frey & Osborne 2013 – Oficios manuales con menor susceptibilidad",
+      "Estudios de robótica en construcción (2022) – adopción parcial en obra"
+    ]
+  },
+  {
+    "codigo_isco": "7115",
+    "ocupacion_es": "Carpinteros y ebanistas",
+    "riesgo_automatizacion_porcentaje": 30,
+    "explicacion": "Aunque hay mecanizado en taller, gran parte del trabajo es a medida e in situ (ajustes, montaje, acabados) que requieren destreza y adaptación humana.",
+    "sinonimos": [
+      "Carpintero",
+      "Ebanista",
+      "Montador de estructuras de madera",
+      "Instalador de muebles",
+      "Carpintero de obra",
+      "Carpintero instalador"
+    ],
+    "gradiente": "Estimado (Gradient 1)",
+    "fuentes": [
+      "ISCO-08 7115 (Carpenters and joiners)",
+      "OECD/OIT – Tareas físicas no rutinarias: menor riesgo",
+      "Robótica en construcción (2022) – automatización limitada en sitio"
+    ]
+  },
+  {
+    "codigo_isco": "7411",
+    "ocupacion_es": "Electricistas de edificios y afines",
+    "riesgo_automatizacion_porcentaje": 30,
+    "explicacion": "Instalaciones y mantenimiento en contextos reales, con seguridad y normativas. La IA y sensores ayudan al diagnóstico, pero la ejecución física sigue siendo humana.",
+    "sinonimos": [
+      "Electricista",
+      "Técnico electricista",
+      "Instalador eléctrico",
+      "Electricista industrial",
+      "Electricista residencial",
+      "Montador eléctrico"
+    ],
+    "gradiente": "Estimado (Gradient 1)",
+    "fuentes": [
+      "ISCO-08 7411 (Building and related electricians)",
+      "OECD – Baja automatización en oficios con tareas manuales no rutinarias",
+      "Estudios sectoriales de instalación eléctrica"
+    ]
+  },
+  {
+    "codigo_isco": "7231",
+    "ocupacion_es": "Mecánicos y reparadores de vehículos de motor",
+    "riesgo_automatizacion_porcentaje": 40,
+    "explicacion": "El diagnóstico asistido por IA y equipos automatizados acelera la detección de fallos, pero el desarme, reparación y ajuste fino son manuales y contextuales.",
+    "sinonimos": [
+      "Mecánico automotriz",
+      "Técnico mecánico",
+      "Mecánico de autos",
+      "Mecánico de camiones",
+      "Técnico de diagnóstico automotriz",
+      "Mecánico vehicular"
+    ],
+    "gradiente": "Estimado (Gradient 2)",
+    "fuentes": [
+      "ISCO-08 7231 (Motor vehicle mechanics and repairers)",
+      "OECD – Automatización parcial de tareas, no de ocupaciones completas",
+      "Literatura sector automotriz sobre diagnósticos asistidos"
+    ]
+  },
+  {
+    "codigo_isco": "5223",
+    "ocupacion_es": "Asistentes de ventas en tiendas",
+    "riesgo_automatizacion_porcentaje": 55,
+    "explicacion": "Cajas de autocobro, comercio electrónico y asistentes virtuales automatizan parte de ventas y cobros. La atención personalizada y tareas en tienda siguen necesitando personas.",
+    "sinonimos": [
+      "Dependiente",
+      "Vendedor minorista",
+      "Asesor de ventas",
+      "Cajero vendedor",
+      "Promotor de tienda",
+      "Asistente de retail"
+    ],
+    "gradiente": "Estimado (Gradient 3)",
+    "fuentes": [
+      "ISCO-08 5223 (Shop sales assistants)",
+      "OECD Employment Outlook 2019 – mayor riesgo en tareas rutinas de servicios",
+      "Evidencia de automatización en retail (autocobro/online)"
+    ]
+  },
+  {
+    "codigo_isco": "5131",
+    "ocupacion_es": "Camareros",
+    "riesgo_automatizacion_porcentaje": 40,
+    "explicacion": "Kioscos, apps y robots sirven en contextos controlados, pero la experiencia de servicio, la coordinación en sala y la resolución de imprevistos siguen siendo humanas.",
+    "sinonimos": [
+      "Mesero",
+      "Mozo",
+      "Garzón",
+      "Mesera",
+      "Atendedor de mesas",
+      "Servidor de restaurante"
+    ],
+    "gradiente": "Estimado (Gradient 2)",
+    "fuentes": [
+      "ISCO-08 5131 (Waiters)",
+      "OECD – Automatización de tareas, interacción humana sigue clave",
+      "Casos de robots de servicio en hostelería (adopción parcial)"
+    ]
+  },
+  {
+    "codigo_isco": "7112",
+    "ocupacion_es": "Albañiles y trabajadores relacionados",
+    "riesgo_automatizacion_porcentaje": 25,
+    "explicacion": "Colocar ladrillos, bloques y piedra en obras requiere coordinación, precisión y adaptación al terreno. La robotización existe, pero aún es limitada fuera de entornos muy controlados.",
+    "sinonimos": [
+      "Albañil",
+      "Mampostero",
+      "Oficial de obra",
+      "Maestro albañil",
+      "Constructor de muros",
+      "Colocador de ladrillo"
+    ],
+    "gradiente": "Estimado (Gradient 1)",
+    "fuentes": [
+      "ISCO-08 7112 (Bricklayers and related workers)",
+      "Robótica en construcción (2022) – impacto acotado en obra",
+      "OECD – Baja automatización en tareas manuales no rutinarias"
+    ]
+  },
+  {
+    "codigo_isco": "8332",
+    "ocupacion_es": "Conductores de camiones pesados",
+    "riesgo_automatizacion_porcentaje": 45,
+    "explicacion": "La conducción autónoma progresa, pero regulaciones, seguridad y logística compleja mantienen alta la necesidad de conductores humanos a corto/mediano plazo.",
+    "sinonimos": [
+      "Conductor de camión",
+      "Chofer de tráiler",
+      "Transportista",
+      "Camionero",
+      "Operador de carga",
+      "Conductor de tractocamión"
+    ],
+    "gradiente": "Estimado (Gradient 2)",
+    "fuentes": [
+      "ISCO-08 8332 (Heavy truck and lorry drivers)",
+      "OECD/estudios de automatización – avances y límites en conducción autónoma",
+      "Literatura de transporte y logística sobre adopción gradual"
+    ]
+  },
+  {
+    "codigo_isco": "7412",
+    "ocupacion_es": "Mecánicos y montadores eléctricos",
+    "riesgo_automatizacion_porcentaje": 32,
+    "explicacion": "Instalan y reparan maquinaria y equipos eléctricos. La IA y el diagnóstico asistido agilizan el trabajo, pero la intervención física, seguridad y ajuste en campo requieren técnicos humanos.",
+    "sinonimos": [
+      "Mecánico eléctrico",
+      "Montador eléctrico",
+      "Técnico electricista industrial",
+      "Mantenedor eléctrico",
+      "Electromecánico",
+      "Instalador de maquinaria eléctrica"
+    ],
+    "gradiente": "Estimado (Gradient 1)",
+    "fuentes": [
+      "ISCO-08 7412 Electrical mechanics and fitters (definición y tareas)",
+      "ILO ISCO-08 Vol 1 – estructura y definiciones",
+      "Evidencia sectorial de mantenimiento industrial sobre automatización parcial"
+    ]
+  },
+  {
+    "codigo_isco": "7131",
+    "ocupacion_es": "Pintores y trabajadores relacionados",
+    "riesgo_automatizacion_porcentaje": 30,
+    "explicacion": "Preparan superficies y aplican pinturas y recubrimientos en obra. Es un trabajo manual y variable que exige precisión y adaptación al entorno; la automatización total es difícil fuera de fábricas.",
+    "sinonimos": [
+      "Pintor de obra",
+      "Pintor industrial",
+      "Aplicador de recubrimientos",
+      "Esmaltador",
+      "Barnizador",
+      "Pintor de interiores"
+    ],
+    "gradiente": "Estimado (Gradient 1)",
+    "fuentes": [
+      "ISCO-08 7131 Painters and related workers (definición y tareas)",
+      "ILO ISCO-08 – definiciones por grupos de oficios",
+      "Literatura sobre robotización en construcción (adopción limitada fuera de entornos controlados)"
+    ]
+  },
+  {
+    "codigo_isco": "7512",
+    "ocupacion_es": "Panaderos, pasteleros y confiteros",
+    "riesgo_automatizacion_porcentaje": 38,
+    "explicacion": "En panadería/pastelería industrial hay maquinaria y automatización, pero el trabajo artesanal (recetas, acabados, presentación y control de calidad) sigue necesitando personas.",
+    "sinonimos": [
+      "Panadero",
+      "Pastelero",
+      "Confitero",
+      "Maestro pastelero",
+      "Repostero",
+      "Operario de panadería"
+    ],
+    "gradiente": "Estimado (Gradient 2)",
+    "fuentes": [
+      "ISCO-08 7512 Bakers, pastry-cooks and confectionery makers (definición y tareas)",
+      "Evidencia sector panadero/pastelero sobre mecanización y trabajo artesanal",
+      "Recursos ocupacionales (estándares y manuales de competencias)"
+    ]
+  },
+  {
+    "codigo_isco": "7212",
+    "ocupacion_es": "Soldadores y oxicortadores",
+    "riesgo_automatizacion_porcentaje": 47,
+    "explicacion": "La soldadura robotizada avanza en ambientes controlados (fábricas), pero en campo y proyectos únicos se requiere ajuste fino, inspección y seguridad por parte de técnicos humanos.",
+    "sinonimos": [
+      "Soldador",
+      "Soldador MIG/MAG",
+      "Soldador TIG",
+      "Oxicortador",
+      "Brasero",
+      "Operador de soldadura"
+    ],
+    "gradiente": "Estimado (Gradient 2)",
+    "fuentes": [
+      "ISCO-08 7212 Welders and flame cutters (definición y tareas)",
+      "Literatura de soldadura robotizada en manufactura (adopción parcial)",
+      "Reportes sectoriales sobre seguridad y trabajo en campo"
+    ]
+  },
+  {
+    "codigo_isco": "7127",
+    "ocupacion_es": "Mecánicos de aire acondicionado y refrigeración (HVAC)",
+    "riesgo_automatizacion_porcentaje": 33,
+    "explicacion": "Montan, mantienen y reparan sistemas HVAC. La IA ayuda al diagnóstico y mantenimiento predictivo, pero la instalación y reparación física en sitio siguen requiriendo técnicos.",
+    "sinonimos": [
+      "Técnico HVAC",
+      "Técnico de climatización",
+      "Refrigerista",
+      "Técnico de aire acondicionado",
+      "Instalador de HVAC",
+      "Mecánico de refrigeración"
+    ],
+    "gradiente": "Estimado (Gradient 1)",
+    "fuentes": [
+      "ISCO-08 7127 Air conditioning and refrigeration mechanics (definición y tareas)",
+      "BLS HVAC – funciones y naturaleza del trabajo",
+      "Automatización/IoT en mantenimiento predictivo (complementario)"
+    ]
+  },
+  {
+    "codigo_isco": "5141",
+    "ocupacion_es": "Peluqueros",
+    "riesgo_automatizacion_porcentaje": 25,
+    "explicacion": "Corte, peinado y trato directo con clientes requieren habilidades manuales y sociales. La IA puede asistir en reservas y recomendaciones, pero no reemplaza el servicio práctico.",
+    "sinonimos": [
+      "Estilista",
+      "Barbero",
+      "Peluquera",
+      "Hair stylist",
+      "Cortador de cabello",
+      "Peinador"
+    ],
+    "gradiente": "Estimado (Gradient 1)",
+    "fuentes": [
+      "ISCO-08 5141 (Hairdressers)",
+      "OECD – ocupaciones de servicios personales: bajo riesgo por contacto humano"
+    ]
+  },
+  {
+    "codigo_isco": "5142",
+    "ocupacion_es": "Esteticistas y trabajadores afines",
+    "riesgo_automatizacion_porcentaje": 30,
+    "explicacion": "Tratamientos faciales/corporales, manicura y maquillaje son manuales y personalizados. La IA apoya reservas y recomendaciones, pero la ejecución es humana.",
+    "sinonimos": [
+      "Cosmetóloga",
+      "Manicurista",
+      "Maquilladora",
+      "Técnica de uñas",
+      "Esteticista corporal",
+      "Técnica estética"
+    ],
+    "gradiente": "Estimado (Gradient 1)",
+    "fuentes": [
+      "ISCO-08 5142 (Beauticians and related workers)",
+      "OECD – servicios personales, bajo riesgo por interacción física y personalización"
+    ]
+  },
+  {
+    "codigo_isco": "5321",
+    "ocupacion_es": "Asistentes de cuidados de salud",
+    "riesgo_automatizacion_porcentaje": 28,
+    "explicacion": "Apoyo directo a pacientes (movilización, higiene, alimentación) requiere empatía y presencia física. La IA apoya registros y alertas, no sustituye el cuidado.",
+    "sinonimos": [
+      "Auxiliar de enfermería",
+      "Cuidador sanitario",
+      "Técnico en cuidados auxiliares",
+      "Asistente clínico",
+      "Cuidador hospitalario",
+      "Auxiliar de salud"
+    ],
+    "gradiente": "Estimado (Gradient 1)",
+    "fuentes": [
+      "ISCO-08 5321 (Health care assistants)",
+      "OECD – baja automatización en cuidados personales"
+    ]
+  },
+  {
+    "codigo_isco": "5322",
+    "ocupacion_es": "Trabajadores de cuidado personal a domicilio",
+    "riesgo_automatizacion_porcentaje": 25,
+    "explicacion": "Cuidado en casa, acompañamiento y apoyo a la vida diaria. Tareas no rutinarias y vínculo humano hacen difícil la automatización total.",
+    "sinonimos": [
+      "Cuidador domiciliario",
+      "Asistente personal",
+      "Cuidador de adultos mayores",
+      "Cuidador de dependientes",
+      "Acompañante domiciliario",
+      "Auxiliar domiciliario"
+    ],
+    "gradiente": "Estimado (Gradient 1)",
+    "fuentes": [
+      "ISCO-08 5322 (Home-based personal care workers)",
+      "OECD – servicios de cuidado: baja automatización"
+    ]
+  },
+  {
+    "codigo_isco": "2635",
+    "ocupacion_es": "Psicólogos",
+    "riesgo_automatizacion_porcentaje": 20,
+    "explicacion": "Evaluación clínica, terapia y contención emocional requieren confidencialidad, ética y empatía humana. La IA puede asistir con herramientas de apoyo, no reemplazar la intervención.",
+    "sinonimos": [
+      "Psicoterapeuta",
+      "Psicólogo clínico",
+      "Consejero psicológico",
+      "Terapeuta",
+      "Psicólogo sanitario",
+      "Psicólogo de la salud"
+    ],
+    "gradiente": "Estimado (Gradient 1)",
+    "fuentes": [
+      "ISCO-08 2635 (Psychologists)",
+      "Eloundou et al. – alta complementariedad, baja sustitución en relaciones de ayuda"
+    ]
+  },
+  {
+    "codigo_isco": "2633",
+    "ocupacion_es": "Trabajadores sociales",
+    "riesgo_automatizacion_porcentaje": 22,
+    "explicacion": "Casos complejos con vulnerabilidad social requieren juicio, coordinación territorial y empatía. La IA ayuda a gestionar expedientes, pero la intervención es humana.",
+    "sinonimos": [
+      "Asistente social",
+      "Gestor social",
+      "Trabajador de bienestar social",
+      "Interventor social",
+      "Orientador social",
+      "Visitador social"
+    ],
+    "gradiente": "Estimado (Gradient 1)",
+    "fuentes": [
+      "ISCO-08 2633 (Social workers)",
+      "OECD – ocupaciones con alta interacción humana"
+    ]
+  },
+  {
+    "codigo_isco": "2142",
+    "ocupacion_es": "Ingenieros civiles",
+    "riesgo_automatizacion_porcentaje": 45,
+    "explicacion": "La IA acelera cálculos y modelado (BIM), pero la supervisión técnica, coordinación de obra y responsabilidad profesional siguen en manos humanas.",
+    "sinonimos": [
+      "Ingeniero estructural",
+      "Ingeniero vial",
+      "Ingeniero hidráulico",
+      "Ingeniero de obras civiles",
+      "Ingeniero de construcción",
+      "Ingeniero geotécnico"
+    ],
+    "gradiente": "Estimado (Gradient 2)",
+    "fuentes": [
+      "ISCO-08 2142 (Civil engineers)",
+      "Literatura BIM/IA en ingeniería: asistencia, no sustitución total"
+    ]
+  },
+  {
+    "codigo_isco": "2144",
+    "ocupacion_es": "Ingenieros mecánicos",
+    "riesgo_automatizacion_porcentaje": 48,
+    "explicacion": "Simulación, CAD y optimización con IA automatizan partes del diseño, pero la validación, seguridad y decisiones de ingeniería requieren profesionales.",
+    "sinonimos": [
+      "Ingeniero de diseño mecánico",
+      "Ingeniero de mantenimiento",
+      "Ingeniero de manufactura",
+      "Ingeniero mecatrónico",
+      "Ingeniero de procesos mecánicos",
+      "Ingeniero de maquinaria"
+    ],
+    "gradiente": "Estimado (Gradient 2)",
+    "fuentes": [
+      "ISCO-08 2144 (Mechanical engineers)",
+      "IA/CAD/CAE – automatización parcial del ciclo de diseño"
+    ]
+  },
+  {
+    "codigo_isco": "2141",
+    "ocupacion_es": "Ingenieros industriales y de producción",
+    "riesgo_automatizacion_porcentaje": 50,
+    "explicacion": "La IA optimiza líneas y logística, pero el diseño de procesos, ergonomía y seguridad continúan bajo responsabilidad profesional.",
+    "sinonimos": [
+      "Ingeniero de procesos",
+      "Ingeniero de producción",
+      "Ingeniero de operaciones",
+      "Ingeniero lean",
+      "Ingeniero de mejora continua",
+      "Ingeniero industrial"
+    ],
+    "gradiente": "Estimado (Gradient 3)",
+    "fuentes": [
+      "ISCO-08 2141 (Industrial and production engineers)",
+      "Literatura de Industria 4.0 – IA como complemento"
+    ]
+  },
+  {
+    "codigo_isco": "3431",
+    "ocupacion_es": "Fotógrafos",
+    "riesgo_automatizacion_porcentaje": 42,
+    "explicacion": "La IA genera y edita imágenes, pero la captura en eventos, el ojo creativo y la dirección con clientes mantienen espacio humano.",
+    "sinonimos": [
+      "Fotógrafo profesional",
+      "Fotógrafo de eventos",
+      "Fotógrafo de estudio",
+      "Retocador fotográfico",
+      "Creador de contenido visual",
+      "Fotoperiodista"
+    ],
+    "gradiente": "Estimado (Gradient 2)",
+    "fuentes": [
+      "ISCO-08 3431 (Photographers)",
+      "IA generativa en imagen – sustitución parcial, valor creativo humano"
+    ]
+  },
+  {
+    "codigo_isco": "3411",
+    "ocupacion_es": "Oficiales de aduanas y fronteras",
+    "riesgo_automatizacion_porcentaje": 35,
+    "explicacion": "Sistemas de riesgo e IA ayudan a seleccionar inspecciones, pero la verificación, entrevistas y decisiones finales las toman personas.",
+    "sinonimos": [
+      "Agente de aduanas",
+      "Inspector de frontera",
+      "Oficial de migraciones",
+      "Oficial aduanero",
+      "Control fronterizo",
+      "Agente de control aduanero"
+    ],
+    "gradiente": "Estimado (Gradient 2)",
+    "fuentes": [
+      "ISCO-08 (3411 aprox. en servicios de protección pública)",
+      "Sistemas de riesgo e IA en control fronterizo"
+    ]
+  },
+  {
+    "codigo_isco": "5414",
+    "ocupacion_es": "Guardias de seguridad",
+    "riesgo_automatizacion_porcentaje": 38,
+    "explicacion": "CCTV e IA para detección ayudan, pero la presencia, disuasión y respuesta en sitio requieren personal humano.",
+    "sinonimos": [
+      "Vigilante",
+      "Agente de seguridad",
+      "Custodio",
+      "Seguridad privada",
+      "Guardia de vigilancia",
+      "Operador de CCTV"
+    ],
+    "gradiente": "Estimado (Gradient 2)",
+    "fuentes": [
+      "ISCO-08 5414 (Security guards)",
+      "Videovigilancia con IA – apoyo, no sustitución total"
+    ]
+  },
+  {
+    "codigo_isco": "8344",
+    "ocupacion_es": "Operadores de montacargas (carretillas elevadoras)",
+    "riesgo_automatizacion_porcentaje": 52,
+    "explicacion": "En almacenes avanzados hay vehículos autónomos, pero la convivencia con personas y la manipulación especial aún requieren operadores.",
+    "sinonimos": [
+      "Operador de montacargas",
+      "Carretillero",
+      "Operador de forklift",
+      "Operario de bodega",
+      "Operador de almacén",
+      "Operador de carretilla"
+    ],
+    "gradiente": "Estimado (Gradient 3)",
+    "fuentes": [
+      "ISCO-08 8344 (Lifting truck operators)",
+      "Logística 4.0 – adopción gradual de AGVs/AMRs"
+    ]
+  },
+  {
+    "codigo_isco": "8342",
+    "ocupacion_es": "Operadores de máquinas de movimiento de tierras",
+    "riesgo_automatizacion_porcentaje": 45,
+    "explicacion": "Sistemas de guiado y semi-autonomía ayudan, pero el trabajo en obra con terreno variable mantiene necesidad de operador humano.",
+    "sinonimos": [
+      "Maquinista de excavadora",
+      "Operador de retroexcavadora",
+      "Operador de bulldozer",
+      "Operador de pala cargadora",
+      "Maquinista de obra",
+      "Operador de motoniveladora"
+    ],
+    "gradiente": "Estimado (Gradient 2)",
+    "fuentes": [
+      "ISCO-08 8342 (Earthmoving and related plant operators)",
+      "Construcción: automatización parcial en maquinaria pesada"
+    ]
+  },
+  {
+    "codigo_isco": "3112",
+    "ocupacion_es": "Técnicos en ingeniería civil",
+    "riesgo_automatizacion_porcentaje": 48,
+    "explicacion": "La IA asiste cálculos, CAD y mediciones; sin embargo, inspecciones en campo y coordinación requieren criterio técnico humano.",
+    "sinonimos": [
+      "Técnico civil",
+      "Dibujante proyectista civil",
+      "Topógrafo asistente",
+      "Técnico de obra civil",
+      "Técnico de construcción",
+      "Inspector técnico de obras"
+    ],
+    "gradiente": "Estimado (Gradient 2)",
+    "fuentes": [
+      "ISCO-08 3112 (Civil engineering technicians)",
+      "BIM/CAD con IA – asistencia, campo humano"
+    ]
+  },
+  {
+    "codigo_isco": "3113",
+    "ocupacion_es": "Técnicos en ingeniería mecánica",
+    "riesgo_automatizacion_porcentaje": 49,
+    "explicacion": "Herramientas de simulación y diagnóstico automatizan partes, pero el ajuste y pruebas en prototipos requieren técnicos.",
+    "sinonimos": [
+      "Técnico mecánico",
+      "Técnico de mantenimiento",
+      "Técnico de manufactura",
+      "Técnico de procesos",
+      "Mecánico técnico",
+      "Técnico de laboratorio mecánico"
+    ],
+    "gradiente": "Estimado (Gradient 2)",
+    "fuentes": [
+      "ISCO-08 3115/3113 (Mechanical engineering technicians)",
+      "CAE/diagnóstico – asistencia parcial"
+    ]
+  },
+  {
+    "codigo_isco": "7233",
+    "ocupacion_es": "Mecánicos de maquinaria agrícola e industrial",
+    "riesgo_automatizacion_porcentaje": 38,
+    "explicacion": "El diagnóstico predictivo mejora con sensores/IA, pero reparar y ajustar maquinaria en campo sigue siendo manual y situacional.",
+    "sinonimos": [
+      "Mecánico agrícola",
+      "Mecánico industrial",
+      "Técnico de maquinaria pesada",
+      "Mecánico de equipos agrícolas",
+      "Mecánico de planta",
+      "Técnico de maquinaria"
+    ],
+    "gradiente": "Estimado (Gradient 2)",
+    "fuentes": [
+      "ISCO-08 7233 (Agricultural and industrial machinery mechanics and repairers)",
+      "Mantenimiento predictivo – complemento, no sustitución"
+    ]
+  },
+  {
+    "codigo_isco": "7511",
+    "ocupacion_es": "Carniceros, pescaderos y afines",
+    "riesgo_automatizacion_porcentaje": 36,
+    "explicacion": "Hay maquinaria de corte/porcionado en industria, pero el trabajo minorista y a medida requiere habilidad manual y trato con clientes.",
+    "sinonimos": [
+      "Carnicero",
+      "Pescadero",
+      "Charcutero",
+      "Despostador",
+      "Cortador de carne",
+      "Fileteador"
+    ],
+    "gradiente": "Estimado (Gradient 2)",
+    "fuentes": [
+      "ISCO-08 7511 (Butchers, fishmongers and related food preparers)",
+      "Automatización en industria alimentaria – parcial"
+    ]
+  },
+  {
+    "codigo_isco": "8341",
+    "ocupacion_es": "Operadores de maquinaria agrícola y forestal",
+    "riesgo_automatizacion_porcentaje": 40,
+    "explicacion": "Existen tractores y cosechadoras con asistencia/autonomía, pero terrenos variables y supervisión mantienen la necesidad de operador.",
+    "sinonimos": [
+      "Tractorista",
+      "Operador de cosechadora",
+      "Maquinista agrícola",
+      "Operador forestal",
+      "Conductor agrícola",
+      "Operador de maquinaria rural"
+    ],
+    "gradiente": "Estimado (Gradient 2)",
+    "fuentes": [
+      "ISCO-08 8341 (Mobile farm and forestry plant operators)",
+      "AgriTech – autonomía parcial supervisada"
+    ]
+  },
+  {
+    "codigo_isco": "9621",
+    "ocupacion_es": "Mensajeros y repartidores de paquetes",
+    "riesgo_automatizacion_porcentaje": 50,
+    "explicacion": "Ruteo y asignación se automatizan; drones/robots están en pruebas, pero la entrega puerta a puerta sigue dependiendo de repartidores en la mayoría de contextos.",
+    "sinonimos": [
+      "Repartidor",
+      "Delivery",
+      "Mensajero urbano",
+      "Cadete",
+      "Courier",
+      "Despachador de paquetes"
+    ],
+    "gradiente": "Estimado (Gradient 3)",
+    "fuentes": [
+      "ISCO-08 9621 (Messengers, package deliverers)",
+      "Logística última milla – automatización gradual"
+    ]
+  },
+  {
+    "codigo_isco": "3432",
+    "ocupacion_es": "Diseñadores de interiores y decoradores",
+    "riesgo_automatizacion_porcentaje": 41,
+    "explicacion": "La IA genera propuestas y renders, pero la coordinación con clientes, normativa y obra requiere profesionales creativos.",
+    "sinonimos": [
+      "Interiorista",
+      "Decorador de interiores",
+      "Diseñador interior",
+      "Diseñador de espacios",
+      "Proyectista de interiores",
+      "Diseñador de ambientes"
+    ],
+    "gradiente": "Estimado (Gradient 2)",
+    "fuentes": [
+      "ISCO-08 3432 (Interior designers and decorators)",
+      "IA generativa en diseño – apoyo, no sustitución"
+    ]
+  },
+  {
+    "codigo_isco": "2261",
+    "ocupacion_es": "Odontólogos",
+    "riesgo_automatizacion_porcentaje": 22,
+    "explicacion": "Diagnóstico asistido y planificación digital ayudan, pero los procedimientos clínicos requieren destreza manual y trato con pacientes.",
+    "sinonimos": [
+      "Dentista",
+      "Estomatólogo",
+      "Odontólogo general",
+      "Odontólogo clínico",
+      "Médico odontólogo",
+      "Cirujano dentista"
+    ],
+    "gradiente": "Estimado (Gradient 1)",
+    "fuentes": [
+      "ISCO-08 2261 (Dentists)",
+      "Odontología digital – asistencia a la práctica clínica"
+    ]
+  },
+  {
+    "codigo_isco": "6111",
+    "ocupacion_es": "Agricultores de cultivos extensivos y hortalizas",
+    "riesgo_automatizacion_porcentaje": 42,
+    "explicacion": "La mecanización y la agricultura de precisión automatizan parte del trabajo, pero la planificación, manejo del suelo y decisiones en campo requieren experiencia humana.",
+    "sinonimos": [
+      "Agricultor",
+      "Horticultor",
+      "Productor agrícola",
+      "Campesino",
+      "Trabajador agrícola calificado",
+      "Granjero de hortalizas"
+    ],
+    "gradiente": "Estimado (Gradient 2)",
+    "fuentes": [
+      "ISCO-08 6111",
+      "AgriTech/precisión: automatización parcial",
+      "OECD – tareas físicas no rutinarias con menor sustitución total"
+    ]
+  },
+  {
+    "codigo_isco": "6113",
+    "ocupacion_es": "Jardineros y horticultores",
+    "riesgo_automatizacion_porcentaje": 30,
+    "explicacion": "Cuidado de áreas verdes, poda y riego requieren adaptación al entorno. La IA ayuda a planificar, pero el trabajo manual y el trato con clientes es humano.",
+    "sinonimos": [
+      "Jardinero",
+      "Paisajista",
+      "Horticultor",
+      "Mantenedor de áreas verdes",
+      "Cuidador de jardines",
+      "Diseñador paisajista"
+    ],
+    "gradiente": "Estimado (Gradient 1)",
+    "fuentes": [
+      "ISCO-08 6113",
+      "Robótica de jardinería: adopción limitada",
+      "OECD – servicios presenciales con bajo riesgo"
+    ]
+  },
+  {
+    "codigo_isco": "5111",
+    "ocupacion_es": "Auxiliares de a bordo (tripulación de cabina)",
+    "riesgo_automatizacion_porcentaje": 35,
+    "explicacion": "La seguridad, atención a emergencias y servicio a pasajeros requieren presencia humana. La IA apoya logística y comunicación.",
+    "sinonimos": [
+      "Azafata",
+      "Tripulante de cabina",
+      "Aeromoza",
+      "Cabin crew",
+      "Auxiliar de vuelo",
+      "Sobrecargo"
+    ],
+    "gradiente": "Estimado (Gradient 2)",
+    "fuentes": [
+      "ISCO-08 5111",
+      "Normativa aeronáutica: requerimiento de tripulación",
+      "OECD – tareas de seguridad y servicio presencial"
+    ]
+  },
+  {
+    "codigo_isco": "5113",
+    "ocupacion_es": "Guías de turismo",
+    "riesgo_automatizacion_porcentaje": 34,
+    "explicacion": "Las audioguías existen, pero la personalización, resolución de dudas y manejo de grupos mantienen el valor humano.",
+    "sinonimos": [
+      "Guía turístico",
+      "Guía cultural",
+      "Guía patrimonial",
+      "Acompañante turístico",
+      "Guía local",
+      "Guía de viajes"
+    ],
+    "gradiente": "Estimado (Gradient 1)",
+    "fuentes": [
+      "ISCO-08 5113",
+      "Turismo: alto valor de experiencia humana",
+      "OECD – baja sustitución en atención personalizada"
+    ]
+  },
+  {
+    "codigo_isco": "7121",
+    "ocupacion_es": "Techadores",
+    "riesgo_automatizacion_porcentaje": 28,
+    "explicacion": "Instalación de cubiertas en alturas y condiciones cambiantes. La robotización es difícil fuera de fábricas; se requiere destreza y seguridad humana.",
+    "sinonimos": [
+      "Instalador de techos",
+      "Colocador de tejas",
+      "Techador de láminas",
+      "Colocador de cubiertas",
+      "Techador industrial",
+      "Montador de techos"
+    ],
+    "gradiente": "Estimado (Gradient 1)",
+    "fuentes": [
+      "ISCO-08 7121",
+      "Construcción: entornos no estructurados",
+      "Seguridad en alturas – intervención humana"
+    ]
+  },
+  {
+    "codigo_isco": "7122",
+    "ocupacion_es": "Colocadores de pisos y azulejos",
+    "riesgo_automatizacion_porcentaje": 32,
+    "explicacion": "Nivelación y colocación a medida, con acabados finos. La IA no sustituye la precisión manual en obras variadas.",
+    "sinonimos": [
+      "Alicatador",
+      "Solador",
+      "Colocador de cerámica",
+      "Instalador de pisos",
+      "Colocador de baldosas",
+      "Enlosador"
+    ],
+    "gradiente": "Estimado (Gradient 1)",
+    "fuentes": [
+      "ISCO-08 7122",
+      "Obra: variabilidad y precisión manual",
+      "Automatización limitada fuera de entornos estandarizados"
+    ]
+  },
+  {
+    "codigo_isco": "7123",
+    "ocupacion_es": "Yeseros y enlucidores",
+    "riesgo_automatizacion_porcentaje": 30,
+    "explicacion": "Aplicación de yeso/enlucido requiere pericia manual. La robotización existe en líneas industriales, no en obra variable.",
+    "sinonimos": [
+      "Yesero",
+      "Enlucidor",
+      "Frisador",
+      "Aplicador de revoque",
+      "Estucador",
+      "Enfoscador"
+    ],
+    "gradiente": "Estimado (Gradient 1)",
+    "fuentes": [
+      "ISCO-08 7123",
+      "Construcción artesanal en sitio",
+      "Automatización de acabados: limitada en obra"
+    ]
+  },
+  {
+    "codigo_isco": "7125",
+    "ocupacion_es": "Cristaleros y vidrieros",
+    "riesgo_automatizacion_porcentaje": 33,
+    "explicacion": "Medición, corte e instalación de vidrio a medida, con seguridad. La IA no reemplaza la manipulación delicada en entornos reales.",
+    "sinonimos": [
+      "Vidriero",
+      "Instalador de vidrio",
+      "Colocador de cristales",
+      "Cristalero",
+      "Montador de ventanas",
+      "Técnico en cristalería"
+    ],
+    "gradiente": "Estimado (Gradient 1)",
+    "fuentes": [
+      "ISCO-08 7125",
+      "Riesgos y precisión manual",
+      "Adopción de automatización: baja en instalación in situ"
+    ]
+  },
+  {
+    "codigo_isco": "7531",
+    "ocupacion_es": "Sastres, modistos y sombrereros",
+    "riesgo_automatizacion_porcentaje": 37,
+    "explicacion": "Trabajo a medida y ajustes personalizados mantienen alta intervención humana, aunque el corte industrial está automatizado.",
+    "sinonimos": [
+      "Sastre",
+      "Modista",
+      "Costurera de alta costura",
+      "Sombrerero",
+      "Arreglista",
+      "Confeccionista"
+    ],
+    "gradiente": "Estimado (Gradient 2)",
+    "fuentes": [
+      "ISCO-08 7531",
+      "Moda a medida: personalización humana",
+      "Corte industrial automatizado – parcial"
+    ]
+  },
+  {
+    "codigo_isco": "7532",
+    "ocupacion_es": "Patronistas y cortadores de prendas",
+    "riesgo_automatizacion_porcentaje": 45,
+    "explicacion": "CAD y corte automático reducen tareas, pero diseño de patrones y ajustes complejos requieren experiencia.",
+    "sinonimos": [
+      "Patronista",
+      "Cortador textil",
+      "Trazador de patrones",
+      "Modelista",
+      "Cortador de prendas",
+      "Técnico en patronaje"
+    ],
+    "gradiente": "Estimado (Gradient 2)",
+    "fuentes": [
+      "ISCO-08 7532",
+      "CAD/CAM en textil: automatización del corte",
+      "Diseño de patrones: criterio humano"
+    ]
+  },
+  {
+    "codigo_isco": "8153",
+    "ocupacion_es": "Operadores de máquinas de teñido y acabado textil",
+    "riesgo_automatizacion_porcentaje": 58,
+    "explicacion": "Procesos continuos y controlados se automatizan con facilidad; el rol humano se centra en supervisión y control de calidad.",
+    "sinonimos": [
+      "Operario de tintorería textil",
+      "Operador de acabado textil",
+      "Tintorero industrial",
+      "Operario de lavado y teñido",
+      "Operario de rama",
+      "Operario de calandria"
+    ],
+    "gradiente": "Estimado (Gradient 3)",
+    "fuentes": [
+      "ISCO-08 8153",
+      "Manufactura textil: alta automatización en procesos continuos",
+      "Control de calidad humano"
+    ]
+  },
+  {
+    "codigo_isco": "8331",
+    "ocupacion_es": "Conductores de autobuses y tranvías",
+    "riesgo_automatizacion_porcentaje": 48,
+    "explicacion": "Pilotos automáticos y buses autónomos en pruebas, pero normativa, seguridad y manejo urbano complejo mantienen el rol humano.",
+    "sinonimos": [
+      "Chofer de bus",
+      "Conductor de autobús",
+      "Conductor de tranvía",
+      "Operador de transporte público",
+      "Chofer de colectivo",
+      "Conductor de microbus"
+    ],
+    "gradiente": "Estimado (Gradient 2)",
+    "fuentes": [
+      "ISCO-08 8331",
+      "Movilidad autónoma urbana: adopción parcial",
+      "Seguridad y normativas vigentes"
+    ]
+  },
+  {
+    "codigo_isco": "5312",
+    "ocupacion_es": "Asistentes de maestros",
+    "riesgo_automatizacion_porcentaje": 34,
+    "explicacion": "Apoyo en aula, atención a estudiantes y adaptación a necesidades. La IA ayuda con materiales, no con la presencia y acompañamiento diario.",
+    "sinonimos": [
+      "Auxiliar de aula",
+      "Ayudante de profesor",
+      "Asistente educativo",
+      "Paraprofesional educativo",
+      "Monitor escolar",
+      "Asistente pedagógico"
+    ],
+    "gradiente": "Estimado (Gradient 1)",
+    "fuentes": [
+      "ISCO-08 5312",
+      "Educación: contacto humano y apoyo personalizado"
+    ]
+  },
+  {
+    "codigo_isco": "5222",
+    "ocupacion_es": "Supervisores de ventas en tiendas",
+    "riesgo_automatizacion_porcentaje": 47,
+    "explicacion": "Sistemas de indicadores e IA apoyan, pero liderazgo, coordinación y trato con equipos/clientes requieren supervisión humana.",
+    "sinonimos": [
+      "Jefe de tienda",
+      "Supervisor retail",
+      "Encargado de ventas",
+      "Coordinador de piso de ventas",
+      "Supervisor de local",
+      "Jefe de sala"
+    ],
+    "gradiente": "Estimado (Gradient 2)",
+    "fuentes": [
+      "ISCO-08 5222",
+      "Retail analytics: apoyo a la gestión",
+      "Habilidades humanas en liderazgo y servicio"
+    ]
+  },
+  {
+    "codigo_isco": "5212",
+    "ocupacion_es": "Vendedores ambulantes y de mercados",
+    "riesgo_automatizacion_porcentaje": 35,
+    "explicacion": "Venta móvil y trato directo. La IA apoya cobros y stock, pero la persuasión y movilidad son humanas.",
+    "sinonimos": [
+      "Vendedor ambulante",
+      "Vendedor de mercado",
+      "Feriante",
+      "Comerciante callejero",
+      "Mercader itinerante",
+      "Puestero de feria"
+    ],
+    "gradiente": "Estimado (Gradient 2)",
+    "fuentes": [
+      "ISCO-08 5212",
+      "Comercio informal/móvil con baja automatización",
+      "Herramientas digitales como complemento"
+    ]
+  },
+  {
+    "codigo_isco": "3212",
+    "ocupacion_es": "Técnicos de laboratorios médicos",
+    "riesgo_automatizacion_porcentaje": 55,
+    "explicacion": "Análisis automatizados crecen, pero la preparación de muestras, control de calidad e interpretación clínica requieren técnicos.",
+    "sinonimos": [
+      "Tecnólogo médico de laboratorio",
+      "Técnico de análisis clínicos",
+      "Técnico de laboratorio clínico",
+      "Bionalista",
+      "Técnico en laboratorio",
+      "Analista clínico"
+    ],
+    "gradiente": "Estimado (Gradient 3)",
+    "fuentes": [
+      "ISCO-08 3212",
+      "Automatización en laboratorio clínico: alta en procesos",
+      "Revisión e interpretación técnica"
+    ]
+  },
+  {
+    "codigo_isco": "3351",
+    "ocupacion_es": "Inspectores de aduanas y fronteras",
+    "riesgo_automatizacion_porcentaje": 35,
+    "explicacion": "Sistemas de perfilamiento con IA ayudan a seleccionar inspecciones, pero la verificación y decisiones siguen a cargo de inspectores.",
+    "sinonimos": [
+      "Oficial de aduanas",
+      "Agente de aduanas",
+      "Inspector fronterizo",
+      "Oficial migratorio",
+      "Control aduanero",
+      "Inspector de frontera"
+    ],
+    "gradiente": "Estimado (Gradient 2)",
+    "fuentes": [
+      "ISCO-08 3351",
+      "Sistemas de riesgo e IA en aduanas",
+      "Decisión e inspección humana"
+    ]
+  },
+  {
+    "codigo_isco": "7132",
+    "ocupacion_es": "Pintores por aspersión y barnizadores",
+    "riesgo_automatizacion_porcentaje": 42,
+    "explicacion": "El rociado y barnizado industrial están bastante automatizados en fábricas, pero en obra o piezas únicas se necesita ajuste humano, preparación de superficies y control de calidad.",
+    "sinonimos": [
+      "Pintor por aspersión",
+      "Barnizador",
+      "Pintor industrial por spray",
+      "Aplicador de pintura",
+      "Esmaltador por spray",
+      "Operario de pintura industrial"
+    ],
+    "gradiente": "Estimado (Gradient 2)",
+    "fuentes": [
+      "ISCO-08 7132 (Spray painters and varnishers)",
+      "Automatización en cabinas de pintura: alta, con supervisión humana"
+    ]
+  },
+  {
+    "codigo_isco": "7213",
+    "ocupacion_es": "Trabajadores de chapa metálica",
+    "riesgo_automatizacion_porcentaje": 46,
+    "explicacion": "Corte y plegado con CNC/robots es común, pero el armado a medida, remachado y ajustes en campo requieren trabajadores calificados.",
+    "sinonimos": [
+      "Chapa metálica",
+      "Chapas y estructuras ligeras",
+      "Chapista industrial",
+      "Operario de chapa",
+      "Plegador CNC",
+      "Calderero ligero"
+    ],
+    "gradiente": "Estimado (Gradient 2)",
+    "fuentes": [
+      "ISCO-08 7213 (Sheet-metal workers)",
+      "Industria metalmecánica: CNC/robots con intervención humana"
+    ]
+  },
+  {
+    "codigo_isco": "7214",
+    "ocupacion_es": "Preparadores y montadores de estructuras metálicas",
+    "riesgo_automatizacion_porcentaje": 44,
+    "explicacion": "Prefabricado y corte robotizado existen, pero el montaje en obra (alineación, soldadura, seguridad) exige operadores y montadores.",
+    "sinonimos": [
+      "Montador de estructuras metálicas",
+      "Estructurista metálico",
+      "Armador de estructuras",
+      "Calderero estructural",
+      "Montador de acero",
+      "Instalador de estructuras"
+    ],
+    "gradiente": "Estimado (Gradient 2)",
+    "fuentes": [
+      "ISCO-08 7214 (Structural-metal preparers and erectors)",
+      "Construcción metálica: automatización en taller, montaje humano"
+    ]
+  },
+  {
+    "codigo_isco": "7232",
+    "ocupacion_es": "Mecánicos y reparadores de aeronaves",
+    "riesgo_automatizacion_porcentaje": 36,
+    "explicacion": "Diagnóstico y documentación digital están automatizados, pero la inspección, desmontaje y pruebas en aeronaves requieren técnicos certificados.",
+    "sinonimos": [
+      "Mecánico aeronáutico",
+      "Técnico de aeronaves",
+      "Mecánico de aviación",
+      "Técnico A&P",
+      "Mecánico de mantenimiento aeronáutico",
+      "Técnico de línea aérea"
+    ],
+    "gradiente": "Estimado (Gradient 2)",
+    "fuentes": [
+      "ISCO-08 7232 (Aircraft engine mechanics and repairers)",
+      "Aeronáutica: regulación y certificaciones mantienen rol humano"
+    ]
+  },
+  {
+    "codigo_isco": "5153",
+    "ocupacion_es": "Conserjes y encargados de edificios",
+    "riesgo_automatizacion_porcentaje": 33,
+    "explicacion": "Supervisión de instalaciones, pequeñas reparaciones y trato con residentes. La sensorización ayuda, pero la solución en sitio sigue siendo humana.",
+    "sinonimos": [
+      "Encargado de edificio",
+      "Portero",
+      "Conserje",
+      "Mayordomo de edificio",
+      "Administrador de edificio",
+      "Supervisor de mantenimiento ligero"
+    ],
+    "gradiente": "Estimado (Gradient 1)",
+    "fuentes": [
+      "ISCO-08 5153 (Building caretakers)",
+      "PropTech/IoT: apoyo, no sustitución total"
+    ]
+  },
+  {
+    "codigo_isco": "5132",
+    "ocupacion_es": "Barman y cantineros",
+    "riesgo_automatizacion_porcentaje": 38,
+    "explicacion": "Existen robots cocteleros, pero el servicio, conversación y personalización mantienen un componente humano clave.",
+    "sinonimos": [
+      "Bartender",
+      "Cantinero",
+      "Coctelero",
+      "Barista de coctelería",
+      "Encargado de barra",
+      "Mixólogo"
+    ],
+    "gradiente": "Estimado (Gradient 2)",
+    "fuentes": [
+      "ISCO-08 5132 (Bartenders)",
+      "Robots de bar: experiencias puntuales; servicio humano prevalece"
+    ]
+  },
+  {
+    "codigo_isco": "2352",
+    "ocupacion_es": "Docentes de educación especial",
+    "riesgo_automatizacion_porcentaje": 22,
+    "explicacion": "Adaptación curricular, apoyo personalizado y coordinación con familias/equipos. La IA apoya recursos, pero la intervención es netamente humana.",
+    "sinonimos": [
+      "Profesor de educación especial",
+      "Maestro de necesidades especiales",
+      "Docente de NEE",
+      "Docente de educación inclusiva",
+      "Educador especial",
+      "Pedagogo terapéutico"
+    ],
+    "gradiente": "Estimado (Gradient 1)",
+    "fuentes": [
+      "ISCO-08 2352 (Special needs teachers)",
+      "Educación inclusiva: alto componente humano"
+    ]
+  },
+  {
+    "codigo_isco": "2351",
+    "ocupacion_es": "Especialistas en métodos educativos",
+    "riesgo_automatizacion_porcentaje": 34,
+    "explicacion": "Diseño curricular, evaluación y mejora pedagógica pueden apoyarse en analítica/IA, pero las decisiones contextuales requieren expertos.",
+    "sinonimos": [
+      "Pedagogo",
+      "Diseñador instruccional",
+      "Especialista curricular",
+      "Asesor pedagógico",
+      "Consultor educativo",
+      "Especialista en evaluación educativa"
+    ],
+    "gradiente": "Estimado (Gradient 1)",
+    "fuentes": [
+      "ISCO-08 2351 (Education methods specialists)",
+      "Analítica de aprendizaje/IA: apoyo a decisiones"
+    ]
+  },
+  {
+    "codigo_isco": "2264",
+    "ocupacion_es": "Fisioterapeutas",
+    "riesgo_automatizacion_porcentaje": 24,
+    "explicacion": "Evaluación funcional y tratamiento manual individualizado. La IA ayuda en planes y seguimiento, pero la terapia es presencial y manual.",
+    "sinonimos": [
+      "Kinesiólogo",
+      "Fisio",
+      "Terapeuta físico",
+      "Rehabilitador",
+      "Fisioterapeuta clínico",
+      "Kinesiólogo de rehabilitación"
+    ],
+    "gradiente": "Estimado (Gradient 1)",
+    "fuentes": [
+      "ISCO-08 2264 (Physiotherapists)",
+      "Rehabilitación: intervención manual y presencial"
+    ]
+  },
+  {
+    "codigo_isco": "2652",
+    "ocupacion_es": "Músicos, cantantes y compositores",
+    "riesgo_automatizacion_porcentaje": 41,
+    "explicacion": "La IA genera música, pero la interpretación en vivo, el estilo propio y la conexión con audiencias mantienen valor humano.",
+    "sinonimos": [
+      "Músico",
+      "Cantante",
+      "Compositor",
+      "Intérprete musical",
+      "Productor musical",
+      "Artista musical"
+    ],
+    "gradiente": "Estimado (Gradient 2)",
+    "fuentes": [
+      "ISCO-08 2652 (Musicians, singers and composers)",
+      "IA generativa musical: apoyo; performance humana relevante"
+    ]
+  },
+  {
+    "codigo_isco": "2654",
+    "ocupacion_es": "Directores y productores de cine, teatro y afines",
+    "riesgo_automatizacion_porcentaje": 39,
+    "explicacion": "Planificar, dirigir equipos y tomar decisiones artísticas y logísticas complejas sigue siendo principalmente humano; la IA ayuda en pre/postproducción.",
+    "sinonimos": [
+      "Director de cine",
+      "Productor audiovisual",
+      "Director teatral",
+      "Productor de cine",
+      "Realizador",
+      "Showrunner"
+    ],
+    "gradiente": "Estimado (Gradient 2)",
+    "fuentes": [
+      "ISCO-08 2654 (Film, stage and related directors and producers)",
+      "IA en pre/post: asistencia; dirección humana"
+    ]
+  },
+  {
+    "codigo_isco": "2651",
+    "ocupacion_es": "Artistas plásticos y visuales",
+    "riesgo_automatizacion_porcentaje": 37,
+    "explicacion": "La IA crea imágenes, pero el arte físico, instalaciones y el sello autoral mantienen relevancia humana.",
+    "sinonimos": [
+      "Artista visual",
+      "Pintor plástico",
+      "Escultor",
+      "Ilustrador",
+      "Artista contemporáneo",
+      "Artista multidisciplinar"
+    ],
+    "gradiente": "Estimado (Gradient 2)",
+    "fuentes": [
+      "ISCO-08 2651 (Visual artists)",
+      "IA generativa visual: sustitución parcial; curaduría/autoría humanas"
+    ]
+  },
+  {
+    "codigo_isco": "3114",
+    "ocupacion_es": "Técnicos en ingeniería electrónica",
+    "riesgo_automatizacion_porcentaje": 51,
+    "explicacion": "Pruebas automatizadas y diagnóstico aceleran el trabajo; sin embargo, montaje, rework y validación en prototipos siguen necesitando técnicos.",
+    "sinonimos": [
+      "Técnico electrónico",
+      "Técnico de pruebas electrónicas",
+      "Técnico de equipos electrónicos",
+      "Técnico de laboratorio electrónico",
+      "Técnico de hardware",
+      "Asistente de ingeniería electrónica"
+    ],
+    "gradiente": "Estimado (Gradient 3)",
+    "fuentes": [
+      "ISCO-08 3114 (Electronics engineering technicians)",
+      "ATE/diagnóstico: automatización parcial"
+    ]
+  },
+  {
+    "codigo_isco": "7211",
+    "ocupacion_es": "Moldeadores y macheros de metal",
+    "riesgo_automatizacion_porcentaje": 57,
+    "explicacion": "Fundición y moldeo están altamente mecanizados; el rol humano se centra en supervisión, ajuste de procesos y calidad.",
+    "sinonimos": [
+      "Moldero",
+      "Molinero de fundición",
+      "Preparador de machos",
+      "Operario de fundición",
+      "Operario de molde",
+      "Fundidor de metal"
+    ],
+    "gradiente": "Estimado (Gradient 3)",
+    "fuentes": [
+      "ISCO-08 7211 (Metal moulders and coremakers)",
+      "Fundición: alta automatización en procesos continuos"
+    ]
+  },
+  {
+    "codigo_isco": "7133",
+    "ocupacion_es": "Instaladores de aislamiento térmico y acústico",
+    "riesgo_automatizacion_porcentaje": 31,
+    "explicacion": "Trabajo en obra con superficies irregulares y medidas a pie. La IA ayuda a planificar materiales, pero la instalación es manual y variable.",
+    "sinonimos": [
+      "Aislador térmico",
+      "Aislador acústico",
+      "Instalador de aislantes",
+      "Aplicador de lana mineral",
+      "Instalador de poliuretano",
+      "Técnico en aislamiento"
+    ],
+    "gradiente": "Estimado (Gradient 1)",
+    "fuentes": [
+      "ISCO-08 7133 (Insulation workers)",
+      "Construcción: obra variable y trabajo manual"
+    ]
+  },
+  {
+    "codigo_isco": "7215",
+    "ocupacion_es": "Montadores de andamios y aparejadores",
+    "riesgo_automatizacion_porcentaje": 33,
+    "explicacion": "Montaje en altura, anclajes y seguridad requieren equipos y juicio humano. Robots tienen dificultades en estos entornos.",
+    "sinonimos": [
+      "Andamiero",
+      "Montador de andamios",
+      "Aparejador de obra",
+      "Rigger",
+      "Montador de estructuras temporales",
+      "Instalador de andamiaje"
+    ],
+    "gradiente": "Estimado (Gradient 1)",
+    "fuentes": [
+      "ISCO-08 7215 (Riggers and cable splicers, incluye andamios/aparejos)",
+      "Seguridad en obra: intervención humana"
+    ]
+  },
+  {
+    "codigo_isco": "7114",
+    "ocupacion_es": "Colocadores y acabadores de hormigón",
+    "riesgo_automatizacion_porcentaje": 34,
+    "explicacion": "Vaciado, vibrado y acabado requieren coordinación en obra y adaptación a clima/tiempos. Automatización parcial en plantas, no en sitio.",
+    "sinonimos": [
+      "Fraguador de concreto",
+      "Acabador de concreto",
+      "Colocador de hormigón",
+      "Hormigonero de obra",
+      "Pulidor de pisos de concreto",
+      "Operario de concreto"
+    ],
+    "gradiente": "Estimado (Gradient 1)",
+    "fuentes": [
+      "ISCO-08 7114 (Concrete placers, concrete finishers and related workers)",
+      "Construcción: procesos in situ con variabilidad"
+    ]
+  },
+  {
+    "codigo_isco": "7113",
+    "ocupacion_es": "Canteros, talladores y cortadores de piedra",
+    "riesgo_automatizacion_porcentaje": 32,
+    "explicacion": "Corte y talla a medida, restauración y ajuste en sitio. Máquinas ayudan, pero la precisión artesanal es humana.",
+    "sinonimos": [
+      "Cantero",
+      "Tallador de piedra",
+      "Cortador de piedra",
+      "Marmolista",
+      "Pizarrista",
+      "Escultor en piedra"
+    ],
+    "gradiente": "Estimado (Gradient 1)",
+    "fuentes": [
+      "ISCO-08 7113 (Stonemasons, stone cutters and carvers)",
+      "Restauración/artesanía en obra"
+    ]
+  },
+  {
+    "codigo_isco": "8211",
+    "ocupacion_es": "Ensambladores de maquinaria mecánica",
+    "riesgo_automatizacion_porcentaje": 56,
+    "explicacion": "Líneas de ensamblaje están muy automatizadas; el rol humano se concentra en tareas complejas, cambios de modelo y calidad.",
+    "sinonimos": [
+      "Ensamblador mecánico",
+      "Montador de maquinaria",
+      "Operario de ensamblaje",
+      "Armador de equipos mecánicos",
+      "Operario de línea mecánica",
+      "Montador industrial"
+    ],
+    "gradiente": "Estimado (Gradient 3)",
+    "fuentes": [
+      "ISCO-08 8211 (Mechanical machinery assemblers)",
+      "Industria 4.0: alto grado de automatización en ensamblaje"
+    ]
+  },
+  {
+    "codigo_isco": "8212",
+    "ocupacion_es": "Ensambladores de equipos eléctricos y electrónicos",
+    "riesgo_automatizacion_porcentaje": 60,
+    "explicacion": "Pick-and-place, soldadura y test están automatizados; las personas se enfocan en rework, prototipos y control de calidad.",
+    "sinonimos": [
+      "Ensamblador electrónico",
+      "Montador de equipos eléctricos",
+      "Operario SMT",
+      "Operario de ensamblaje electrónico",
+      "Montador de PCB",
+      "Operario EMS"
+    ],
+    "gradiente": "Estimado (Gradient 4)",
+    "fuentes": [
+      "ISCO-08 8212 (Electrical and electronic equipment assemblers)",
+      "EMS/SMT: automatización alta en electrónica"
+    ]
+  },
+  {
+    "codigo_isco": "8343",
+    "ocupacion_es": "Operadores de grúas y aparatos de elevación",
+    "riesgo_automatizacion_porcentaje": 47,
+    "explicacion": "Sistemas de asistencia y sensores ayudan, pero la coordinación y seguridad en obra requieren operador humano.",
+    "sinonimos": [
+      "Gruista",
+      "Operador de grúa torre",
+      "Operador de grúa móvil",
+      "Puente grúa",
+      "Operador de pluma",
+      "Operador de izaje"
+    ],
+    "gradiente": "Estimado (Gradient 2)",
+    "fuentes": [
+      "ISCO-08 8343 (Crane, hoist and related plant operators)",
+      "Obra: seguridad y coordinación humana"
+    ]
+  },
+  {
+    "codigo_isco": "9411",
+    "ocupacion_es": "Preparadores de comida rápida",
+    "riesgo_automatizacion_porcentaje": 57,
+    "explicacion": "Cocinas estandarizadas adoptan robots, cintas y kioscos. Aun así, reposición, limpieza y atención in situ requieren personas.",
+    "sinonimos": [
+      "Operario de fast food",
+      "Cocinero de comida rápida",
+      "Auxiliar de cocina rápida",
+      "Operario de cadena de comida",
+      "Preparador de snacks",
+      "Auxiliar de mostrador"
+    ],
+    "gradiente": "Estimado (Gradient 3)",
+    "fuentes": [
+      "ISCO-08 9411 (Fast food preparers)",
+      "QSR: alta estandarización y automatización parcial"
+    ]
+  },
+  {
+    "codigo_isco": "2250",
+    "ocupacion_es": "Veterinarios",
+    "riesgo_automatizacion_porcentaje": 24,
+    "explicacion": "Diagnóstico asistido por IA e imagen ayudan, pero la exploración clínica, cirugía y trato con dueños requieren veterinarios.",
+    "sinonimos": [
+      "Médico veterinario",
+      "Veterinario clínico",
+      "Zootecnista clínico",
+      "Veterinario de pequeños animales",
+      "Veterinario de grandes animales",
+      "MVZ"
+    ],
+    "gradiente": "Estimado (Gradient 1)",
+    "fuentes": [
+      "ISCO-08 2250 (Veterinarians)",
+      "Práctica clínica veterinaria: intervención manual/presencial"
+    ]
+  },
+  {
+    "codigo_isco": "2266",
+    "ocupacion_es": "Audiólogos y logopedas",
+    "riesgo_automatizacion_porcentaje": 23,
+    "explicacion": "Evaluación y terapia del lenguaje/audición son personalizadas. La IA apoya ejercicios y seguimiento, no sustituye al profesional.",
+    "sinonimos": [
+      "Fonoaudiólogo",
+      "Logopeda",
+      "Terapeuta del habla",
+      "Audioprotesista clínico",
+      "Especialista en audiología",
+      "Terapeuta del lenguaje"
+    ],
+    "gradiente": "Estimado (Gradient 1)",
+    "fuentes": [
+      "ISCO-08 2266 (Audiologists and speech therapists)",
+      "Terapias personalizadas: baja sustitución"
+    ]
+  },
+  {
+    "codigo_isco": "3211",
+    "ocupacion_es": "Técnicos en imagen para el diagnóstico y radioterapia",
+    "riesgo_automatizacion_porcentaje": 52,
+    "explicacion": "IA ayuda a segmentación/lectura y equipos son automatizados, pero posicionamiento del paciente, seguridad y control siguen siendo técnicos.",
+    "sinonimos": [
+      "Técnico radiólogo",
+      "Técnico en rayos X",
+      "Tecnólogo en imágenes",
+      "Técnico de radioterapia",
+      "Técnico de tomografía",
+      "Técnico de resonancia"
+    ],
+    "gradiente": "Estimado (Gradient 3)",
+    "fuentes": [
+      "ISCO-08 3211 (Medical imaging and therapeutic equipment technicians)",
+      "IA en imagen médica: complemento al técnico"
+    ]
+  },
+  {
+    "codigo_isco": "3253",
+    "ocupacion_es": "Agentes de salud comunitaria",
+    "riesgo_automatizacion_porcentaje": 28,
+    "explicacion": "Acompañamiento territorial, promoción de salud y coordinación local. IA apoya registros y alertas, intervención sigue siendo humana.",
+    "sinonimos": [
+      "Promotor de salud",
+      "Agente comunitario",
+      "Visitador de salud",
+      "Trabajador comunitario de salud",
+      "Facilitador de salud",
+      "Agente sanitario comunitario"
+    ],
+    "gradiente": "Estimado (Gradient 1)",
+    "fuentes": [
+      "ISCO-08 3253 (Community health workers)",
+      "Salud comunitaria: interacción humana esencial"
+    ]
+  },
+  {
+    "codigo_isco": "3521",
+    "ocupacion_es": "Técnicos de radio, televisión y audiovisuales",
+    "riesgo_automatizacion_porcentaje": 49,
+    "explicacion": "Automatización en mezcla/ingesta y producción remota crece, pero montaje en set, microfonía y coordinación siguen requiriendo técnicos.",
+    "sinonimos": [
+      "Técnico audiovisual",
+      "Técnico de sonido",
+      "Técnico de TV",
+      "Técnico de broadcast",
+      "Operador de cámaras",
+      "Técnico de estudio"
+    ],
+    "gradiente": "Estimado (Gradient 2)",
+    "fuentes": [
+      "ISCO-08 3521 (Broadcasting and audiovisual technicians)",
+      "Producción remota/automatizada: apoyo, no sustitución total"
+    ]
+  },
+  {
+    "codigo_isco": "3522",
+    "ocupacion_es": "Técnicos en telecomunicaciones (ingeniería)",
+    "riesgo_automatizacion_porcentaje": 51,
+    "explicacion": "Herramientas de monitoreo y auto-configuración ayudan, pero despliegue, pruebas y troubleshooting en campo requieren técnicos.",
+    "sinonimos": [
+      "Técnico telecom",
+      "Técnico de redes telco",
+      "Técnico RF",
+      "Técnico de fibra óptica",
+      "Técnico de planta externa",
+      "Técnico de transmisión"
+    ],
+    "gradiente": "Estimado (Gradient 3)",
+    "fuentes": [
+      "ISCO-08 3522 (Telecommunications engineering technicians)",
+      "Telco: automatización de NOC; campo manual"
+    ]
+  },
+  {
+    "codigo_isco": "5230",
+    "ocupacion_es": "Cajeros y expendedores de billetes",
+    "riesgo_automatizacion_porcentaje": 62,
+    "explicacion": "Autocobro, e-commerce y pagos sin fricción reducen la necesidad de cajeros. Queda atención de excepciones y roles multipropósito.",
+    "sinonimos": [
+      "Cajero",
+      "Cajero de tienda",
+      "Cajero de supermercado",
+      "Expendedor de billetes",
+      "Cajero de taquilla",
+      "Operador de caja"
+    ],
+    "gradiente": "Estimado (Gradient 4)",
+    "fuentes": [
+      "ISCO-08 5230 (Cashiers and ticket clerks)",
+      "Retail: fuerte avance de autocobro y pagos digitales"
+    ]
+  },
+  {
+    "codigo_isco": "4415",
+    "ocupacion_es": "Empleados de archivo y copiado",
+    "riesgo_automatizacion_porcentaje": 66,
+    "explicacion": "La digitalización, OCR y gestión documental automática reducen el trabajo manual de archivo y copias.",
+    "sinonimos": [
+      "Archivista de oficina",
+      "Auxiliar de archivo",
+      "Digitalizador de documentos",
+      "Operador de copias",
+      "Empleado de reprografía",
+      "Gestor documental"
+    ],
+    "gradiente": "Estimado (Gradient 4)",
+    "fuentes": [
+      "ISCO-08 4415 (Filing and copying clerks)",
+      "Gestión documental digital: automatización elevada"
+    ]
+  },
+  {
+    "codigo_isco": "5163",
+    "ocupacion_es": "Tanatopractores y servicios funerarios",
+    "riesgo_automatizacion_porcentaje": 22,
+    "explicacion": "Preparación y ceremonia requieren sensibilidad, protocolos y trato con familias; difícil automatizar el componente humano.",
+    "sinonimos": [
+      "Tanatopractor",
+      "Funerario",
+      "Agente funerario",
+      "Embalsamador",
+      "Director de funeraria",
+      "Consejero funerario"
+    ],
+    "gradiente": "Estimado (Gradient 1)",
+    "fuentes": [
+      "ISCO-08 5163 (Undertakers, morticians and embalmers)",
+      "Servicios personales con alta dimensión humana"
+    ]
+  },
+  {
+    "codigo_isco": "3251",
+    "ocupacion_es": "Asistentes e higienistas dentales",
+    "riesgo_automatizacion_porcentaje": 40,
+    "explicacion": "Esterilización, asistencia en procedimientos y profilaxis requieren presencia y coordinación con el odontólogo; equipos automatizados ayudan.",
+    "sinonimos": [
+      "Asistente dental",
+      "Higienista dental",
+      "Auxiliar de odontología",
+      "Técnico dental clínico",
+      "Asistente de sillón dental",
+      "Asistente de clínica dental"
+    ],
+    "gradiente": "Estimado (Gradient 2)",
+    "fuentes": [
+      "ISCO-08 3251 (Dental assistants and therapists)",
+      "Odontología: automatización de equipos; labor clínica asistida"
+    ]
+  },
+  {
+    "codigo_isco": "3122",
+    "ocupacion_es": "Supervisores de manufactura",
+    "riesgo_automatizacion_porcentaje": 46,
+    "explicacion": "La IA apoya métricas y control de procesos; liderazgo, seguridad y coordinación de turnos siguen siendo humanos.",
+    "sinonimos": [
+      "Jefe de producción",
+      "Supervisor de planta",
+      "Supervisor de línea",
+      "Coordinador de manufactura",
+      "Encargado de producción",
+      "Supervisor industrial"
+    ],
+    "gradiente": "Estimado (Gradient 2)",
+    "fuentes": [
+      "ISCO-08 3122 (Manufacturing supervisors)",
+      "Industria 4.0: apoyo analítico; gestión humana"
+    ]
+  },
+  {
+    "codigo_isco": "1411",
+    "ocupacion_es": "Gerentes de hoteles",
+    "riesgo_automatizacion_porcentaje": 42,
+    "explicacion": "La IA ayuda con revenue, reservas y analítica; sin embargo, liderazgo, servicio y resolución de incidencias requieren gerencia humana.",
+    "sinonimos": [
+      "Director de hotel",
+      "Administrador hotelero",
+      "Gerente de hospedaje",
+      "Manager de hotel",
+      "Jefe de hotel",
+      "Gestor de hotel"
+    ],
+    "gradiente": "Estimado (Gradient 2)",
+    "fuentes": [
+      "ISCO-08 1411 (Hotel managers)",
+      "Hospitalidad: analítica y revenue management con IA, gestión humana"
+    ]
+  },
+  {
+    "codigo_isco": "1412",
+    "ocupacion_es": "Gerentes de restaurantes",
+    "riesgo_automatizacion_porcentaje": 45,
+    "explicacion": "Pedidos digitales y cocina automatizada apoyan; la coordinación de sala, personal y experiencia del cliente sigue siendo humana.",
+    "sinonimos": [
+      "Administrador de restaurante",
+      "Jefe de sala",
+      "Manager de restaurante",
+      "Gerente de food service",
+      "Encargado de restaurante",
+      "Gestor de restaurante"
+    ],
+    "gradiente": "Estimado (Gradient 2)",
+    "fuentes": [
+      "ISCO-08 1412 (Restaurant managers)",
+      "Restauración: automatización parcial; gestión y servicio humano"
+    ]
+  },
+  {
+    "codigo_isco": "3434",
+    "ocupacion_es": "Chefs",
+    "riesgo_automatizacion_porcentaje": 36,
+    "explicacion": "Robots cocinan tareas repetitivas, pero el diseño de menú, sabor, presentación y liderazgo de cocina requieren chefs.",
+    "sinonimos": [
+      "Jefe de cocina",
+      "Chef ejecutivo",
+      "Sous-chef",
+      "Chef de partida",
+      "Chef pastelero",
+      "Chef de restaurante"
+    ],
+    "gradiente": "Estimado (Gradient 2)",
+    "fuentes": [
+      "ISCO-08 3434 (Chefs)",
+      "Cocina: automatización parcial; creatividad y liderazgo humanos"
+    ]
+  },
+  {
+    "codigo_isco": "5311",
+    "ocupacion_es": "Trabajadores de cuidado infantil",
+    "riesgo_automatizacion_porcentaje": 26,
+    "explicacion": "Cuidado y acompañamiento de niños requieren empatía, juego y presencia. La IA apoya comunicaciones y materiales.",
+    "sinonimos": [
+      "Cuidador infantil",
+      "Asistente de guardería",
+      "Niñera profesional",
+      "Educador infantil auxiliar",
+      "Monitor infantil",
+      "Auxiliar de preescolar"
+    ],
+    "gradiente": "Estimado (Gradient 1)",
+    "fuentes": [
+      "ISCO-08 5311 (Child care workers)",
+      "Cuidado personal: baja automatización por interacción humana"
+    ]
+  },
+  {
+    "codigo_isco": "9412",
+    "ocupacion_es": "Ayudantes de cocina",
+    "riesgo_automatizacion_porcentaje": 54,
+    "explicacion": "Cocinas estandarizadas permiten robots y líneas automáticas; sin embargo, apoyo variado y limpieza siguen necesitándose.",
+    "sinonimos": [
+      "Auxiliar de cocina",
+      "Pinche de cocina",
+      "Asistente de cocina",
+      "Ayudante de chef",
+      "Operario de cocina",
+      "Preparador de cocina"
+    ],
+    "gradiente": "Estimado (Gradient 3)",
+    "fuentes": [
+      "ISCO-08 9412 (Kitchen helpers)",
+      "QSR/food service: automatización en tareas repetitivas"
+    ]
+  },
+  {
+    "codigo_isco": "7421",
+    "ocupacion_es": "Técnicos en reparación de equipos electrónicos",
+    "riesgo_automatizacion_porcentaje": 48,
+    "explicacion": "Diagnóstico asistido y módulos intercambiables reducen tiempo; reparación fina y soldadura de precisión aún requieren técnicos.",
+    "sinonimos": [
+      "Técnico electrónico reparador",
+      "Service de electrónica",
+      "Reparador de equipos electrónicos",
+      "Técnico de microelectrónica",
+      "Técnico de servicio electrónico",
+      "Técnico SAT electrónico"
+    ],
+    "gradiente": "Estimado (Gradient 2)",
+    "fuentes": [
+      "ISCO-08 7421 (Electronics mechanics and servicers)",
+      "Servicio técnico: diagnóstico con IA, reparación manual"
+    ]
+  },
+  {
+    "codigo_isco": "7234",
+    "ocupacion_es": "Mecánicos y reparadores de motocicletas",
+    "riesgo_automatizacion_porcentaje": 38,
+    "explicacion": "Diagnóstico digital ayuda, pero el desarme y ajuste de motos es manual y varía por modelo.",
+    "sinonimos": [
+      "Mecánico de motos",
+      "Técnico motocicletas",
+      "Mecánico de motocicletas",
+      "Reparador de motos",
+      "Mecánico de scooters",
+      "Técnico de taller de motos"
+    ],
+    "gradiente": "Estimado (Gradient 2)",
+    "fuentes": [
+      "ISCO-08 7234 (Motorcycle mechanics and repairers)",
+      "Talleres: diagnóstico asistido; reparación manual"
+    ]
+  },
+  {
+    "codigo_isco": "7413",
+    "ocupacion_es": "Instaladores y reparadores de líneas eléctricas",
+    "riesgo_automatizacion_porcentaje": 34,
+    "explicacion": "Trabajo en altura y exteriores, con seguridad y variabilidad. Drones e IA inspeccionan, pero la intervención es humana.",
+    "sinonimos": [
+      "Liniéro",
+      "Liniero eléctrico",
+      "Instalador de redes eléctricas",
+      "Montador de líneas eléctricas",
+      "Técnico de línea aérea",
+      "Técnico de distribución eléctrica"
+    ],
+    "gradiente": "Estimado (Gradient 1)",
+    "fuentes": [
+      "ISCO-08 7413 (Electrical line installers and repairers)",
+      "Inspección con drones/IA: complemento; trabajos en campo"
+    ]
+  },
+  {
+    "codigo_isco": "8152",
+    "ocupacion_es": "Operadores de máquinas de tejido y tricotado",
+    "riesgo_automatizacion_porcentaje": 59,
+    "explicacion": "Tejeduría/tricotado industrial están altamente automatizados; el operador supervisa y resuelve incidencias.",
+    "sinonimos": [
+      "Operario de telar",
+      "Operario de tejeduría",
+      "Operario de tricotado",
+      "Tejedor industrial",
+      "Operario textil",
+      "Maquinista de tejeduría"
+    ],
+    "gradiente": "Estimado (Gradient 3)",
+    "fuentes": [
+      "ISCO-08 8152 (Weaving and knitting machine operators)",
+      "Textil: automatización alta en máquinas continuas"
+    ]
+  },
+  {
+    "codigo_isco": "8183",
+    "ocupacion_es": "Operadores de máquinas de envasado, embotellado y etiquetado",
+    "riesgo_automatizacion_porcentaje": 63,
+    "explicacion": "Empaquetado/etiquetado son procesos estandarizados y automatizables; el rol humano es supervisión y cambios de formato.",
+    "sinonimos": [
+      "Operario de envasado",
+      "Operador de embotellado",
+      "Operario de etiquetado",
+      "Operario de packaging",
+      "Operario de línea de envasado",
+      "Técnico de envasado"
+    ],
+    "gradiente": "Estimado (Gradient 4)",
+    "fuentes": [
+      "ISCO-08 8183 (Packing, bottling and labelling machine operators)",
+      "Manufactura: alta automatización en finales de línea"
+    ]
+  },
+  {
+    "codigo_isco": "8172",
+    "ocupacion_es": "Operadores de plantas de procesamiento de madera",
+    "riesgo_automatizacion_porcentaje": 55,
+    "explicacion": "Aserrado, cepillado y tableros con control numérico; la intervención humana ajusta procesos y calidad.",
+    "sinonimos": [
+      "Operario de aserradero",
+      "Operador de planta maderera",
+      "Operario de tableros",
+      "Operario de cepillado",
+      "Operario de madera",
+      "Operador CNC de madera"
+    ],
+    "gradiente": "Estimado (Gradient 3)",
+    "fuentes": [
+      "ISCO-08 8172 (Wood processing and papermaking plant operators, subgrupo madera)",
+      "Madera: automatización en planta; control humano"
+    ]
+  },
+  {
+    "codigo_isco": "5411",
+    "ocupacion_es": "Bomberos",
+    "riesgo_automatizacion_porcentaje": 18,
+    "explicacion": "Rescate, incendios y emergencias exigen valentía, juicio y coordinación humana en entornos imprevisibles.",
+    "sinonimos": [
+      "Bombero profesional",
+      "Rescatista bomberil",
+      "Técnico en emergencias bomberiles",
+      "Combatiente de incendios",
+      "Bombero municipal",
+      "Bombero industrial"
+    ],
+    "gradiente": "Estimado (Exposición mínima)",
+    "fuentes": [
+      "ISCO-08 5411 (Fire-fighters)",
+      "Emergencias: baja automatización por imprevisibilidad"
+    ]
+  },
+  {
+    "codigo_isco": "5413",
+    "ocupacion_es": "Funcionarios de prisiones",
+    "riesgo_automatizacion_porcentaje": 30,
+    "explicacion": "Custodia, mediación y gestión de población penitenciaria requieren personal humano, con apoyo de sistemas de seguridad.",
+    "sinonimos": [
+      "Guardia penitenciario",
+      "Agente penitenciario",
+      "Oficial de prisiones",
+      "Funcionario carcelario",
+      "Custodio penitenciario",
+      "Oficial correccional"
+    ],
+    "gradiente": "Estimado (Gradient 1)",
+    "fuentes": [
+      "ISCO-08 5413 (Prison guards)",
+      "Seguridad/custodia: intervención humana esencial"
+    ]
+  },
+  {
+    "codigo_isco": "8321",
+    "ocupacion_es": "Conductores de motocicleta",
+    "riesgo_automatizacion_porcentaje": 48,
+    "explicacion": "Optimización de rutas y logística con IA. La conducción autónoma en motos es incipiente; el reparto urbano sigue siendo humano.",
+    "sinonimos": [
+      "Repartidor en moto",
+      "Mensajero en moto",
+      "Delivery en moto",
+      "Motociclista repartidor",
+      "Cadete en moto",
+      "Conductor de motocicleta"
+    ],
+    "gradiente": "Estimado (Gradient 2)",
+    "fuentes": [
+      "ISCO-08 8321 (Motorcycle drivers)",
+      "Última milla: automatización gradual; conducción humana"
+    ]
+  },
+  {
+    "codigo_isco": "3255",
+    "ocupacion_es": "Técnicos y asistentes en fisioterapia",
+    "riesgo_automatizacion_porcentaje": 36,
+    "explicacion": "Ejercicios y equipos pueden automatizarse parcialmente, pero la guía, corrección y contacto siguen siendo humanos.",
+    "sinonimos": [
+      "Asistente de fisioterapia",
+      "Técnico fisioterapeuta",
+      "Ayudante de kinesiología",
+      "Técnico de rehabilitación",
+      "Asistente de terapia física",
+      "Auxiliar de fisioterapia"
+    ],
+    "gradiente": "Estimado (Gradient 2)",
+    "fuentes": [
+      "ISCO-08 3255 (Physiotherapy technicians and assistants)",
+      "Rehabilitación: automatización parcial; guía humana"
+    ]
+  },
+  {
+    "codigo_isco": "3254",
+    "ocupacion_es": "Ópticos (ventas y adaptación de lentes)",
+    "riesgo_automatizacion_porcentaje": 40,
+    "explicacion": "Instrumentos automatizan mediciones; el ajuste personalizado, asesoría y atención al cliente requieren ópticos.",
+    "sinonimos": [
+      "Óptico-optometrista comercial",
+      "Dispensador óptico",
+      "Técnico óptico",
+      "Asesor óptico",
+      "Óptico de tienda",
+      "Óptico de gabinete"
+    ],
+    "gradiente": "Estimado (Gradient 2)",
+    "fuentes": [
+      "ISCO-08 3254 (Dispensing opticians)",
+      "Salud visual: medición automatizada; atención personalizada"
+    ]
+  },
+  {
+    "codigo_isco": "9211",
+    "ocupacion_es": "Peones agrícolas de cultivos",
+    "riesgo_automatizacion_porcentaje": 44,
+    "explicacion": "Mecanización y robots de cosecha avanzan, pero la variabilidad del campo y cultivos delicados requieren trabajo humano.",
+    "sinonimos": [
+      "Jornalero agrícola",
+      "Peón de campo",
+      "Trabajador agrícola",
+      "Cosechador",
+      "Recolector",
+      "Ayudante agrícola"
+    ],
+    "gradiente": "Estimado (Gradient 2)",
+    "fuentes": [
+      "ISCO-08 9211 (Crop farm labourers)",
+      "AgriTech: robots en cosecha selectiva aún limitados"
+    ]
+  },
+  {
+    "codigo_isco": "9212",
+    "ocupacion_es": "Peones ganaderos",
+    "riesgo_automatizacion_porcentaje": 38,
+    "explicacion": "Alimentación y ordeño automatizados existen, pero manejo de animales, sanidad y cuidado siguen requiriendo personas.",
+    "sinonimos": [
+      "Peón ganadero",
+      "Vaquero",
+      "Trabajador pecuario",
+      "Cuidador de ganado",
+      "Ordeñador",
+      "Peón agropecuario"
+    ],
+    "gradiente": "Estimado (Gradient 2)",
+    "fuentes": [
+      "ISCO-08 9212 (Livestock farm labourers)",
+      "Ganadería: automatización en ordeño; cuidado humano"
+    ]
+  },
+  {
+    "codigo_isco": "3154",
+    "ocupacion_es": "Controladores de tráfico aéreo",
+    "riesgo_automatizacion_porcentaje": 33,
+    "explicacion": "Sistemas avanzados de apoyo con IA sugieren rutas y separaciones, pero la decisión y responsabilidad en tiempo real siguen siendo humanas.",
+    "sinonimos": [
+      "ATC",
+      "Controlador aéreo",
+      "Controlador de tránsito aéreo",
+      "Controlador de torre",
+      "Controlador radar",
+      "Oficial de control aéreo"
+    ],
+    "gradiente": "Estimado (Gradient 1)",
+    "fuentes": [
+      "ISCO-08 3154 (Air traffic controllers)",
+      "Aviación: sistemas de apoyo a la decisión; responsabilidad humana"
+    ]
+  },
+  {
+    "codigo_isco": "4323",
+    "ocupacion_es": "Empleados de transporte y logística (Despachadores)",
+    "riesgo_automatizacion_porcentaje": 55,
+    "explicacion": "Planificación de rutas y asignaciones se automatiza con IA; la coordinación de incidencias y decisiones con clientes/proveedores requiere personas.",
+    "sinonimos": [
+      "Despachador de transporte",
+      "Planificador logístico",
+      "Coordinador de rutas",
+      "Operador logístico",
+      "Agente de tráfico",
+      "Programador de transporte"
+    ],
+    "gradiente": "Estimado (Gradient 3)",
+    "fuentes": [
+      "ISCO-08 4323 (Transport clerks)",
+      "Logística: optimización algorítmica con supervisión humana"
+    ]
+  },
+  {
+    "codigo_isco": "9333",
+    "ocupacion_es": "Manipuladores de carga",
+    "riesgo_automatizacion_porcentaje": 53,
+    "explicacion": "Cintas, AGVs y robots colaborativos ayudan, pero la manipulación de bultos variados y coordinación de muelle siguen requiriendo personal.",
+    "sinonimos": [
+      "Estibador",
+      "Mozo de almacén",
+      "Peón de carga",
+      "Operario de logística",
+      "Cargador de paquetería",
+      "Manipulador de bultos"
+    ],
+    "gradiente": "Estimado (Gradient 3)",
+    "fuentes": [
+      "ISCO-08 9333 (Freight handlers)",
+      "Logística: automatización parcial con AMRs/AGVs"
+    ]
+  },
+  {
+    "codigo_isco": "3433",
+    "ocupacion_es": "Técnicos de museos, galerías y bibliotecas",
+    "riesgo_automatizacion_porcentaje": 40,
+    "explicacion": "Digitalización y catálogos automáticos crecen, pero el montaje de exposiciones, conservación y atención a público siguen siendo humanos.",
+    "sinonimos": [
+      "Técnico de museo",
+      "Técnico de galería",
+      "Técnico de biblioteca",
+      "Asistente de conservación",
+      "Montajista de exposiciones",
+      "Técnico documentalista cultural"
+    ],
+    "gradiente": "Estimado (Gradient 2)",
+    "fuentes": [
+      "ISCO-08 3433 (Gallery, museum and library technicians)",
+      "Cultura: digitalización y curaduría con intervención humana"
+    ]
+  },
+  {
+    "codigo_isco": "2265",
+    "ocupacion_es": "Dietistas y nutricionistas",
+    "riesgo_automatizacion_porcentaje": 28,
+    "explicacion": "La IA sugiere menús y calcula macros, pero el plan nutricional personalizado y el seguimiento clínico requieren profesionales.",
+    "sinonimos": [
+      "Nutricionista",
+      "Dietista clínico",
+      "Nutriólogo",
+      "Especialista en nutrición",
+      "Dietista deportivo",
+      "Consultor nutricional"
+    ],
+    "gradiente": "Estimado (Gradient 1)",
+    "fuentes": [
+      "ISCO-08 2265 (Dieticians and nutritionists)",
+      "Salud: personalización y adherencia requieren trato humano"
+    ]
+  },
+  {
+    "codigo_isco": "2267",
+    "ocupacion_es": "Optometristas y ópticos oftálmicos",
+    "riesgo_automatizacion_porcentaje": 30,
+    "explicacion": "Equipos automatizan mediciones iniciales; diagnóstico optométrico, adaptación clínica y seguimiento requieren profesionales.",
+    "sinonimos": [
+      "Optometrista",
+      "Óptico oftálmico",
+      "Clínico de optometría",
+      "Especialista en refracción",
+      "Optometrista clínico",
+      "Óptico clínico"
+    ],
+    "gradiente": "Estimado (Gradient 1)",
+    "fuentes": [
+      "ISCO-08 2267 (Optometrists and ophthalmic opticians)",
+      "Salud visual: clínica y seguimiento humanos"
+    ]
+  },
+  {
+    "codigo_isco": "3221",
+    "ocupacion_es": "Profesionales asociados de enfermería",
+    "riesgo_automatizacion_porcentaje": 38,
+    "explicacion": "Sistemas de registro y monitoreo automáticos ayudan, pero el cuidado directo y procedimientos siguen a cargo de personal de enfermería.",
+    "sinonimos": [
+      "Técnico en enfermería",
+      "Enfermero técnico",
+      "Practicante de enfermería",
+      "Auxiliar profesional de enfermería",
+      "Asociado de enfermería",
+      "Técnico enfermero"
+    ],
+    "gradiente": "Estimado (Gradient 2)",
+    "fuentes": [
+      "ISCO-08 3221 (Nursing associate professionals)",
+      "Cuidado directo: baja sustitución; asistencia tecnológica"
+    ]
+  },
+  {
+    "codigo_isco": "3213",
+    "ocupacion_es": "Técnicos y asistentes farmacéuticos",
+    "riesgo_automatizacion_porcentaje": 51,
+    "explicacion": "Dispensación y reposición se automatizan en farmacias/hospitales, pero la atención, validación y preparación especial requieren técnicos.",
+    "sinonimos": [
+      "Técnico de farmacia",
+      "Asistente de farmacia",
+      "Auxiliar farmacéutico",
+      "Técnico farmacéutico hospitalario",
+      "Técnico dispensador",
+      "Preparador de fórmulas"
+    ],
+    "gradiente": "Estimado (Gradient 3)",
+    "fuentes": [
+      "ISCO-08 3213 (Pharmaceutical technicians and assistants)",
+      "Farmacia: robots de dispensación con rol técnico humano"
+    ]
+  },
+  {
+    "codigo_isco": "8142",
+    "ocupacion_es": "Operadores de máquinas de productos de plástico",
+    "riesgo_automatizacion_porcentaje": 61,
+    "explicacion": "Extrusión, inyección y soplado están altamente automatizados; el operador configura, alimenta y controla calidad.",
+    "sinonimos": [
+      "Operario de inyección plástica",
+      "Operador de extrusora",
+      "Operario de soplado",
+      "Operario de plásticos",
+      "Técnico de moldeo por inyección",
+      "Operario de termoformado"
+    ],
+    "gradiente": "Estimado (Gradient 4)",
+    "fuentes": [
+      "ISCO-08 8142 (Plastic-products machine operators)",
+      "Manufactura: alto grado de automatización en plásticos"
+    ]
+  },
+  {
+    "codigo_isco": "8143",
+    "ocupacion_es": "Operadores de máquinas de productos de caucho",
+    "riesgo_automatizacion_porcentaje": 60,
+    "explicacion": "Mezclado, vulcanizado y moldeo están estandarizados y automatizados; personas supervisan y realizan ajustes.",
+    "sinonimos": [
+      "Operario de caucho",
+      "Operador de vulcanizado",
+      "Operario de mezclado de caucho",
+      "Operario de calandrado",
+      "Operario de moldeo de caucho",
+      "Operario de extrusión de caucho"
+    ],
+    "gradiente": "Estimado (Gradient 4)",
+    "fuentes": [
+      "ISCO-08 8143 (Rubber-products machine operators)",
+      "Procesos estandarizados con automatización alta"
+    ]
+  },
+  {
+    "codigo_isco": "8160",
+    "ocupacion_es": "Operadores de máquinas de elaboración de alimentos y productos afines",
+    "riesgo_automatizacion_porcentaje": 59,
+    "explicacion": "Procesos continuos (mezcla, horneado, enlatado) se automatizan; el rol humano se enfoca en ajustes y calidad.",
+    "sinonimos": [
+      "Operario de alimentos",
+      "Operador de línea alimentaria",
+      "Operario de enlatado",
+      "Operario de horneado industrial",
+      "Operario de mezclas",
+      "Técnico de procesos alimentarios"
+    ],
+    "gradiente": "Estimado (Gradient 3)",
+    "fuentes": [
+      "ISCO-08 8160 (Food and related products machine operators)",
+      "Industria alimentaria: automatización en proceso"
+    ]
+  },
+  {
+    "codigo_isco": "8171",
+    "ocupacion_es": "Operadores de plantas de pasta y papel",
+    "riesgo_automatizacion_porcentaje": 57,
+    "explicacion": "Plantas de pulpa y papel funcionan con control distribuido; personas supervisan parámetros y resuelven incidencias.",
+    "sinonimos": [
+      "Operario de planta de papel",
+      "Operador de pulpa",
+      "Operario de celulosa",
+      "Operario papelero",
+      "Operador de papelera",
+      "Operario de bobinadora"
+    ],
+    "gradiente": "Estimado (Gradient 3)",
+    "fuentes": [
+      "ISCO-08 8171 (Pulp and papermaking plant operators)",
+      "Proceso continuo con alta automatización"
+    ]
+  },
+  {
+    "codigo_isco": "8181",
+    "ocupacion_es": "Operadores de plantas de vidrio y cerámica",
+    "riesgo_automatizacion_porcentaje": 56,
+    "explicacion": "Hornos, templado y conformado automatizados; supervisión humana para calidad y seguridad.",
+    "sinonimos": [
+      "Operario de vidrio",
+      "Operador de horno cerámico",
+      "Operario de templado",
+      "Operario de cerámica",
+      "Operario de vidriería",
+      "Operario de conformado de vidrio"
+    ],
+    "gradiente": "Estimado (Gradient 3)",
+    "fuentes": [
+      "ISCO-08 8181 (Glass and ceramics plant operators)",
+      "Industria de procesos térmicos automatizados"
+    ]
+  },
+  {
+    "codigo_isco": "3111",
+    "ocupacion_es": "Técnicos en ingeniería química",
+    "riesgo_automatizacion_porcentaje": 52,
+    "explicacion": "Instrumentación y control avanzan; toma de muestras, calibración, seguridad y puesta en marcha requieren técnicos.",
+    "sinonimos": [
+      "Técnico químico",
+      "Técnico de planta química",
+      "Técnico de procesos químicos",
+      "Técnico de laboratorio químico",
+      "Instrumentista químico",
+      "Técnico de control de procesos"
+    ],
+    "gradiente": "Estimado (Gradient 3)",
+    "fuentes": [
+      "ISCO-08 3111 (Chemical engineering technicians)",
+      "Química de procesos: automatización; roles técnicos críticos"
+    ]
+  },
+  {
+    "codigo_isco": "2151",
+    "ocupacion_es": "Ingenieros eléctricos",
+    "riesgo_automatizacion_porcentaje": 47,
+    "explicacion": "Software de diseño y simulación con IA acelera tareas; el diseño seguro y la coordinación con obra/operación requieren ingeniería humana.",
+    "sinonimos": [
+      "Ingeniero electricista",
+      "Ingeniero de potencia",
+      "Ingeniero de distribución",
+      "Ingeniero de subestaciones",
+      "Ingeniero de sistemas eléctricos",
+      "Ingeniero de protección y control"
+    ],
+    "gradiente": "Estimado (Gradient 2)",
+    "fuentes": [
+      "ISCO-08 2151 (Electrical engineers)",
+      "Ingeniería: CAD/CAE asistidos; responsabilidad técnica humana"
+    ]
+  },
+  {
+    "codigo_isco": "2143",
+    "ocupacion_es": "Ingenieros ambientales",
+    "riesgo_automatizacion_porcentaje": 44,
+    "explicacion": "Modelos y sensores apoyan; diseños, permisos y mitigación requieren criterio profesional y trabajo en terreno.",
+    "sinonimos": [
+      "Ingeniero ambiental",
+      "Ingeniero de saneamiento",
+      "Ingeniero de gestión ambiental",
+      "Ingeniero de impacto ambiental",
+      "Ingeniero HSE ambiental",
+      "Ingeniero de aguas"
+    ],
+    "gradiente": "Estimado (Gradient 2)",
+    "fuentes": [
+      "ISCO-08 2143 (Environmental engineers)",
+      "Gestión ambiental: apoyo de datos; decisión profesional"
+    ]
+  },
+  {
+    "codigo_isco": "3421",
+    "ocupacion_es": "Deportistas y atletas",
+    "riesgo_automatizacion_porcentaje": 22,
+    "explicacion": "El rendimiento físico y la competición son humanos; la IA apoya entrenamiento y análisis.",
+    "sinonimos": [
+      "Atleta profesional",
+      "Deportista profesional",
+      "Jugador profesional",
+      "Competidor deportivo",
+      "Corredor profesional",
+      "Deportista de alto rendimiento"
+    ],
+    "gradiente": "Estimado (Gradient 1)",
+    "fuentes": [
+      "ISCO-08 3421 (Athletes and sportspersons)",
+      "Deporte: entrenamiento asistido; ejecución humana"
+    ]
+  },
+  {
+    "codigo_isco": "3422",
+    "ocupacion_es": "Entrenadores y árbitros",
+    "riesgo_automatizacion_porcentaje": 28,
+    "explicacion": "IA apoya análisis de juego; motivación, estrategia y arbitraje en campo requieren personas.",
+    "sinonimos": [
+      "Entrenador deportivo",
+      "Director técnico",
+      "Coach deportivo",
+      "Árbitro",
+      "Juez deportivo",
+      "Instructor deportivo"
+    ],
+    "gradiente": "Estimado (Gradient 1)",
+    "fuentes": [
+      "ISCO-08 3422 (Coaches and referees)",
+      "Deporte: apoyo analítico; rol humano central"
+    ]
+  },
+  {
+    "codigo_isco": "3423",
+    "ocupacion_es": "Instructores de fitness y recreación",
+    "riesgo_automatizacion_porcentaje": 35,
+    "explicacion": "Apps y clases virtuales existen, pero la corrección de técnica, motivación y adaptación en persona siguen siendo valiosas.",
+    "sinonimos": [
+      "Instructor de fitness",
+      "Entrenador personal",
+      "Monitor de gimnasio",
+      "Instructor deportivo",
+      "Coach de bienestar",
+      "Monitor de actividades recreativas"
+    ],
+    "gradiente": "Estimado (Gradient 2)",
+    "fuentes": [
+      "ISCO-08 3423 (Fitness and recreation instructors and program leaders)",
+      "Salud y fitness: asistencia digital; coaching humano"
+    ]
+  },
+  {
+    "codigo_isco": "8311",
+    "ocupacion_es": "Maquinistas y conductores de locomotoras",
+    "riesgo_automatizacion_porcentaje": 45,
+    "explicacion": "Existen sistemas de conducción automática y señalización avanzada, pero la supervisión, seguridad y manejo de incidencias mantienen el rol humano.",
+    "sinonimos": [
+      "Conductor de tren",
+      "Maquinista ferroviario",
+      "Operador de locomotora",
+      "Conductor de ferrocarril",
+      "Piloto de tren",
+      "Maquinista de metro"
+    ],
+    "gradiente": "Estimado (Gradient 2)",
+    "fuentes": [
+      "ISCO-08 8311 (Locomotive engine drivers)",
+      "Ferrocarril: automatización parcial; supervisión humana"
+    ]
+  },
+  {
+    "codigo_isco": "3153",
+    "ocupacion_es": "Pilotos de aeronaves y profesionales afines",
+    "riesgo_automatizacion_porcentaje": 30,
+    "explicacion": "Pilotos automáticos y gestión avanzada de vuelo asisten, pero el despegue/aterrizaje, la coordinación y la seguridad siguen a cargo de pilotos humanos.",
+    "sinonimos": [
+      "Piloto de avión",
+      "Piloto comercial",
+      "Piloto de aerolínea",
+      "Copiloto",
+      "Piloto de helicóptero",
+      "Aviador"
+    ],
+    "gradiente": "Estimado (Gradient 1)",
+    "fuentes": [
+      "ISCO-08 3153 (Aircraft pilots and related associate professionals)",
+      "Aviación: automatización asistida; decisión humana"
+    ]
+  },
+  {
+    "codigo_isco": "3152",
+    "ocupacion_es": "Oficiales de cubierta y pilotos de barcos",
+    "riesgo_automatizacion_porcentaje": 35,
+    "explicacion": "Navegación con radares/IA apoya, pero maniobras en puertos, seguridad y meteorología requieren oficiales a bordo.",
+    "sinonimos": [
+      "Oficial de puente",
+      "Piloto marítimo",
+      "Primer oficial",
+      "Segundo oficial",
+      "Oficial de navegación",
+      "Oficial de cubierta"
+    ],
+    "gradiente": "Estimado (Gradient 2)",
+    "fuentes": [
+      "ISCO-08 3152 (Ships’ deck officers and pilots)",
+      "Marítimo: apoyo tecnológico; maniobra humana"
+    ]
+  },
+  {
+    "codigo_isco": "9122",
+    "ocupacion_es": "Lavadores de vehículos y limpiaventanas",
+    "riesgo_automatizacion_porcentaje": 50,
+    "explicacion": "Túneles de lavado y robots limpiacristales existen, pero la limpieza detallada y en situaciones variadas sigue siendo humana.",
+    "sinonimos": [
+      "Lavacoches",
+      "Lavador de autos",
+      "Limpiaventanas",
+      "Lavador de vehículos",
+      "Detailer automotriz",
+      "Lavador a presión"
+    ],
+    "gradiente": "Estimado (Gradient 3)",
+    "fuentes": [
+      "ISCO-08 9122 (Vehicle washers and window cleaners)",
+      "Servicios: automatización parcial; detalle humano"
+    ]
+  },
+  {
+    "codigo_isco": "9121",
+    "ocupacion_es": "Lavanderos y planchadores a mano",
+    "riesgo_automatizacion_porcentaje": 52,
+    "explicacion": "Lavadoras y planchado industrial automatizan procesos; el trabajo a mano queda para prendas especiales y servicio a medida.",
+    "sinonimos": [
+      "Planchador a mano",
+      "Lavandero",
+      "Operario de lavandería manual",
+      "Planchador artesanal",
+      "Lavandera",
+      "Planchador de prendas finas"
+    ],
+    "gradiente": "Estimado (Gradient 3)",
+    "fuentes": [
+      "ISCO-08 9121 (Hand launderers and pressers)",
+      "Lavandería: automatización industrial; trabajo fino manual"
+    ]
+  },
+  {
+    "codigo_isco": "6112",
+    "ocupacion_es": "Cultivadores de árboles frutales, viñas y otros cultivos leñosos",
+    "riesgo_automatizacion_porcentaje": 38,
+    "explicacion": "Agricultura de precisión y maquinaria ayudan; poda, cosecha selectiva y manejo del clima/terreno requieren experiencia.",
+    "sinonimos": [
+      "Fruticultor",
+      "Viticultor",
+      "Agricultor frutal",
+      "Podador de viñas",
+      "Productor de frutales",
+      "Horticultor leñoso"
+    ],
+    "gradiente": "Estimado (Gradient 2)",
+    "fuentes": [
+      "ISCO-08 6112",
+      "AgriTech: apoyo; labores finas manuales"
+    ]
+  },
+  {
+    "codigo_isco": "6121",
+    "ocupacion_es": "Productores de ganado",
+    "riesgo_automatizacion_porcentaje": 36,
+    "explicacion": "Ordeño, alimentación y sensores se automatizan; la sanidad animal y manejo del rebaño requieren criterio humano.",
+    "sinonimos": [
+      "Ganadero",
+      "Productor pecuario",
+      "Criador de ganado",
+      "Encargado de establo",
+      "Vaquero productor",
+      "Ganadero lechero"
+    ],
+    "gradiente": "Estimado (Gradient 2)",
+    "fuentes": [
+      "ISCO-08 6121",
+      "Ganadería: automatización parcial; manejo humano"
+    ]
+  },
+  {
+    "codigo_isco": "6130",
+    "ocupacion_es": "Productores agropecuarios mixtos",
+    "riesgo_automatizacion_porcentaje": 40,
+    "explicacion": "Combinan cultivos y cría animal; la IA apoya planificación, pero las labores diarias en campo siguen siendo humanas.",
+    "sinonimos": [
+      "Productor mixto",
+      "Agricultor y ganadero",
+      "Granjero mixto",
+      "Productor agropecuario",
+      "Campesino mixto",
+      "Productor rural mixto"
+    ],
+    "gradiente": "Estimado (Gradient 2)",
+    "fuentes": [
+      "ISCO-08 6130",
+      "Agro mixto: variabilidad de tareas y entornos"
+    ]
+  },
+  {
+    "codigo_isco": "6210",
+    "ocupacion_es": "Trabajadores forestales y afines",
+    "riesgo_automatizacion_porcentaje": 42,
+    "explicacion": "Corta, poda y manejo forestal en terrenos complejos. Maquinaria ayuda, pero el entorno natural requiere intervención humana.",
+    "sinonimos": [
+      "Forestal",
+      "Maderero",
+      "Silvicultor",
+      "Peón forestal calificado",
+      "Técnico forestal de campo",
+      "Operario forestal"
+    ],
+    "gradiente": "Estimado (Gradient 2)",
+    "fuentes": [
+      "ISCO-08 6210",
+      "Silvicultura: maquinaria + trabajo humano en terreno"
+    ]
+  },
+  {
+    "codigo_isco": "6221",
+    "ocupacion_es": "Trabajadores en acuicultura",
+    "riesgo_automatizacion_porcentaje": 37,
+    "explicacion": "Alimentación, monitoreo y cosecha pueden automatizarse parcialmente; manejo de contingencias y bioseguridad requiere personas.",
+    "sinonimos": [
+      "Acuicultor",
+      "Operario de piscicultura",
+      "Técnico acuícola",
+      "Trabajador de granja acuícola",
+      "Maricultor",
+      "Operario de jaulas marinas"
+    ],
+    "gradiente": "Estimado (Gradient 2)",
+    "fuentes": [
+      "ISCO-08 6221",
+      "Acuicultura: sensores/IA; operación humana"
+    ]
+  },
+  {
+    "codigo_isco": "6222",
+    "ocupacion_es": "Pescadores de aguas interiores y costeras",
+    "riesgo_automatizacion_porcentaje": 38,
+    "explicacion": "Navegación y detección apoyadas por tecnología; la faena, redes y seguridad mantienen rol humano.",
+    "sinonimos": [
+      "Pescador artesanal",
+      "Pescador costero",
+      "Pescador fluvial",
+      "Mariscador",
+      "Pescador ribereño",
+      "Pescador de bajura"
+    ],
+    "gradiente": "Estimado (Gradient 2)",
+    "fuentes": [
+      "ISCO-08 6222",
+      "Pesca: tecnología de apoyo; faena humana"
+    ]
+  },
+  {
+    "codigo_isco": "6223",
+    "ocupacion_es": "Pescadores de altura y alta mar",
+    "riesgo_automatizacion_porcentaje": 34,
+    "explicacion": "Buques industriales con automatización; sin embargo, trabajo en alta mar, seguridad y mantenimiento requieren tripulación.",
+    "sinonimos": [
+      "Pescador de altura",
+      "Tripulante pesquero",
+      "Pescador de gran altura",
+      "Marinero pescador",
+      "Pescador industrial",
+      "Tripulante de pesca"
+    ],
+    "gradiente": "Estimado (Gradient 1)",
+    "fuentes": [
+      "ISCO-08 6223",
+      "Pesca de altura: automatización + condiciones exigentes"
+    ]
+  },
+  {
+    "codigo_isco": "8131",
+    "ocupacion_es": "Operadores de plantas y máquinas de productos químicos",
+    "riesgo_automatizacion_porcentaje": 58,
+    "explicacion": "Control distribuido y supervisión centralizada; las personas gestionan arranques, paradas y contingencias.",
+    "sinonimos": [
+      "Operador de planta química",
+      "Operario químico",
+      "Operador de reactor",
+      "Operario de proceso químico",
+      "Operador DCS",
+      "Operador de planta de químicos"
+    ],
+    "gradiente": "Estimado (Gradient 3)",
+    "fuentes": [
+      "ISCO-08 8131",
+      "Química de procesos: alta automatización supervisada"
+    ]
+  },
+  {
+    "codigo_isco": "8132",
+    "ocupacion_es": "Operadores de procesamiento de productos fotográficos y afines",
+    "riesgo_automatizacion_porcentaje": 62,
+    "explicacion": "Procesos estandarizados de revelado/impresión industrial; muchos segmentos se han digitalizado.",
+    "sinonimos": [
+      "Operario de revelado fotográfico",
+      "Operador de minilab",
+      "Operario de impresión fotográfica",
+      "Operario de procesamiento foto",
+      "Técnico de laboratorio fotográfico",
+      "Operario de filmación analógica"
+    ],
+    "gradiente": "Estimado (Gradient 4)",
+    "fuentes": [
+      "ISCO-08 8132",
+      "Digitalización del sector fotográfico"
+    ]
+  },
+  {
+    "codigo_isco": "3131",
+    "ocupacion_es": "Operadores de plantas de producción de energía",
+    "riesgo_automatizacion_porcentaje": 56,
+    "explicacion": "SCADA y control avanzado automatizan; operadores gestionan seguridad, cambios de carga y fallos.",
+    "sinonimos": [
+      "Operador de central eléctrica",
+      "Operador de planta de energía",
+      "Operador SCADA",
+      "Operador de turbinas",
+      "Operario de generación eléctrica",
+      "Operador de sala de control"
+    ],
+    "gradiente": "Estimado (Gradient 3)",
+    "fuentes": [
+      "ISCO-08 3131",
+      "Energía: control avanzado; rol de operador crítico"
+    ]
+  },
+  {
+    "codigo_isco": "3132",
+    "ocupacion_es": "Operadores de plantas de tratamiento de agua y desechos",
+    "riesgo_automatizacion_porcentaje": 54,
+    "explicacion": "Automatización de válvulas, dosificación y monitoreo; la operación y respuesta a eventos sigue en manos de operadores.",
+    "sinonimos": [
+      "Operador de planta de agua",
+      "Operador de tratamiento de aguas",
+      "Operador de PTAR",
+      "Operador de residuos",
+      "Operador de planta de lodos",
+      "Operario de tratamiento"
+    ],
+    "gradiente": "Estimado (Gradient 3)",
+    "fuentes": [
+      "ISCO-08 3132",
+      "Agua/residuos: automatización con supervisión humana"
+    ]
+  },
+  {
+    "codigo_isco": "9622",
+    "ocupacion_es": "Personal de oficios varios (multiusos)",
+    "riesgo_automatizacion_porcentaje": 46,
+    "explicacion": "Tareas variadas de apoyo; la IA/robots cubren partes estandarizadas, pero la versatilidad humana sigue siendo valiosa.",
+    "sinonimos": [
+      "Operario multiusos",
+      "Auxiliar general",
+      "Peón polivalente",
+      "Ayudante general",
+      "Operario de mantenimiento general",
+      "Oficial de oficios varios"
+    ],
+    "gradiente": "Estimado (Gradient 2)",
+    "fuentes": [
+      "ISCO-08 9622 (Odd-job persons)",
+      "Automatización de tareas, no de ocupaciones completas"
+    ]
+  },
+  {
+    "codigo_isco": "9623",
+    "ocupacion_es": "Lectores de medidores y cobradores de máquinas expendedoras",
+    "riesgo_automatizacion_porcentaje": 64,
+    "explicacion": "Medidores inteligentes, telemetría y pagos digitales reducen la necesidad de lectura y cobro presencial.",
+    "sinonimos": [
+      "Lector de medidores",
+      "Cobrador de máquinas",
+      "Recaudador de expendedoras",
+      "Lecturista",
+      "Técnico de telemetría",
+      "Recaudador de máquinas"
+    ],
+    "gradiente": "Estimado (Gradient 4)",
+    "fuentes": [
+      "ISCO-08 9623 (Meter readers and vending-machine collectors)",
+      "Smart meters/IoT: alta automatización"
+    ]
+  },
+  {
+    "codigo_isco": "5120",
+    "ocupacion_es": "Cocineros",
+    "riesgo_automatizacion_porcentaje": 43,
+    "explicacion": "En cocinas estandarizadas aumenta la automatización, pero crear platos, gestionar tiempos y coordinar equipo requiere cocineros humanos.",
+    "sinonimos": [
+      "Cocinero",
+      "Cocinero de restaurante",
+      "Cocinero industrial",
+      "Cocinero de hotel",
+      "Chef de línea",
+      "Jefe de partida"
+    ],
+    "gradiente": "Estimado (Gradient 2)",
+    "fuentes": [
+      "ISCO-08 5120 (Cooks)",
+      "Restauración: automatización parcial; creatividad/coord. humanas"
+    ]
+  },
+  {
+    "codigo_isco": "4211",
+    "ocupacion_es": "Cajeros de banco y empleados de operaciones financieras",
+    "riesgo_automatizacion_porcentaje": 67,
+    "explicacion": "Banca digital, ATM y validaciones automáticas reducen ventanilla física; quedan casos complejos y atención personalizada.",
+    "sinonimos": [
+      "Cajero bancario",
+      "Teller bancario",
+      "Empleado de caja bancaria",
+      "Oficial de operaciones bancarias",
+      "Asistente de sucursal",
+      "Atención al cliente bancario"
+    ],
+    "gradiente": "Estimado (Gradient 4)",
+    "fuentes": [
+      "ISCO-08 4211 (Bank tellers and related clerks)",
+      "Servicios financieros: digitalización de ventanilla"
+    ]
+  },
+  {
+    "codigo_isco": "4321",
+    "ocupacion_es": "Empleados de control de inventario y almacén",
+    "riesgo_automatizacion_porcentaje": 58,
+    "explicacion": "Sistemas WMS y escaneo automatizan conteos; aún se requiere coordinación, excepciones y control físico.",
+    "sinonimos": [
+      "Auxiliar de inventarios",
+      "Empleado de almacén",
+      "Controlador de stock",
+      "Analista de inventarios",
+      "Auxiliar de bodega",
+      "Gestor de inventarios"
+    ],
+    "gradiente": "Estimado (Gradient 3)",
+    "fuentes": [
+      "ISCO-08 4321 (Stock clerks)",
+      "Logística: WMS/RFID/IA; supervisión humana"
+    ]
+  },
+  {
+    "codigo_isco": "4322",
+    "ocupacion_es": "Empleados de producción",
+    "riesgo_automatizacion_porcentaje": 60,
+    "explicacion": "Planificación y control de producción se apoyan en MRP/IA; el rol humano coordina cambios, prioridades y calidad.",
+    "sinonimos": [
+      "Auxiliar de producción",
+      "Empleado de control de producción",
+      "Planificador de producción",
+      "Oficinista de producción",
+      "Asistente de programación de planta",
+      "Programador de producción"
+    ],
+    "gradiente": "Estimado (Gradient 4)",
+    "fuentes": [
+      "ISCO-08 4322 (Production clerks)",
+      "MRP/APS/IA en producción: automatización de planeación"
+    ]
+  },
+  {
+    "codigo_isco": "2423",
+    "ocupacion_es": "Profesionales de recursos humanos y orientación laboral",
+    "riesgo_automatizacion_porcentaje": 42,
+    "explicacion": "ATS y analítica agilizan selección; evaluación conductual, negociación y cultura son humanas.",
+    "sinonimos": [
+      "Especialista de RR. HH.",
+      "Generalista de RR. HH.",
+      "Business Partner de RR. HH.",
+      "Analista de selección",
+      "Orientador laboral",
+      "Consultor de RR. HH."
+    ],
+    "gradiente": "Estimado (Gradient 2)",
+    "fuentes": [
+      "ISCO-08 2423 (Personnel and careers professionals)",
+      "HR Tech/IA: apoyo a selección y gestión"
+    ]
+  },
+  {
+    "codigo_isco": "2412",
+    "ocupacion_es": "Asesores financieros y de inversión",
+    "riesgo_automatizacion_porcentaje": 48,
+    "explicacion": "Robo-advisors y analítica apoyan; la planificación personalizada, cumplimiento y relación con clientes siguen siendo humanas.",
+    "sinonimos": [
+      "Asesor financiero",
+      "Asesor de inversiones",
+      "Planner financiero",
+      "Consultor financiero",
+      "Gestor patrimonial",
+      "Asesor de patrimonio"
+    ],
+    "gradiente": "Estimado (Gradient 2)",
+    "fuentes": [
+      "ISCO-08 2412 (Financial and investment advisers)",
+      "FinTech/IA: asesoramiento asistido"
+    ]
+  },
+  {
+    "codigo_isco": "2611",
+    "ocupacion_es": "Abogados",
+    "riesgo_automatizacion_porcentaje": 34,
+    "explicacion": "Búsqueda jurídica y borradores con IA; estrategia, juicio, negociación y litigio siguen siendo de abogados.",
+    "sinonimos": [
+      "Abogado litigante",
+      "Abogado corporativo",
+      "Asesor legal",
+      "Abogado penalista",
+      "Abogado civil",
+      "Abogado mercantil"
+    ],
+    "gradiente": "Estimado (Gradient 1)",
+    "fuentes": [
+      "ISCO-08 2611 (Lawyers)",
+      "LegalTech/IA: apoyo a investigación y drafting"
+    ]
+  },
+  {
+    "codigo_isco": "2622",
+    "ocupacion_es": "Bibliotecarios y especialistas en información",
+    "riesgo_automatizacion_porcentaje": 41,
+    "explicacion": "Descubrimiento y clasificación con IA; alfabetización informacional, servicios a usuarios y adquisiciones requieren bibliotecarios.",
+    "sinonimos": [
+      "Bibliotecario",
+      "Especialista en información",
+      "Gestor de información",
+      "Bibliotecólogo",
+      "Consultor de información",
+      "Documentalista"
+    ],
+    "gradiente": "Estimado (Gradient 2)",
+    "fuentes": [
+      "ISCO-08 2622 (Librarians and related information professionals)",
+      "Bibliotecas: servicios y formación de usuarios"
+    ]
+  },
+  {
+    "codigo_isco": "2641",
+    "ocupacion_es": "Autores y escritores",
+    "riesgo_automatizacion_porcentaje": 44,
+    "explicacion": "La IA genera texto, pero la voz autoral, la investigación original y la edición profesional mantienen relevancia humana.",
+    "sinonimos": [
+      "Escritor",
+      "Autor",
+      "Redactor",
+      "Guionista",
+      "Novelista",
+      "Ensayista"
+    ],
+    "gradiente": "Estimado (Gradient 2)",
+    "fuentes": [
+      "ISCO-08 2641 (Authors and related writers)",
+      "IA generativa: apoyo; autoría humana"
+    ]
+  },
+  {
+    "codigo_isco": "3334",
+    "ocupacion_es": "Agentes inmobiliarios y administradores de propiedades",
+    "riesgo_automatizacion_porcentaje": 47,
+    "explicacion": "Portales e IA ayudan a valoración/captación; negociación, visitas y gestión de inquilinos siguen con agentes humanos.",
+    "sinonimos": [
+      "Agente inmobiliario",
+      "Corredor de bienes raíces",
+      "Administrador de propiedades",
+      "Gestor inmobiliario",
+      "Broker inmobiliario",
+      "Asesor inmobiliario"
+    ],
+    "gradiente": "Estimado (Gradient 2)",
+    "fuentes": [
+      "ISCO-08 3334 (Real estate agents and property managers)",
+      "PropTech/IA: apoyo; negociación humana"
+    ]
+  },
+  {
+    "codigo_isco": "4227",
+    "ocupacion_es": "Encuestadores y entrevistadores de investigación de mercado",
+    "riesgo_automatizacion_porcentaje": 61,
+    "explicacion": "Encuestas online/IVR y paneles automatizan la recolección; queda muestreo complejo y entrevistas cualitativas.",
+    "sinonimos": [
+      "Encuestador",
+      "Entrevistador CATI",
+      "Entrevistador CAPI",
+      "Encuestador de campo",
+      "Investigador de mercado junior",
+      "Recolector de datos"
+    ],
+    "gradiente": "Estimado (Gradient 4)",
+    "fuentes": [
+      "ISCO-08 4227 (Survey and market research interviewers)",
+      "MRX: digitalización de encuestas"
+    ]
+  },
+  {
+    "codigo_isco": "7111",
+    "ocupacion_es": "Constructores de viviendas",
+    "riesgo_automatizacion_porcentaje": 33,
+    "explicacion": "Obra en sitio, coordinación de múltiples oficios y adaptación al terreno/tiempo; difícil automatizar por completo.",
+    "sinonimos": [
+      "Albañil de viviendas",
+      "Constructor residencial",
+      "Maestro de obra residencial",
+      "Operario de obra civil liviana",
+      "Constructor de casas",
+      "Constructor de edificios bajos"
+    ],
+    "gradiente": "Estimado (Gradient 1)",
+    "fuentes": [
+      "ISCO-08 7111 (House builders)",
+      "Construcción: variabilidad en obra"
+    ]
+  },
+  {
+    "codigo_isco": "3118",
+    "ocupacion_es": "Delineantes y dibujantes técnicos",
+    "riesgo_automatizacion_porcentaje": 55,
+    "explicacion": "CAD/BIM automatiza tareas repetitivas; interpretación de requisitos y coordinación con ingenieros/diseñadores requiere técnicos.",
+    "sinonimos": [
+      "Delineante",
+      "Dibujante proyectista",
+      "CADista",
+      "Modelador BIM junior",
+      "Dibujante técnico",
+      "Proyectista"
+    ],
+    "gradiente": "Estimado (Gradient 3)",
+    "fuentes": [
+      "ISCO-08 3118 (Draughtspersons)",
+      "CAD/BIM con IA: asistencia; coordinación humana"
+    ]
+  },
+  {
+    "codigo_isco": "2161",
+    "ocupacion_es": "Arquitectos",
+    "riesgo_automatizacion_porcentaje": 43,
+    "explicacion": "Generative design y BIM ayudan; contexto urbano, normativa, coordinación y autoría arquitectónica requieren arquitectos.",
+    "sinonimos": [
+      "Arquitecto",
+      "Arquitecto diseñador",
+      "Arquitecto proyectista",
+      "Arquitecto urbanista",
+      "Arquitecto residencial",
+      "Arquitecto de obra"
+    ],
+    "gradiente": "Estimado (Gradient 2)",
+    "fuentes": [
+      "ISCO-08 2161 (Building architects)",
+      "BIM/IA: asistencia; responsabilidad autoral y técnica"
+    ]
+  },
+  {
+    "codigo_isco": "8350",
+    "ocupacion_es": "Tripulaciones de cubierta y de máquinas de barcos",
+    "riesgo_automatizacion_porcentaje": 39,
+    "explicacion": "Operación, mantenimiento y seguridad a bordo requieren tripulación, con apoyo de sistemas automatizados.",
+    "sinonimos": [
+      "Marinero de cubierta",
+      "Marinero de máquinas",
+      "Tripulante de barco",
+      "Marinero raso",
+      "Engrasador",
+      "Marinero de puente"
+    ],
+    "gradiente": "Estimado (Gradient 2)",
+    "fuentes": [
+      "ISCO-08 8350 (Ships’ deck crews and related workers)",
+      "Marítimo: automatización con operación humana"
+    ]
+  },
+  {
+    "codigo_isco": "9111",
+    "ocupacion_es": "Limpiadores y ayudantes domésticos",
+    "riesgo_automatizacion_porcentaje": 37,
+    "explicacion": "Robots aspiradores ayudan, pero limpieza detallada, organización y relación con el hogar requieren personas.",
+    "sinonimos": [
+      "Empleada doméstica",
+      "Ayudante doméstico",
+      "Limpiador doméstico",
+      "Auxiliar del hogar",
+      "Personal de limpieza en casa",
+      "Asistente doméstico"
+    ],
+    "gradiente": "Estimado (Gradient 2)",
+    "fuentes": [
+      "ISCO-08 9111 (Domestic cleaners and helpers)",
+      "Robótica doméstica: asistencia parcial"
+    ]
+  },
+  {
+    "codigo_isco": "9112",
+    "ocupacion_es": "Limpiadores y ayudantes en oficinas, hoteles y otros establecimientos",
+    "riesgo_automatizacion_porcentaje": 49,
+    "explicacion": "Fregadoras/robots y planificación con IA ayudan; la limpieza de detalle y las incidencias siguen necesitando personal.",
+    "sinonimos": [
+      "Personal de limpieza",
+      "Auxiliar de limpieza",
+      "Camarero de piso",
+      "Limpieza industrial",
+      "Aseador",
+      "Operario de limpieza"
+    ],
+    "gradiente": "Estimado (Gradient 2)",
+    "fuentes": [
+      "ISCO-08 9112 (Cleaners and helpers in offices, hotels and other establishments)",
+      "Facility management: automatización parcial"
+    ]
+  },
+  {
+    "codigo_isco": "3240",
+    "ocupacion_es": "Técnicos y asistentes veterinarios",
+    "riesgo_automatizacion_porcentaje": 34,
+    "explicacion": "Ayudan en procedimientos, manejo y diagnóstico; la IA apoya imagen y registros, pero la atención animal es práctica y humana.",
+    "sinonimos": [
+      "Técnico veterinario",
+      "Auxiliar veterinario",
+      "Asistente veterinario",
+      "ATV",
+      "Técnico de clínica veterinaria",
+      "Auxiliar de veterinaria"
+    ],
+    "gradiente": "Estimado (Gradient 1)",
+    "fuentes": [
+      "ISCO-08 3240 (Veterinary technicians and assistants)",
+      "Clínica veterinaria: apoyo tecnológico; labor práctica"
+    ]
+  }
+]
