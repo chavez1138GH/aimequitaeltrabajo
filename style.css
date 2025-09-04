@@ -3,7 +3,6 @@
   --card:#111827;
   --muted:#8b949e;
   --text:#e6edf3;
-  --brand:#00d2a8;
   --accent:#58a6ff;
   --btn:#222b3a;
   --btn-text:#d1e9ff;
@@ -31,7 +30,9 @@ input[type="search"]{flex:1;padding:12px 14px;border-radius:10px;border:1px soli
 .btn.ghost{background:#141a29;color:#c9d1d9}
 
 .help{color:var(--muted);margin:.5rem 0 0}
-.suggestions{margin-top:8px}
+
+/* Sugerencias */
+.suggestions{margin-top:8px;display:flex;flex-wrap:wrap}
 .suggestions button{margin:4px 6px 0 0;border:1px solid #2a3347;background:#0f172a;color:#c9d1d9;border-radius:999px;padding:6px 10px;cursor:pointer}
 
 .result{background:var(--card);padding:16px;border-radius:14px}
@@ -40,14 +41,19 @@ input[type="search"]{flex:1;padding:12px 14px;border-radius:10px;border:1px soli
 .result-top h2{margin:0;font-size:1.15rem}
 .badge{background:#233046;border:1px solid #2a3347;color:#dbeafe;border-radius:999px;padding:2px 10px;font-size:.85rem}
 
-.gauge-wrap{margin:8px 0 6px}
+/* Velocímetro */
+.gauge-wrap{position:relative;margin:8px 0 6px}
+.gauge-banner{
+  position:absolute;left:50%;top:-8px;transform:translate(-50%,-50%);
+  padding:6px 12px;border-radius:999px;border:1px solid #2a3347;
+  background:#233046;color:#e6edf3;font-weight:600;box-shadow:0 2px 8px rgba(0,0,0,.25)
+}
 .needle{transform-origin:160px 160px;transition:transform .85s cubic-bezier(.2,.8,.2,1)}
-.percent{display:flex;flex-direction:column;align-items:center;margin-top:-6px}
-.percent #porcentaje{font-size:2rem;font-weight:700}
-.percent #nota{font-size:.8rem;color:var(--muted)}
-
+.percent{display:flex;justify-content:center;margin-top:-2px}
+.percent #porcentaje{font-size:2rem;font-weight:800}
 .explicacion{margin-top:8px}
 
+/* Info */
 .info{display:grid;grid-template-columns:1fr 1.1fr;gap:18px;align-items:start}
 @media (max-width:900px){.info{grid-template-columns:1fr}}
 .chart{margin:0}
@@ -55,6 +61,7 @@ input[type="search"]{flex:1;padding:12px 14px;border-radius:10px;border:1px soli
 .info-text h3{margin:.2rem 0 .4rem}
 .info p{margin:.45rem 0}
 
+/* Ads placeholders */
 .sidebar .ad-placeholder,
 .footer .ad-placeholder{
   background:#0f172a;border:1px dashed #2a3347;border-radius:12px;color:#9aa7b8;
@@ -63,5 +70,5 @@ input[type="search"]{flex:1;padding:12px 14px;border-radius:10px;border:1px soli
 
 .footer{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-top:12px;border-top:1px solid #1f2937;padding-top:16px}
 
-.faq .faq-list{list-style:decimal; margin-left:1rem}
+.faq .faq-list{list-style:decimal;margin-left:1rem}
 .privacy p, .faq p{color:#d1d5db}
