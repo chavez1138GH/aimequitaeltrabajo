@@ -43,7 +43,7 @@ async function cargarDatos() {
         codigo_isco: "7112",
         ocupacion_es: "Albañiles",
         riesgo_automatizacion_porcentaje: 9,
-        explicacion: "Desterza manual y entornos no estructurados; difícil de automatizar por completo.",
+        explicacion: "Destreza manual y entornos no estructurados; difícil de automatizar por completo.",
         sinonimos: ["Maestro de obra","Oficial de construcción","Oficial albañil"]
       }
     ]);
@@ -122,6 +122,7 @@ function pintarSugerencias(list){
     const b = document.createElement('button');
     b.type = 'button';
     b.textContent = txt;
+    // Al hacer clic en una pastilla: buscar automáticamente
     b.onclick = () => { $('#search').value = txt; cont.innerHTML=''; accionBuscar(); };
     cont.appendChild(b);
   });
@@ -206,14 +207,23 @@ document.addEventListener('DOMContentLoaded', async () => {
   await cargarDatos();
 
   const input = $('#search');
+
+  // Sugerencias en vivo
   input.addEventListener('input', e => {
     const list = sugerencias(e.target.value, 10);
     pintarSugerencias(list);
   });
 
+  // Buscar con botón
   $('#btnBuscar').addEventListener('click', accionBuscar);
+
+  // Buscar automáticamente al SELECCIONAR del datalist (sin presionar Enter)
+  input.addEventListener('change', accionBuscar);
+
+  // Enter opcional
   input.addEventListener('keydown', (e)=>{ if(e.key==='Enter') accionBuscar(); });
 
+  // Si viene ?q= en URL, búscalo
   const params = new URLSearchParams(location.search);
   const q = params.get('q') || params.get('busqueda');
   if (q){ input.value = q; accionBuscar(); }
