@@ -3,7 +3,7 @@ const $ = (s, d=document) => d.querySelector(s);
 const $$ = (s, d=document) => Array.from(d.querySelectorAll(s));
 const norm = (str="") =>
   str.toString().toLowerCase()
-    .normalize('NFD').replace(/\p{Diacritic}/gu,'') // quita acentos
+    .normalize('NFD').replace(/\p{Diacritic}/gu,'')
     .replace(/[^a-z0-9\s]/g,' ')
     .replace(/\s+/g,' ').trim();
 
@@ -19,18 +19,39 @@ const asNumber = (v, d=0) => {
 /* ========= Estado ========= */
 let DATA = [];
 let INDEX = [];   // [{i, tokens}]
-let NAMES = [];   // nombres únicos para autocompletar
+let NAMES = [];   // autocompletar
 
-/* ========= Carga de datos ========= */
+/* ========= Carga robusta del JSON ========= */
+async function fetchJSON(url){
+  const u = `${url}${url.includes('?')?'&':'?'}v=${Date.now()}`; // evita caché
+  const res = await fetch(u, {cache:'no-store'});
+  if (!res.ok) throw new Error(`HTTP ${res.status}`);
+  return res.json();
+}
+
 async function cargarDatos() {
+  const status = $('#dbStatus');
   try {
-    const res = await fetch('base_de_datos.json', { cache: 'no-store' });
-    const raw = await res.json();
-    if (!Array.isArray(raw)) throw new Error('JSON no es array');
+    // intenta varias rutas comunes por si el archivo quedó en subcarpeta
+    const candidates = [
+      'base_de_datos.json',
+      './base_de_datos.json',
+      'data/base_de_datos.json'
+    ];
+    let raw = null, lastErr = null;
+    for (const c of candidates) {
+      try { raw = await fetchJSON(c); break; }
+      catch(e){ lastErr = e; }
+    }
+    if (!raw) throw lastErr || new Error('No se pudo leer la base');
+
+    if (!Array.isArray(raw)) throw new Error('El JSON no es un array');
     DATA = normalizar(raw);
+
+    construirIndices();
+    status.textContent = `Base de datos cargada: ${DATA.length} ocupaciones.`;
   } catch (e) {
-    console.warn('No se pudo cargar base_de_datos.json. Usando fallback.', e);
-    // Fallback mínimo para que funcione aunque falte el JSON real
+    console.warn('Fallo al cargar la base, usando fallback.', e);
     DATA = normalizar([
       {
         codigo_isco: "4311",
@@ -47,8 +68,10 @@ async function cargarDatos() {
         sinonimos: ["Maestro de obra","Oficial de construcción","Oficial albañil"]
       }
     ]);
+    construirIndices();
+    if (status) status.textContent =
+      "⚠️ No se pudo cargar base_de_datos.json. Revisa la ruta y vuelve a publicar.";
   }
-  construirIndices();
 }
 
 function normalizar(arr){
@@ -79,9 +102,10 @@ function construirIndices(){
 
 /* ========= Buscador + Autocompletar ========= */
 function scoreMatch(haystack, needle) {
-  if (haystack.startsWith(needle+' ')) return 120;   // prefijo
-  if (haystack === needle) return 110;               // igual
-  if (haystack.includes(` ${needle} `)) return 90;   // palabra entera
+  if (!needle) return 0;
+  if (haystack.startsWith(needle+' ')) return 120;
+  if (haystack === needle) return 110;
+  if (haystack.includes(` ${needle} `)) return 90;
   if (haystack.includes(needle)) return Math.min(80, Math.floor(needle.length*2));
   let s = 0;
   for (const p of needle.split(' ')) if (p && haystack.includes(p)) s += 10;
@@ -122,11 +146,9 @@ function pintarSugerencias(list){
     const b = document.createElement('button');
     b.type = 'button';
     b.textContent = txt;
-    // Al hacer clic en una pastilla: buscar automáticamente
     b.onclick = () => { $('#search').value = txt; cont.innerHTML=''; accionBuscar(); };
     cont.appendChild(b);
   });
-  // datalist nativo
   const dl = $('#opts');
   if (dl){
     dl.innerHTML = '';
@@ -151,7 +173,7 @@ function etiquetaRiesgo(pct){
 
 function setGauge(pct){
   const clamp = Math.max(0, Math.min(100, Number(pct)||0));
-  const angle = -90 + (clamp/100)*180; // 0%→-90°, 50%→0°, 100%→+90°
+  const angle = -90 + (clamp/100)*180;
   const needle = document.getElementById('needle');
   if (needle) needle.style.transform = `rotate(${angle}deg)`;
 
@@ -206,24 +228,19 @@ document.addEventListener('DOMContentLoaded', async () => {
 
   await cargarDatos();
 
-  const input = $('#search');
+  // Muestra sugerencias iniciales para guiar al usuario
+  pintarSugerencias(sugerencias('', 10));
 
-  // Sugerencias en vivo
+  const input = $('#search');
   input.addEventListener('input', e => {
     const list = sugerencias(e.target.value, 10);
     pintarSugerencias(list);
   });
 
-  // Buscar con botón
   $('#btnBuscar').addEventListener('click', accionBuscar);
-
-  // Buscar automáticamente al SELECCIONAR del datalist (sin presionar Enter)
-  input.addEventListener('change', accionBuscar);
-
-  // Enter opcional
+  input.addEventListener('change', accionBuscar);     // seleccionar del datalist busca solo
   input.addEventListener('keydown', (e)=>{ if(e.key==='Enter') accionBuscar(); });
 
-  // Si viene ?q= en URL, búscalo
   const params = new URLSearchParams(location.search);
   const q = params.get('q') || params.get('busqueda');
   if (q){ input.value = q; accionBuscar(); }
