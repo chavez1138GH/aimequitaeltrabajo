@@ -2,267 +2,165 @@
 <html lang="es">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>¿La IA me quita el trabajo? | aimequitaeltrabajo.com</title>
 
-  <title>¿La IA me quita el trabajo? | Riesgo de automatización por empleo</title>
-  <meta name="description" content="Busca tu profesión en español y conoce el porcentaje de riesgo de automatización por IA, con explicación, fuentes, velocímetro y opciones para compartir." />
-  <meta name="keywords" content="automatización, IA, empleo, probabilidad, riesgo, trabajo, robots, inteligencia artificial, futuro del trabajo" />
-  <meta name="robots" content="index, follow" />
-  <meta name="author" content="aimequitaeltrabajo.com" />
-  <link rel="canonical" href="https://www.TU-DOMINIO.com/" />
+  <!-- SEO -->
+  <meta name="description" content="Escribe tu ocupación y descubre el riesgo de automatización por IA con un velocímetro claro, explicación y recursos. 100% gratis." />
+  <meta name="keywords" content="automatización, IA, empleos, trabajos, riesgo, Latinoamérica, futuro del trabajo, ISCO-08" />
+  <link rel="canonical" href="https://aimequitaeltrabajo.com/" />
 
   <!-- Open Graph / Twitter -->
-  <meta property="og:type" content="website" />
-  <meta property="og:title" content="¿La IA me quita el trabajo?" />
-  <meta property="og:description" content="Escribe tu profesión y descubre el riesgo de automatización por IA con desglose por fuente." />
-  <meta property="og:url" content="https://www.TU-DOMINIO.com/" />
-  <meta property="og:image" content="https://www.TU-DOMINIO.com/og-image.jpg" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="¿La IA me quita el trabajo?" />
-  <meta name="twitter:description" content="Calcula el riesgo de automatización de tu empleo (con fuentes múltiples)." />
-  <meta name="twitter:image" content="https://www.TU-DOMINIO.com/og-image.jpg" />
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="¿La IA me quita el trabajo?">
+  <meta property="og:description" content="Busca tu ocupación y mira el riesgo de automatización con un velocímetro claro.">
+  <meta property="og:image" content="https://aimequitaeltrabajo.com/images/i0.png">
+  <meta property="og:url" content="https://aimequitaeltrabajo.com/">
+  <meta name="twitter:card" content="summary_large_image">
 
-  <!-- Structured Data -->
+  <!-- JSON-LD Website + SearchAction -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "WebSite",
     "name": "aimequitaeltrabajo.com",
-    "url": "https://www.TU-DOMINIO.com/",
+    "url": "https://aimequitaeltrabajo.com/",
     "potentialAction": {
       "@type": "SearchAction",
-      "target": "https://www.TU-DOMINIO.com/?q={search_term_string}",
-      "query-input": "required name=search_term_string"
+      "target": "https://aimequitaeltrabajo.com/?q={busqueda}",
+      "query-input": "required name=busqueda"
     }
   }
   </script>
 
-  <!-- AdSense (Auto Ads) — RELLENA TU CLIENT ID -->
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script>
-
   <link rel="stylesheet" href="style.css" />
+  <!-- AdSense (rellena tu ID antes de publicar) -->
+  <!--
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXX" crossorigin="anonymous"></script>
+  -->
 </head>
 <body>
-  <header class="site-header">
-    <div class="container">
-      <h1>¿La IA me quita el trabajo?</h1>
-      <p class="lead">Escribe tu profesión en español y obtén una <strong>estimación del riesgo de automatización</strong> con <strong>desglose por fuente</strong>.</p>
-      <!-- Avisos globales (fallback, errores, etc.) -->
-      <div id="notice" class="notice hidden" role="alert"></div>
-
-      <!-- Banner superior -->
-      <div class="ad ad--top">
-        <ins class="adsbygoogle"
-             style="display:block"
-             data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
-             data-ad-slot="1111111111"
-             data-ad-format="auto"
-             data-full-width-responsive="true"></ins>
-      </div>
-    </div>
+  <header class="container site-header">
+    <h1>¿La IA me quita el trabajo?</h1>
+    <nav>
+      <a href="faq.html">FAQ</a>
+      <a href="privacidad.html">Privacidad</a>
+      <a class="brand">aimequitaeltrabajo.com</a>
+    </nav>
   </header>
 
-  <main class="container layout">
-    <section class="content">
-      <form id="search-form" class="search" role="search" aria-label="Buscar profesión">
-        <label for="q" class="sr-only">Profesión</label>
-        <input id="q" name="q" type="search"
-               placeholder="Ej. Cajero, Abogado, Desarrollador web, Barista, Ingeniero de datos…"
-               list="sugerencias-datalist" autocomplete="on" spellcheck="false" aria-describedby="ayuda-busqueda" />
-        <datalist id="sugerencias-datalist"></datalist>
-        <button type="submit" aria-label="Buscar">Buscar</button>
-        <div id="ayuda-busqueda" class="hint">Tip: prueba con nombres específicos (ej. “Desarrollador frontend”).</div>
-      </form>
-
-      <!-- Chips rápidos -->
-      <div class="chips" id="chips">
-        <span data-job="Cajero/a">Cajero/a</span>
-        <span data-job="Barista">Barista</span>
-        <span data-job="Desarrollador/a frontend">Desarrollador/a frontend</span>
-        <span data-job="Ingeniero/a de datos">Ingeniero/a de datos</span>
-        <span data-job="Técnico/a de laboratorio clínico">Técnico/a de laboratorio clínico</span>
-        <span data-job="Conductor/a de camión de larga distancia">Conductor/a de camión de larga distancia</span>
+  <main class="container grid">
+    <section class="main">
+      <div class="search-card">
+        <label for="search" class="label">Busca tu ocupación (usa sinónimos):</label>
+        <div class="search-row">
+          <input id="search" type="search" placeholder="Ej.: Auxiliar contable, Albañil, Programador, Recepcionista…" autocomplete="off">
+          <button id="btnBuscar" class="btn">Calcular</button>
+        </div>
+        <div id="sugerencias" class="suggestions"></div>
+        <p class="help">Consejo: escribe como hablas en tu país; el motor reconoce <em>sinónimos</em> frecuentes en español.</p>
       </div>
 
-      <div id="loader" class="card hidden" aria-live="polite">Cargando bases de ocupaciones…</div>
-
       <!-- Resultado -->
-      <article id="resultado" class="card hidden" aria-live="polite">
-        <header>
-          <h2 id="res-titulo">Resultado</h2>
-        </header>
-
-        <!-- Nota cuando no hay coincidencia exacta -->
-        <p id="res-nota" class="nota hidden"></p>
-
-        <!-- VELOCÍMETRO -->
-        <section class="gauge-wrap">
-  <div class="gauge">
-    <svg viewBox="0 0 320 200" width="100%" height="auto" aria-hidden="true">
-      <!-- Base semicircular -->
-      <path d="M 40 160 A 120 120 0 0 0 280 160"
-            fill="none" stroke="#0f1116" stroke-width="26" pathLength="100"/>
-
-      <!-- 6 segmentos tipo semáforo (oscuro→claro→amarillo→naranja→rojo) -->
-      <path d="M 40 160 A 120 120 0 0 0 280 160"
-            class="gauge-arc arc-1" fill="none" stroke-width="26" pathLength="100"
-            stroke-dasharray="16.666 83.334" stroke-dashoffset="0" />
-      <path d="M 40 160 A 120 120 0 0 0 280 160"
-            class="gauge-arc arc-2" fill="none" stroke-width="26" pathLength="100"
-            stroke-dasharray="16.666 83.334" stroke-dashoffset="-16.666" />
-      <path d="M 40 160 A 120 120 0 0 0 280 160"
-            class="gauge-arc arc-3" fill="none" stroke-width="26" pathLength="100"
-            stroke-dasharray="16.666 83.334" stroke-dashoffset="-33.332" />
-      <path d="M 40 160 A 120 120 0 0 0 280 160"
-            class="gauge-arc arc-4" fill="none" stroke-width="26" pathLength="100"
-            stroke-dasharray="16.666 83.334" stroke-dashoffset="-49.998" />
-      <path d="M 40 160 A 120 120 0 0 0 280 160"
-            class="gauge-arc arc-5" fill="none" stroke-width="26" pathLength="100"
-            stroke-dasharray="16.666 83.334" stroke-dashoffset="-66.664" />
-      <path d="M 40 160 A 120 120 0 0 0 280 160"
-            class="gauge-arc arc-6" fill="none" stroke-width="26" pathLength="100"
-            stroke-dasharray="16.666 83.334" stroke-dashoffset="-83.330" />
-
-      <!-- Grupo de aguja (se rota en CSS/JS alrededor del centro 160,160) -->
-      <g id="needle-group">
-        <!-- Aguja -->
-        <line x1="160" y1="160" x2="160" y2="44"
-              stroke="#e6e7ea" stroke-width="4" stroke-linecap="round" />
-        <!-- Centro -->
-        <circle cx="160" cy="160" r="8" fill="#e6e7ea"/>
-      </g>
-    </svg>
-
-    <div class="gauge-readout">
-      <strong id="res-porcentaje">— %</strong>
-      <span id="res-nivel" class="pill">—</span>
-    </div>
-
-    <div class="lights">
-      <span class="light light-green" title="Bajo"></span>
-      <span class="light light-yellow" title="Medio"></span>
-      <span class="light light-red" title="Alto"></span>
-    </div>
-
-    <!-- Etiquetas como el ejemplo -->
-    <div class="gauge-labels">
-      <span>Riesgo mínimo</span>
-      <span>Riesgo inminente</span>
-    </div>
-  </div>
-</section>
-
-        <div class="score-explain">
-          <p id="res-explicacion" class="explicacion">Introduce un empleo para ver la explicación.</p>
-          <details id="res-detalle" class="detalle">
-            <summary>Ver desglose por fuente</summary>
-            <div id="res-fuentes"></div>
-          </details>
-          <p id="res-fuente" class="fuente"></p>
+      <section id="resultado" class="result hidden">
+        <div class="result-top">
+          <h2 id="ocupacionTitulo">Ocupación</h2>
+          <span id="riesgoEtiqueta" class="badge">Riesgo</span>
         </div>
+
+        <!-- Velocímetro (semicírculo 6 segmentos + aguja) -->
+        <div class="gauge-wrap">
+          <svg id="gaugeSvg" viewBox="0 0 320 200" width="100%" height="200" aria-label="Velocímetro de riesgo">
+            <!-- Trayecto base de semicírculo -->
+            <path id="arcBase" d="M 40 160 A 120 120 0 0 1 280 160" fill="none" stroke="#1b1f2e" stroke-width="26" opacity=".9" pathLength="100" />
+
+            <!-- 6 segmentos coloreados usando dasharray sobre el mismo arco (180°/6=30° c/u) -->
+            <path class="seg s1" d="M 40 160 A 120 120 0 0 1 280 160" fill="none" stroke-width="22" pathLength="100" stroke-linecap="round"
+                  stroke="#0fa15d" stroke-dasharray="15.6 84.4" stroke-dashoffset="0" />
+            <path class="seg s2" d="M 40 160 A 120 120 0 0 1 280 160" fill="none" stroke-width="22" pathLength="100" stroke-linecap="round"
+                  stroke="#23b46b" stroke-dasharray="15.6 84.4" stroke-dashoffset="-16.6" />
+            <path class="seg s3" d="M 40 160 A 120 120 0 0 1 280 160" fill="none" stroke-width="22" pathLength="100" stroke-linecap="round"
+                  stroke="#a6e42b" stroke-dasharray="15.6 84.4" stroke-dashoffset="-33.2" />
+            <path class="seg s4" d="M 40 160 A 120 120 0 0 1 280 160" fill="none" stroke-width="22" pathLength="100" stroke-linecap="round"
+                  stroke="#f1c40f" stroke-dasharray="15.6 84.4" stroke-dashoffset="-49.8" />
+            <path class="seg s5" d="M 40 160 A 120 120 0 0 1 280 160" fill="none" stroke-width="22" pathLength="100" stroke-linecap="round"
+                  stroke="#e67e22" stroke-dasharray="15.6 84.4" stroke-dashoffset="-66.4" />
+            <path class="seg s6" d="M 40 160 A 120 120 0 0 1 280 160" fill="none" stroke-width="22" pathLength="100" stroke-linecap="round"
+                  stroke="#e74c3c" stroke-dasharray="15.6 84.4" stroke-dashoffset="-83.0" />
+
+            <!-- Aguja: rota alrededor (160,160). 0%=-90°, 50%=0°, 100%=+90° -->
+            <g id="needle" class="needle" transform="rotate(-90,160,160)">
+              <line x1="160" y1="160" x2="160" y2="52" stroke="#bbb" stroke-width="6" stroke-linecap="round"></line>
+              <circle cx="160" cy="160" r="8" fill="#bbb"></circle>
+            </g>
+
+            <!-- Etiquetas de extremos -->
+            <text x="40" y="190" fill="#c9d1d9" font-size="12" text-anchor="start">Riesgo mínimo</text>
+            <text x="280" y="190" fill="#c9d1d9" font-size="12" text-anchor="end">Riesgo inminente</text>
+          </svg>
+          <div class="percent">
+            <span id="porcentaje">0%</span>
+            <small id="nota">Mapa lineal: 0% → -90°, 50% → 0°, 100% → +90°</small>
+          </div>
+        </div>
+
+        <p id="explicacion" class="explicacion"></p>
 
         <!-- Compartir -->
-        <section class="share card-soft">
-          <h3>Compartir</h3>
-          <div class="share-row">
-            <button class="share-btn" data-share="native" aria-label="Compartir">
-              <span class="icon">📤</span> Compartir
-            </button>
-            <button class="share-btn" data-share="whatsapp" aria-label="Compartir por WhatsApp">
-              <span class="icon">🟢</span> WhatsApp
-            </button>
-            <button class="share-btn" data-share="twitter" aria-label="Compartir en X/Twitter">
-              <span class="icon">𝕏</span> X
-            </button>
-            <button class="share-btn" data-share="facebook" aria-label="Compartir en Facebook">
-              <span class="icon">📘</span> Facebook
-            </button>
-            <button class="share-btn" data-share="linkedin" aria-label="Compartir en LinkedIn">
-              <span class="icon">💼</span> LinkedIn
-            </button>
-            <button class="share-btn" data-share="telegram" aria-label="Compartir en Telegram">
-              <span class="icon">✈️</span> Telegram
-            </button>
-            <button class="share-btn" data-share="copy" aria-label="Copiar enlace">
-              <span class="icon">🔗</span> Copiar
-            </button>
-          </div>
-          <p id="share-status" class="share-status" aria-live="polite"></p>
-        </section>
-
-        <!-- In-article ad -->
-        <div class="ad ad--incontent">
-          <ins class="adsbygoogle"
-               style="display:block; text-align:center;"
-               data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
-               data-ad-slot="2222222222"
-               data-ad-format="fluid"
-               data-ad-layout="in-article"></ins>
+        <div class="share">
+          <button id="btnShare" class="btn ghost">Compartir resultado</button>
+          <a id="shareWhats" class="btn ghost" href="#" target="_blank" rel="noopener">WhatsApp</a>
         </div>
-      </article>
-
-      <!-- Panel de sugerencias en vivo / cuando no hay exacta -->
-      <section id="sugerencias-panel" class="card hidden">
-        <h3>¿Querías decir…?</h3>
-        <ul id="lista-sugerencias" class="list"></ul>
       </section>
 
-      <section class="card">
-        <h3>Metodología y aviso</h3>
-        <p>
-          Cifras de <strong>riesgo estimado</strong> combinando varias fuentes públicas (ej. estudios tipo Frey &amp; Osborne, descripciones O*NET/BLS)
-          y una base curada para Latinoamérica. <em>Traducción y adaptación al español</em>.
-        </p>
-        <p>Puedes contribuir en GitHub para añadir más ocupaciones o mejorar explicaciones.</p>
+      <!-- Bloque informativo bajo la búsqueda -->
+      <section class="info">
+        <figure class="chart">
+          <img src="images/i1.png" alt="Nivel de exposición a la automatización por IA generativa (ejemplo)">
+          <figcaption>Ejemplo ilustrativo de ocupaciones con alta y baja exposición.</figcaption>
+        </figure>
+        <div class="info-text">
+          <h3>¿La inteligencia artificial viene por tu trabajo?</h3>
+          <p>La respuesta no es un simple sí o no. Como muestra este gráfico, el futuro de la automatización es muy diferente según la profesión. Por un lado, los empleos que consisten en organizar información y realizar tareas predecibles, como los Empleados de Entrada de Datos y los Tenedores de Libros, se encuentran en la zona de mayor exposición. La IA generativa es una experta en este tipo de labores, lo que pone a las profesiones de oficina en el epicentro del cambio.</p>
+          <p>Pero si tu trabajo implica usar las manos, la creatividad del momento o la interacción cara a cara, la historia es otra. Profesiones como los Cocineros y Albañiles tienen una exposición mínima, ya que la IA todavía lucha por replicar la destreza manual y la improvisación del mundo físico.</p>
+          <p>Este gráfico te ayuda a ver dónde se encuentra cada rol en el nuevo panorama laboral, demostrando que mientras algunas tareas se transforman, el toque humano, por ahora, sigue siendo insustituible.</p>
+        </div>
       </section>
     </section>
 
+    <!-- SIDEBAR: espacio ideal para anuncios -->
     <aside class="sidebar">
-      <div class="sticky">
-        <!-- SOLO publicidad; sin enlaces -->
-        <div class="card">
-          <h3>Publicidad</h3>
-          <div class="ad ad--sidebar">
-            <ins class="adsbygoogle"
-                 style="display:block"
-                 data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
-                 data-ad-slot="3333333333"
-                 data-ad-format="auto"
-                 data-full-width-responsive="true"></ins>
-          </div>
-        </div>
-      </div>
+      <!-- BLOQUE ADSENSE LATERAL -->
+      <!-- Sustituye con tus IDs de AdSense -->
+      <!--
+      <ins class="adsbygoogle"
+           style="display:block"
+           data-ad-client="ca-pub-XXXXXXXXXXXXXXX"
+           data-ad-slot="1111111111"
+           data-ad-format="rectangle"
+           data-full-width-responsive="true"></ins>
+      <script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
+      -->
+      <div class="ad-placeholder">Espacio para anuncio 300×250</div>
     </aside>
   </main>
 
-  <footer class="site-footer">
-    <div class="container">
-      <div class="ad ad--footer">
-        <ins class="adsbygoogle"
-             style="display:block"
-             data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
-             data-ad-slot="4444444444"
-             data-ad-format="auto"
-             data-full-width-responsive="true"></ins>
-      </div>
-      <p>
-        &copy; <span id="year"></span> aimequitaeltrabajo.com —
-        <a href="privacidad.html">Política de privacidad</a> —
-        Hecho con HTML, CSS y JavaScript. Hospedado gratis en GitHub Pages.
-      </p>
-    </div>
+  <footer class="container footer">
+    <small>© <span id="year"></span> aimequitaeltrabajo.com · <a href="faq.html">FAQ</a> · <a href="privacidad.html">Privacidad</a></small>
+
+    <!-- BLOQUE ADSENSE FOOTER -->
+    <!--
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-XXXXXXXXXXXXXXX"
+         data-ad-slot="2222222222"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
+    -->
+    <div class="ad-placeholder">Espacio para anuncio responsive</div>
   </footer>
 
-  <script src="app.js" defer></script>
-  <script>
-    window.addEventListener('load', function () {
-      try {
-        (adsbygoogle = window.adsbygoogle || []).push({});
-        (adsbygoogle = window.adsbygoogle || []).push({});
-        (adsbygoogle = window.adsbygoogle || []).push({});
-        (adsbygoogle = window.adsbygoogle || []).push({});
-      } catch (e) {}
-    });
-  </script>
+  <script src="app.js"></script>
 </body>
 </html>
