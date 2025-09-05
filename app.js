@@ -1,467 +1,283 @@
 /* =========================================================
-   aimequitaeltrabajo.com — Multi-fuente + sugerencias en vivo
-   Gauge (velocímetro) + compartir + sin enlaces en sidebar
-   100% estático — /data/*.json
+   aimequitaeltrabajo.com — Carga de datos vía JS global + fallback JSON
+   - Usa /data/base_de_datos.js (window.__DB__) para evitar CORS y cache
+   - Si no existe, intenta /data/base_de_datos.json (por compatibilidad)
+   - Buscador con sugerencias + gauge canvas + podcast Dropbox
    ========================================================= */
 
-/** CONFIG ADSENSE **/
-const ADSENSE = {
-  CLIENT: "ca-pub-XXXXXXXXXXXXXXXX",
-  SLOT_TOP: "1111111111",
-  SLOT_INCONTENT: "2222222222",
-  SLOT_SIDEBAR: "3333333333",
-  SLOT_FOOTER: "4444444444"
-};
+/* === CONFIG === */
+const DATA_JS_GLOBAL = "__DB__";                      // ventana global que expone data
+const DATA_JS_URL    = "data/base_de_datos.js";       // ya lo cargas en index.html (defer)
+const DATA_JSON_URL  = "data/base_de_datos.json";     // fallback opcional (misma carpeta)
 
-/* ---- Fuentes y pesos ---- */
-const SOURCES = [
-  { id: "oxford",  name: "Oxford/Frey-Osborne (adaptado)", weight: 0.45, file: "data/oxford.json" },
-  { id: "bls_onet",name: "BLS/O*NET (adaptado)",           weight: 0.35, file: "data/bls_onet.json" },
-  { id: "custom",  name: "Curación LATAM",                 weight: 0.20, file: "data/custom_latam.json" }
-];
+/* Pega tu enlace COMPARTIDO de Dropbox (el que termina con ?dl=0 o ?dl=1) */
+const DROPBOX_SHARE_URL = "https://www.dropbox.com/s/XXXXXXXXXXXX/podcast.mp3?dl=0";
 
-const SYNONYMS_FILE = "data/synonyms.json";
-
-/* ---------- Utilidades ---------- */
-const $ = sel => document.querySelector(sel);
-
-function normalize(str){
-  return (str || "")
-    .toString()
-    .toLowerCase()
-    .normalize("NFD").replace(/[\u0300-\u036f]/g, "")
-    .replace(/[^a-z0-9\s\/\-\.\,]/g, " ")
-    .replace(/\s+/g, " ")
-    .trim();
-}
-
-// Levenshtein
-function lev(a, b){
-  a = normalize(a); b = normalize(b);
-  const m = Array.from({length: a.length+1}, (_,i)=>[i]);
-  for(let j=1;j<=b.length;j++){ m[0][j]=j; }
-  for(let i=1;i<=a.length;i++){
-    for(let j=1;j<=b.length;j++){
-      const cost = a[i-1] === b[j-1] ? 0 : 1;
-      m[i][j] = Math.min(
-        m[i-1][j] + 1,
-        m[i][j-1] + 1,
-        m[i-1][j-1] + cost
-      );
-    }
-  }
-  return m[a.length][b.length];
-}
-
-function riskLevel(pct){
-  if (pct >= 80) return {label:"Muy alto", cls:"danger"};
-  if (pct >= 60) return {label:"Alto", cls:"warn"};
-  if (pct >= 30) return {label:"Medio", cls:"mid"};
-  return {label:"Bajo", cls:"ok"};
-}
-
-/* ---------- Carga de datos ---------- */
-let DATA = [];           // ocupaciones fusionadas
-let RAW_BY_SOURCE = {};  // {sourceId: []}
-let SYNONYMS = {};       // { normalizedTitle: [alias...] }
-
-async function loadJSON(url){
-  const res = await fetch(url, {cache: "no-store"});
-  if (!res.ok) throw new Error("No se pudo cargar: " + url);
-  return res.json();
-}
-
-async function loadAll(){
-  $("#loader").classList.remove("hidden");
-  try {
-    SYNONYMS = await loadJSON(SYNONYMS_FILE);
-  } catch { SYNONYMS = {}; }
-
-  for (const src of SOURCES){
-    try {
-      RAW_BY_SOURCE[src.id] = await loadJSON(src.file);
-    } catch {
-      RAW_BY_SOURCE[src.id] = [];
-    }
-  }
-
-  DATA = mergeSources(RAW_BY_SOURCE);
-  fillDatalist(DATA);
-  $("#loader").classList.add("hidden");
-}
-
-/* ---------- Fusión ---------- */
-function mergeSources(rawBySource){
-  const all = [];
-  for (const src of SOURCES){
-    for (const item of (rawBySource[src.id] || [])){
-      all.push({ ...item, _src: src.id });
-    }
-  }
-
-  const groups = new Map();
-  function keyFor(item){
-    if (item.onet) return "onet:" + item.onet;
-    if (item.isco) return "isco:" + item.isco;
-    return "t:" + normalize(item.titulo || "");
-  }
-
-  for (const it of all){
-    let k = keyFor(it);
-    if (!k.startsWith("t:")){
-      if (!groups.has(k)) groups.set(k, []);
-      groups.get(k).push(it);
-      continue;
-    }
-    const base = normalize(it.titulo);
-    let foundKey = null;
-    for (const [gk, arr] of groups.entries()){
-      const first = arr[0];
-      const firstTitle = normalize(first.titulo || "");
-      const same = (first.onet && it.onet && first.onet === it.onet)
-                || (first.isco && it.isco && first.isco === it.isco)
-                || (firstTitle === base)
-                || areSynonyms(firstTitle, base)
-                || lev(firstTitle, base) <= 3;
-      if (same){ foundKey = gk; break; }
-    }
-    if (!foundKey) foundKey = k;
-    if (!groups.has(foundKey)) groups.set(foundKey, []);
-    groups.get(foundKey).push(it);
-  }
-
-  const merged = [];
-  for (const arr of groups.values()){
-    const title = arr.map(x=>x.titulo).sort((a,b)=> (b?.length||0)-(a?.length||0))[0] || "Ocupación";
-    const isco = arr.map(x=>x.isco).find(Boolean) || null;
-    const onet = arr.map(x=>x.onet).find(Boolean) || null;
-    const categoria = arr.map(x=>x.categoria).find(Boolean) || null;
-    const pais = arr.map(x=>x.pais).find(Boolean) || null;
-
-    const fuentes = {};
-    for (const src of SOURCES){
-      const hit = arr.find(x => x._src === src.id);
-      if (hit){
-        const riesgo = getNested(hit, ["fuentes", src.id, "riesgo"]) ?? hit.riesgo ?? null;
-        const explicacion = getNested(hit, ["fuentes", src.id, "explicacion"]) ?? hit.explicacion ?? "";
-        const ref = getNested(hit, ["fuentes", src.id, "ref"]) ?? hit.ref ?? "";
-        if (riesgo !== null){
-          fuentes[src.id] = { riesgo, explicacion, ref };
-        }
-      }
-    }
-
-    const final = weightedRisk(fuentes);
-    const expl = bestExplanation(fuentes) || "Estimación combinada a partir de varias fuentes y descripciones ocupacionales.";
-    const aliases = collectAliases(arr);
-
-    merged.push({ titulo: title, isco, onet, categoria, pais, aliases, riesgo: final, explicacion: expl, fuentes });
-  }
-
-  return merged.sort((a,b)=> a.titulo.localeCompare(b.titulo, "es"));
-}
-
-function areSynonyms(a, b){
-  const la = SYNONYMS[a] || [];
-  const lb = SYNONYMS[b] || [];
-  return la.includes(b) || lb.includes(a);
-}
-function collectAliases(arr){
-  const set = new Set();
-  for (const it of arr){ (it.aliases || []).forEach(x=> set.add(x)); }
-  return Array.from(set).slice(0, 12);
-}
-function getNested(obj, pathArr){
-  return pathArr.reduce((o,k)=> (o && k in o ? o[k] : undefined), obj);
-}
-function weightedRisk(fuentes){
-  let sum = 0, w = 0;
-  for (const src of SOURCES){
-    const f = fuentes[src.id];
-    if (f && typeof f.riesgo === "number"){
-      sum += f.riesgo * src.weight;
-      w += src.weight;
-    }
-  }
-  return w === 0 ? null : Math.round(sum / w);
-}
-function bestExplanation(fuentes){
-  const order = ["custom","bls_onet","oxford"];
-  for (const id of order){ if (fuentes[id]?.explicacion) return fuentes[id].explicacion; }
-  const any = Object.values(fuentes)[0];
-  return any?.explicacion || "";
-}
-
-/* ---------- UI ---------- */
-function fillDatalist(db){
-  const dl = $("#sugerencias-datalist");
-  dl.innerHTML = db.map(j => `<option value="${j.titulo}"></option>`).join("");
-}
-
-function riskPill(pct){
-  const lvl = riskLevel(pct ?? 0);
-  const pill = $("#res-nivel");
-  pill.textContent = pct == null ? "Sin dato" : `${lvl.label}`;
-  pill.className = "pill";
-  if (lvl.cls === "danger") pill.style.background = "#3b0d0d";
-  else if (lvl.cls === "warn") pill.style.background = "#3b2a0d";
-  else if (lvl.cls === "mid") pill.style.background = "#1f2a3b";
-  else pill.style.background = "#13301c";
-
-  // Semáforo activo
-  document.querySelectorAll(".light").forEach(l => l.classList.remove("active"));
-  if (pct == null){ /* nada */ }
-  else if (pct >= 80) $(".light-red").classList.add("active");
-  else if (pct >= 60) $(".light-yellow").classList.add("active");
-  else $(".light-green").classList.add("active");
-}
-
-function renderSourcesTable(fuentes){
-  const rows = SOURCES.map(src=>{
-    const f = fuentes[src.id];
-    if (!f) return `<tr><td><span class="source-pill">${src.name}</span></td><td>—</td><td>—</td><td>—</td></tr>`;
-    return `<tr>
-      <td><span class="source-pill">${src.name}</span></td>
-      <td>${f.riesgo}%</td>
-      <td>${escapeHtml(f.explicacion || "—")}</td>
-      <td>${f.ref ? `<a href="${f.ref}" target="_blank" rel="noopener">Referencia</a>` : "—"}</td>
-    </tr>`;
-  }).join("");
-  return `<table class="tabla-fuentes">
-    <thead><tr><th>Fuente</th><th>Riesgo</th><th>Explicación (breve)</th><th>Ref</th></tr></thead>
-    <tbody>${rows}</tbody>
-  </table>`;
-}
+/* =============== UTILIDADES =============== */
+const $ = s => document.querySelector(s);
+function showNotice(msg){ const n=$("#notice"); if(!n) return; if(!msg){ n.classList.add("hidden"); n.textContent=""; return; } n.textContent=msg; n.classList.remove("hidden"); }
+function normalize(str){ return (str||"").toString().toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"").replace(/[^a-z0-9\s\/\-\.\,]/g," ").replace(/\s+/g," ").trim(); }
+function lev(a,b){ a=normalize(a); b=normalize(b); const m=Array.from({length:a.length+1},(_,i)=>[i]); for(let j=1;j<=b.length;j++)m[0][j]=j; for(let i=1;i<=a.length;i++){ for(let j=1;j<=b.length;j++){ const c=a[i-1]===b[j-1]?0:1; m[i][j]=Math.min(m[i-1][j]+1,m[i][j-1]+1,m[i-1][j-1]+c);} } return m[a.length][b.length]; }
+function band(p){ if(p>=80) return {name:"Muy alto", color:"#e53935"}; if(p>=60) return {name:"Alto", color:"#fb8c00"}; if(p>=40) return {name:"Medio", color:"#ffd54f"}; if(p>=20) return {name:"Bajo", color:"#76d275"}; return {name:"Mínimo", color:"#2e7d32"}; }
 function escapeHtml(s){ return (s||"").replace(/[&<>"']/g, m=>({ '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;' }[m])); }
+function toNumberLike(x){ if (x==null||x==="") return null; if (typeof x==="number"&&isFinite(x)) return Math.round(x); const m=String(x).match(/-?\d+(\.\d+)?/); return m? Math.round(parseFloat(m[0])):null; }
+function pick(obj, keys, def=null){ for(const k of keys){ if (Object.prototype.hasOwnProperty.call(obj,k) && obj[k]!=null) return obj[k]; } return def; }
 
-/* ---------- Gauge ---------- */
-function setGauge(pct){
-  // Aguja: -90° (0%) → +90° (100%)
-  const clamped = Math.max(0, Math.min(100, pct ?? 0));
-  const angle = -90 + (clamped * 1.8);
-  const needle = $("#needle");
-  const cx = 160, cy = 160, r = 110;
-  const rad = angle * Math.PI / 180;
-  const x2 = cx + r * Math.cos(rad);
-  const y2 = cy + r * Math.sin(rad);
-  needle.setAttribute("x2", x2.toFixed(1));
-  needle.setAttribute("y2", y2.toFixed(1));
+/* =============== ESTADO =============== */
+window.DB = []; window.TITLES = []; window.BY_TITLE = new Map();
+
+/* =============== CARGA DE DATOS =============== */
+async function fetchJSONNoCache(url){
+  const r = await fetch(url + (url.includes("?")?"&":"?") + "__v=" + Date.now(), {cache:"no-store"});
+  if(!r.ok) throw new Error(`HTTP ${r.status}`);
+  const txt = await r.text(); return JSON.parse(txt.replace(/^\uFEFF/,""));
 }
 
-/* ---------- Resultado ---------- */
-function setNote(text){
-  const el = $("#res-nota");
-  if (!text){ el.classList.add("hidden"); el.textContent = ""; return; }
-  el.textContent = text;
-  el.classList.remove("hidden");
+function parseArray(rawArray){
+  window.DB = []; window.TITLES = []; window.BY_TITLE.clear();
+
+  for(const r of rawArray){
+    const titulo = String(pick(r, ["ocupacion_es","titulo","ocupacion","title_es","nombre","profesion"], "")).trim();
+    if(!titulo) continue;
+    const isco   = pick(r, ["codigo_isco","isco","isco_code"], null);
+    const riesgo = toNumberLike(pick(r, ["riesgo_automatizacion_porcentaje","riesgo","porcentaje","probabilidad","score"], null));
+    const explicacion = pick(r, ["explicacion","descripcion","nota"], "");
+    const f_raw  = pick(r, ["fuentes","sources","source","fuente"], []);
+    const s_raw  = pick(r, ["sinonimos","sinónimos","aliases","alias"], []);
+
+    const fuentes   = Array.isArray(f_raw) ? f_raw.map(String) : (f_raw ? [String(f_raw)] : []);
+    let sinonimos   = Array.isArray(s_raw) ? s_raw : (s_raw ? [String(s_raw)] : []);
+    if (sinonimos.length===1 && typeof sinonimos[0]==="string"){
+      const x=sinonimos[0]; if(x.includes(",")) sinonimos = x.split(",").map(s=>s.trim()).filter(Boolean);
+      if(x.includes(";")) sinonimos = x.split(";").map(s=>s.trim()).filter(Boolean);
+    }
+
+    window.DB.push({ titulo, isco, riesgo: (riesgo!=null? Math.max(0,Math.min(100,riesgo)) : null), explicacion, fuentes, sinonimos });
+  }
+
+  const seen = new Set();
+  for(const reg of window.DB){
+    const bundle = new Set([reg.titulo, ...reg.sinonimos]);
+    for(const t of bundle){
+      const key = normalize(String(t)); if(!key) continue;
+      const uniq = key+"→"+reg.titulo; if(seen.has(uniq)) continue;
+      seen.add(uniq);
+      if(!window.BY_TITLE.has(key)) window.BY_TITLE.set(key, reg);
+      window.TITLES.push(String(t));
+    }
+  }
+  window.TITLES.sort((a,b)=> a.localeCompare(b,"es"));
 }
 
-function showResult(job){
-  $("#resultado").classList.remove("hidden");
-  $("#res-titulo").textContent = job.titulo;
+async function loadData(){
+  // 1) Preferimos JS global (no hay CORS ni cache raros)
+  if (Array.isArray(window[DATA_JS_GLOBAL])) {
+    parseArray(window[DATA_JS_GLOBAL]);
+    showNotice(`Base cargada desde JS: ${DB.length} ocupaciones (${TITLES.length} términos)`);
+    return;
+  }
+  // 2) Si por alguna razón no está, intentamos inyectar el script
+  try{
+    await new Promise((resolve,reject)=>{
+      const s=document.createElement("script"); s.src=DATA_JS_URL; s.defer=true;
+      s.onload=()=>resolve(); s.onerror=()=>reject(new Error("No se pudo cargar data/base_de_datos.js"));
+      document.head.appendChild(s);
+    });
+    if (Array.isArray(window[DATA_JS_GLOBAL])) {
+      parseArray(window[DATA_JS_GLOBAL]);
+      showNotice(`Base cargada desde JS: ${DB.length} ocupaciones (${TITLES.length} términos)`);
+      return;
+    }
+  }catch(e){ /* seguimos al fallback JSON */ }
 
-  const pct = job.riesgo;
-  $("#res-porcentaje").textContent = pct == null ? "— %" : `${pct}%`;
-  setGauge(pct ?? 0);
-  riskPill(pct);
-
-  $("#res-explicacion").textContent = job.explicacion || "—";
-  $("#res-fuentes").innerHTML = renderSourcesTable(job.fuentes);
-  const ids = [];
-  if (job.isco) ids.push(`ISCO: ${job.isco}`);
-  if (job.onet) ids.push(`O*NET: ${job.onet}`);
-  $("#res-fuente").textContent = ids.join(" · ");
-
-  // Actualiza enlaces de compartir
-  updateShare(job);
+  // 3) Fallback JSON (por compatibilidad)
+  const data = await fetchJSONNoCache(DATA_JSON_URL);
+  const arr = Array.isArray(data) ? data : (data.ocupaciones||data.data||data.items||data.results||data.records||[]);
+  if(!Array.isArray(arr)) throw new Error("El JSON debe ser un array o contener un array en ocupaciones/data/items…");
+  parseArray(arr);
+  showNotice(`Base cargada desde JSON: ${DB.length} ocupaciones (${TITLES.length} términos)`);
 }
 
-/* ---------- Sugerencias ---------- */
+/* =============== BÚSQUEDA =============== */
 function computeSuggestions(q, limit=8){
-  const nq = normalize(q);
-  if (!nq) return [];
-  return DATA.map(j => {
-      const ntitle = normalize(j.titulo);
-      let score = 0;
-      if (ntitle.startsWith(nq)) score += 70;
-      else if (ntitle.includes(nq)) score += 50;
-      const d = lev(ntitle, nq);
-      score += Math.max(0, 40 - d);
-      return { title: j.titulo, score };
-    })
-    .sort((a,b)=>b.score - a.score)
-    .slice(0, limit)
-    .map(x=>x.title);
+  const nq=normalize(q); if(!nq) return [];
+  return window.TITLES
+    .map(t=>{ const nt=normalize(t); let s=0; if(nt.startsWith(nq)) s+=70; else if(nt.includes(nq)) s+=50; s+=Math.max(0,40-lev(nt,nq)); return {t,score:s}; })
+    .sort((a,b)=>b.score-a.score).slice(0,limit).map(x=>x.t);
 }
-
 function showSuggestions(q){
-  const cont = $("#sugerencias-panel");
-  const ul = $("#lista-sugerencias");
-  const items = computeSuggestions(q, 8);
-  if (!items.length){ cont.classList.add("hidden"); ul.innerHTML = ""; return; }
-  ul.innerHTML = items.map(t => `<li><button class="linklike" data-job="${t}">${t}</button></li>`).join("");
+  const cont=$("#sugerencias-panel"), ul=$("#lista-sugerencias");
+  const items=computeSuggestions(q,8);
+  if(!items.length){ cont.classList.add("hidden"); ul.innerHTML=""; return; }
+  ul.innerHTML = items.map(t=>`<li><button class="linklike" data-job="${escapeHtml(t)}">${escapeHtml(t)}</button></li>`).join("");
   cont.classList.remove("hidden");
 }
-function hideSuggestions(){
-  $("#sugerencias-panel").classList.add("hidden");
-  $("#lista-sugerencias").innerHTML = "";
+function hideSuggestions(){ $("#sugerencias-panel")?.classList.add("hidden"); const ul=$("#lista-sugerencias"); if(ul) ul.innerHTML=""; }
+
+function bestMatch(q){
+  if(!q) return null;
+  const nq=normalize(q);
+  const ex=window.BY_TITLE.get(nq);
+  if(ex) return {reg:ex, exact:true};
+
+  const incl=window.TITLES.filter(t=>normalize(t).includes(nq));
+  if(incl.length===1) return {reg: window.BY_TITLE.get(normalize(incl[0])), exact:false};
+
+  let best=null, bestD=Infinity, bestTitle=null;
+  for(const t of window.TITLES){
+    const d=lev(t,q);
+    if(d<bestD){ bestD=d; best=window.BY_TITLE.get(normalize(t)); bestTitle=t; }
+  }
+  return best ? {reg:best, exact:false, suggested:bestTitle} : null;
 }
 
-function searchJob(q, {explicitSubmit=false}={}){
-  if (!q || !DATA.length) return;
-  const nq = normalize(q);
+/* =============== RENDER =============== */
+function renderSources(arr){ if(!arr||!arr.length) return "<p class='fuente'>—</p>"; return `<ul>${arr.map(x=>`<li>${escapeHtml(String(x))}</li>`).join("")}</ul>`; }
 
-  // Coincidencia exacta
-  let found = DATA.find(j => normalize(j.titulo) === nq);
+function showResult(reg, {query, exact}){
+  $("#resultado")?.classList.remove("hidden");
+  $("#res-titulo").textContent = reg.titulo;
 
-  // Si no exacta, coincidencia por inclusión única
-  if (!found){
-    const list = DATA.filter(j => normalize(j.titulo).includes(nq));
-    if (list.length === 1) found = list[0];
-  }
+  const nota=$("#res-nota");
+  if(!exact && query){ nota.textContent=`No encontramos “${query}”. Mostramos la opción más cercana: “${reg.titulo}”.`; nota.classList.remove("hidden"); }
+  else { nota.classList.add("hidden"); nota.textContent=""; }
 
-  if (found){
-    setNote("");
-    showResult(found);
-    hideSuggestions();
-  } else {
-    const best = DATA.map(j => ({ j, d: lev(j.titulo, q) }))
-                     .sort((a,b) => a.d - b.d)[0]?.j;
-    if (best){
-      showResult(best);
-      setNote(`No encontramos “${q}”. Te mostramos la opción más cercana: “${best.titulo}”. Puedes elegir otra profesión similar de la lista.`);
-      showSuggestions(q);
-    }
-  }
+  const pct = reg.riesgo!=null ? reg.riesgo : null;
+  const b = band(pct ?? 0);
+  $("#res-porcentaje").textContent = (pct==null? "—" : pct) + "%";
+  const pill=$("#res-nivel"); pill.textContent=b.name; pill.style.background="#1f2937"; pill.style.borderColor="rgba(255,255,255,.08)";
+
+  drawGaugeCanvas(pct ?? 0);
+
+  $("#res-explicacion").textContent = reg.explicacion || "—";
+  $("#res-fuentes").innerHTML = renderSources(reg.fuentes);
+  $("#res-codigos").textContent = reg.isco ? `ISCO: ${reg.isco}` : "";
+
+  updateShare(reg);
 }
 
-/* ---------- Compartir ---------- */
+/* === Gauge canvas (semicírculo con bandas + aguja corta) === */
+function drawGaugeCanvas(pct){
+  const canvas = document.getElementById("gaugeCanvas");
+  if(!canvas) return;
+  const ctx = canvas.getContext("2d");
+  const W = canvas.width, H = canvas.height;
+  ctx.clearRect(0,0,W,H);
+
+  const cx=W/2, cy=H-24;
+  const R=Math.min(W/2-30, H-40);
+  const thick=24, start=Math.PI;
+
+  const segs=[{to:20,color:"#2e7d32"},{to:40,color:"#76d275"},{to:60,color:"#ffd54f"},{to:80,color:"#fb8c00"},{to:100,color:"#e53935"}];
+  let prev=0;
+  for(const s of segs){
+    const a0=start-(prev/100)*Math.PI, a1=start-(s.to/100)*Math.PI;
+    ctx.beginPath(); ctx.arc(cx,cy,R,a0,a1,true);
+    ctx.lineWidth=thick; ctx.lineCap="round"; ctx.strokeStyle=s.color; ctx.stroke();
+    prev=s.to;
+  }
+  // ticks 10%
+  ctx.lineWidth=2; ctx.strokeStyle="rgba(230,231,234,.6)";
+  for(let i=0;i<=10;i++){
+    const a=start-(i/10)*Math.PI, r1=R-thick-6, r2=r1+10;
+    const x1=cx+r1*Math.cos(a), y1=cy+r1*Math.sin(a);
+    const x2=cx+r2*Math.cos(a), y2=cy+r2*Math.sin(a);
+    ctx.beginPath(); ctx.moveTo(x1,y1); ctx.lineTo(x2,y2); ctx.stroke();
+  }
+  // aguja
+  const value=Math.max(0,Math.min(100, Number(pct)||0));
+  const ang=start-(value/100)*Math.PI;
+  ctx.save(); ctx.translate(cx,cy); ctx.shadowColor="rgba(0,0,0,.5)"; ctx.shadowBlur=6;
+  ctx.beginPath(); ctx.arc(0,0,6,0,Math.PI*2); ctx.fillStyle="#e6e7ea"; ctx.fill();
+  ctx.beginPath(); ctx.lineCap="round"; ctx.lineWidth=4; ctx.strokeStyle="#e6e7ea";
+  ctx.moveTo(0,0); ctx.lineTo(R - thick - 4, 0); ctx.rotate(-ang); ctx.stroke();
+  ctx.restore();
+  ctx.fillStyle="rgba(230,231,234,.75)"; ctx.font="12px system-ui, -apple-system, Segoe UI, Roboto, Arial";
+  ctx.textAlign="left";  ctx.fillText("0%", 20, cy-4);
+  ctx.textAlign="right"; ctx.fillText("100%", W-20, cy-4);
+}
+
+/* === Compartir === */
 function updateShare(job){
-  const title = `Riesgo de automatización: ${job.titulo}`;
-  const text = `${job.titulo}: ${job.riesgo ?? "—"}% • ${job.explicacion}`;
-  const url = withQuery(window.location.href, "q", job.titulo);
-
-  const buttons = document.querySelectorAll(".share-btn");
-  buttons.forEach(btn=>{
-    btn.onclick = async () => {
-      const type = btn.getAttribute("data-share");
-      try {
-        if (type === "native" && navigator.share){
-          await navigator.share({ title, text, url });
-          setShareStatus("Compartido.");
-          return;
-        }
-        if (type === "whatsapp"){
-          const u = `https://wa.me/?text=${encodeURIComponent(`${title}\n${url}`)}`;
-          openShare(u); return;
-        }
-        if (type === "twitter"){
-          const u = `https://twitter.com/intent/tweet?text=${encodeURIComponent(title)}&url=${encodeURIComponent(url)}`;
-          openShare(u); return;
-        }
-        if (type === "facebook"){
-          const u = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`;
-          openShare(u); return;
-        }
-        if (type === "linkedin"){
-          const u = `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}`;
-          openShare(u); return;
-        }
-        if (type === "telegram"){
-          const u = `https://t.me/share/url?url=${encodeURIComponent(url)}&text=${encodeURIComponent(title)}`;
-          openShare(u); return;
-        }
-        if (type === "copy"){
-          await navigator.clipboard.writeText(url);
-          setShareStatus("Enlace copiado al portapapeles.");
-          return;
-        }
-        if (navigator.share){
-          await navigator.share({ title, text, url });
-          setShareStatus("Compartido.");
-        }
-      } catch(e){
-        setShareStatus("No se pudo compartir. Intenta de nuevo.");
-      }
+  const title=`Riesgo de automatización: ${job.titulo}`;
+  const text =`${job.titulo}: ${job.riesgo ?? "—"}% • ${job.explicacion || ""}`;
+  const url  = withQuery(location.href,"q",job.titulo);
+  document.querySelectorAll(".share-btn").forEach(btn=>{
+    btn.onclick = async ()=> {
+      const t=btn.getAttribute("data-share");
+      try{
+        if(t==="native" && navigator.share){ await navigator.share({title,text,url}); return; }
+        if(t==="whatsapp"){ window.open(`https://wa.me/?text=${encodeURIComponent(`${title}\n${url}`)}`,"_blank","noopener"); return; }
+        if(t==="twitter"){ window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(title)}&url=${encodeURIComponent(url)}`,"_blank","noopener"); return; }
+        if(t==="facebook"){ window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`,"_blank","noopener"); return; }
+        if(t==="linkedin"){ window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}`,"_blank","noopener"); return; }
+        if(t==="copy"){ await navigator.clipboard.writeText(url); }
+      }catch(_){}
     };
   });
 }
-function setShareStatus(msg){
-  const el = $("#share-status");
-  el.textContent = msg || "";
-  if (msg) setTimeout(()=> el.textContent="", 3000);
-}
-function openShare(u){
-  window.open(u, "_blank", "noopener,noreferrer,width=560,height=640");
-}
-function withQuery(href, key, val){
-  const url = new URL(href);
-  url.searchParams.set(key, val);
-  return url.toString();
-}
+function withQuery(href,key,val){ const u=new URL(href); u.searchParams.set(key,val); return u.toString(); }
 
-/* ---------- Eventos ---------- */
-function bindUI(){
-  $("#year").textContent = new Date().getFullYear();
-
-  // Chips
-  $("#chips").addEventListener("click", (e)=>{
-    const el = e.target.closest("[data-job]");
-    if (!el) return;
-    const v = el.getAttribute("data-job");
-    $("#q").value = v;
-    updateUrlQuery(v);
-    searchJob(v, {explicitSubmit:true});
-  });
-
-  // Click en sugerencias (panel)
-  $("#lista-sugerencias").addEventListener("click", (e)=>{
-    const btn = e.target.closest("button[data-job]");
-    if (!btn) return;
-    const v = btn.getAttribute("data-job");
-    $("#q").value = v;
-    updateUrlQuery(v);
-    searchJob(v, {explicitSubmit:true});
-  });
-
-  // Búsqueda con submit
-  $("#search-form").addEventListener("submit", (e)=>{
-    e.preventDefault();
-    const q = $("#q").value.trim();
-    updateUrlQuery(q);
-    searchJob(q, {explicitSubmit:true});
-  });
-
-  // Sugerencias en vivo al escribir
-  $("#q").addEventListener("input", (e)=>{
-    const q = e.target.value.trim();
-    setNote(""); // limpiamos nota al escribir
-    if (q.length >= 2){
-      showSuggestions(q);
-    } else {
-      hideSuggestions();
+/* =============== PODCAST (Dropbox) =============== */
+function toDropboxRaw(u){
+  try{
+    const url = new URL(u);
+    // Si es un share de dropbox.com, forzamos ?raw=1
+    if (url.hostname.endsWith("dropbox.com")){
+      url.searchParams.set("raw","1");
+      url.searchParams.delete("dl");
+      return url.toString();
     }
-  });
+    // Si ya es dl.dropboxusercontent.com, lo dejamos tal cual
+    return u;
+  }catch{return u;}
+}
+function initPodcast(){
+  const audio=$("#podcast-audio"), link=$("#podcast-link");
+  if(!audio || !DROPBOX_SHARE_URL) return;
+  const raw = toDropboxRaw(DROPBOX_SHARE_URL);
+  audio.src = raw;            // reproducción directa
+  if(link) link.href = raw;   // enlace de respaldo
 }
 
-function updateUrlQuery(q){
-  const url = new URL(location.href);
-  if (q) url.searchParams.set("q", q); else url.searchParams.delete("q");
-  history.replaceState(null, "", url.toString());
+/* =============== UI =============== */
+function bindUI(){
+  $("#year") && ($("#year").textContent = new Date().getFullYear());
+
+  $("#search-form")?.addEventListener("submit", e=>{
+    e.preventDefault();
+    const q=$("#q")?.value.trim(); if(!q) return;
+    const m=bestMatch(q);
+    if(!m){ showNotice(`No encontramos “${q}”. Prueba otra palabra o elige una sugerencia.`); showSuggestions(q); return; }
+    showNotice("");
+    showResult(m.reg,{query:q, exact:m.exact});
+    hideSuggestions();
+    history.replaceState(null,"",withQuery(location.href,"q",m.reg.titulo));
+  });
+
+  $("#q")?.addEventListener("input", e=>{
+    const v=e.target.value.trim();
+    if(v.length>=2) showSuggestions(v); else hideSuggestions();
+  });
+
+  $("#lista-sugerencias")?.addEventListener("click", e=>{
+    const btn=e.target.closest("button[data-job]"); if(!btn) return;
+    const v=btn.getAttribute("data-job");
+    $("#q").value=v;
+    const m=bestMatch(v);
+    if(m){ showResult(m.reg,{query:v, exact:m.exact}); hideSuggestions(); history.replaceState(null,"",withQuery(location.href,"q",m.reg.titulo)); }
+  });
 }
 
 function handleUrlOnLoad(){
-  const url = new URL(location.href);
-  const q = url.searchParams.get("q");
-  if (q){
-    $("#q").value = q;
-    searchJob(q, {explicitSubmit:true});
-  }
+  const q=new URL(location.href).searchParams.get("q");
+  if(q){ $("#q").value=q; const m=bestMatch(q); if(m){ showResult(m.reg,{query:q,exact:m.exact}); } }
 }
 
-/* ---------- Init ---------- */
+/* =============== INIT =============== */
 document.addEventListener("DOMContentLoaded", async ()=>{
   bindUI();
-  await loadAll();
+  await loadData();
+  initPodcast();
   handleUrlOnLoad();
 });
