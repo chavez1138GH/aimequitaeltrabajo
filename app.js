@@ -1,19 +1,19 @@
 /* =========================================================
-   aimequitaeltrabajo.com — Carga de datos vía JS global + fallback JSON
-   - Usa /data/base_de_datos.js (window.__DB__) para evitar CORS y cache
-   - Si no existe, intenta /data/base_de_datos.json (por compatibilidad)
-   - Buscador con sugerencias + gauge canvas + podcast Dropbox
+   aimequitaeltrabajo.com — NO-REGEX EDITION
+   - Búsqueda sin expresiones regulares (adiós "Invalid regular expression")
+   - Datos vía data/base_de_datos.js (window.__DB__) o fallback JSON
+   - Sugerencias + gauge canvas + compartir + podcast Dropbox
    ========================================================= */
 
 /* === CONFIG === */
-const DATA_JS_GLOBAL = "__DB__";                      // ventana global que expone data
-const DATA_JS_URL    = "data/base_de_datos.js";       // ya lo cargas en index.html (defer)
-const DATA_JSON_URL  = "data/base_de_datos.json";     // fallback opcional (misma carpeta)
+const DATA_JS_GLOBAL = "__DB__";                // la variable que exporta data/base_de_datos.js
+const DATA_JS_URL    = "data/base_de_datos.js"; // por si necesitas inyectarlo en caliente
+const DATA_JSON_URL  = "data/base_de_datos.json"; // fallback opcional
 
-/* Pega tu enlace COMPARTIDO de Dropbox (el que termina con ?dl=0 o ?dl=1) */
+/* Pega tu enlace compartido de Dropbox del podcast (con ?dl=0/1) */
 const DROPBOX_SHARE_URL = "https://www.dropbox.com/s/XXXXXXXXXXXX/podcast.mp3?dl=0";
 
-/* =============== UTILIDADES =============== */
+/* === Utils === */
 const $ = s => document.querySelector(s);
 function showNotice(msg){ const n=$("#notice"); if(!n) return; if(!msg){ n.classList.add("hidden"); n.textContent=""; return; } n.textContent=msg; n.classList.remove("hidden"); }
 function normalize(str){ return (str||"").toString().toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"").replace(/[^a-z0-9\s\/\-\.\,]/g," ").replace(/\s+/g," ").trim(); }
@@ -23,10 +23,10 @@ function escapeHtml(s){ return (s||"").replace(/[&<>"']/g, m=>({ '&':'&amp;','<'
 function toNumberLike(x){ if (x==null||x==="") return null; if (typeof x==="number"&&isFinite(x)) return Math.round(x); const m=String(x).match(/-?\d+(\.\d+)?/); return m? Math.round(parseFloat(m[0])):null; }
 function pick(obj, keys, def=null){ for(const k of keys){ if (Object.prototype.hasOwnProperty.call(obj,k) && obj[k]!=null) return obj[k]; } return def; }
 
-/* =============== ESTADO =============== */
+/* === Estado (expuesto para depurar desde consola) === */
 window.DB = []; window.TITLES = []; window.BY_TITLE = new Map();
 
-/* =============== CARGA DE DATOS =============== */
+/* === Carga de datos (JS global -> fallback JSON) === */
 async function fetchJSONNoCache(url){
   const r = await fetch(url + (url.includes("?")?"&":"?") + "__v=" + Date.now(), {cache:"no-store"});
   if(!r.ok) throw new Error(`HTTP ${r.status}`);
@@ -45,8 +45,8 @@ function parseArray(rawArray){
     const f_raw  = pick(r, ["fuentes","sources","source","fuente"], []);
     const s_raw  = pick(r, ["sinonimos","sinónimos","aliases","alias"], []);
 
-    const fuentes   = Array.isArray(f_raw) ? f_raw.map(String) : (f_raw ? [String(f_raw)] : []);
-    let sinonimos   = Array.isArray(s_raw) ? s_raw : (s_raw ? [String(s_raw)] : []);
+    const fuentes = Array.isArray(f_raw) ? f_raw.map(String) : (f_raw ? [String(f_raw)] : []);
+    let sinonimos = Array.isArray(s_raw) ? s_raw : (s_raw ? [String(s_raw)] : []);
     if (sinonimos.length===1 && typeof sinonimos[0]==="string"){
       const x=sinonimos[0]; if(x.includes(",")) sinonimos = x.split(",").map(s=>s.trim()).filter(Boolean);
       if(x.includes(";")) sinonimos = x.split(";").map(s=>s.trim()).filter(Boolean);
@@ -55,12 +55,13 @@ function parseArray(rawArray){
     window.DB.push({ titulo, isco, riesgo: (riesgo!=null? Math.max(0,Math.min(100,riesgo)) : null), explicacion, fuentes, sinonimos });
   }
 
+  // Índices para búsqueda/sugerencias (sin regex)
   const seen = new Set();
   for(const reg of window.DB){
     const bundle = new Set([reg.titulo, ...reg.sinonimos]);
     for(const t of bundle){
       const key = normalize(String(t)); if(!key) continue;
-      const uniq = key+"→"+reg.titulo; if(seen.has(uniq)) continue;
+      const uniq = key+"→"+reg.titulo; if (seen.has(uniq)) continue;
       seen.add(uniq);
       if(!window.BY_TITLE.has(key)) window.BY_TITLE.set(key, reg);
       window.TITLES.push(String(t));
@@ -70,14 +71,14 @@ function parseArray(rawArray){
 }
 
 async function loadData(){
-  // 1) Preferimos JS global (no hay CORS ni cache raros)
-  if (Array.isArray(window[DATA_JS_GLOBAL])) {
-    parseArray(window[DATA_JS_GLOBAL]);
-    showNotice(`Base cargada desde JS: ${DB.length} ocupaciones (${TITLES.length} términos)`);
-    return;
-  }
-  // 2) Si por alguna razón no está, intentamos inyectar el script
   try{
+    // 1) Preferimos que ya esté cargado por <script src="data/base_de_datos.js" defer>
+    if (Array.isArray(window[DATA_JS_GLOBAL])) {
+      parseArray(window[DATA_JS_GLOBAL]);
+      showNotice(`Base cargada (JS): ${DB.length} ocupaciones (${TITLES.length} términos)`);
+      return;
+    }
+    // 2) Intento de inyección en caliente (por si el script no estaba en index.html)
     await new Promise((resolve,reject)=>{
       const s=document.createElement("script"); s.src=DATA_JS_URL; s.defer=true;
       s.onload=()=>resolve(); s.onerror=()=>reject(new Error("No se pudo cargar data/base_de_datos.js"));
@@ -85,20 +86,20 @@ async function loadData(){
     });
     if (Array.isArray(window[DATA_JS_GLOBAL])) {
       parseArray(window[DATA_JS_GLOBAL]);
-      showNotice(`Base cargada desde JS: ${DB.length} ocupaciones (${TITLES.length} términos)`);
+      showNotice(`Base cargada (JS): ${DB.length} ocupaciones (${TITLES.length} términos)`);
       return;
     }
-  }catch(e){ /* seguimos al fallback JSON */ }
+  }catch(_){ /* seguimos */ }
 
-  // 3) Fallback JSON (por compatibilidad)
+  // 3) Fallback JSON
   const data = await fetchJSONNoCache(DATA_JSON_URL);
-  const arr = Array.isArray(data) ? data : (data.ocupaciones||data.data||data.items||data.results||data.records||[]);
+  const arr  = Array.isArray(data) ? data : (data.ocupaciones||data.data||data.items||data.results||data.records||[]);
   if(!Array.isArray(arr)) throw new Error("El JSON debe ser un array o contener un array en ocupaciones/data/items…");
   parseArray(arr);
-  showNotice(`Base cargada desde JSON: ${DB.length} ocupaciones (${TITLES.length} términos)`);
+  showNotice(`Base cargada (JSON): ${DB.length} ocupaciones (${TITLES.length} términos)`);
 }
 
-/* =============== BÚSQUEDA =============== */
+/* === Búsqueda (sin regex) === */
 function computeSuggestions(q, limit=8){
   const nq=normalize(q); if(!nq) return [];
   return window.TITLES
@@ -117,21 +118,25 @@ function hideSuggestions(){ $("#sugerencias-panel")?.classList.add("hidden"); co
 function bestMatch(q){
   if(!q) return null;
   const nq=normalize(q);
-  const ex=window.BY_TITLE.get(nq);
-  if(ex) return {reg:ex, exact:true};
 
-  const incl=window.TITLES.filter(t=>normalize(t).includes(nq));
-  if(incl.length===1) return {reg: window.BY_TITLE.get(normalize(incl[0])), exact:false};
+  // 1) exacto por normalización
+  const ex = window.BY_TITLE.get(nq);
+  if (ex) return { reg: ex, exact:true };
 
+  // 2) si hay exactamente un título que lo incluye
+  const incl = window.TITLES.filter(t => normalize(t).includes(nq));
+  if (incl.length === 1) return { reg: window.BY_TITLE.get(normalize(incl[0])), exact:false };
+
+  // 3) distancia mínima
   let best=null, bestD=Infinity, bestTitle=null;
   for(const t of window.TITLES){
     const d=lev(t,q);
     if(d<bestD){ bestD=d; best=window.BY_TITLE.get(normalize(t)); bestTitle=t; }
   }
-  return best ? {reg:best, exact:false, suggested:bestTitle} : null;
+  return best ? { reg:best, exact:false, suggested:bestTitle } : null;
 }
 
-/* =============== RENDER =============== */
+/* === Render === */
 function renderSources(arr){ if(!arr||!arr.length) return "<p class='fuente'>—</p>"; return `<ul>${arr.map(x=>`<li>${escapeHtml(String(x))}</li>`).join("")}</ul>`; }
 
 function showResult(reg, {query, exact}){
@@ -143,7 +148,7 @@ function showResult(reg, {query, exact}){
   else { nota.classList.add("hidden"); nota.textContent=""; }
 
   const pct = reg.riesgo!=null ? reg.riesgo : null;
-  const b = band(pct ?? 0);
+  const b   = band(pct ?? 0);
   $("#res-porcentaje").textContent = (pct==null? "—" : pct) + "%";
   const pill=$("#res-nivel"); pill.textContent=b.name; pill.style.background="#1f2937"; pill.style.borderColor="rgba(255,255,255,.08)";
 
@@ -156,7 +161,7 @@ function showResult(reg, {query, exact}){
   updateShare(reg);
 }
 
-/* === Gauge canvas (semicírculo con bandas + aguja corta) === */
+/* === Gauge en canvas (semicírculo con bandas + aguja corta) === */
 function drawGaugeCanvas(pct){
   const canvas = document.getElementById("gaugeCanvas");
   if(!canvas) return;
@@ -218,17 +223,14 @@ function updateShare(job){
 }
 function withQuery(href,key,val){ const u=new URL(href); u.searchParams.set(key,val); return u.toString(); }
 
-/* =============== PODCAST (Dropbox) =============== */
+/* === Podcast (Dropbox) === */
 function toDropboxRaw(u){
   try{
     const url = new URL(u);
-    // Si es un share de dropbox.com, forzamos ?raw=1
     if (url.hostname.endsWith("dropbox.com")){
-      url.searchParams.set("raw","1");
-      url.searchParams.delete("dl");
+      url.searchParams.set("raw","1"); url.searchParams.delete("dl");
       return url.toString();
     }
-    // Si ya es dl.dropboxusercontent.com, lo dejamos tal cual
     return u;
   }catch{return u;}
 }
@@ -240,7 +242,7 @@ function initPodcast(){
   if(link) link.href = raw;   // enlace de respaldo
 }
 
-/* =============== UI =============== */
+/* === UI === */
 function bindUI(){
   $("#year") && ($("#year").textContent = new Date().getFullYear());
 
@@ -274,7 +276,7 @@ function handleUrlOnLoad(){
   if(q){ $("#q").value=q; const m=bestMatch(q); if(m){ showResult(m.reg,{query:q,exact:m.exact}); } }
 }
 
-/* =============== INIT =============== */
+/* === Init === */
 document.addEventListener("DOMContentLoaded", async ()=>{
   bindUI();
   await loadData();
