@@ -128,19 +128,5 @@
     <small>© <span id="year"></span> aimequitaeltrabajo.com · <a href="faq.html">FAQ</a> · <a href="privacidad.html">Privacidad</a></small>
   </footer>
 
-  <script src="app.js?v=10"></script>
-
-  <!-- Captura errores JS para mostrar aviso visible -->
-  <script>
-    window.addEventListener('error', function(ev){
-      var t=document.getElementById('jsStatus');
-      if(t) t.textContent='⚠️ Error de JavaScript: '+ (ev.error && ev.error.message ? ev.error.message : ev.message);
-    });
-  </script>
-     <!-- Carga la base como JS (sin CORS) -->
-<script src="data/base_de_datos.js" defer></script>
-<!-- Tu lógica del sitio -->
-<script src="app.js" defer></script>
-
 </body>
 </html>
